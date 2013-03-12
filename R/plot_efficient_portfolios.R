@@ -25,6 +25,7 @@ plot_efficient_portfolios <- function(port_vals, weights_matrix, pal, plot = TRU
 
   if(plot == TRUE){
     par(mfrow = c(1, 2), xpd = NA)
+    par(cex = 0.8)
     with(pv, plot(v, m, pch = 19, col = c("grey50", "red")[optim_set+1], cex = 0.8, xlab = "Variance of metapopulation growth rate", ylab = "Mean of metapopulation growth rate"))
   }
   #library(ggplot2)

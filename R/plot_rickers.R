@@ -31,7 +31,7 @@ plot_rickers <- function(
   min_sp <- min(as.numeric(lapply(sp, min)))
   max_sp <- max(as.numeric(lapply(sp, max)))
   
-  source("ricker_ar1.R")
+  #source("ricker_ar1.R")
   library(colorspace)
   env_vals <- seq(min(x$env_ts), max(x$env_ts), length.out = 20)
   env_cols <- diverge_hcl(20)[findInterval(x$env_ts, env_vals)]
