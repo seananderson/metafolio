@@ -1,0 +1,33 @@
+\name{generate_straying_matrix}
+\alias{generate_straying_matrix}
+\title{Generate a matrix of straying proportions within a metapopulation}
+\usage{
+  generate_straying_matrix(n_pop, stray_fraction,
+    stray_decay_rate)
+}
+\arguments{
+  \item{n_pop}{Number of subpopulations.}
+
+  \item{stray_fraction}{Fraction of individuals that stray
+  from a given subpopulation.}
+
+  \item{stray_decay_rate}{Exponential rate that straying
+  decays with distance between subpopulations.}
+}
+\description{
+  Generate a matrix of straying proportions within a
+  metapopulation
+}
+\details{
+  Based on Eq. 2 in Cooper and Mangel (1999).
+}
+\examples{
+x <- generate_straying_matrix(10, 0.01, 0.3)
+image(x, col = rev(heat.colors(12)))
+}
+\references{
+  Cooper, A.B. and Mangel, M. 1999. The dangers of ignoring
+  metapopulation structure for the conservation of
+  salmonids. Fish. Bull. 97(2): 213–226.
+}
+

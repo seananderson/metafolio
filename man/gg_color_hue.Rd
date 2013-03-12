@@ -1,0 +1,28 @@
+\name{gg_color_hue}
+\alias{gg_color_hue}
+\title{ggplot2-like colour scale in HCL space}
+\usage{
+  gg_color_hue(n, hue_min = 10, hue_max = 280, l = 62,
+    c = 100)
+}
+\arguments{
+  \item{n}{Number of colours to return.}
+
+  \item{hue_min}{Minimum hue value in the range [0,360]}
+
+  \item{hue_max}{Maximum hue value in the range [0,360]}
+
+  \item{l}{Luminance in the range [0,100]}
+
+  \item{c}{Chroma of the colour.}
+}
+\description{
+  ggplot2-like colour scale in HCL space
+}
+\details{
+  See the \code{hcl} function for details.
+}
+\examples{
+gg_color_hue(10)
+}
+

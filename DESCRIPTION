@@ -1,0 +1,9 @@
+Package: metafolio
+Type: Package
+Title: Simulate metapopulations for portfolio optimization
+Version: 0.1
+Date: 2013-03-09
+Author: Sean C. Anderson
+Maintainer: Sean C. Anderson <sean@seananderson.ca>
+Description: Simulations are based around salmon metapopulations. 
+License: MIT
