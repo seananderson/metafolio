@@ -1,0 +1,56 @@
+#' Create an environmental time series.
+#'
+#' @param n_t Length of time series.
+#' @param type Type of time series to produce.
+#' @param sine_params Parameters controlling sine wave time series.
+#' @param arma_params Parameters controlling ARMA time series.
+#' @param regime_params Parameters controlling regime-shift time series.
+#' @param linear_params Parameters controlling warming or cooling time series.
+#' @param constant_params Parameter controlling constant time series.
+#' @export
+#' @examples
+#' types <- c("sine", "arma", "regime", "linear", "constant")
+#' x <- list()
+#' for(i in 1:5) x[[i]] <- generate_env_ts(n_t = 100, type = types[i])
+#' op <- par(mfrow = c(5, 1), mar = c(3,3,1,0), cex = 0.7) 
+#' for(i in 1:5) plot(x[[i]], type = "o", main = types[i])
+#' par(op)
+
+generate_env_ts <- function(
+  n_t,
+  type = c("sine", "arma", "regime", "linear", "constant"),
+  sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0),
+  arma_params = list(sigma_env = 0.30, ar = 0.6, ma = 0),
+  regime_params = list(break_pts = c(25, 75), break_vals = c(-1, 0, 1)),
+  linear_params = list(min_value = -1, max_value = 1),
+  constant_params = list(value = 0)
+  ) {
+  type <- type[1]
+  env_ts <- switch(type, 
+    arma = as.numeric(with(arma_params, arima.sim(model = list(ar = ar, ma = ma),
+        n = n_t, sd = sigma_env))), 
+    sine = {
+      x <- seq_len(n_t)
+      y <- with(sine_params, amplitude * sin(ang_frequency * x + phase) + mean_value) 
+      y
+    },
+    regime = {
+      regime_params$break_pts <- c(1, regime_params$break_pts, n_t)
+      y <- vector(length = n_t, mode = "numeric")
+      for(i in 2:length(regime_params$break_pts))
+      {
+        y[regime_params$break_pts[i-1]:regime_params$break_pts[i]] <-
+          regime_params$break_vals[i-1]
+      }
+      y
+    },
+    linear = {
+      with(linear_params, seq(min_value, max_value, length.out = n_t))
+    },
+    constant = {
+      rep(constant_params$value, n_t)
+    }
+    )
+  return(env_ts)
+}
+
