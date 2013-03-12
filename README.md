@@ -1,1 +1,1 @@
-Simulate metapopulations for portfolio optimization
+R package to simulate metapopulations for portfolio optimization
