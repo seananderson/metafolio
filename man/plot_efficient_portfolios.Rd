@@ -2,7 +2,8 @@
 \alias{plot_efficient_portfolios}
 \title{Basic efficient portfolio plots and return efficient portfolio data.}
 \usage{
-  plot_efficient_portfolios(port_vals, pal)
+  plot_efficient_portfolios(port_vals, weights_matrix, pal,
+    plot = TRUE)
 }
 \description{
   Basic efficient portfolio plots and return efficient
