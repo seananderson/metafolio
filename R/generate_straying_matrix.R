@@ -10,19 +10,11 @@
 #' image(x, col = rev(heat.colors(12)))
 generate_straying_matrix <- function(n_pop, stray_fraction, stray_decay_rate){
   stray_mat <- matrix(ncol = n_pop, nrow = n_pop)
-  #browser()
-
 # distribute the fraction of fish among the other possible populations
-  #stray_star <- exp(-stray_decay_rate * abs(i - j))
-  #stray <- stray_star / sum(stray_star) * stray_fraction
-
-
-
   for(i in 1:n_pop) {
     for(j in 1:n_pop) {
       # Cooper and Mangel 1999 eq (2):
-      stray_mat[i,j] <- stray_fraction * 
-      exp(-stray_decay_rate * abs(i - j))
+      stray_mat[i,j] <- exp(-stray_decay_rate * abs(i - j))
     }
   }
   diag(stray_mat) <- 0 # no self-straying
