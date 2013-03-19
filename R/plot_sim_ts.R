@@ -5,7 +5,7 @@
 #' @param burn The number of years to discard as burnin a the beginning of the time 
 #' series.
 
-plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30, burn = 1:30) {
+plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30, burn = 1:50) {
 # x is output from a simulation run; it's a list
 # pal is the colour palette
 
@@ -18,7 +18,7 @@ annotate <- function(text) {
 }
 my.axis <- function(side) axis(side, col = "grey50")
 
-par(mfrow = c(8, 1), mar = c(0,0,0,0), oma = c(4, 4, 1, 1), cex = 0.7, las = 1, xpd = FALSE)
+par(mfrow = c(10, 1), mar = c(0,0,0,0), oma = c(4, 4, 1, 1), cex = 0.7, las = 1, xpd = FALSE)
 # returns:
 matplot(x$A[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", xaxt = "n", axes = FALSE, xaxs = "i")
 annotate("Returns")
@@ -65,8 +65,19 @@ abline(h = 0, lty = 2, lwd = 1.5, col = "grey50")
 my.axis(2)
 annotate("Spawner-return curve residuals")
 
+matplot(x$Est_a[to_show, ], type = "l", col = pal, lty = 1, ylab = "Estimated a", xlab = "", axes = FALSE, xaxs = "i")
+box(col = "grey50")
+annotate("Estimated a")
+my.axis(2)
+
+matplot(x$Est_b[to_show, ], type = "l", col = pal, lty = 1, ylab = "Estimated b", xlab = "", axes = FALSE, xaxs = "i")
+box(col = "grey50")
+annotate("Estimated b")
+my.axis(2)
+
 my.axis(1)
 mtext("Generation", side = 1, outer = TRUE, line = 2.0, cex = 0.8)
+#browser()
 
 }
 
