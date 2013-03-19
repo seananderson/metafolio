@@ -25,9 +25,11 @@
 #' @param assessment_window Number of generations to use when fitting
 #' SR relationship for escapement targets; must be bigger than
 #' start_assessment
+#' @param sigma_impl implementation sd for beta distribution
 #' @param use_cache Use the stochastically generated values (SR residuals and
 #' possibly environmental time series) from the previous run?
 #' @param add_straying Implement straying between (sub)populations?
+#' @param add_impl_error Add implementation error?
 meta_sim <- function(
   n_t = 120, # number of years
   n_pop = 10, # number of subpopulations
@@ -44,8 +46,10 @@ meta_sim <- function(
   env_params = list(amplitude = 2.5, ang_frequency = 0.2, phase = 0, mean_value = 16),
   start_assessment = 30, # generation to start estimating SR relationship for escapement targets
   assessment_window = 25, # number of generations to use when fitting SR relationship for escapement targets; must be bigger than start_assessment
+  sigma_impl = 0.05, # sd on beta implementation error
   use_cache = FALSE, # regenerate stochastic values? 
   add_straying = TRUE # include or ignore straying
+  add_impl_error = TRUE # include implementation error?
 ) {
   
 #   source("generate_env_responses.R")
@@ -148,15 +152,18 @@ meta_sim <- function(
       Est_b[i,j]<-rick$b
 
       }
-    #browser()
     escapement_goals <- ricker_escapement(Est_a[i,],Est_b[i,])
     }
     #escapement_goals <- ricker_escapement(A_params[i,],b) # b is also a vector
+    if(add_impl_error) {
+      escapement_goals_fraction <- escapement_goals / A[i,]
+      escapement_goals_fraction[escapement_goals_fraction > .95] <- .95 # avoid rbeta errors if fraction too big - would have got reduced below anyways
+      escapement_goals_fraction_w_error <-  impl_error(mu = escapement_goals_fraction, sigma_impl = sigma_impl)
+      escapement_goals <- escapement_goals_fraction_w_error * A[i,]
+    }
     F[i, ] <- A[i, ] - escapement_goals # catch to leave escapement behind
     negative_F <- which(F[i, ] < 0)
     F[i, negative_F] <- 0
-# temporarily hammer them:
-    #F[i, ] <- A[i,]*runif(1, 0.1, 0.9)
     E[i, ] <- A[i, ] - F[i, ] # escapement
   }
   return(list(A = A, F = F, E = E, Eps = epsilon_mat, A_params = A_params, 
