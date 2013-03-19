@@ -20,6 +20,11 @@
 #' "sine", "arma", "regime", "linear", or "constant".
 #' @param env_params Parameters to pass on to \code{generate_env_ts}. You must 
 #' provide the appropriate list given your chosen type of environmental signal.
+#' @param start_assessment Generation to start estimating SR
+#' relationship for escapement targets
+#' @param assessment_window Number of generations to use when fitting
+#' SR relationship for escapement targets; must be bigger than
+#' start_assessment
 #' @param use_cache Use the stochastically generated values (SR residuals and
 #' possibly environmental time series) from the previous run?
 #' @param add_straying Implement straying between (sub)populations?
@@ -32,11 +37,13 @@ meta_sim <- function(
   spawners_0 = round(b), # spawners at start
   sigma_v = 0.1, # stock-recruit residual SD
   v_rho = 0.4, # stock-recruit residual AR1 correlation
-  a_width_param = rep(0.02, n_pop), # width of thermal curves by pop
+  a_width_param = c(seq(0.06, 0.02, length.out = n_pop/2), rev(seq(0.06, 0.02, length.out = n_pop/2))), # width of thermal curves by pop
   optim_temp = seq(13, 19, length.out = n_pop), # optimal temperatures by pop
-  max_a = rep(1.4, n_pop), # maximum Ricker a values by pop at optimum temp
+  max_a = c(seq(1.8, 1.1, length.out = 5), rev(seq(1.8, 1.1, length.out = 5))), # maximum Ricker a values by pop at optimum temp
   env_type = c("sine", "arma", "regime", "linear", "constant"),
-  env_params = list(amplitude = 2.0, ang_frequency = 0.2, phase = 0, mean_value = 16),
+  env_params = list(amplitude = 2.5, ang_frequency = 0.2, phase = 0, mean_value = 16),
+  start_assessment = 30, # generation to start estimating SR relationship for escapement targets
+  assessment_window = 25, # number of generations to use when fitting SR relationship for escapement targets; must be bigger than start_assessment
   use_cache = FALSE, # regenerate stochastic values? 
   add_straying = TRUE # include or ignore straying
 ) {
@@ -80,6 +87,8 @@ meta_sim <- function(
   A_params <- matrix(ncol = n_pop, nrow = n_t) # a parameters from Ricker
   Strays_leaving <- matrix(ncol = n_pop, nrow = n_t)
   Strays_joining <- matrix(ncol = n_pop, nrow = n_t)
+  Est_a <- matrix(ncol = n_pop, nrow = n_t)
+  Est_b <- matrix(ncol = n_pop, nrow = n_t)
   
   A[1, ] <- spawners_0 # first year
   E[1, ] <- spawners_0 # first year
@@ -113,14 +122,45 @@ meta_sim <- function(
     # harvesting:
     # setting escapement according to Hilborn and Walters p272
     # (pdf p139), Table 7.2: Smsy = b(0.5 - 0.07*a)
-    escapement_goals <- ricker_escapement(A_params[i,],b) # b is also a vector
+
+    # fit recent data to get estimated a and b values, set escapement
+    # based on these
+    if(i <= start_assessment) escapement_goals <- A[i, ] * runif(n_pop, 0.1, 0.9) # random fishery for first X years, establish S-R data to work with
+    #if(i == 30) Est_a[i, ] <- max_a # set starting values to check against
+    if(i == start_assessment) Est_b[i, ] <- b # sanity check - make sure estimate isn't too far from this
+    if(i > start_assessment) {
+    for(j in 1:n_pop) {
+      #browser()
+      #recruits <- A[(i - assessment_window):i, j]
+      recruits <- A[3:i, j]
+      #spawners <- E[(i - 1 - assessment_window):(i - 1), j]
+      spawners <- E[2:(i - 1), j]
+      rick <- fit_ricker(R = recruits, S = spawners)
+      #if( i == 57) browser()
+      #if(j == 1) plot(spawners, log(recruits/spawners), main = i)
+      #if(j == 1) print(rick)
+      # bounds for sanity:
+      if(rick$a > 3) rick$a <- 3
+      if(rick$a < 0.05) rick$a <- 0.05
+      if(rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5 # at most increase b by 50% 
+      if(rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5 # at most decrease b by 50% 
+      Est_a[i,j]<-rick$a
+      Est_b[i,j]<-rick$b
+
+      }
+    #browser()
+    escapement_goals <- ricker_escapement(Est_a[i,],Est_b[i,])
+    }
+    #escapement_goals <- ricker_escapement(A_params[i,],b) # b is also a vector
     F[i, ] <- A[i, ] - escapement_goals # catch to leave escapement behind
     negative_F <- which(F[i, ] < 0)
     F[i, negative_F] <- 0
+# temporarily hammer them:
+    #F[i, ] <- A[i,]*runif(1, 0.1, 0.9)
     E[i, ] <- A[i, ] - F[i, ] # escapement
   }
   return(list(A = A, F = F, E = E, Eps = epsilon_mat, A_params = A_params, 
     Strays_leaving = Strays_leaving, Strays_joining = Strays_joining, 
-    env_ts = env_ts, stray_mat = stray_mat, n_pop = n_pop, n_t = n_t, b = b))
+    env_ts = env_ts, stray_mat = stray_mat, n_pop = n_pop, n_t = n_t, b = b, Est_a = Est_a, Est_b = Est_b))
 }
 
