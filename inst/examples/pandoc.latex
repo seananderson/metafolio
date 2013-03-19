@@ -4,24 +4,26 @@
 % my modifications:
 \usepackage{fontspec}
 \usepackage{booktabs}
+\usepackage{mathptmx}
 \defaultfontfeatures{Ligatures=TeX}
 \setsansfont{Calibri}
 \setmonofont{Inconsolata}
-\setmainfont{Linux Libertine}
+%\setmainfont{Linux Libertine}
+%\setmainfont{Times New Roman}
+\setmainfont{Calibri}
+%\setmainfont{Helvetica}
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
 \widowpenalty=1000
 \clubpenalty=1000
 \usepackage{setspace}
 \onehalfspacing
+%\doublespacing
 
-% A bit bigger than one inch margins:
-%\topmargin -1.43cm
-%\oddsidemargin 0.4cm
-%\evensidemargin 0.4cm
-%\textwidth 14.5cm
-\textheight 22.5cm
+\usepackage{titlesec}
+\titleformat*{\section}{\Large\bfseries\sffamily}
+\titleformat*{\subsection}{\large\sc\sffamily}
+\titleformat*{\subsubsection}{\itshape\sffamily}
 
-%\usepackage[left=1.5in,top=1.5in,right=1.5in,bottom=1.5in,nohead,nofoot]{geometry}
 \usepackage{geometry}
 \geometry{letterpaper}
 
@@ -31,6 +33,8 @@
 
 %\usepackage[T1]{fontenc}
 %\usepackage{lmodern}
+
+% end customization except for commenting out lines
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -104,8 +108,8 @@ $if(graphics)$
 %\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
 $endif$
 %\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 %$for(header-includes)$
 %$header-includes$

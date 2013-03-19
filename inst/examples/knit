@@ -23,11 +23,6 @@ opts_knit$set(progress = TRUE, verbose = TRUE)
 
 opts_chunk$set(dev = 'pdf')
 
-# library(metafolio)
-# or for rapid development:
-metafolio_files <-  list.files(path = "../../R/")
-for(i in 1:length(metafolio_files)){
-  source(paste("../..//R/", metafolio_files[i], sep = ""));rm(i)}
 
 knit("salmonport.Rmd")
 
