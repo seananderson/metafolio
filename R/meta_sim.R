@@ -26,6 +26,8 @@
 #' SR relationship for escapement targets; must be bigger than
 #' start_assessment
 #' @param sigma_impl implementation sd for beta distribution
+#' @param assess_freq How many generations before re-assessing a and b
+#' parameters.
 #' @param use_cache Use the stochastically generated values (SR residuals and
 #' possibly environmental time series) from the previous run?
 #' @param add_straying Implement straying between (sub)populations?
@@ -34,21 +36,22 @@ meta_sim <- function(
   n_t = 120, # number of years
   n_pop = 10, # number of subpopulations
   stray_decay_rate = 0.3, # rate that straying decays with distance
-  stray_fraction = 0.01, # fraction of fish that stray from natal streams
+  stray_fraction = 0.000001, # fraction of fish that stray from natal streams
   b = rep(1000, n_pop), # Ricker density-dependent parameter
   spawners_0 = round(b), # spawners at start
-  sigma_v = 0.1, # stock-recruit residual SD
+  sigma_v = 0.3, # stock-recruit residual SD
   v_rho = 0.4, # stock-recruit residual AR1 correlation
-  a_width_param = c(seq(0.06, 0.02, length.out = n_pop/2), rev(seq(0.06, 0.02, length.out = n_pop/2))), # width of thermal curves by pop
+  a_width_param = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))), # width of thermal curves by pop
   optim_temp = seq(13, 19, length.out = n_pop), # optimal temperatures by pop
-  max_a = c(seq(1.8, 1.1, length.out = 5), rev(seq(1.8, 1.1, length.out = 5))), # maximum Ricker a values by pop at optimum temp
+  max_a = c(seq(2.8, 2.2, length.out = 5), rev(seq(2.8, 2.2, length.out = 5))), # maximum Ricker a values by pop at optimum temp
   env_type = c("sine", "arma", "regime", "linear", "constant"),
-  env_params = list(amplitude = 2.5, ang_frequency = 0.2, phase = 0, mean_value = 16),
+  env_params = list(amplitude = 3.2, ang_frequency = 0.2, phase = runif(1, -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.30),
   start_assessment = 30, # generation to start estimating SR relationship for escapement targets
   assessment_window = 25, # number of generations to use when fitting SR relationship for escapement targets; must be bigger than start_assessment
   sigma_impl = 0.05, # sd on beta implementation error
+  assess_freq = 10, # how many generations between SR assessments
   use_cache = FALSE, # regenerate stochastic values? 
-  add_straying = TRUE # include or ignore straying
+  add_straying = TRUE, # include or ignore straying
   add_impl_error = TRUE # include implementation error?
 ) {
   
@@ -106,9 +109,10 @@ meta_sim <- function(
       A_params[i, j] <- a_i
       # spawner-recruit section:
       A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = a_i, 
-        b = b[j], v_t = epsilon_mat[i, j]) 
+        b = b[j], v_t = epsilon_mat[i, j], d = 1.05)  # note depensation added!!!!
       #A[i, j] <- ricker_out
       #Eps[i, j] <- ricker_out$eps
+      #if(is.na(A[i,j])) browser()
       if(A[i,j] < 0) warning("Abundance before straying or harvesting was < 0.")
     }
     # now we have the returns for this year, let's allocate straying:
@@ -129,31 +133,39 @@ meta_sim <- function(
 
     # fit recent data to get estimated a and b values, set escapement
     # based on these
-    if(i <= start_assessment) escapement_goals <- A[i, ] * runif(n_pop, 0.1, 0.9) # random fishery for first X years, establish S-R data to work with
+    if(i < start_assessment) escapement_goals <- A[i, ] * runif(n_pop, 0.1, 0.9) # random fishery for first X years, establish S-R data to work with
     #if(i == 30) Est_a[i, ] <- max_a # set starting values to check against
-    if(i == start_assessment) Est_b[i, ] <- b # sanity check - make sure estimate isn't too far from this
-    if(i > start_assessment) {
-    for(j in 1:n_pop) {
-      #browser()
-      #recruits <- A[(i - assessment_window):i, j]
-      recruits <- A[3:i, j]
-      #spawners <- E[(i - 1 - assessment_window):(i - 1), j]
-      spawners <- E[2:(i - 1), j]
-      rick <- fit_ricker(R = recruits, S = spawners)
-      #if( i == 57) browser()
-      #if(j == 1) plot(spawners, log(recruits/spawners), main = i)
-      #if(j == 1) print(rick)
-      # bounds for sanity:
-      if(rick$a > 3) rick$a <- 3
-      if(rick$a < 0.05) rick$a <- 0.05
-      if(rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5 # at most increase b by 50% 
-      if(rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5 # at most decrease b by 50% 
-      Est_a[i,j]<-rick$a
-      Est_b[i,j]<-rick$b
-
+    if(i == (start_assessment - 1)) Est_b[i, ] <- b # sanity check - make sure estimate isn't too far from this
+    if(i >= start_assessment) {
+      #if(i == 101) browser()
+      if((i - start_assessment)%%assess_freq == 0) { # every 20th year, re-assess a and b
+        for(j in 1:n_pop) {
+          #browser()
+          #recruits <- A[(i - assessment_window):i, j]
+          recruits <- A[3:i, j]
+          #spawners <- E[(i - 1 - assessment_window):(i - 1), j]
+          spawners <- E[2:(i - 1), j]
+          rick <- fit_ricker(R = recruits, S = spawners)
+          #if( i == 57) browser()
+          #if(j == 1) plot(spawners, log(recruits/spawners), main = i)
+          #if(j == 1) print(rick)
+          # bounds for sanity:
+          if(rick$a > 3) rick$a <- 3
+          if(rick$a < 0.05) rick$a <- 0.05
+          if(rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5 # at most increase b by 50% 
+          if(rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5 # at most decrease b by 50% 
+          Est_a[i,j]<-rick$a
+          Est_b[i,j]<-rick$b
+    
+          }
+        escapement_goals <- ricker_escapement(Est_a[i,],Est_b[i,])
+      }else{ # no assessment
+          Est_a[i,]<-Est_a[i-1,]
+          Est_b[i,]<-Est_b[i-1,]
+        escapement_goals <- ricker_escapement(Est_a[i-1,],Est_b[i-1,]) # no assessment, use last year's values
       }
-    escapement_goals <- ricker_escapement(Est_a[i,],Est_b[i,])
     }
+    #if (i == start_assessment) browser()
     #escapement_goals <- ricker_escapement(A_params[i,],b) # b is also a vector
     if(add_impl_error) {
       escapement_goals_fraction <- escapement_goals / A[i,]

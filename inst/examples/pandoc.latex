@@ -8,9 +8,9 @@
 \defaultfontfeatures{Ligatures=TeX}
 \setsansfont{Calibri}
 \setmonofont{Inconsolata}
-%\setmainfont{Linux Libertine}
+\setmainfont{Linux Libertine}
 %\setmainfont{Times New Roman}
-\setmainfont{Calibri}
+%\setmainfont{Calibri}
 %\setmainfont{Helvetica}
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
 \widowpenalty=1000

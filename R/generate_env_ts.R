@@ -18,19 +18,19 @@
 generate_env_ts <- function(
   n_t,
   type = c("sine", "arma", "regime", "linear", "constant"),
-  sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0),
-  arma_params = list(sigma_env = 0.30, ar = 0.6, ma = 0),
+  sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0, slope = 0, sigma_env = 0.10),
+  arma_params = list(mean_value = 0, sigma_env = 0.50, ar = 0.4, ma = 0),
   regime_params = list(break_pts = c(25, 75), break_vals = c(-1, 0, 1)),
-  linear_params = list(min_value = -1, max_value = 1),
+  linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.10),
   constant_params = list(value = 0)
   ) {
   type <- type[1]
   env_ts <- switch(type, 
-    arma = as.numeric(with(arma_params, arima.sim(model = list(ar = ar, ma = ma),
+    arma = as.numeric(with(arma_params, mean_value + arima.sim(model = list(ar = ar, ma = ma),
         n = n_t, sd = sigma_env))), 
     sine = {
       x <- seq_len(n_t)
-      y <- with(sine_params, amplitude * sin(ang_frequency * x + phase) + mean_value) 
+      y <- with(sine_params, amplitude * sin(ang_frequency * x + phase) + mean_value + x * slope + rnorm(n_t, mean = 0, sd = sigma_env))
       y
     },
     regime = {
@@ -44,7 +44,7 @@ generate_env_ts <- function(
       y
     },
     linear = {
-      with(linear_params, seq(min_value, max_value, length.out = n_t))
+      with(linear_params, seq(min_value, max_value, length.out = n_t) + rnorm(n_t, mean = 0, sd = sigma_env))
     },
     constant = {
       rep(constant_params$value, n_t)

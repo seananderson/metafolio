@@ -71,7 +71,7 @@ R_{ti} = S_{ti}e^{a_{ti}(1-S_{ti}/b_i) + w_{ti}},
 \end{equation}
 
 \noindent
-where $t$ represents a generation time, $i$ represents a population, $R$ is the number of returns, $S$ is the number of spawners, $a$ is the productivity parameter (which can vary with the environmental signal), and $b$ is the density-dependent term (which is used as the asset weights in the portfolios). The term $w_{ti}$ represents first-order autocorrelated error (AR1). Formally, $w_{ti} = w_{ti-1} \rho + v_{ti}$, where $v_{ti}$ represents independent and normally distributed error with mean 0 and standard deviation of $\sigma_v$. The parameter $\rho$ represents the correlation between residuals from subsequent generations.
+where $t$ represents a generation time, $i$ represents a population, $R$ is the number of returns, $S$ is the number of spawners, $a$ is the productivity parameter (which can vary with the environmental signal), and $b$ is the density-dependent term (which is used as the asset weights in the portfolios). The term $w_{ti}$ represents first-order autocorrelated error (AR1). Formally, $w_{ti} = w_{ti-1} \rho_w + v_{ti}$, where $v_{ti}$ represents independent and normally distributed error with mean 0 and standard deviation of $\sigma_v$. The parameter $\rho_w$ represents the correlation between residuals from subsequent generations.
 
 ## Escapement targets ##
 I am calculating spawning abundance MSY $S_{MSY}$ each generation using the equation $S_{MSY} = b(0.5-0.07a)$ from @Hilborn1992 p272, Table 7.2. I am using the precisely known $a$ and $b$ values each time and assume perfect implementation of the escapement goal (no outcome uncertainty) and no upper limit on how much the fishery can harvest. We may want to add a bit of noise here, say by assuming a constant value for $a$ or adding some implementation uncertainty. We need some level of harvesting to keep the spawning population away from carrying capacity. At carrying capacity, the productivity parameter $a$ has minimal effect on population dynamics, making it a poor way to integrate response diversity.
@@ -109,10 +109,10 @@ Constant & $T_{\mathrm{constant}}$& Constant value\\
 ## Straying ##
 [Insert a bit here about my research on straying and it's influence on metapopulation dynamics for salmon]. Essentially, straying should be enough to prevent local extinctions and ensure all possible habitat is occupied, but probably not strong enough to noticeably affect population dynamics or synchrony [@Schtickzelle2007].
 
-I've implemented straying as in @Cooper1999. I generate a matrix that represents the fraction of straying between any two populations. I have set up the metapopulation (thus far) in a very simple scenario: the populations are arranged in a line and those that are nearer to each other are more likely to stray between each other [insert caveats]. Two parameters control the straying: the fraction of fish $f$ that stray from their natal stream in any given generation and the rate at which this straying between streams decays with distance $m$. I calculated the number of salmon straying from stream $j$ to stream $i$ as,
+I've implemented straying as in @Cooper1999. I generate a matrix that represents the fraction of straying between any two populations. I have set up the metapopulation (thus far) in a very simple scenario: the populations are arranged in a line and those that are nearer to each other are more likely to stray between each other [insert caveats]. Two parameters control the straying: the fraction of fish $f_{stray}$ that stray from their natal stream in any given generation and the rate at which this straying between streams decays with distance $m$. I calculated the number of salmon straying from stream $j$ to stream $i$ as,
 
 \begin{equation}
-  \mathrm{strays}_{tij} = f R_{tj} \frac{e^{-m \lvert i-j \rvert }}{\displaystyle\sum\limits_{\substack{k = 1 \\
+  \mathrm{strays}_{tij} = f_{stray} R_{tj} \frac{e^{-m \lvert i-j \rvert }}{\displaystyle\sum\limits_{\substack{k = 1 \\
   k \neq j}}^{n} e^{-m \lvert k-j \rvert }},
 \end{equation}
 
@@ -136,10 +136,35 @@ where $a_i^*$ is the maximum possible productivity parameter for population $i$,
 
 Another possibility would be to draw the $a^*$, $\gamma$, and $T^*$ randomly. The advantage to setting it up as I have (with pre-specified thermal tolerance curves) is that it will hopefully make the post-hoc analysis of what affects the efficient frontier weights more straightforward.
 
-![Thermal tolerance curves for ten populations. Here, and throughout this document, I have used the same rainbow of colours to identify the salmon populations. The populations are arranged from blue (more productive with cooler temperatures) to red (more productive with warmer temperatures).\label{fig:thermal-curves}](figure/thermal-curves.pdf) 
+![Thermal tolerance curves for ten populations. Here, and throughout this document, I have used the same rainbow of colours to identify the salmon populations. The populations are arranged from blue (more productive with cooler temperatures) to red (more productive with warmer temperatures). The vertical lines indicate mean, minimum, and maximum values for one scenario --- you can ignore them for now.\label{fig:thermal-curves}](figure/thermal-curves.pdf) 
 
+
+
+# Summary of simulation parameters
+
+\begin{table}[h!]
+\centering
+\small
+\caption{Salmon metapopulation parameters with base case and alternate values.}
+\begin{tabular}{p{7.0cm}p{1.6cm}p{3.2cm}}
+\toprule
+Description & Parameter & Base [lower, upper] \\
+\midrule
+Stock-recruit residual standard deviation (on log scale) & $\sigma_v$ & 0.30 [0.05, 0.50] \\
+First order (AR1) serial correlation of stock-recruit residuals & $\rho_w$ & 0.40 [0, 0.80] \\
+Fraction of fish that stray from natal streams & $f_{stray}$ & 0.02 [0, 0.10] \\
+Exponential rate of decay of straying with distance & $m$ & 0.30 [0.05, 0.50] \\
+Standard deviation of beta distribution for implementation error & $\sigma_{impl}$ & 0.05 [0, 0.20] \\
+Frequency of assessment (years) & $f_{assess}$ & 20 [5, 50] \\
+\bottomrule
+\end{tabular}
+\label{tab:salm-pars}
+\end{table}
+
+\clearpage
 
 # Portfolio optimization #
+
 Details to follow. Quick version: I Monte Carlo the $b$ parameters (with a specified minimum value) and measure the resulting mean and variance of the rate of growth of the metapopulation salmon returns. I then identify the set of $b$ parameters (i.e. the set of weights) that results in the efficient frontier. We could later choose to work with risk metrics like conditional value at risk (CVaR), which measure the probability of a ``bad'' event specifically, not the symmetrical variance.
 
 To find the efficient portfolios I divide all portfolios into bins by mean rate of change and find the portfolios with the minimum variance within each bin. I discard all portfolios with a mean rate of change below the minimum variance portfolio. These are ``undesirable'' portfolios.
@@ -148,27 +173,8 @@ To find the efficient portfolios I divide all portfolios into bins by mean rate 
 This is a big area to think about. How do portfolios differ along the frontier? How do the frontier portfolios differ from non-frontier portfolios? What is the best way to visually compare them? What aspects to compare? Are there summary statistics we could use to compare them?
 
 # Some sample simulations #
-The following are options and their default values:
 
-    n_t = 120, # number of generations
-    n_pop = 10, # number of populations
-    stray_decay_rate = 0.3, # rate that straying decays with distance
-    stray_fraction = 0.01, # fraction of fish that stray from natal streams
-    b = rep(1000, n_pop), # Ricker density-dependent parameter
-    spawners_0 = round(b), # spawners at start
-    sigma_v = 0.1, # stock-recruit residual SD
-    v_rho = 0.4, # stock-recruit residual AR1 correlation
-    a_width_param = rep(0.02, n_pop), # width of thermal curves by pop
-    optim_temp = seq(13, 19, length.out = n_pop), # optimal temperatures by pop
-    max_a = rep(1.4, n_pop), # maximum Ricker a values by pop at optimum temp
-    env_type = c("sine", "arma", "regime", "linear", "constant"),
-    env_params = list(amplitude = 2.0, ang_frequency = 0.2, phase = 0, mean_value = 16),
-    use_cache = FALSE, # regenerate stochastic values? 
-    add_straying = TRUE # include or ignore straying
-
-First, let's run a couple example simulations:
-
-![Example simulation with all parameters at default values. I'm only showing a sample of 40 generations (after the burn-in period). From top to bottom: salmon returns each generation (catch plus escapement); Ricker $a$ parameter; the environmental signal (could think of it as temperature or a composite environmental signal like the PDO); number of salmon straying by population; number of straying salmon being received by population; fisheries catch based on escapement MSY calculation; salmon escapement; residuals from the spawner-return curve.](figure/run-base-example1.pdf) 
+![Example simulation with all parameters at default values. I'm only showing a sample of 40 generations (after the burn-in period). From top to bottom: salmon returns each generation (catch plus escapement); Ricker $a$ parameter; the environmental signal (could think of it as temperature or a composite environmental signal like the PDO); number of salmon straying by population; number of straying salmon being received by population; fisheries catch based on escapement MSY calculation; salmon escapement; residuals from the spawner-return curve; estimated Ricker $a$ parameter; estimated Ricker $b$ parameter.](figure/run-base-example1.pdf) 
 
 
 ![A plot comparing the log(returns) between each population. The population colours and numbers match in all figures. Note how populations 1 and 10 have asynchronous returns whereas populations with more similar thermal-tolerance curves (say populations 9 and 10) have more synchronous dynamics. Populations with thermal tolerance curves in the middle (e.g. population 6) are less correlated with other populations. Their population dynamics end up primarily driven by demographic stochasticity and less so by temperature-induced systematic changes in productivity.](figure/plot-base-corrs.pdf) 
@@ -180,18 +186,19 @@ First, let's run a couple example simulations:
 ![Example simulations with different parameter values. I am showing three populations here to make the plots easier to interpret.\label{fig:sim-param-ts-3}](figure/plot-various-options-ts-3pops.pdf) 
 
 
-![Example simulations with different parameter values. This version has ten populations.\label{fig:sim-param-ts-10}](figure/plot-various-options-ts.pdf) 
-
-
 \clearpage
 
 # An example of portfolio optimization #
+
 Now, let's run an example where we find the $b$ values that form the efficient frontier of metapopulation portfolios.
 
 
 
 
 
+```
+Error: ignoring SIGPIPE signal
+```
 
 
 ![Efficient frontier of metapopulation portfolios (red dots). Each dot represents a different set of weights of the Ricker $b$ parameters. Metapopulation growth rate is the first difference of the log of total metapopulation abundance. The colours in the right panel correspond to the other figures.](figure/eff-frontier-eg.pdf) 
@@ -212,7 +219,45 @@ Now, let's run an example where we find the $b$ values that form the efficient f
 ![Median (solid line) and 25th and 75th quantiles of the weights across 40 minimum-variance portfolios. Just another way of looking at it.](figure/plot-weights-median.pdf) 
 
 
+![Different ways of prioritizing conservation. The curves show the environmental-tolerance curves for the populations that are conserved. The colours are the same as earlier and identify the different populations. These are in the same order as they are referred to in the next two plots: full range of environmental response diversity, most stable only, one half, other half, most asynchronous.](figure/plot-cons-plans-curves.pdf) 
+
+
+
+![Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.](figure/plot-cons-plans-mv.pdf) 
+
+
+![Conservation plans in terms of metapopulation abundance. One realization with a periodic (sine wave) environmental signal is shown as an example. The light-grey lines in the background show 100 randomly-sampled portfolios with the same stock-recruit residuals and the same environmental signal. Notice how much less variable the scenarios with balanced response diversity are. The two scenarios with unbalanced response diversity tend to seesaw with the environment.](figure/plot-cons-plans-ts.pdf) 
+
+
+
 \clearpage
- 
+
+# Take home messages
+1. If the dominant environmental signal is a long-term shift, and you keep around one half of the response diversity, then you get different portfolio means but the same variances.
+2. If the dominant environmental signal is short-term, and you keep around one half of the response diversity, then you get different portfolio variances but the same means.
+3. Combine those two (which best reflects reality) and you get both different means and variances.
+4. Whether you invest in just stable, just asynchronous, or a mix of both, all that really matters is that you have as many populations as possible and as balanced as possible response diversity.
+5. An even weighting across as many possible streams (assuming balanced response diversity) gets you pretty close to the minimum-variance portfolio. [not shown currently]
+6. With systematic long-term environmental change that dominates: if you can forecast the environment and know the responses of salmon populations from individual streams then you can increase your expected rate of metapopulation growth with minimal effect on variance by prioritizing the populations that will do well. Although if you get it wrong you will do worse than if you had hedged your bets and conserved response diversity.
+7. But, if there are also strong short-term environmental fluctuations (and there probably are), then there's always a benefit to portfolio variance by having some response diversity.
+8. Variable stocks aren't inherently undesirable to conserve, as long as they are balanced or averaged out.
+9. Take home message: "To keep every cog and wheel is the first precaution of intelligent tinkering." But, if you must prioritize, keep a selection of different cogs and
+ wheels --- especially a spatially diverse set of cogs and wheels. That gives you the best chance of an efficient ecological portfolio.
+
+# Open questions and next steps
+1. How do smaller or larger values of the various parameters affect the results?
+2. Are the results sensitive to the height and width of the thermal tolerance curves? (I think within reason, no.)
+3. Are these results robust to, say, cyclical or regime shift style environmental noise?
+4. Should this be a generic "environmental signal" or temperature?
+5. Show what happens for a given scenario as you conserve more streams (it gets closer to the minimum-variance portfolio).
+6. Show an example of where these conservation plans place you in mean-variance space across all possible weights. (Done but not shown.)
+7. Bring these conservation plans back to established suggestions (e.g. VSP).
+8. How can we simplify the main figures?
+9. Is there a way to combine the main figures to make the result more understandable (e.g. little response-diversity curves as a legend)?
+10. Redo the Monte Carlo portfolios to show an extreme example where you can see the weights shifting. For example, a linearly increasing environmental signal with some generation-to-generation noise.
+11. Generations or years? Years seem simpler to talk about. Generations seem more widely applicable and accurate.
+
+\clearpage
+
 # References #
 
