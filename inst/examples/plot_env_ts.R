@@ -2,7 +2,7 @@
 
 types <- c("sine", "arma", "regime", "linear", "constant")
 x <- list()
-for(i in 1:5) x[[i]] <- generate_env_ts(n_t = 100, type = types[i], arma_params = list(sigma_env = 0.30, ar = 0.6, ma = 0.2))
+for(i in 1:5) x[[i]] <- generate_env_ts(n_t = 100, type = types[i])
 op <- par(mfrow = c(5, 1), mar = c(0,0,0,0), cex = 0.8, oma = c(3.1, 3.2, .5, 5), xpd = NA, mgp = c(2.5, 0.7, 0), tck = -0.06, las = 1) 
 for(i in 1:5) {
   plot(x[[i]], type = "l",  axes = FALSE, ylim = c(-1.2, 1.12), xlab = "", ylab = "")
