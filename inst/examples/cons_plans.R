@@ -58,6 +58,6 @@ source("plot_cons_plans.R")
 
 par(mfrow = c(1, 2))
 par(cex = 0.7, mar = c(4,5,0,0), oma = c(.5,.5,.5,.5), mgp = c(3, .5, 0), tck = -0.01, las = 1)
-j <- plot_cons_plans(plans_mv_arma, plans_name)
-plot_cons_plans(plans_mv_linear, plans_name, xlim = j$xlim, ylim = j$ylim)
+j <- plot_cons_plans(plans_mv_arma, cols = cols, plans_name)
+plot_cons_plans(plans_mv_linear, plans_name, cols = cols, xlim = j$xlim, ylim = j$ylim)
 
