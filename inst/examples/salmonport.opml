@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<opml version="1.0">
+    <head>
+        <title>salmon portfolios</title>
+        <ownerName></ownerName>
+    </head>
+    <body>
+        <outline text="salmon portfolios">
+            <outline text="Discussion">
+                <outline text="Caveats">
+                    <outline text="we know the precise response diversity and knew when it was balanced"></outline>
+                    <outline text="short term climate and SR relationships notoriously difficult to estimate in reality"></outline>
+                </outline>
+                <outline text="Practical recommendations"></outline>
+                <outline text="Climate change implications">
+                    <outline text="by eliminating large spacial areas (e.g. damns) you're creating a higher risk ecological portfolio, if you get lucky you'll be OK, you might do much worse"></outline>
+                    <outline text="those that seem productive and/or stable now may not be in the future"></outline>
+                </outline>
+                <outline text="How realistic are our climate and response diversity scenarios/"></outline>
+                <outline text="Research priorities this work suggests">
+                    <outline text="identifying response diversity and spatial correlation"></outline>
+                    <outline text="identifying what drives recruitment - env. relaitonship, regimes?"></outline>
+                    <outline text="real-life case studies as in situ experiments testing our conclusions"></outline>
+                </outline>
+            </outline>
+            <outline text="Introduction">
+                <outline text="managing risk is fundamental to ecological conservation">
+                    <outline text="for metapopulations, we can consider risk for components or risk for the whole"></outline>
+                </outline>
+                <outline text="financial mv optimization">
+                    <outline text="efficient frontier"></outline>
+                </outline>
+                <outline text="conservation issues with pacific salmon (the need to prioritize habitat conservation)">
+                    <outline text="damns"></outline>
+                    <outline text="habitat degradation"></outline>
+                    <outline text="fishing"></outline>
+                    <outline text="changing climate"></outline>
+                    <outline text="stochasticity from year to year"></outline>
+                </outline>
+                <outline text="relationship between salmon productivity and the environment and correlation of those spatially close to each other">
+                    <outline text="also Ram's work on spatial correlation"></outline>
+                    <outline text="primarily Randall Peterman's work"></outline>
+                </outline>
+                <outline text="Research questions"></outline>
+            </outline>
+            <outline text="Methods">
+                <outline text="Overview"></outline>
+                <outline text="Salmon metapopulation dynamics"></outline>
+                <outline text="Environmental dynamics"></outline>
+                <outline text="Environmental response diversity"></outline>
+                <outline text="Conservation scenarios"></outline>
+                <outline text="Portfolio optimization"></outline>
+            </outline>
+            <outline text="Results">
+                <outline text="long term vs. short term environmental forcing"></outline>
+                <outline text="how much better is an &quot;optimal&quot; portfolio than various conservation strategies"></outline>
+                <outline text="how do various strategies translate into mv space  under different env scenarios "></outline>
+                <outline text="More populations is better"></outline>
+                <outline text="The effect of response diversity"></outline>
+                <outline text="New Node"></outline>
+            </outline>
+        </outline>
+    </body>
+</opml>

@@ -18,6 +18,8 @@
 \usepackage{setspace}
 \onehalfspacing
 %\doublespacing
+\usepackage{pdflscape}
+\usepackage{pdfpages}
 
 \usepackage{titlesec}
 \titleformat*{\section}{\Large\bfseries\sffamily}

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# package
+rsync -ravz --delete ~/Dropbox/ms/metafolio/R/ -e ssh anderson@bugaboo-fs.westgrid.ca:~/Dropbox/ms/metafolio/R/
+
+# paper
+rsync -ravz --exclude-from 'rsync-exclude.txt' --delete ~/Dropbox/ms/metafolio/inst/examples/ -e ssh anderson@bugaboo-fs.westgrid.ca:~/Dropbox/ms/metafolio/inst/examples/
+

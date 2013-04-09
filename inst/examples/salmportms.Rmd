@@ -1,0 +1,96 @@
+% Portfolio prioritization of salmon conservation
+% Sean C. Anderson and others
+%
+
+*Authors:*  
+  Jonathan W. Moore  
+  Trevor A. Branch  
+  Andrew B. Cooper  
+  Nicholas K. Dulvy  
+  Maybe we should bring Michelle McClure back in
+
+*Other title ideas:*  
+- Portfolio optimization reveals...  
+- something more general with animals instead of just salmon?  
+- Portfolio theory reveals conservation strategies that...  
+- Intelligent tinkering with ecological portfolios: patterns of environmental response diversity drive salmon conservation priorities  
+- Keeping every cog and wheel...  
+
+  see Table A1 in "Viable Salmonid Populations and the Recovery of Evolutionarily Significant Units":
+  straying rates from the literature for Pacific salmon. range from 0 to 90... usually around 4 or 5
+
+# Introduction #
+
+managing risk fundamental to conservation of metapopulations
+
+portfolios provide another way of managing risk - explain mean-variance optimization and how this translates to ecology
+[@Figge2004]
+[@Hoekstra2012] 
+[@Ando2011,@Ando2012] 
+[@Markowitz1952,@Markowitz1959]
+
+we use salmon as an example, describe the components of the example, provide references on metapopulation existence
+[@Schindler2010]
+
+
+research questions, and briefly our approach - Monte Carlo simulation modelling, as simple a model as possible while retaining important realistic aspects of salmon metapopulations
+
+# Methods #
+
+Data - if we're basing this at all on reality... probably not
+
+## Simulation model components
+
+general overview
+
+## Salmon metapopulation dynamics ##
+
+- spawner-recruit relationship paragraph
+- straying paragraph
+
+## Environmental dynamics ##
+
+## Environmental response diversity ##
+Scenarios? More variable are also more productive?... 
+
+## Portfolio optimization ##
+
+## Conservation rules of thumb ##
+
+# Results #
+
+## Base case ##
+
+## Effect of X on ... ##
+
+## Effect of Y on ... ##
+
+# Discussion #
+
+# Acknowledgements #
+
+# References #
+
+# Tables #
+
+1. Simulation parameters, symbols, base and alternate values
+
+# Figures #
+
+1. Flow chart of Monte Carlo procedure
+2. Climate scenarios
+3. Climate-productivity curves (response-diversity scenarios)
+4. Time series components of an example simulation
+5. Effect on returns of ramping up or down each main parameter
+6. Efficient frontier given various climate scenarios
+7. Rules of thumb (in the spirit of VSP guidelines) in risk-reward space
+8. Potentially a plot that shows how some summary metric of the efficient frontier or rules of thumb for high and low scenarios of important simulation parameters
+
+# Supplementary code #
+
+The `metafolio` `R` package and documentation.
+
+# Supplementary figures #
+
+1. Straying matrix
+2. Efficient frontiers and/or rules-of-thumb plots varying each major simulation variable up and down

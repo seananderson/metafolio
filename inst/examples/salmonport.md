@@ -1,5 +1,12 @@
 % Portfolio prioritization of salmon conservation
 % Sean Anderson
+ 
+*Other title ideas:*  
+- Portfolio optimization reveals...  
+- something more general with animals instead of just salmon?  
+- Portfolio theory reveals conservation strategies that...  
+- Intelligent tinkering with ecological portfolios: patterns of environmental response diversity drive salmon conservation priorities  
+- Keeping every cog and wheel...  
 
 # Abstract #
 First part is copied from what I wrote before (introduction and questions). Second part outlines the simulation. I haven't yet worked very much with the portfolios themselves, but I've set up the structure of the simulation. I outline how the simulation is currently working and show examples of some of the plotting functions I have to look at simulation and portfolio optimization. 
@@ -153,7 +160,7 @@ Description & Parameter & Base [lower, upper] \\
 Stock-recruit residual standard deviation (on log scale) & $\sigma_v$ & 0.30 [0.05, 0.50] \\
 First order (AR1) serial correlation of stock-recruit residuals & $\rho_w$ & 0.40 [0, 0.80] \\
 Fraction of fish that stray from natal streams & $f_{stray}$ & 0.02 [0, 0.10] \\
-Exponential rate of decay of straying with distance & $m$ & 0.30 [0.05, 0.50] \\
+Exponential rate of decay of straying with distance & $m$ & 0.3 [0.05, 0.5] \\
 Standard deviation of beta distribution for implementation error & $\sigma_{impl}$ & 0.05 [0, 0.20] \\
 Frequency of assessment (years) & $f_{assess}$ & 20 [5, 50] \\
 \bottomrule
@@ -207,7 +214,7 @@ Error: ignoring SIGPIPE signal
 ![Simulation output from the minimum-variance metapopulation.](figure/plot-eff-ports.pdf) 
 
 
-![Example Ricker curves for the minimum-variance metapopulation.](figure/unnamed-chunk-1.pdf) 
+![Example Ricker curves for the minimum-variance metapopulation. (Ignore right now)](figure/unnamed-chunk-1.pdf) 
 
 
 ![Time series for a random sample of portfolios (grey lines) and the minimum-variance portfolio (white lines). The top panel shows rate of change or metapopulation abundance at each time step and the bottom panel shows the metapopulation abundance.](figure/plot-portfolio-timeseries.pdf) 
@@ -216,14 +223,14 @@ Error: ignoring SIGPIPE signal
 ![A sample of 30 minimum-variance portfolios given the same set of starting parameters as for the example illustrated above. The dashed grey line indicates the weights if all populations had an equal carrying capacity. As it stands, the weights look fairly random to me.](figure/plot-weights-samples.pdf) 
 
 
-![Median (solid line) and 25th and 75th quantiles of the weights across 40 minimum-variance portfolios. Just another way of looking at it.](figure/plot-weights-median.pdf) 
+![Median (solid line) and 25th and 75th quantiles of the weights across 40 minimum-variance portfolios. Just another way of looking at it. (Nothing to see here right now.)](figure/plot-weights-median.pdf) 
 
 
 ![Different ways of prioritizing conservation. The curves show the environmental-tolerance curves for the populations that are conserved. The colours are the same as earlier and identify the different populations. These are in the same order as they are referred to in the next two plots: full range of environmental response diversity, most stable only, one half, other half, most asynchronous.](figure/plot-cons-plans-curves.pdf) 
 
 
 
-![Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.](figure/plot-cons-plans-mv.pdf) 
+![Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.](figure/plot-cons-plans-mv.pdf) 
 
 
 ![Conservation plans in terms of metapopulation abundance. One realization with a periodic (sine wave) environmental signal is shown as an example. The light-grey lines in the background show 100 randomly-sampled portfolios with the same stock-recruit residuals and the same environmental signal. Notice how much less variable the scenarios with balanced response diversity are. The two scenarios with unbalanced response diversity tend to seesaw with the environment.](figure/plot-cons-plans-ts.pdf) 
@@ -232,7 +239,7 @@ Error: ignoring SIGPIPE signal
 
 \clearpage
 
-# Take home messages
+# Some thoughts on the results
 1. If the dominant environmental signal is a long-term shift, and you keep around one half of the response diversity, then you get different portfolio means but the same variances.
 2. If the dominant environmental signal is short-term, and you keep around one half of the response diversity, then you get different portfolio variances but the same means.
 3. Combine those two (which best reflects reality) and you get both different means and variances.
@@ -258,6 +265,9 @@ Error: ignoring SIGPIPE signal
 11. Generations or years? Years seem simpler to talk about. Generations seem more widely applicable and accurate.
 
 \clearpage
+
+\includepdf{salmonport-mindmap.pdf}
+
 
 # References #
 

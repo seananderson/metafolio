@@ -18,6 +18,8 @@
 \usepackage{setspace}
 \onehalfspacing
 %\doublespacing
+\usepackage{pdflscape}
+\usepackage{pdfpages}
 
 \usepackage{titlesec}
 \titleformat*{\section}{\Large\bfseries\sffamily}
@@ -75,6 +77,13 @@
 
 \begin{document}
 \maketitle
+
+\emph{Other title ideas:}\\- Portfolio optimization reveals\ldots{}\\-
+something more general with animals instead of just salmon?\\- Portfolio
+theory reveals conservation strategies that\ldots{}\\- Intelligent
+tinkering with ecological portfolios: patterns of environmental response
+diversity drive salmon conservation priorities\\- Keeping every cog and
+wheel\ldots{}
 
 \section{Abstract}
 
@@ -377,7 +386,7 @@ Description & Parameter & Base [lower, upper] \\
 Stock-recruit residual standard deviation (on log scale) & $\sigma_v$ & 0.30 [0.05, 0.50] \\
 First order (AR1) serial correlation of stock-recruit residuals & $\rho_w$ & 0.40 [0, 0.80] \\
 Fraction of fish that stray from natal streams & $f_{stray}$ & 0.02 [0, 0.10] \\
-Exponential rate of decay of straying with distance & $m$ & 0.30 [0.05, 0.50] \\
+Exponential rate of decay of straying with distance & $m$ & 0.3 [0.05, 0.5] \\
 Standard deviation of beta distribution for implementation error & $\sigma_{impl}$ & 0.05 [0, 0.20] \\
 Frequency of assessment (years) & $f_{assess}$ & 20 [5, 50] \\
 \bottomrule
@@ -495,7 +504,8 @@ correspond to the other figures.}
 \begin{figure}[htbp]
 \centering
 \includegraphics{figure/unnamed-chunk-1.pdf}
-\caption{Example Ricker curves for the minimum-variance metapopulation.}
+\caption{Example Ricker curves for the minimum-variance metapopulation.
+(Ignore right now)}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -521,7 +531,7 @@ capacity. As it stands, the weights look fairly random to me.}
 \includegraphics{figure/plot-weights-median.pdf}
 \caption{Median (solid line) and 25th and 75th quantiles of the weights
 across 40 minimum-variance portfolios. Just another way of looking at
-it.}
+it. (Nothing to see here right now.)}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -547,9 +557,10 @@ environmental signal and minimal short-term environmental noise. These
 two scenarios bound the two environmental extremes: strong short-term
 noise with minimal long-term signal vs.~a strong long-term signal with
 minimal short-term signal. Notice what happens to the two \emph{half}
-conservation strategies. A more realistic scenario combines the two. The
-efficient frontier is shown for the displayed portfolios. This isn't
-necessarily the overall efficient frontier.}
+conservation strategies. A more realistic scenario combines the two
+kinds of environmental noise. The efficient frontier is shown for the
+displayed portfolios. This isn't necessarily the overall efficient
+frontier.}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -566,7 +577,7 @@ unbalanced response diversity tend to seesaw with the environment.}
 
 \clearpage
 
-\section{Take home messages}
+\section{Some thoughts on the results}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -653,6 +664,8 @@ unbalanced response diversity tend to seesaw with the environment.}
 \end{enumerate}
 
 \clearpage
+
+\includepdf{salmonport-mindmap.pdf}
 
 \renewcommand\refname{References}
 \bibliography{jshort,salmonport}
