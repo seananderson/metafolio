@@ -10,7 +10,25 @@ add_dens_polygon <- function(x, y, col, lwd = 1, alpha = 0.7, add_pts = FALSE) {
   if(add_pts) points(x, y, pch = 20, col = paste(col, "60", sep = ""))
 }
 
-plot_cons_plans <- function(plans_mv, plans_name, xlim = NULL, ylim = NULL, add_pts = TRUE) {
+get_efficient_frontier <- function(m, v) {
+  d <- data.frame(m = m, v = v)
+  ef_front <- d[chull(d$v, d$m), ]
+
+  ef_front <- ef_front[order(ef_front$m), ]
+  ef_front_top <- ef_front[which.min(ef_front$v):nrow(ef_front), ]
+  ef_front_bottom <- ef_front[1:(which.min(ef_front$v) - 1), ]
+
+  # order by risk
+  ef_front_top <- ef_front_top[order(ef_front_top$v), ]
+  ef_front_bottom <- ef_front_bottom[order(-ef_front_bottom$v), ]
+
+  # remove where return is coming back down or back up:
+  ef_front_top <- ef_front_top[1:which.max(ef_front_top$m),]
+  ef_front_bottom <- ef_front_bottom[which.min(ef_front_bottom$m):nrow(ef_front_bottom),]
+  return(rbind(ef_front_bottom, ef_front_top))
+}
+
+plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL, ylim = NULL, add_pts = TRUE, add_all_efs = FALSE) {
 
   if(is.null(xlim)) {
 lims <- ldply(plans_mv, function(x) data.frame(x.max = max(x$v), x.min = min(x$v), y.max = max(x$m), y.min = min(x$m)))
@@ -36,23 +54,18 @@ for(i in w_show) {
 legend("topright", legend = plans_name[w_show], fill = paste(cols[w_show], "80", sep = ""), bty = "n", cex = 0.9)
 
 mv_all <- do.call("rbind", plans_mv)
-ef_front <- mv_all[chull(mv_all$v, mv_all$m), ]
-#with(ef_front, points(v, m))
 
-ef_front <- ef_front[order(ef_front$m), ]
-ef_front_top <- ef_front[which.min(ef_front$v):nrow(ef_front), ]
-ef_front_bottom <- ef_front[1:(which.min(ef_front$v) - 1), ]
+ef_front_pts <- with(mv_all, get_efficient_frontier(m = m, v = v))
+with(ef_front_pts, lines(v, m, col = "grey50", lwd = 2.2))
 
-# order by risk
-ef_front_top <- ef_front_top[order(ef_front_top$v), ]
-ef_front_bottom <- ef_front_bottom[order(-ef_front_bottom$v), ]
-
-# remove where return is coming back down or back up:
-ef_front_top <- ef_front_top[1:which.max(ef_front_top$m),]
-ef_front_bottom <- ef_front_bottom[which.min(ef_front_bottom$m):nrow(ef_front_bottom),]
-
-with(rbind(ef_front_bottom, ef_front_top), lines(v, m, col = "grey50", lwd = 2.2))
+if(add_all_efs) {
+  for(i in w_show) {
+    ef_front_pts_i <- with(plans_mv[[i]], get_efficient_frontier(m = m, v = v))
+    with(ef_front_pts_i, lines(v, m, col = cols[i], lwd = 2.2))
+  }
+}
 
 invisible(list(xlim = xlim, ylim = ylim))
 
 }
+
