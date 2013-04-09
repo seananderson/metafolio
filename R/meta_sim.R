@@ -43,10 +43,10 @@ meta_sim <- function(
   v_rho = 0.4, # stock-recruit residual AR1 correlation
   a_width_param = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))), # width of thermal curves by pop
   optim_temp = seq(13, 19, length.out = n_pop), # optimal temperatures by pop
-  max_a = c(seq(2.8, 2.2, length.out = 5), rev(seq(2.8, 2.2, length.out = 5))), # maximum Ricker a values by pop at optimum temp
+  max_a = c(seq(2.8, 2.2, length.out = n_pop/2), rev(seq(2.8, 2.2, length.out = n_pop/2))), # maximum Ricker a values by pop at optimum temp
   env_type = c("sine", "arma", "regime", "linear", "constant"),
   env_params = list(amplitude = 3.2, ang_frequency = 0.2, phase = runif(1, -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.30),
-  start_assessment = 30, # generation to start estimating SR relationship for escapement targets
+  start_assessment = 20, # generation to start estimating SR relationship for escapement targets
   assessment_window = 25, # number of generations to use when fitting SR relationship for escapement targets; must be bigger than start_assessment
   sigma_impl = 0.05, # sd on beta implementation error
   assess_freq = 10, # how many generations between SR assessments
