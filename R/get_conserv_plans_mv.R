@@ -11,7 +11,7 @@
 #' to 50 generations to speed up simulations.
 #' @param ... Other values to pass to \code{meta_sim}
 
-get_conserv_plans_mv <- function(weights, reps = 100, assess_freq = 50, ...) {
+get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 50, ...) {
   require(plyr)
   n_pop = ncol(weights)
   port_mv <- list()
