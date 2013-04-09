@@ -1,0 +1,29 @@
+#' Run the metapopulation simulation for various conservation privatization schemes
+#'
+#' @details
+#' Returns the portfolio mean and variance values.
+#'
+#' @param weights A matrix of habitat weights. Each row corresponds to
+#' another scenario. Each column is a different habitat location.
+#' @param reps Number of portfolios to simulate.
+#' @param assess_freq The frequency (in generations) of
+#' spawner-recruit re-assessment. Passed to \code{meta_sim}. Defaults
+#' to 50 generations to speed up simulations.
+#' @param ... Other values to pass to \code{meta_sim}
+
+get_conserv_plans_mv <- function(weights, reps = 100, assess_freq = 50, ...) {
+  require(plyr)
+  n_pop = ncol(weights)
+  port_mv <- list()
+  port_out <- list()
+  for(j in 1:nrow(weights)) {
+    port_out[[j]] <- list()
+    for(i in 1:reps) {
+      port_out[[j]][[i]] <- meta_sim(b = weights[j, ], use_cache = FALSE, 
+        n_pop = n_pop, add_impl_error = FALSE, ...)
+    }
+    port_mv[[j]] <- ldply(port_out[[j]], function(x) get_port_vals(x))
+  }
+  return(port_mv)
+}
+
