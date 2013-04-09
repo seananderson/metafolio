@@ -276,6 +276,10 @@ source("cons_plans.R")
 source("cons_plans_ts.R")
 ```
 
+```{r plot-cons-plans-n-mv, fig.width=6.5, fig.height=3.5, fig.cap="Conservation plans in mean-variance space. *This version shows conservation plans with balanced response diversity but different numbers of populations.** The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.", cache=FALSE}
+source("cons_plans_n.R")
+```
+
 
 \clearpage
 
