@@ -1,8 +1,6 @@
-#' A wider variety of conservation plans; also try and better mimic
-#' what VSP guidelines do and do not suggest
+#' show difference of increasing the number of streams you maintain
 
-# first show difference of increasing the number of streams you
-# maintain:
+USE_CACHE <- TRUE
 
 require(plyr)
 num_pops <- c(2, 4, 8, 16, 32)
@@ -16,7 +14,7 @@ plans_name <- num_pops
 w_show <- seq_len(length(num_pops))
 
 if(USE_CACHE) {
-  load("plans_mv.rda")
+  load("plans_mv_n.rda")
 }else{
   plans_mv_arma_n <- list()
   plans_mv_linear_n <- list()
