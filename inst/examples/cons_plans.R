@@ -40,28 +40,14 @@ w[5,] <- c(2500, 2500, 10, 10, 10, 10, 10, 10, 2500, 2500)
 plans_name <- c("Full range of responses", "Most stable only", "One half", "One half", "Most asynchronous only")
 w_show <- c(1, 2, 3,4, 5)
 
-get_conservation_mv2 <- function(weights, n_pop = 10, reps = 300, cols = "#000000", ...) {
-  port_mv <- list()
-  port_out <- list()
-  for(j in 1:nrow(weights)) {
-      port_out[[j]] <- list()
-    for(i in 1:reps) {
-      port_out[[j]][[i]] <- meta_sim(b = weights[j, ], use_cache = FALSE, 
-        n_pop = n_pop, add_impl_error = FALSE, start_assessment = 20, assess_freq = 50, ...)
-    }
-   port_mv[[j]] <- ldply(port_out[[j]], function(x) get_port_vals(x))
-  }
-  return(port_mv)
-}
-
 if(USE_CACHE) {
   load("plans_mv.rda")
 }else{
-  plans_mv_arma <- get_conservation_mv2(weights = w, 
+  plans_mv_arma <- get_conserv_plans_mv(weights = w, 
     env_type = "arma",
     env_params = list(mean_value = 16, ar = 0.4, sigma_env = 1.4, ma = 0))
 
-  plans_mv_linear <- get_conservation_mv2(weights = w, 
+  plans_mv_linear <- get_conserv_plans_mv(weights = w, 
     env_type = "linear",
     env_params = list(min_value = 10, max_value = 20, sigma_env = 0.2))
 
