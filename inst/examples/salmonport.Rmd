@@ -1,5 +1,12 @@
 % Portfolio prioritization of salmon conservation
 % Sean Anderson
+ 
+*Other title ideas:*  
+- Portfolio optimization reveals...  
+- something more general with animals instead of just salmon?  
+- Portfolio theory reveals conservation strategies that...  
+- Intelligent tinkering with ecological portfolios: patterns of environmental response diversity drive salmon conservation priorities  
+- Keeping every cog and wheel...  
 
 # Abstract #
 First part is copied from what I wrote before (introduction and questions). Second part outlines the simulation. I haven't yet worked very much with the portfolios themselves, but I've set up the structure of the simulation. I outline how the simulation is currently working and show examples of some of the plotting functions I have to look at simulation and portfolio optimization. 
@@ -106,10 +113,8 @@ Constant & $T_{\mathrm{constant}}$& Constant value\\
 ```{r env-ts, fig.height=4, fig.width=4, cache = FALSE, fig.cap="Example temperature time series\\label{fig:env-ts}"}
 #library(metafolio)
 #or for rapid development:
-metafolio_files <-  list.files(path = "../../R/")
-for(i in 1:length(metafolio_files)){
-  source(paste("../..//R/", metafolio_files[i], sep = ""));rm(i)}
-
+library(devtools)
+load_all("../../") # assuming you're 2 folders deeper than the package
 source("plot_env_ts.R")
 col_pal <- rev(gg_color_hue(10))
 ```
@@ -163,7 +168,7 @@ Description & Parameter & Base [lower, upper] \\
 Stock-recruit residual standard deviation (on log scale) & $\sigma_v$ & 0.30 [0.05, 0.50] \\
 First order (AR1) serial correlation of stock-recruit residuals & $\rho_w$ & 0.40 [0, 0.80] \\
 Fraction of fish that stray from natal streams & $f_{stray}$ & 0.02 [0, 0.10] \\
-Exponential rate of decay of straying with distance & $m$ & 0.30 [0.05, 0.50] \\
+Exponential rate of decay of straying with distance & $m$ & 0.3 [0.05, 0.5] \\
 Standard deviation of beta distribution for implementation error & $\sigma_{impl}$ & 0.05 [0, 0.20] \\
 Frequency of assessment (years) & $f_{assess}$ & 20 [5, 50] \\
 \bottomrule
@@ -236,7 +241,7 @@ min_var_sim <- mc_ports$sims_out[[ef_dat$min_var_port_id]]
 plot_sim_ts(min_var_sim, pal = col_pal)
 ```
 
-```{r fig.width=6, fig.height=3.75, fig.cap="Example Ricker curves for the minimum-variance metapopulation."}
+```{r fig.width=6, fig.height=3.75, fig.cap="Example Ricker curves for the minimum-variance metapopulation. (Ignore right now)"}
 plot_rickers(min_var_sim, pal = col_pal)
 ```
 
@@ -248,7 +253,7 @@ source("plot_portfolio_ts.R")
 source("look_at_cluster_dat.R")
 ```
 
-```{r plot-weights-median, fig.width=4.2, fig.height=3.2, cache = FALSE, fig.cap="Median (solid line) and 25th and 75th quantiles of the weights across 40 minimum-variance portfolios. Just another way of looking at it."}
+```{r plot-weights-median, fig.width=4.2, fig.height=3.2, cache = FALSE, fig.cap="Median (solid line) and 25th and 75th quantiles of the weights across 40 minimum-variance portfolios. Just another way of looking at it. (Nothing to see here right now.)"}
 source("min_var_ports_dist.R")
 ```
 
@@ -259,7 +264,7 @@ source("plot_thermal_curves_scenarios.R")
 ```
 
 
-```{r plot-cons-plans-mv, fig.width=6.5, fig.height=3.5, fig.cap="Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.", cache=FALSE}
+```{r plot-cons-plans-mv, fig.width=6.5, fig.height=3.5, fig.cap="Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.", cache=FALSE}
 #Notes #
 #-b is "unfished equilibrium stock size"
 require(RColorBrewer)
@@ -274,7 +279,7 @@ source("cons_plans_ts.R")
 
 \clearpage
 
-# Take home messages
+# Some thoughts on the results
 1. If the dominant environmental signal is a long-term shift, and you keep around one half of the response diversity, then you get different portfolio means but the same variances.
 2. If the dominant environmental signal is short-term, and you keep around one half of the response diversity, then you get different portfolio variances but the same means.
 3. Combine those two (which best reflects reality) and you get both different means and variances.
@@ -300,6 +305,9 @@ source("cons_plans_ts.R")
 11. Generations or years? Years seem simpler to talk about. Generations seem more widely applicable and accurate.
 
 \clearpage
+
+\includepdf{salmonport-mindmap.pdf}
+
 
 # References #
 
