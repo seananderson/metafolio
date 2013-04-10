@@ -1,6 +1,7 @@
 #' plot thermal curves for different conservation scenarios
 
-par(cex = 0.6, mgp = c(2.4, 0.65, 0), tck = -0.02, mfrow = c(5,1), mar = c(0,5,0,.5), oma = c(4, 0, .5, 0))
+pdf("thermal-curve-scenarios.pdf", width = 3.3, height = 5.0)
+par(cex = 0.6, mgp = c(2.4, 0.55, 0), tck = -0.03, mfrow = c(5,1), mar = c(0,5,0,.5), oma = c(4, 0, .5, 0))
 
 optim_temps <- seq(13, 19, length.out = 10)
 
@@ -30,3 +31,4 @@ mtext(expression(Temperature~(degree*C)), side = 1, outer = FALSE, line = 2.5, l
 #abline(v = c(16-3.5, c = 16+3.5), lty = 3)
 
 
+dev.off()

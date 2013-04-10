@@ -7,6 +7,7 @@
 - Portfolio theory reveals conservation strategies that...  
 - Intelligent tinkering with ecological portfolios: patterns of environmental response diversity drive salmon conservation priorities  
 - Keeping every cog and wheel...  
+- A yin for every yang...
 
 # Abstract #
 First part is copied from what I wrote before (introduction and questions). Second part outlines the simulation. I haven't yet worked very much with the portfolios themselves, but I've set up the structure of the simulation. I outline how the simulation is currently working and show examples of some of the plotting functions I have to look at simulation and portfolio optimization. 
@@ -226,14 +227,24 @@ Error: ignoring SIGPIPE signal
 ![Median (solid line) and 25th and 75th quantiles of the weights across 40 minimum-variance portfolios. Just another way of looking at it. (Nothing to see here right now.)](figure/plot-weights-median.pdf) 
 
 
-![Different ways of prioritizing conservation. The curves show the environmental-tolerance curves for the populations that are conserved. The colours are the same as earlier and identify the different populations. These are in the same order as they are referred to in the next two plots: full range of environmental response diversity, most stable only, one half, other half, most asynchronous.](figure/plot-cons-plans-curves.pdf) 
 
 
 
-![Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.](figure/plot-cons-plans-mv.pdf) 
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[height=5.0in]{thermal-curve-scenarios.pdf}
+ \caption{Different ways of prioritizing conservation. The curves show the environmental-tolerance curves for the populations that are conserved. The colours are the same as earlier and identify the different populations. These are in the same order as they are referred to in the next two plots: full range of environmental response diversity, most stable only, one half, other half, most asynchronous.}
+  \label{fig:sim-diagram}
+\end{figure}
+
+
+![Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.\label{fig:cons-plans-mv}](figure/plot-cons-plans-mv.pdf) 
 
 
 ![Conservation plans in terms of metapopulation abundance. One realization with a periodic (sine wave) environmental signal is shown as an example. The light-grey lines in the background show 100 randomly-sampled portfolios with the same stock-recruit residuals and the same environmental signal. Notice how much less variable the scenarios with balanced response diversity are. The two scenarios with unbalanced response diversity tend to seesaw with the environment.](figure/plot-cons-plans-ts.pdf) 
+
+
+![Conservation plans in mean-variance space. **This version shows conservation plans with balanced response diversity but different numbers of populations.** Notice how the left panel (strong short-term environmental variability) and the right panel (strong long-term environmental shift) look approximately the same. This illustrates (in this contrived example) how the number of populations decreases metapopulation variance through statistical averaging of non-systematic sources of stochasticity. The perfectly balanced environmental tolerances counteract the environmental fluctuations. In the real world, you wouldn't know the exact environmental tolerances, and so conserving more populations might increase your chances of retaining populations with a diversity of environmental tolerances. The orange blob in this figure matches the ``Full range of responses'' blob in Fig.\ \ref{fig:cons-plans-mv}. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles.](figure/plot-cons-plans-n-mv.pdf) 
 
 
 

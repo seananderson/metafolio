@@ -7,6 +7,7 @@
 - Portfolio theory reveals conservation strategies that...  
 - Intelligent tinkering with ecological portfolios: patterns of environmental response diversity drive salmon conservation priorities  
 - Keeping every cog and wheel...  
+- A yin for every yang...
 
 # Abstract #
 First part is copied from what I wrote before (introduction and questions). Second part outlines the simulation. I haven't yet worked very much with the portfolios themselves, but I've set up the structure of the simulation. I outline how the simulation is currently working and show examples of some of the plotting functions I have to look at simulation and portfolio optimization. 
@@ -114,7 +115,10 @@ Constant & $T_{\mathrm{constant}}$& Constant value\\
 #library(metafolio)
 #or for rapid development:
 library(devtools)
-load_all("../../") # assuming you're 2 folders deeper than the package
+metafolio_files <-  list.files(path = "../../R/")
+for(i in 1:length(metafolio_files)){
+   source(paste("../..//R/", metafolio_files[i], sep = ""));rm(i)}
+#load_all("../../") # Not working with knitr?
 source("plot_env_ts.R")
 col_pal <- rev(gg_color_hue(10))
 ```
@@ -257,14 +261,22 @@ source("look_at_cluster_dat.R")
 source("min_var_ports_dist.R")
 ```
 
-```{r plot-cons-plans-curves, cache=FALSE, fig.width=3.3, fig.height=5.0, fig.cap="Different ways of prioritizing conservation. The curves show the environmental-tolerance curves for the populations that are conserved. The colours are the same as earlier and identify the different populations. These are in the same order as they are referred to in the next two plots: full range of environmental response diversity, most stable only, one half, other half, most asynchronous.", cache=FALSE}
+```{r plot-cons-plans-curves, cache=FALSE, fig.width=3.3, fig.height=5.0, fig.cap="Different ways of prioritizing conservation. The curves show the environmental-tolerance curves for the populations that are conserved. The colours are the same as earlier and identify the different populations. These are in the same order as they are referred to in the next two plots: full range of environmental response diversity, most stable only, one half, other half, most asynchronous."}
 #Notes #
 #-b is "unfished equilibrium stock size"
+col_pal <- rev(gg_color_hue(10))
 source("plot_thermal_curves_scenarios.R")
 ```
 
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[height=5.0in]{thermal-curve-scenarios.pdf}
+ \caption{Different ways of prioritizing conservation. The curves show the environmental-tolerance curves for the populations that are conserved. The colours are the same as earlier and identify the different populations. These are in the same order as they are referred to in the next two plots: full range of environmental response diversity, most stable only, one half, other half, most asynchronous.}
+  \label{fig:sim-diagram}
+\end{figure}
 
-```{r plot-cons-plans-mv, fig.width=6.5, fig.height=3.5, fig.cap="Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.", cache=FALSE}
+
+```{r plot-cons-plans-mv, fig.width=6.2, fig.height=3.3, fig.cap="Conservation plans in mean-variance space. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.\\label{fig:cons-plans-mv}", cache=FALSE}
 #Notes #
 #-b is "unfished equilibrium stock size"
 require(RColorBrewer)
@@ -276,7 +288,7 @@ source("cons_plans.R")
 source("cons_plans_ts.R")
 ```
 
-```{r plot-cons-plans-n-mv, fig.width=6.5, fig.height=3.5, fig.cap="Conservation plans in mean-variance space. *This version shows conservation plans with balanced response diversity but different numbers of populations.** The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles. The left panel shows a scenario with a stationary environmental signal and strong short-term environmental noise. The right panel shows a scenario with a linearly-increasing environmental signal and minimal short-term environmental noise. These two scenarios bound the two environmental extremes: strong short-term noise with minimal long-term signal vs. a strong long-term signal with minimal short-term signal. Notice what happens to the two *half* conservation strategies. A more realistic scenario combines the two kinds of environmental noise. The efficient frontier is shown for the displayed portfolios. This isn't necessarily the overall efficient frontier.", cache=FALSE}
+```{r plot-cons-plans-n-mv, fig.width=6.2, fig.height=3.3, fig.cap="Conservation plans in mean-variance space. **This version shows conservation plans with balanced response diversity but different numbers of populations.** Notice how the left panel (strong short-term environmental variability) and the right panel (strong long-term environmental shift) look approximately the same. This illustrates (in this contrived example) how the number of populations decreases metapopulation variance through statistical averaging of non-systematic sources of stochasticity. The perfectly balanced environmental tolerances counteract the environmental fluctuations. In the real world, you wouldn't know the exact environmental tolerances, and so conserving more populations might increase your chances of retaining populations with a diversity of environmental tolerances. The orange blob in this figure matches the ``Full range of responses'' blob in Fig.\\ \\ref{fig:cons-plans-mv}. The dots show portfolios from individual simulation runs. The dark and light shaded areas show 25% and 75% quartiles.", cache=FALSE}
 source("cons_plans_n.R")
 ```
 
