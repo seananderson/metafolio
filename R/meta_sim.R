@@ -83,7 +83,9 @@ meta_sim <- function(
     for(i in 2:n_t) {
       epsilon_mat[i, ] <- epsilon_mat[i - 1, ] * v_rho + rnorm(n_pop, mean = 0, sd = sigma_v) # stock-recruit residuals
     }
-    save(env_ts, stray_mat, epsilon_mat, file = "sim_dat.rda")
+# now develop random escapement targets at start of open access
+    r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data = runif(n_pop*start_assessment, 0.1, 0.9))
+    save(env_ts, stray_mat, epsilon_mat, r_escp_goals, file = "sim_dat.rda")
   }
   
   # matrices to store output:
@@ -133,7 +135,7 @@ meta_sim <- function(
 
     # fit recent data to get estimated a and b values, set escapement
     # based on these
-    if(i < start_assessment) escapement_goals <- A[i, ] * runif(n_pop, 0.1, 0.9) # random fishery for first X years, establish S-R data to work with
+    if(i < start_assessment) escapement_goals <- A[i, ] * r_escp_goals[i, ] # random fishery for first X years, establish S-R data to work with
     #if(i == 30) Est_a[i, ] <- max_a # set starting values to check against
     if(i == (start_assessment - 1)) Est_b[i, ] <- b # sanity check - make sure estimate isn't too far from this
     if(i >= start_assessment) {
