@@ -109,7 +109,7 @@ meta_sim <- function(
       A_params[i, j] <- a_i
       # spawner-recruit section:
       A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = a_i, 
-        b = b[j], v_t = epsilon_mat[i, j], d = 1.05)  # note depensation added!!!!
+        b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation added!!!!
       #A[i, j] <- ricker_out
       #Eps[i, j] <- ricker_out$eps
       #if(is.na(A[i,j])) browser()
