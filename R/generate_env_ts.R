@@ -29,7 +29,7 @@ generate_env_ts <- function(
     arma = as.numeric(with(arma_params, mean_value + arima.sim(model = list(ar = ar, ma = ma),
         n = n_t, sd = sigma_env))), 
     sine = {
-      x <- seq_len(n_t)
+      x <- seq_along(n_t)
       y <- with(sine_params, amplitude * sin(ang_frequency * x + phase) + mean_value + x * slope + rnorm(n_t, mean = 0, sd = sigma_env))
       y
     },
