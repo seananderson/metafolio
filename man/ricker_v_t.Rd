@@ -2,7 +2,7 @@
 \alias{ricker_v_t}
 \title{Ricker stock-recruit function with specified error}
 \usage{
-  ricker_v_t(spawners, a, b, v_t)
+  ricker_v_t(spawners, a, b, d, v_t)
 }
 \arguments{
   \item{spawners}{Spawner abundance}

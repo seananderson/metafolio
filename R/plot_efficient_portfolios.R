@@ -1,4 +1,5 @@
 #' Basic efficient portfolio plots and return efficient portfolio data.
+#' @export
 
 plot_efficient_portfolios <- function(port_vals, weights_matrix, pal, plot = TRUE) {
 

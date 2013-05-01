@@ -112,13 +112,26 @@ Constant & $T_{\mathrm{constant}}$& Constant value\\
 \end{table}
 
 ```{r env-ts, fig.height=4, fig.width=4, cache = FALSE, fig.cap="Example temperature time series\\label{fig:env-ts}"}
-#library(metafolio)
-#or for rapid development:
+
 library(devtools)
+
+RELOAD_R_PACKAGE <- FALSE
+
+if(RELOAD_R_PACKAGE) {
+  document("../../")
+  build("../../")
+  if("metafolio" %in% loaded_packages()) 
+    detach("package:metafolio", unload = TRUE)
+  install.packages("~/Dropbox/ms/metafolio_0.1.tar.gz", type = "source", repos = NULL, INSTALL_opts = "--byte-compile")
+  library(metafolio)
+}
+
 metafolio_files <-  list.files(path = "../../R/")
 for(i in 1:length(metafolio_files)){
    source(paste("../..//R/", metafolio_files[i], sep = ""));rm(i)}
-#load_all("../../") # Not working with knitr?
+
+#load_all("../../") 
+
 source("plot_env_ts.R")
 col_pal <- rev(gg_color_hue(10))
 ```

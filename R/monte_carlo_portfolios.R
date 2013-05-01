@@ -1,5 +1,6 @@
 #' Monte Carlo the weights into portfolios and record the simulation
 # output and portfolio metrics (mean and variance for now)
+#' @export
 
 monte_carlo_portfolios <- function(weights_matrix, n_sims = 500, mean_b = 1000, burn = 1:30, ...) {
 

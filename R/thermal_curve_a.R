@@ -11,6 +11,7 @@
 #' @param width_param A parameter to control the width of the
 #' parabola. Smaller numbers make wider parabolas.
 #' @return A productivity parameter given the location on a thermal tolerance curve.
+#' @export
 #' @examples
 #' x <- seq(5, 30, length.out = 200)
 #' plot(x, thermal_curve_a(x), ylab = "a", xlab = "Temperature", type = "l")

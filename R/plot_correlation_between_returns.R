@@ -3,6 +3,7 @@
 #' @param x A list output object from \code{meta_sim}.
 #' @param burn Number of years to discard at start as burnin.
 #' @param pal Colours to plot with for stocks.
+#' @export
 
 plot_correlation_between_returns <- function(x, burn = 1:30, pal = gg_color_hue(x$n_pop)) {
   # x is output from a simulation run

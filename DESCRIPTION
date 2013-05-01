@@ -5,5 +5,24 @@ Version: 0.1
 Date: 2013-03-09
 Author: Sean C. Anderson
 Maintainer: Sean C. Anderson <sean@seananderson.ca>
-Description: Simulations are based around salmon metapopulations. 
+Description: Simulations are based around salmon metapopulations.
 License: MIT
+Collate:
+    'thermal_curve_a.R'
+    'monte_carlo_portfolios.R'
+    'plot_correlation_between_returns.R'
+    'plot_efficient_portfolios.R'
+    'plot_rickers.R'
+    'plot_sim_ts.R'
+    'ricker_ar1.R'
+    'ricker_escapement.R'
+    'ricker_v_t.R'
+    'meta_sim.R'
+    'get_port_vals.R'
+    'impl_error.R'
+    'create_asset_weights.R'
+    'fit_ricker.R'
+    'generate_env_ts.R'
+    'generate_straying_matrix.R'
+    'get_conserv_plans_mv.R'
+    'gg_color_hue.R'

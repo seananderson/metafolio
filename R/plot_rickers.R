@@ -6,6 +6,7 @@
 #' @param add_y_axes_pops Panels to add y axes on
 #' @param add_x_axes_pops Panels to add x axes on
 #' @param burn Number of initial years to throw out as burnin
+#' @export
 #' 
 plot_rickers <- function(
   x,  # sim output list

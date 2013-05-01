@@ -4,10 +4,10 @@
 \usage{
   generate_env_ts(n_t,
     type = c("sine", "arma", "regime", "linear", "constant"),
-    sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0),
-    arma_params = list(sigma_env = 0.3, ar = 0.6, ma = 0),
+    sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0, slope = 0, sigma_env = 0.1),
+    arma_params = list(mean_value = 0, sigma_env = 0.5, ar = 0.4, ma = 0),
     regime_params = list(break_pts = c(25, 75), break_vals = c(-1, 0, 1)),
-    linear_params = list(min_value = -1, max_value = 1),
+    linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.1),
     constant_params = list(value = 0))
 }
 \arguments{

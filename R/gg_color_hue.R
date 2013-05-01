@@ -6,6 +6,7 @@
 #' @param l Luminance in the range [0,100]
 #' @param c Chroma of the colour. 
 #' @details See the \code{hcl} function for details.
+#' @export
 #' @examples
 #' gg_color_hue(10)
 #' 

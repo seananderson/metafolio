@@ -1,4 +1,7 @@
+#' Get portfolio mean and variance values from a meta_sim() object 
 #' 
+#' @param x A list object as returned from \code{meta_sim}
+#' @param burn Number of years to throw out at burn in
 
 get_port_vals <- function(x, burn = 1:30) {
     port.x <- rowSums(x$A[-burn, ])

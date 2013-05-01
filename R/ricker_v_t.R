@@ -4,6 +4,7 @@
 #' @param a Ricker productivity paramater. Recruits are e^a at the origin.
 #' @param b Ricker density dependent parameter.
 #' @param v_t Residual on the curve. Will be exponentiated.
+#' @export
 #' @examples
 #' x <- seq(1, 100)
 #' v_t <- as.numeric(arima.sim(n = 100, model = list(ar = 0.3), sd = 0.1, mean = 0))

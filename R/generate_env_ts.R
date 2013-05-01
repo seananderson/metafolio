@@ -7,6 +7,7 @@
 #' @param regime_params Parameters controlling regime-shift time series.
 #' @param linear_params Parameters controlling warming or cooling time series.
 #' @param constant_params Parameter controlling constant time series.
+#' @export
 #' @examples
 #' types <- c("sine", "arma", "regime", "linear", "constant")
 #' x <- list()

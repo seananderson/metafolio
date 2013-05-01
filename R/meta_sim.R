@@ -152,8 +152,8 @@ meta_sim <- function(
           #if(j == 1) plot(spawners, log(recruits/spawners), main = i)
           #if(j == 1) print(rick)
           # bounds for sanity:
-          if(rick$a > 3) rick$a <- 3
-          if(rick$a < 0.05) rick$a <- 0.05
+          if(rick$a > 4) rick$a <- 4
+          if(rick$a < 0.02) rick$a <- 0.02
           if(rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5 # at most increase b by 50% 
           if(rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5 # at most decrease b by 50% 
           Est_a[i,j]<-rick$a

@@ -1,4 +1,5 @@
-# create asset weights matrix for portfolios
+#' create asset weights matrix for portfolios
+#' @export
 create_asset_weights <- function(
   n_pop, # number of subpops
   n_sims, # number of simulations

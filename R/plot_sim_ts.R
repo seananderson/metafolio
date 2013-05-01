@@ -4,6 +4,7 @@
 #' @param years_to_show How many years to plot after the burn in period.
 #' @param burn The number of years to discard as burnin a the beginning of the time 
 #' series.
+#' @export
 
 plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30, burn = 1:50) {
 # x is output from a simulation run; it's a list
