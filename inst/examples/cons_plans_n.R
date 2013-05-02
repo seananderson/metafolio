@@ -49,11 +49,11 @@ if(USE_CACHE) {
   # move to list of dataframes instead of list of list of dataframes
   # this is to match the typical output with even population numbers
   # across runs
-  #plans_mv_arma_n_dfs <- list() 
-  plans_mv_linear_n_dfs <- list() 
+  plans_mv_arma_n_dfs <- list() 
+  #plans_mv_linear_n_dfs <- list() 
   for(i in 1:length(w)) {
-    #plans_mv_arma_n_dfs[[i]] <- plans_mv_arma_n[[i]][[1]]
-    plans_mv_linear_n_dfs[[i]] <- plans_mv_linear_n[[i]][[1]]
+    plans_mv_arma_n_dfs[[i]] <- plans_mv_arma_n[[i]][[1]]
+    #plans_mv_linear_n_dfs[[i]] <- plans_mv_linear_n[[i]][[1]]
   }
   #save(plans_mv_arma_n_dfs, plans_mv_linear_n_dfs, file = "plans_mv_n.rda")
   save(plans_mv_arma_n_dfs, file = "plans_mv_n.rda")
