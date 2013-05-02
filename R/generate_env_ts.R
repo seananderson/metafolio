@@ -1,11 +1,16 @@
 #' Create an environmental time series.
 #'
+#' Generate various types of environmental time series.
+#'
 #' @param n_t Length of time series.
 #' @param type Type of time series to produce.
 #' @param sine_params Parameters controlling sine wave time series.
 #' @param arma_params Parameters controlling ARMA time series.
 #' @param regime_params Parameters controlling regime-shift time series.
-#' @param linear_params Parameters controlling warming or cooling time series.
+#' @param linear_params Parameters controlling warming or cooling time
+#' series. Minimum environmental value, maximum environmental value,
+#' environmental standard deviation, and the year to start the linear trend
+#' (useful if you're going to throw out the early years as burn in).
 #' @param constant_params Parameter controlling constant time series.
 #' @export
 #' @examples
@@ -22,7 +27,7 @@ generate_env_ts <- function(
   sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0, slope = 0, sigma_env = 0.10),
   arma_params = list(mean_value = 0, sigma_env = 0.50, ar = 0.4, ma = 0),
   regime_params = list(break_pts = c(25, 75), break_vals = c(-1, 0, 1)),
-  linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.10),
+  linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.10, start_t = 0),
   constant_params = list(value = 0)
   ) {
   type <- type[1]
@@ -45,7 +50,10 @@ generate_env_ts <- function(
       y
     },
     linear = {
-      with(linear_params, seq(min_value, max_value, length.out = n_t) + rnorm(n_t, mean = 0, sd = sigma_env))
+      trend_years <- n_t - linear_params$start_t
+      trend <- with(linear_params, seq(min_value, max_value, length.out = trend_years) + rnorm(trend_years, mean = 0, sd = sigma_env))
+      burnin_and_trend <- with(linear_params, c(rep(min_value, start_t), trend)) 
+      burnin_and_trend
     },
     constant = {
       rep(constant_params$value, n_t)
