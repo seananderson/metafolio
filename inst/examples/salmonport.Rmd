@@ -128,7 +128,7 @@ if(RELOAD_R_PACKAGE) {
 
 metafolio_files <-  list.files(path = "../../R/")
 for(i in 1:length(metafolio_files)){
-   source(paste("../..//R/", metafolio_files[i], sep = ""));rm(i)}
+   source(paste("../../R/", metafolio_files[i], sep = ""));rm(i)}
 
 #load_all("../../") 
 
