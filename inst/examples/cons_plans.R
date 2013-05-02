@@ -50,6 +50,8 @@ if(USE_CACHE) {
   plans_mv_linear <- get_conserv_plans_mv(weights = w, 
     env_type = "linear",
     env_params = list(min_value = 10, max_value = 20, sigma_env = 0.2))
+  # TODO Note that this is not balanced around the mean of 16 - change
+  # this
 
   save(plans_mv_arma, plans_mv_linear, file = "plans_mv.rda")
 }
