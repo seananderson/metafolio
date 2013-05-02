@@ -33,7 +33,7 @@
 #' @param add_straying Implement straying between (sub)populations?
 #' @param add_impl_error Add implementation error?
 meta_sim <- function(
-  n_t = 120, # number of years
+  n_t = 100, # number of years
   n_pop = 10, # number of subpopulations
   stray_decay_rate = 0.3, # rate that straying decays with distance
   stray_fraction = 0.000001, # fraction of fish that stray from natal streams
