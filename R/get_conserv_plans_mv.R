@@ -11,7 +11,7 @@
 #' spawner-recruit re-assessment. Passed to \code{meta_sim}. Defaults
 #' to 50 generations to speed up simulations.
 #' @param burn Cycles to throw out as burn in
-#' @param ... Other values to pass to \code{meta_sim}
+#' @param ... Other values to pass to \code{\link{meta_sim}}
 
 get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 5, burn = 1:30, ...) {
   require(plyr)
