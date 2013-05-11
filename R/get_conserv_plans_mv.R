@@ -1,4 +1,5 @@
-#' Run the metapopulation simulation for various conservation privatization schemes
+#' Run the metapopulation simulation for various conservation
+#' prioritization schemes
 #'
 #' @details
 #' Returns the portfolio mean and variance values.
