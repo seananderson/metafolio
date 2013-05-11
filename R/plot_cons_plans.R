@@ -39,7 +39,10 @@ get_efficient_frontier <- function(m, v) {
 #' Plot conservation plans in mean-variance space
 #' @export
 plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
-  ylim = NULL, add_pts = TRUE, add_all_efs = FALSE, w_show = "all") {
+  ylim = NULL, add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE,
+  y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance of
+    generation-to-generation\nrate of change", ylab = "Mean of
+    generation-to-generation\nrate of change") {
 
   if(w_show[1] == "all") w_show <- seq_along(plans_name)
 
@@ -51,19 +54,19 @@ plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
     ylim = c(min(lims$y.min), max(lims$y.max))
   }
 
-  plot(1, 1, xlim = xlim, ylim = ylim, type = "n", xlab = "Variance of
-    generation-to-generation\nrate of change", ylab = "Mean of
-    generation-to-generation\nrate of change", axes = FALSE)
+  plot(1, 1, xlim = xlim, ylim = ylim, type = "n", xlab = xlab, ylab = ylab, axes = FALSE)
     box(col = "grey50")
-    axis(1, col=  "grey50")
-    axis(2, col=  "grey50")
+    if(x_axis) axis(1, col=  "grey50")
+    if(y_axis) axis(2, col=  "grey50")
 
     for(i in w_show) {
       add_dens_polygon(plans_mv[[i]]$v, plans_mv[[i]]$m, col = cols[i],
         add_pts = add_pts)
     }
+    if(add_legend) {
     legend("topright", legend = plans_name[w_show], fill =
       paste(cols[w_show], "80", sep = ""), bty = "n", cex = 0.9)
+    }
 
     mv_all <- do.call("rbind", plans_mv)
 
