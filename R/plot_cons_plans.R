@@ -56,8 +56,8 @@ plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
 
   plot(1, 1, xlim = xlim, ylim = ylim, type = "n", xlab = xlab, ylab = ylab, axes = FALSE)
     box(col = "grey50")
-    if(x_axis) axis(1, col=  "grey50")
-    if(y_axis) axis(2, col=  "grey50")
+    if(x_axis) axis(1, col=  "grey50", at = pretty(axTicks(1), n = 4))
+    if(y_axis) axis(2, col=  "grey50", at = pretty(axTicks(2), n = 4))
 
     for(i in w_show) {
       add_dens_polygon(plans_mv[[i]]$v, plans_mv[[i]]$m, col = cols[i],
