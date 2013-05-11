@@ -56,13 +56,6 @@ meta_sim <- function(
   add_impl_error = TRUE # include implementation error?
 ) {
   
-#   source("generate_env_responses.R")
-#   source("generate_env_ts.R")
-#   source("ricker_v_t.R")
-#   source("ricker_escapement.R")
-#   source("generate_straying_matrix.R")
-#   source("thermal_curve_a.R")
-#   
   # create vectors and matrices that are not developed iteratively:
   if(use_cache) {
     load("sim_dat.rda")
