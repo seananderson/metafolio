@@ -28,6 +28,7 @@
 }
 \examples{
 x <- seq(5, 30, length.out = 200)
-plot(x, thermal_curve_a(x), ylab = "a", xlab = "Temperature", type = "l")
+plot(x, thermal_curve_a(x), ylab = "a", xlab = "Temperature", type
+= "l")
 }
 

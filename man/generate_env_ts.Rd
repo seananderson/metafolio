@@ -7,7 +7,7 @@
     sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0, slope = 0, sigma_env = 0.1),
     arma_params = list(mean_value = 0, sigma_env = 0.5, ar = 0.4, ma = 0),
     regime_params = list(break_pts = c(25, 75), break_vals = c(-1, 0, 1)),
-    linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.1),
+    linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.1, start_t = 0),
     constant_params = list(value = 0))
 }
 \arguments{
@@ -25,13 +25,16 @@
   time series.}
 
   \item{linear_params}{Parameters controlling warming or
-  cooling time series.}
+  cooling time series. Minimum environmental value, maximum
+  environmental value, environmental standard deviation,
+  and the year to start the linear trend (useful if you're
+  going to throw out the early years as burn in).}
 
   \item{constant_params}{Parameter controlling constant
   time series.}
 }
 \description{
-  Create an environmental time series.
+  Generate various types of environmental time series.
 }
 \examples{
 types <- c("sine", "arma", "regime", "linear", "constant")
