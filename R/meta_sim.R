@@ -148,7 +148,7 @@ meta_sim <- function(
           recruits <- A[3:i, j]
           #spawners <- E[(i - 1 - assessment_window):(i - 1), j]
           spawners <- E[2:(i - 1), j]
-          rick <- fit_ricker(R = recruits, S = spawners)
+          rick <- fit_ricker_fast(R = recruits, S = spawners)
           #if( i == 57) browser()
           #if(j == 1) plot(spawners, log(recruits/spawners), main = i)
           #if(j == 1) print(rick)

@@ -12,4 +12,20 @@ fit_ricker <- function(S, R) {
   return(list(a = a, b = b))
 }
 
+#' Fit a Ricker curve (quickly)
+#'
+#' This version uses \code{\link{stats::lm.fit}} by directly
+#' specifying the model matrix. This is about an order of magnitude
+#' faster than \code{\link{fit_ricker}}.
+#'
+#' @param S Spawners
+#' @param R Recruits or returns
+#' @export
+
+fit_ricker_fast <- function(S, R) {
+  m <- lm.fit(x = cbind(rep(1, length(S)), S), y = log(R/S))
+  a <- m$coefficients[[1]]
+  b <- -a/m$coefficients[[2]]
+  return(list(a = a, b = b))
+}
 
