@@ -14,7 +14,9 @@ x <- seq(3, 29, length.out = 200)
 plot_the_curves <- function(ids) {
   plot(1, 1, xlim = c(4, 28), ylim = c(-0.01, 2.9), ylab = "", xlab = "", type = "n", yaxs = "i", las = 1, xaxt = "n")
   for(i in ids) {
-    lines(x, thermal_curve_a(x, optim_temp = optim_temps[i], max_a = heights[i], width_param = widths[i]), col = col_pal[i], lwd = 1.5)
+    a <- thermal_curve_a(x, optim_temp = optim_temps[i], max_a = heights[i], width_param = widths[i])
+    a[a<0] <- 0
+    lines(x, a, col = col_pal[i], lwd = 1.5)
   }
 }
 plot_the_curves(c(2, 4, 7, 9)) 

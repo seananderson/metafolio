@@ -76,6 +76,16 @@ meta_sim <- function(
       constant= generate_env_ts(n_t = n_t, type = "constant", 
         constant_params = env_params)
     )
+
+# Figure out alpha parameters before running through the loops:
+  A_params <- matrix(ncol = n_pop, nrow = n_t) # a parameters from Ricker
+    for(j in 1:n_pop) {
+      A_params[, j] <- thermal_curve_a(env_ts, optim_temp =
+        optim_temp[j], max_a = max_a[j], width_param =
+        a_width_param[j]) 
+    }
+  A_params[A_params<0] <- 0
+
     stray_mat <- generate_straying_matrix(n_pop = n_pop, stray_fraction
       = stray_fraction, stray_decay_rate = stray_decay_rate)
     
@@ -107,11 +117,8 @@ meta_sim <- function(
   # run the simulation through time:
   for(i in 2:n_t){
     for(j in 1:n_pop) {
-      # environment section:
-      a_i <- thermal_curve_a_fast(env_ts[i], optim_temp = optim_temp[j], max_a = max_a[j], width_param = a_width_param[j]) 
-      A_params[i, j] <- a_i
       # spawner-recruit section:
-      A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = a_i, 
+      A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = A_params[i, j], 
         b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation added!!!!
       #A[i, j] <- ricker_out
       #Eps[i, j] <- ricker_out$eps

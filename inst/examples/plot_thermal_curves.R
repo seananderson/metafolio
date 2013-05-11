@@ -16,7 +16,9 @@ heights <- c(seq(2.8, 2.2, length.out = 5), rev(seq(2.8, 2.2, length.out = 5)))
 x <- seq(3, 29, length.out = 200)
 plot(1, 1, xlim = c(4, 28), ylim = c(-0.01, 2.9), ylab = "Ricker productivity parameter (a)", xlab = expression(Temperature~(degree*C)), type = "n", yaxs = "i", las = 1)
 for(i in 1:10) {
-  lines(x, thermal_curve_a(x, optim_temp = optim_temps[i], max_a = heights[i], width_param = widths[i]), ylab = "a", xlab = "Temperature", type = "l", col = col_pal[i], lwd = 1.5)
+  a <- thermal_curve_a(x, optim_temp = optim_temps[i], max_a = heights[i], width_param = widths[i])
+  a[a<0] <- 0
+  lines(x, a, ylab = "a", xlab = "Temperature", type = "l", col = col_pal[i], lwd = 1.5)
 }
 
 abline(v = 16, lty = 2)

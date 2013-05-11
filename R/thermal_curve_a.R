@@ -22,7 +22,8 @@
 
 thermal_curve_a <- function(temp, optim_temp = 15, max_a = 1.4, width_param = 0.02) {
   a <- -width_param * (temp - optim_temp)^2 + max_a
-  return(ifelse(a < 0, 0, a))
+  #return(ifelse(a < 0, 0, a))
+  a
 }
 
 # Create thermal tolerance curves; with C++
