@@ -50,9 +50,9 @@ generate_env_ts <- function(
       y
     },
     linear = {
-      trend_years <- n_t - linear_params$start_t
+      trend_years <- n_t - (linear_params$start_t - 1)
       trend <- with(linear_params, seq(min_value, max_value, length.out = trend_years) + rnorm(trend_years, mean = 0, sd = sigma_env))
-      burnin_and_trend <- with(linear_params, c(rep(min_value, start_t), trend)) 
+      burnin_and_trend <- with(linear_params, c(rep(min_value, start_t - 1), trend)) 
       burnin_and_trend
     },
     constant = {
