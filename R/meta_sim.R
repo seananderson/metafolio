@@ -32,6 +32,7 @@
 #' possibly environmental time series) from the previous run?
 #' @param add_straying Implement straying between (sub)populations?
 #' @param add_impl_error Add implementation error?
+#' @export
 meta_sim <- function(
   n_t = 100, # number of years
   n_pop = 10, # number of subpopulations
