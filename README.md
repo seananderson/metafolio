@@ -4,6 +4,6 @@ Reusable functions are in the `R` folder. Current work in development, figures, 
 
 The package can be installed and loaded in R by running:
 
-    library(devtools)
-    install_github("metaport", username="seananderson")
+    # install.packages("devtools")
+    devtools::install_github("metafolio", username="seananderson")
 
