@@ -18,7 +18,7 @@
 #' plot(x, thermal_curve_a(x), ylab = "a", xlab = "Temperature", type
 #' = "l")
 # For the C++ version:
-#' @useDynLib mypackage
+#' @useDynLib metafolio
 
 thermal_curve_a <- function(temp, optim_temp = 15, max_a = 1.4, width_param = 0.02) {
   a <- -width_param * (temp - optim_temp)^2 + max_a
