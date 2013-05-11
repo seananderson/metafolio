@@ -10,9 +10,10 @@
 #' @param assess_freq The frequency (in generations) of
 #' spawner-recruit re-assessment. Passed to \code{meta_sim}. Defaults
 #' to 50 generations to speed up simulations.
+#' @param burn Cycles to throw out as burn in
 #' @param ... Other values to pass to \code{meta_sim}
 
-get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 50, ...) {
+get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 5, burn = 1:30, ...) {
   require(plyr)
   n_pop = ncol(weights)
   port_mv <- list()
@@ -23,7 +24,7 @@ get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 50, ...) {
       port_out[[j]][[i]] <- meta_sim(b = weights[j, ], use_cache = FALSE, 
         n_pop = n_pop, add_impl_error = FALSE, ...)
     }
-    port_mv[[j]] <- ldply(port_out[[j]], function(x) get_port_vals(x))
+    port_mv[[j]] <- ldply(port_out[[j]], function(x) get_port_vals(x, burn = burn))
   }
   return(port_mv)
 }
