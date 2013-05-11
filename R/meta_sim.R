@@ -104,7 +104,6 @@ meta_sim <- function(
   F <- matrix(ncol = n_pop, nrow = n_t) # fisheries catch
   E <- matrix(ncol = n_pop, nrow = n_t) # escapement
   Eps <- matrix(ncol = n_pop, nrow = n_t) # S-R residuals, for AR1 tracking
-  A_params <- matrix(ncol = n_pop, nrow = n_t) # a parameters from Ricker
   Strays_leaving <- matrix(ncol = n_pop, nrow = n_t)
   Strays_joining <- matrix(ncol = n_pop, nrow = n_t)
   Est_a <- matrix(ncol = n_pop, nrow = n_t)
