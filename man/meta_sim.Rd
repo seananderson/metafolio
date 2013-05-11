@@ -3,7 +3,7 @@
 \title{Run a (salmon) metapopulation simulation.}
 \usage{
   meta_sim(n_t = 100, n_pop = 10, stray_decay_rate = 0.3,
-    stray_fraction = 1e-06, b = rep(1000, n_pop),
+    stray_fraction = 0.01, b = rep(1000, n_pop),
     spawners_0 = round(b), sigma_v = 0.3, v_rho = 0.4,
     a_width_param = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))),
     optim_temp = seq(13, 19, length.out = n_pop),

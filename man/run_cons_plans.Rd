@@ -4,7 +4,7 @@
 values}
 \usage{
   run_cons_plans(w, env_type, env_params,
-    show_progress = TRUE)
+    show_progress = TRUE, burn = 1:30, assess_freq = 5)
 }
 \arguments{
   \item{w}{A (nested) list of weights. The first list level
@@ -23,6 +23,8 @@ values}
 
   \item{show_progress}{Logical: show an indication of
   progress?}
+
+  \item{burn}{Cycles to throw out as burn in}
 }
 \value{
   A list of data frames. Each element of the list contains
