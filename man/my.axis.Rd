@@ -1,0 +1,10 @@
+\name{my.axis}
+\alias{my.axis}
+\title{Add a pretty axis}
+\usage{
+  my.axis(side, shade_years = NULL, ylab = "")
+}
+\description{
+  Add a pretty axis
+}
+
