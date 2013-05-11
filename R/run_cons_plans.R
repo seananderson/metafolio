@@ -20,6 +20,7 @@
 #' @param env_params The environmental parameters to pass to
 #' \code{\link{generate_env_ts}}
 #' @param show_progress Logical: show an indication of progress?
+#' @param burn Cycles to throw out as burn in
 #' @export
 #' @return A list of data frames. Each element of the list contains a
 #' conservation plan. Each row of the data frames represents a trial
@@ -51,7 +52,7 @@
 #'     = 11.5, max_value = 20.5, sigma_env = 0.1, start_t = 31)) 
 #' }
 run_cons_plans <- function(w, env_type, env_params, show_progress =
-  TRUE) {
+  TRUE, burn = 1:30, assess_freq = 5) {
 
   plans_mv_n <- list()
   for(i in 1:length(w)) {
@@ -62,7 +63,9 @@ run_cons_plans <- function(w, env_type, env_params, show_progress =
         weights = w[[i]][[j]], 
         reps = 1,
         env_type = env_type,
-        env_params = env_params
+        env_params = env_params,
+        burn = burn,
+        assess_freq = assess_freq
         )
     }
     if(show_progress)
