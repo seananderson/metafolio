@@ -5,6 +5,20 @@
 
 using namespace Rcpp;
 
+// ricker_v_t_fast
+double ricker_v_t_fast(double spawners, double a, double b, double d, double v_t);
+RcppExport SEXP metafolio_ricker_v_t_fast(SEXP spawnersSEXP, SEXP aSEXP, SEXP bSEXP, SEXP dSEXP, SEXP v_tSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope __rngScope;
+    double spawners = Rcpp::as<double >(spawnersSEXP);
+    double a = Rcpp::as<double >(aSEXP);
+    double b = Rcpp::as<double >(bSEXP);
+    double d = Rcpp::as<double >(dSEXP);
+    double v_t = Rcpp::as<double >(v_tSEXP);
+    double __result = ricker_v_t_fast(spawners, a, b, d, v_t);
+    return Rcpp::wrap(__result);
+END_RCPP
+}
 // thermal_curve_a_fast
 double thermal_curve_a_fast(double temp, double optim_temp = 15, double max_a = 1.4, double width_param = 0.02);
 RcppExport SEXP metafolio_thermal_curve_a_fast(SEXP tempSEXP, SEXP optim_tempSEXP, SEXP max_aSEXP, SEXP width_paramSEXP) {
