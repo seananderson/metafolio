@@ -7,6 +7,9 @@ Author: Sean C. Anderson
 Maintainer: Sean C. Anderson <sean@seananderson.ca>
 Description: Simulations are based around salmon metapopulations.
 License: MIT
+Depends:
+    Rcpp (>= 0.10.3)
+LinkingTo: Rcpp
 Collate:
     'thermal_curve_a.R'
     'monte_carlo_portfolios.R'
@@ -26,3 +29,4 @@ Collate:
     'generate_straying_matrix.R'
     'get_conserv_plans_mv.R'
     'gg_color_hue.R'
+    'RcppExports.R'

@@ -108,7 +108,7 @@ meta_sim <- function(
   for(i in 2:n_t){
     for(j in 1:n_pop) {
       # environment section:
-      a_i <- thermal_curve_a(env_ts[i], optim_temp = optim_temp[j], max_a = max_a[j], width_param = a_width_param[j]) 
+      a_i <- thermal_curve_a_fast(env_ts[i], optim_temp = optim_temp[j], max_a = max_a[j], width_param = a_width_param[j]) 
       A_params[i, j] <- a_i
       # spawner-recruit section:
       A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = a_i, 
