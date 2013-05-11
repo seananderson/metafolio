@@ -1,105 +1,60 @@
-#' Show difference of increasing the number of streams you maintain
-#' with unknown response diversity
-#'
-#' In this version, the response diversity is randomly drawn
-#'
+# Show difference of increasing the number of streams you maintain
+# with unknown response diversity
+#
+# In this version, the response diversity is randomly drawn
 
-USE_CACHE <- TRUE
-
-require(plyr)
-num_pops <- c(2, 4, 8, 16, 32)
-tot_abund <- 10000
-n_trials <- 60 # number of trials at each n conservation plan
-#w <- list()
-#for(i in 1:length(num_pops)) {
-  #w[[i]] <- matrix(rep(1, num_pops[i]) * (tot_abund / num_pops[i]), nrow = 1)
-#}
-#plans_name <- num_pops
-
-#### in this version, the pops are wiped out; total abundance changes
+# in this version, the pops are wiped out; total abundance changes
+n_trials <- 250 # number of trials at each n conservation plan
+num_pops <- c(2, 4, 8, 16) # n pops to conserve
+n_plans <- length(num_pops) # number of plans
 w <- list()
-
-for(i in 1:4) { # loop over number conserved
-  w[[i]] <- list()
-  for(j in 1:n_trials) { # loop over trials
-    w[[i]][[j]] <- matrix(rep(625, 16), nrow = 1)
-    w[[i]][[j]][-sample(1:16, num_pops[i])] <- 5 # conserve num_pops[i] populations; wipe out rest
-  }
+for(i in 1:n_plans) { # loop over number conserved
+ w[[i]] <- list()
+ for(j in 1:n_trials) { # loop over trials
+   w[[i]][[j]] <- matrix(rep(1000, 16), nrow = 1)
+   w[[i]][[j]][-sample(1:16, num_pops[i])] <- 5 # conserve num_pops[i] populations; wipe out rest
+ }
 }
-  
-plans_name <- num_pops[1:4]
-####
 
-w_show <- seq_len(length(w))
+## ARMA:
+arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
-#if(USE_CACHE) {
-  #load("plans_mv_n.rda")
-#}else{
-  plans_mv_arma_n <- list()
-  plans_mv_linear_n <- list()
-  for(i in 1:length(w)) {
-    #plans_mv_arma_n[[i]] <- list()
-    plans_mv_linear_n[[i]] <- list()
-    for(j in 1:n_trials) {
-      #plans_mv_arma_n[[i]][[j]] <- get_conserv_plans_mv(
-      plans_mv_linear_n[[i]][[j]] <- get_conserv_plans_mv(
-        weights = w[[i]][[j]], 
-        reps = 1,
-        #env_type = "arma",
-        env_type = "linear",
-        #env_params = list(mean_value = 16, ar = 0.4, sigma_env = 1.4, ma = 0)
-        env_params = list(min_value = 11.5, max_value = 20.5, sigma_env = 0.1, start_t = 31)
-        )
-      #plans_mv_linear_n[[i]] <- get_conserv_plans_mv(
-      #weights = w[[i]], 
-      #reps = 30,
-      #env_type = "linear",
-      #env_params = list(min_value = 10, max_value = 20, sigma_env = 0.2))
-    }
-      print(paste("Completed", i, "of", length(w), "conservation plans to evaluate"))
-  }
+#plot_sim_ts(meta_sim(b = rep(1000, 10), n_pop = 10, env_params =
+    #arma_env_params, env_type = "arma", assess_freq = 5),
+  #years_to_show = 100, burn = 0)
 
-####### TEMPORARY TODO remove this
-####### look at one realization:
-#w <- list()
-#for(i in 1:4) w[[i]] <- matrix(rep(625, 16), nrow = 1)
-#w[[1]][-c(1, 16)] <- 5 # 2 pops
-#w[[2]][-c(1,2,15,16)] <- 5 # 4 pops
-#w[[3]][-c(1:4,13:16)] <- 5 # 8 pops
-#eg1 <- meta_sim(b = w[[1]], n_pop = 16, env_type = "linear", env_params = list(min_value = 11.5, max_value = 20.5, sigma_env = 0.1, start_t = 31))
-#plot_sim_ts(eg1, burn = 1:30, years_to_show = 70)
-#######
-#######
+plot_sim_ts(meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
+    arma_env_params, env_type = "arma", assess_freq = 5),
+  years_to_show = 70, burn = 30)
 
-# TODO this is temporary; fix it:
-plans_mv_arma_n <- plans_mv_linear_n 
+x.arma <- run_cons_plans(w, env_type = "arma", env_params =
+  arma_env_params)
 
-  # move to list of dataframes instead of list of list of dataframes
-  # this is to match the typical output with even population numbers
-  # across runs
-  plans_mv_arma_n_dfs <- list() 
-  #plans_mv_linear_n_dfs <- list() 
-  for(i in 1:length(w)) {
-    plans_mv_arma_n_dfs[[i]] <- list() 
-    for(j in 1:n_trials) {
-      plans_mv_arma_n_dfs[[i]][[j]] <- plans_mv_arma_n[[i]][[j]][[1]]
-    #plans_mv_linear_n_dfs[[i]] <- plans_mv_linear_n[[i]][[1]]
-    }
-  }
-  for(i in 1:length(w)) {
-    plans_mv_arma_n_dfs[[i]] <- do.call("rbind", plans_mv_arma_n_dfs[[i]])
-  }
-  #save(plans_mv_arma_n_dfs, plans_mv_linear_n_dfs, file = "plans_mv_n.rda")
-  #save(plans_mv_arma_n_dfs, file = "plans_mv_n.rda")
-#}
+cols <- RColorBrewer::brewer.pal(5, "Spectral")
 
-source("plot_cons_plans.R")
-#par(mfrow = c(1, 2))
-par(mfrow = c(1, 1))
-require(RColorBrewer)
-#cols <- brewer.pal(6, "RdYlGn")
-cols <- brewer.pal(6, "Spectral")
-par(cex = 0.7, mar = c(4,5,0,0), oma = c(.5,.5,.5,.5), mgp = c(3, .5, 0), tck = -0.01, las = 1)
-j <- plot_cons_plans(plans_mv_arma_n_dfs, plans_name, cols = cols, add_all_efs = TRUE)
-#plot_cons_plans(plans_mv_linear_n_dfs, plans_name, cols = cols, xlim = j$xlim, ylim = j$ylim, add_all_efs = TRUE)
+## Linear:
+linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
+  start_t = 30)
+
+#plot_sim_ts(meta_sim(b = rep(1000, 10), n_pop = 10, env_params =
+    #linear_env_params, env_type = "linear", assess_freq = 5),
+  #years_to_show = 100, burn = 0)
+
+plot_sim_ts(meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
+    linear_env_params, env_type = "linear", assess_freq = 5),
+  years_to_show = 70, burn = 30)
+
+x.linear <- run_cons_plans(w, env_type = "linear", env_params = linear_env_params) 
+
+par(mfrow = c(1, 2))
+xlim <- c(0, 0.15)
+ylim <- c(-0.018, 0.017)
+par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(5, 5, .5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
+plot_cons_plans(x.arma, plans_name = num_pops, cols = cols,
+  add_all_efs = TRUE, xlim = xlim, ylim = ylim, add_legend = FALSE)
+plot_cons_plans(x.linear, plans_name = num_pops, cols = cols,
+  add_all_efs = TRUE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
+mtext("Mean of generation-to-generation\nrate of change", side = 1, line = 3, outer = TRUE, cex = 0.8)
+par(las = 0)
+mtext("Variance of generation-to-generation\nrate of change", side = 2, line = 3, outer = TRUE, cex = 0.8)
 
