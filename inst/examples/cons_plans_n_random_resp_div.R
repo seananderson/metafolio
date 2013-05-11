@@ -27,7 +27,7 @@ plot_sim_ts(meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
     arma_env_params, env_type = "arma", assess_freq = 5),
   years_to_show = 70, burn = 30)
 
-x.arma <- run_cons_plans(w, env_type = "arma", env_params =
+x_arma_n <- run_cons_plans(w, env_type = "arma", env_params =
   arma_env_params)
 
 cols <- RColorBrewer::brewer.pal(5, "Spectral")
@@ -44,15 +44,15 @@ plot_sim_ts(meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
     linear_env_params, env_type = "linear", assess_freq = 5),
   years_to_show = 70, burn = 30)
 
-x.linear <- run_cons_plans(w, env_type = "linear", env_params = linear_env_params) 
+x_linear_n <- run_cons_plans(w, env_type = "linear", env_params = linear_env_params) 
 
 par(mfrow = c(1, 2))
 xlim <- c(0, 0.15)
 ylim <- c(-0.018, 0.017)
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(5, 5, .5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
-plot_cons_plans(x.arma, plans_name = num_pops, cols = cols,
+plot_cons_plans(x_arma_n, plans_name = num_pops, cols = cols,
   add_all_efs = TRUE, xlim = xlim, ylim = ylim, add_legend = FALSE)
-plot_cons_plans(x.linear, plans_name = num_pops, cols = cols,
+plot_cons_plans(x_linear_n, plans_name = num_pops, cols = cols,
   add_all_efs = TRUE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
 mtext("Mean of generation-to-generation\nrate of change", side = 1, line = 3, outer = TRUE, cex = 0.8)
 par(las = 0)
