@@ -30,3 +30,5 @@ Collate:
     'get_conserv_plans_mv.R'
     'gg_color_hue.R'
     'RcppExports.R'
+    'plot_cons_plans.R'
+    'run_cons_plans.R'
