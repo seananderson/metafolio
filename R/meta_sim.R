@@ -37,7 +37,7 @@ meta_sim <- function(
   n_t = 100, # number of years
   n_pop = 10, # number of subpopulations
   stray_decay_rate = 0.3, # rate that straying decays with distance
-  stray_fraction = 0.000001, # fraction of fish that stray from natal streams
+  stray_fraction = 0.01, # fraction of fish that stray from natal streams
   b = rep(1000, n_pop), # Ricker density-dependent parameter
   spawners_0 = round(b), # spawners at start
   sigma_v = 0.3, # stock-recruit residual SD
