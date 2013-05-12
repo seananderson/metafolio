@@ -89,7 +89,7 @@ meta_sim <- function(
     }
 # now develop random escapement targets at start of open access
     r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data = runif(n_pop*start_assessment, 0.1, 0.9))
-    save(env_ts, stray_mat, epsilon_mat, r_escp_goals, file = "sim_dat.rda")
+    save(env_ts, stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
   }
   
   # matrices to store output:
