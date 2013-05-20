@@ -62,11 +62,15 @@ meta_sim <- function(
   }else{
     env_type <- env_type[1]
     env_ts <- switch(env_type, 
-      sine = generate_env_ts(n_t = n_t, type = "sine", sine_params = env_params),
-      arma = generate_env_ts(n_t = n_t, type = "arma", arma_params = env_params),
-      regime= generate_env_ts(n_t = n_t, type = "regime", regime_params = env_params),
-      linear= generate_env_ts(n_t = n_t, type = "linear", linear_params = env_params),
-      constant= generate_env_ts(n_t = n_t, type = "constant", 
+      sine = generate_env_ts(n_t = n_t, type = "sine", sine_params =
+        env_params),
+      arma = generate_env_ts(n_t = n_t, type = "arma", arma_params =
+        env_params),
+      regime = generate_env_ts(n_t = n_t, type = "regime",
+        regime_params = env_params),
+      linear = generate_env_ts(n_t = n_t, type = "linear",
+        linear_params = env_params),
+      constant = generate_env_ts(n_t = n_t, type = "constant",
         constant_params = env_params)
     )
 
