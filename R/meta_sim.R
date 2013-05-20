@@ -51,15 +51,16 @@ meta_sim <- function(
   assessment_window = 25, # number of generations to use when fitting SR relationship for escapement targets; must be bigger than start_assessment
   sigma_impl = 0.05, # sd on beta implementation error
   assess_freq = 10, # how many generations between SR assessments
-  use_cache = FALSE, # regenerate stochastic values? 
+  use_cache = FALSE, # regenerate stochastic values? caches everything
+  cache_env = FALSE, # cache env? this lets you not cache everything else if you want by setting use_cache = FALSE and cache_env = TRUE
   add_straying = TRUE, # include or ignore straying
   add_impl_error = TRUE # include implementation error?
 ) {
   
-  # create vectors and matrices that are not developed iteratively:
-  if(use_cache) {
-    load("sim_dat.rda")
-  }else{
+
+  if(use_cache | cache_env) {
+    load("env_ts.rda")
+  } else {
     env_type <- env_type[1]
     env_ts <- switch(env_type, 
       sine = generate_env_ts(n_t = n_t, type = "sine", sine_params =
@@ -73,6 +74,14 @@ meta_sim <- function(
       constant = generate_env_ts(n_t = n_t, type = "constant",
         constant_params = env_params)
     )
+    save(env_ts, file = "env_ts.rda")
+  }
+
+
+  # create vectors and matrices that are not developed iteratively:
+  if(use_cache) {
+    load("sim_dat.rda")
+  } else {
 
 # Figure out alpha parameters before running through the loops:
   A_params <- matrix(ncol = n_pop, nrow = n_t) # a parameters from Ricker
@@ -93,7 +102,7 @@ meta_sim <- function(
     }
 # now develop random escapement targets at start of open access
     r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data = runif(n_pop*start_assessment, 0.1, 0.9))
-    save(env_ts, stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
+    save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
   }
   
   # matrices to store output:
