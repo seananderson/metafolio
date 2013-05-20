@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{graphicx}
+
+\usepackage{fontspec}
+%\usepackage{pdfsync}
+\defaultfontfeatures{Ligatures=TeX}
+\setsansfont{Calibri}
+\setmonofont{Inconsolata}
+\setmainfont{Linux Libertine}
+%\setmainfont{Times New Roman}
+\usepackage[sectionbib]{chapterbib}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\Large\bfseries\sffamily}
+\titleformat*{\subsection}{\large\sc\sffamily}
+\titleformat*{\subsubsection}{\itshape\sffamily}
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+\usepackage{setspace}
+\usepackage{booktabs}
+\bibliographystyle{apalike}
+\setcounter{secnumdepth}{-2}
+
+
+
+\usepackage[round]{natbib}
+\bibliographystyle{apalike}
+\bibpunct{(}{)}{;}{a}{}{;}
+
+\title{Portfolio prioritization of salmon conservation }
+\author{Sean C. Anderson$^{1*}$ \and Jonathan W. Moore$^1$ \and Trevor A. Branch
+  \and Andrew B. Cooper$^2$ \and Nicholas K.  Dulvy$^1$}
+\date{}
+
+\begin{document}
+%\onehalfspacing
+\doublespacing
+\maketitle
+
+\noindent
+  \textsuperscript{1}Department of Biological Sciences, Simon Fraser
+  University, Burnaby BC, V5A 1S6, Canada
+
+\noindent
+	\textsuperscript{2}School of Resource and Environmental Management, Simon
+  Fraser University, Burnaby, BC, V5A 1S6, Canada
+
+\noindent
+	\textsuperscript{*}Corresponding author: sean\_anderson@sfu.ca
+
+\clearpage
+
+
+\include{ms}
+
+% redefine the command that creates the Table number.
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{table}{0} % reset counter
+
+% redefine the command that creates the Figure number.
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\figurename}{Fig.}
+\setcounter{figure}{0}  % reset counter
+
+\include{som}
+
+\end{document}
+
+
