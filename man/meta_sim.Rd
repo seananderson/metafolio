@@ -12,7 +12,8 @@
     env_params = list(amplitude = 3.2, ang_frequency = 0.2, phase = runif(1, -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.3),
     start_assessment = 20, assessment_window = 25,
     sigma_impl = 0.05, assess_freq = 10, use_cache = FALSE,
-    add_straying = TRUE, add_impl_error = TRUE)
+    cache_env = FALSE, add_straying = TRUE,
+    add_impl_error = TRUE)
 }
 \arguments{
   \item{n_t}{The number of years.}

@@ -4,7 +4,8 @@
 values}
 \usage{
   run_cons_plans(w, env_type, env_params,
-    show_progress = TRUE, burn = 1:30, assess_freq = 5)
+    show_progress = TRUE, burn = 1:30, assess_freq = 5,
+    ...)
 }
 \arguments{
   \item{w}{A (nested) list of weights. The first list level
@@ -25,6 +26,9 @@ values}
   progress?}
 
   \item{burn}{Cycles to throw out as burn in}
+
+  \item{...}{Other values to pass to
+  \code{\link{meta_sim}}}
 }
 \value{
   A list of data frames. Each element of the list contains

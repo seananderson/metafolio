@@ -19,7 +19,8 @@ prioritization schemes}
 
   \item{burn}{Cycles to throw out as burn in}
 
-  \item{...}{Other values to pass to \code{meta_sim}}
+  \item{...}{Other values to pass to
+  \code{\link{meta_sim}}}
 }
 \description{
   Run the metapopulation simulation for various

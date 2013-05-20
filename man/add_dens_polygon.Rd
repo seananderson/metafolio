@@ -2,7 +2,7 @@
 \alias{add_dens_polygon}
 \title{Add a kernel density polygon}
 \usage{
-  add_dens_polygon(x, y, col, lwd = 1, alpha = 0.7,
+  add_dens_polygon(x, y, col, lwd = 1.7, alpha = 0.7,
     add_pts = FALSE)
 }
 \description{
