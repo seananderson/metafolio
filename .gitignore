@@ -23,3 +23,5 @@ inst/examples/cluster_dat/
 
 
 .Rproj.user
+
+*.vim
