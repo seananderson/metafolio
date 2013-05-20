@@ -32,3 +32,4 @@ Collate:
     'RcppExports.R'
     'plot_cons_plans.R'
     'run_cons_plans.R'
+    'plot_cons_plans_ts.R'
