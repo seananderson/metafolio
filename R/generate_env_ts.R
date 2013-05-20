@@ -27,7 +27,7 @@ generate_env_ts <- function(
   sine_params = list(amplitude = 1, ang_frequency = 0.2, phase = 0, mean_value = 0, slope = 0, sigma_env = 0.10),
   arma_params = list(mean_value = 0, sigma_env = 0.50, ar = 0.4, ma = 0),
   regime_params = list(break_pts = c(25, 75), break_vals = c(-1, 0, 1)),
-  linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.10, start_t = 0),
+  linear_params = list(min_value = -1, max_value = 1, sigma_env = 0.10, start_t = 1),
   constant_params = list(value = 0)
   ) {
   type <- type[1]
