@@ -53,7 +53,7 @@ for(i in rev(w_show)){
   x <- cons_plan[[i]]$A[-burn, ]
   port.x <- rowSums(x)
 #print(port.x);print(i)
-  ret.x <- diff(log(port.x))
+ ret.x <- diff(log(port.x))
   lines(1:length(port.x), port.x, col = cols[i], lwd = 2, lty = i)
 }
 
