@@ -14,7 +14,7 @@ w_plans[[4]] <- rev(w_plans[[3]])
 #plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half", "Most asynchronous only")
 plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half")
 
-n_trials <- 500 # number of trials at each n conservation plan
+n_trials <- 30 # number of trials at each n conservation plan
 num_pops <- c(10, 10, 10, 10) # n pops to conserve
 n_plans <- length(num_pops) # number of plans
 w <- list()
@@ -44,6 +44,7 @@ x_arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
   save(x_arma_sp, file = "x_arma_sp.rda")
 } else {
   load("x_arma_sp.rda")
+# has two list elements: "plans_mv" and "plans_port"
 }
 
 
@@ -67,6 +68,7 @@ if(!USE_CACHE) {
   save(x_linear_sp, file = "x_linear_sp.rda")
 } else {
   load("x_linear_sp.rda")
+# has two list elements: "plans_mv" and "plans_port"
 }
 
 cols <- RColorBrewer::brewer.pal(5, "Dark2")
@@ -88,13 +90,13 @@ layout(rbind(
 xlim <- c(0.02, 0.15)
 ylim <- c(-0.017, 0.017)
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
-plot_cons_plans(x_arma_sp, plans_name = plans_name_sp, cols = cols,
+plot_cons_plans(x_arma_sp$plans_mv, plans_name = plans_name_sp, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
 mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
 par(las = 0)
 mtext("Mean of generation-to-generation\nrate of change", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las = 1)
-plot_cons_plans(x_linear_sp, plans_name = plans_name_sp, cols = cols,
+plot_cons_plans(x_linear_sp$plans_mv, plans_name = plans_name_sp, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
 mtext("Variance of generation-to-generation rate of change", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = 3)

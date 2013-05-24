@@ -7,7 +7,7 @@ set.seed(1)
 USE_CACHE <- TRUE
 
 # in this version, the pops are wiped out; total abundance changes
-n_trials <- 500 # number of trials at each n conservation plan
+n_trials <- 50 # number of trials at each n conservation plan
 num_pops <- c(2, 4, 8, 16) # n pops to conserve
 n_plans <- length(num_pops) # number of plans
 w <- list()
@@ -39,6 +39,7 @@ x_arma_n <- run_cons_plans(w, env_type = "arma", env_params =
   save(x_arma_n, file = "x_arma_n.rda")
 } else {
   load("x_arma_n.rda")
+# has two list elements: "plans_mv" and "plans_port"
 }
 
 
@@ -61,6 +62,7 @@ x_linear_n <- run_cons_plans(w, env_type = "linear", env_params = linear_env_par
   save(x_linear_n, file = "x_linear_n.rda")
 } else {
   load("x_linear_n.rda")
+# has two list elements: "plans_mv" and "plans_port"
 }
 
 cols <- RColorBrewer::brewer.pal(5, "Spectral")
@@ -92,13 +94,13 @@ layout(rbind(
 xlim <- c(0.008, 0.15)
 ylim <- c(-0.017, 0.017)
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
-plot_cons_plans(x_arma_n, plans_name = plans_name_n, cols = cols,
+plot_cons_plans(x_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
 mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
 par(las = 0)
 mtext("Mean of generation-to-generation\nrate of change", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las = 1)
-plot_cons_plans(x_linear_n, plans_name = plans_name_n, cols = cols,
+plot_cons_plans(x_linear_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
 mtext("Variance of generation-to-generation rate of change", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = 4)
@@ -109,8 +111,9 @@ mtext("Variance of generation-to-generation rate of change", side = 1, line = 2.
 # 2013-05-18 
 # possible ts plots - TODO not right - "spatial" element should be
 # fixed between runs, right now is random
-plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE, lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL, ...) {
+plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE, lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL, burn = 30, ...) {
   #A_range <- ldply(X, function(x) range(rowSums(x$A[-burn, ])))
+  burn <- 1:burn
   for(i in 1:4){
     if(i %in% start_new_plots) {
       plot(1,1,ylim = ylim, xlim = c(1, 70), type = "n",
