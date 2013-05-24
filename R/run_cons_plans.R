@@ -2,7 +2,7 @@
 #' values
 #'
 #' This function takes a set of weights representing different
-#' conservation plans and get the mean and variance in portfolio
+#' conservation plans and gets the mean and variance in portfolio
 #' space. This function allows a maximally complicated set of weights
 #' to accommodate all possible scenarios. It can accommodate different
 #' spatial strategies of conservation, conserving different numbers of
@@ -23,9 +23,13 @@
 #' @param burn Cycles to throw out as burn in
 #' @param ... Other values to pass to \code{\link{meta_sim}}
 #' @export
-#' @return A list of data frames. Each element of the list contains a
-#' conservation plan. Each row of the data frames represents a trial
-#' run.
+#' @return A list with two high-level elements: the mean variance
+#' output (\code{plans_mv}) and the raw simulation output
+#' (\code{plans_port}). Within \code{plans_mv}, each element of the
+#' list contains a conservation plan. Each row of the data frames
+#' represents a trial run. Within \code{plans_port}, each
+#' first level of the list contains a weight element and each
+#' second level of the list contains a replicate.
 #' @examples \dontrun{
 #' ## in this version, the pops are wiped out; total abundance changes
 #' n_trials <- 20 # number of trials at each n conservation plan
@@ -36,47 +40,66 @@
 #'  w[[i]] <- list()
 #'  for(j in 1:n_trials) { # loop over trials
 #'    w[[i]][[j]] <- matrix(rep(625, 16), nrow = 1)
-#'    w[[i]][[j]][-sample(1:16, num_pops[i])] <- 5 # conserve num_pops[i] populations; wipe out rest
+#'    w[[i]][[j]][-sample(1:16, num_pops[i])] <- 5 # conserve
+#'    num_pops[i] populations; wipe out rest
 #'  }
 #' }
 #' 
 #' ## ARMA:
-#' x <- run_cons_plans(w, env_type = "arma", env_params = list(mean_value
-#'     = 16, ar = 0.4, sigma_env = 1.4, ma = 0))
+#' x <- run_cons_plans(w, env_type = "arma", env_params =
+#' list(mean_value = 16, ar = 0.4, sigma_env = 1.4, ma = 0))
 #'
 #' cols <- RColorBrewer::brewer.pal(5, "Spectral")
 #' # may look funny because we only have 20 trials in this example:
-#' plot_cons_plans(x, plans_name = num_pops, cols = cols, add_all_efs = TRUE)
+#' plot_cons_plans(x, plans_name = num_pops, cols = cols, add_all_efs
+#' = TRUE)
 #' 
 #' ## Linear:
-#' x <- run_cons_plans(w, env_type = "linear", env_params = list(min_value
-#'     = 11.5, max_value = 20.5, sigma_env = 0.1, start_t = 31)) 
+#' x <- run_cons_plans(w, env_type = "linear", env_params =
+#' list(min_value = 11.5, max_value = 20.5, sigma_env = 0.1, start_t =
+#' 31)) 
 #' }
 run_cons_plans <- function(w, env_type, env_params, show_progress =
   TRUE, burn = 1:30, assess_freq = 5, ...) {
 
   plans_mv_n <- list()
+  plans_port_n <- list()
   for(i in 1:length(w)) {
     plans_mv_n[[i]] <- list()
+    plans_port_n[[i]] <- list()
     n_trials <- length(w[[i]])
     for(j in 1:n_trials) {
-      plans_mv_n[[i]][[j]] <- get_conserv_plans_mv(
-        weights = w[[i]][[j]], 
-        reps = 1,
-        env_type = env_type,
-        env_params = env_params,
-        burn = burn,
-        assess_freq = assess_freq
-        )
+      temp <- get_conserv_plans_mv(
+                    weights       = w[[i]][[j]],
+                    reps          = 1,
+                    env_type      = env_type,
+                    env_params    = env_params,
+                    burn          = burn,
+                    assess_freq   = assess_freq
+                            )
+    plans_mv_n[[i]][[j]] <- temp$port_mv
+    plans_port_n[[i]][[j]] <- temp$port_out
     }
     if(show_progress)
       print(paste("Completed", i, "of", length(w), "conservation plans to evaluate"))
   }
 
+  # here we have a nested list that is 4 elements deep
+  # e.g. plans_port_n[[1]][[1]][[1]][[1]]$A
+  # let's make that slightly more sane by removing the extra two
+  # levels at the end:
+  # So, the structure will be plans_port_n[[w]][[trial]]
+  plans_port_n_out <- list()
+  for(i in 1:length(w)) {
+    plans_port_n_out[[i]] <- list() 
+    for(j in 1:n_trials) {
+      plans_port_n_out[[i]][[j]] <- plans_port_n[[i]][[j]][[1]][[1]]
+    }
+  }
+
   # Move to list of dataframes instead of list of list of dataframes
   # this is to match the typical output with even population numbers
   # across runs.
-
   plans_mv_n_dfs <- list() 
   for(i in 1:length(w)) {
     plans_mv_n_dfs[[i]] <- list() 
@@ -84,10 +107,11 @@ run_cons_plans <- function(w, env_type, env_params, show_progress =
       plans_mv_n_dfs[[i]][[j]] <- plans_mv_n[[i]][[j]][[1]]
     }
   }
-
   for(i in 1:length(w)) {
     plans_mv_n_dfs[[i]] <- do.call("rbind", plans_mv_n_dfs[[i]])
   }
-  plans_mv_n_dfs
+
+  return(list(plans_mv = plans_mv_n_dfs, plans_port =
+      plans_port_n_out))
 }
 
