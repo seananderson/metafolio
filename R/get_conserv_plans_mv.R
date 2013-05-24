@@ -1,8 +1,9 @@
 #' Run the metapopulation simulation for various conservation
 #' prioritization schemes
 #'
-#' @details
-#' Returns the portfolio mean and variance values.
+#' @return
+#' Returns the portfolio mean and variance values and the simulation
+#' runs.
 #'
 #' @param weights A matrix of habitat weights. Each row corresponds to
 #' another scenario. Each column is a different habitat location.
@@ -26,6 +27,6 @@ get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 5, burn = 1:
     }
     port_mv[[j]] <- ldply(port_out[[j]], function(x) get_port_vals(x, burn = burn))
   }
-  return(port_mv)
+  return(list(port_mv = port_mv, port_out = port_out))
 }
 
