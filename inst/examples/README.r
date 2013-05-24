@@ -1,6 +1,5 @@
 #' All steps to re-create the figures
 
-
 setwd("~/Dropbox/ms/metafolio/inst/examples/")
 devtools::load_all("../../")
 col_pal <- rev(gg_color_hue(10))
