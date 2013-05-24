@@ -1,3 +1,4 @@
+export(count_quasi_exts)
 export(create_asset_weights)
 export(fit_ricker)
 export(fit_ricker_fast)
