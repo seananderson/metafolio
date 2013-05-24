@@ -31,13 +31,18 @@ values}
   \code{\link{meta_sim}}}
 }
 \value{
-  A list of data frames. Each element of the list contains
-  a conservation plan. Each row of the data frames
-  represents a trial run.
+  A list with two high-level elements: the mean variance
+  output (\code{plans_mv}) and the raw simulation output
+  (\code{plans_port}). Within \code{plans_mv}, each element
+  of the list contains a conservation plan. Each row of the
+  data frames represents a trial run. Within
+  \code{plans_port}, each first level of the list contains
+  a weight element and each second level of the list
+  contains a replicate.
 }
 \description{
   This function takes a set of weights representing
-  different conservation plans and get the mean and
+  different conservation plans and gets the mean and
   variance in portfolio space. This function allows a
   maximally complicated set of weights to accommodate all
   possible scenarios. It can accommodate different spatial
@@ -57,21 +62,24 @@ for(i in 1:n_plans) { # loop over number conserved
  w[[i]] <- list()
  for(j in 1:n_trials) { # loop over trials
    w[[i]][[j]] <- matrix(rep(625, 16), nrow = 1)
-   w[[i]][[j]][-sample(1:16, num_pops[i])] <- 5 # conserve num_pops[i] populations; wipe out rest
+   w[[i]][[j]][-sample(1:16, num_pops[i])] <- 5 # conserve
+   num_pops[i] populations; wipe out rest
  }
 }
 
 ## ARMA:
-x <- run_cons_plans(w, env_type = "arma", env_params = list(mean_value
-    = 16, ar = 0.4, sigma_env = 1.4, ma = 0))
+x <- run_cons_plans(w, env_type = "arma", env_params =
+list(mean_value = 16, ar = 0.4, sigma_env = 1.4, ma = 0))
 
 cols <- RColorBrewer::brewer.pal(5, "Spectral")
 # may look funny because we only have 20 trials in this example:
-plot_cons_plans(x, plans_name = num_pops, cols = cols, add_all_efs = TRUE)
+plot_cons_plans(x, plans_name = num_pops, cols = cols, add_all_efs
+= TRUE)
 
 ## Linear:
-x <- run_cons_plans(w, env_type = "linear", env_params = list(min_value
-    = 11.5, max_value = 20.5, sigma_env = 0.1, start_t = 31))
+x <- run_cons_plans(w, env_type = "linear", env_params =
+list(min_value = 11.5, max_value = 20.5, sigma_env = 0.1, start_t =
+31))
 }
 }
 

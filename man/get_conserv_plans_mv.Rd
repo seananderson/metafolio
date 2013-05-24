@@ -22,11 +22,12 @@ prioritization schemes}
   \item{...}{Other values to pass to
   \code{\link{meta_sim}}}
 }
+\value{
+  Returns the portfolio mean and variance values and the
+  simulation runs.
+}
 \description{
   Run the metapopulation simulation for various
   conservation prioritization schemes
-}
-\details{
-  Returns the portfolio mean and variance values.
 }
 
