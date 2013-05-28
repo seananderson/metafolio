@@ -2,19 +2,22 @@
 # This file looks at different spatial strategies of conservation
 # This version uses the new package functions
 
-set.seed(1)
-USE_CACHE <- TRUE
+set.seed(2)
+USE_CACHE <- FALSE
 
 w_plans <- list() 
 w_plans[[1]] <- c(5, 1000, 5, 1000, 5, 5, 1000, 5, 1000, 5)
+#w_plans[[1]] <- c(1000, 5, 1000, 5, 1000, 1000, 5, 1000, 5, 1000)
 w_plans[[2]] <- c(5, 5, 5, 1000, 1000, 1000, 1000, 5, 5, 5)
+#w_plans[[2]] <- c(5, 5, 1000, 1000, 1000, 1000, 1000, 1000, 5, 5)
 w_plans[[3]] <- c(rep(1000, 4), rep(5, 6))
+#w_plans[[3]] <- c(rep(1000, 6), rep(5, 4))
 w_plans[[4]] <- rev(w_plans[[3]])
 #w_plans[[5]] <- c(1000, 1000, 5, 5, 5, 5, 5, 5, 1000, 1000)
 #plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half", "Most asynchronous only")
 plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half")
 
-n_trials <- 30 # number of trials at each n conservation plan
+n_trials <- 200 # number of trials at each n conservation plan
 num_pops <- c(10, 10, 10, 10) # n pops to conserve
 n_plans <- length(num_pops) # number of plans
 w <- list()
