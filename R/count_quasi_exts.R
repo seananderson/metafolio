@@ -19,11 +19,11 @@
 
 count_quasi_exts <- function(dat, quasi_thresh, ignore_pops_thresh = 5, 
   duration = 1) {
-  subpop_qe <- plyr::llply(x_arma_sp$plans_port, function(x) {
+  subpop_qe <- plyr::llply(dat, function(x) {
     plyr::laply(x, function(y) {
-      conserved_pops <- which(y$A[1, ] > 5)
+      conserved_pops <- which(y$A[1, ] > ignore_pops_thresh)
       out <- apply(y$A[, conserved_pops], 2, function(z) {
-        temp <- is_quasi_ext(z, thresh = 200, duration = 1)$first_qe
+        temp <- is_quasi_ext(z, thresh = quasi_thresh, duration = duration)$first_qe
         temp
       })
       out
