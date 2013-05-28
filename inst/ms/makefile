@@ -1,6 +1,7 @@
 all:	ms
 
 ms:
+	pandoc abstract.md introduction.md methods.md results.md discussion.md figs.md -o ms.md
 	extract_bib ms.md > ms.bib
 	extract_bib som.md > som.bib
 	cp ~/Dropbox/tex/jshort.bib .
