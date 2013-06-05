@@ -51,7 +51,6 @@ plot_quasi_extinctions <- function(dat) {
       out[[i]] <- turn_quasi_to_matrix(xx[i, ])
     }
     temp <- do.call("rbind", out)
-  browser()
     totals <- apply(temp, 2, sum)
     totals/nrow(temp)
     })
