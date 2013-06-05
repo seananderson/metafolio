@@ -23,6 +23,7 @@ monte_carlo_portfolios <- function(weights_matrix, n_sims = 500, mean_b = 1000, 
     var.x <- var(ret.x)
     mean.x <- mean(ret.x)
     port_vals[k, ] <- c(mean.x, var.x)
+    if(k%%25 == 0) print(k)
   }
 return(list(port_vals = port_vals, n_sims = 500, sims_out = sims_out))
 }
