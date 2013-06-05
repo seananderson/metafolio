@@ -1,15 +1,16 @@
 # Results #
 
-Fig. \ref{f:eg-n-linear}
+Figure \ref{f:curves}
+Figure \ref{f:sp-mv}
+Figure \ref{f:n-mv}
 
-Fig. \ref{f:eg-n-arma}
+Figure \ref{f:eg-n-linear}
+Figure \ref{f:eg-n-arma}
+Figure \ref{f:eg-sp-arma}
+Figure \ref{f:eg-sp-linear}
 
-Fig. \ref{f:eg-sp-arma}
+<!--## Base case ##-->
 
-Fig. \ref{f:eg-sp-linear}
+<!--## Effect of X on ... ##-->
 
-## Base case ##
-
-## Effect of X on ... ##
-
-## Effect of Y on ... ##
+<!--## Effect of Y on ... ##-->

@@ -12,20 +12,20 @@ risk. Economists consider the risk and performance of a financial portfolio as
 a function of the weighting of individual assets that make up the portfolio. 
 Modern Portfolio Theory (MPT) proposes that there is a set of portfolios that 
 maximizes expected return for a level of expected risk or minimizes expected 
-risk for a level of expected return [@Markowitz1952; @Markowitz1959]. This 
+risk for a level of expected return [@markowitz1952; @markowitz1959]. This 
 optimal set contains portfolios that range along a continuum of risk-tolerance; 
 economists refer to this set as the efficient frontier.
 
 Portfolios provide another way of managing risk - explain mean-variance 
 optimization and how this translates to ecology
-[@Figge2004]
-[@Hoekstra2012] 
-[@Ando2011,@Ando2012] 
-[@Markowitz1952,@Markowitz1959]
+[@figge2004]
+[@hoekstra2012] 
+[@ando2011,@ando2012] 
+[@markowitz1952,@markowitz1959]
 
 We use salmon as an example, describe the components of the example, provide 
 references on metapopulation existence
-[@Schindler2010]
+[@schindler2010]
 
 Research questions, and briefly our approach - Monte Carlo simulation 
 modelling, as simple a model as possible while retaining important realistic 

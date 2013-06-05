@@ -6,7 +6,6 @@
 
 - Portfolio optimization reveals... 
 
-
 - something more general with animals instead of just salmon? 
 
 - Portfolio theory reveals conservation strategies that...

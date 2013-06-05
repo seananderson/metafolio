@@ -15,16 +15,6 @@ simulations. The different lines represent different salmon populations.}
 \end{figure}
 \clearpage
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=4.0in]{../examples/figure/stray-matrix.pdf}
-\caption{An example straying matrix. The rows and columns represent different 
-populations (indicated by population number). Dark blue indicates a high rate 
-of straying and light blue indicates a low rate of straying. The straying 
-matrix is generated through equation \ref{eq:stray}.}
-\label{f:stray}
-\end{figure}
-\clearpage
 
 \begin{figure}[htbp]
 \centering
@@ -34,6 +24,17 @@ populations. The vertical dotted lines indicate the general range of
 environmental fluctuations in the main simulations, and the vertical dashed 
 line indicates the mean environmental value in the main simulations.}
 \label{f:all-curves}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.0in]{../examples/figure/stray-matrix.pdf}
+\caption{An example straying matrix. The rows and columns represent different 
+populations (indicated by population number). Dark blue indicates a high rate 
+of straying and light blue indicates a low rate of straying. The straying 
+matrix is generated through equation \ref{eq:stray}.}
+\label{f:stray}
 \end{figure}
 \clearpage
 
@@ -72,7 +73,7 @@ line indicates the mean environmental value in the main simulations.}
  
 
 A placeholder:
-[@Schindler2010]
+[@schindler2010]
 
 \bibliographystyle{apalike}
 \bibliography{jshort,som}
