@@ -27,17 +27,6 @@
 # Specifically, x_arma_sp$plans_port[[1]][[1]] contains the simulation
 # output from the first weight scenario and the first replicate.
 
-
-plot_quasi_extinctions <- function(dat) {
-
-quasi_counts <- count_quasi_exts(dat, quasi_thresh = 200,
-  ignore_pops_thresh = 5)
-
-#quasi_counts_linear <- count_quasi_exts(x_linear_sp$plans_port, 200, 5)
-
-#quasi_counts <- quasi_counts_linear
-
-# now translate this into something sensible for plotting:
 turn_quasi_to_matrix <- function(x) {
   x[is.na(x)] <- 100
   m <- matrix(nrow = 4, ncol = 100)
@@ -47,26 +36,36 @@ turn_quasi_to_matrix <- function(x) {
   m
 }
 
-# Get the extinction proportion totals by year:
-ext_props <- lapply(quasi_counts, function(xx) {
-  out <- list()
-  for(i in 1:nrow(xx)) {
-    out[[i]] <- turn_quasi_to_matrix(xx[i, ])
-  }
-  temp <- do.call("rbind", out)
-  totals <- apply(temp, 2, sum)
-  totals/nrow(temp)
-})
+plot_quasi_extinctions <- function(dat) {
 
-cols <- RColorBrewer::brewer.pal(5, "Dark2")
-ymax <- max(unlist(lapply(ext_props, max)))
-#par(mfrow = c(1, 2))
-plot(1, 1, ylim = c(0, ymax), xlim = c(0, 100), type = "n", xlab = "Year", ylab = "Cumulative proportion \"quasi-extinct\"", las = 1)
-for(i in 1:length(ext_props)) lines(seq_len(100), ext_props[[i]], col = cols[i], lwd = 2.5)
+  quasi_counts <- count_quasi_exts(dat, quasi_thresh = 200,
+    ignore_pops_thresh = 5)
 
-#m1 <- glm(kk/(200*100) ~ seq_len(100), family = quasibinomial, weights = rep(800, 100))
-#illogit <- function(x) exp(x)/(1+exp(x))
-#p <- predict(m1, type = "response")
+  #quasi_counts_linear <- count_quasi_exts(x_linear_sp$plans_port, 200, 5)
+  #quasi_counts <- quasi_counts_linear
+  # now translate this into something sensible for plotting:
+  # Get the extinction proportion totals by year:
+  ext_props <- lapply(quasi_counts, function(xx) {
+    out <- list()
+    for(i in 1:nrow(xx)) {
+      out[[i]] <- turn_quasi_to_matrix(xx[i, ])
+    }
+    temp <- do.call("rbind", out)
+  browser()
+    totals <- apply(temp, 2, sum)
+    totals/nrow(temp)
+    })
+
+  cols <- RColorBrewer::brewer.pal(5, "Dark2")
+  ymax <- max(unlist(lapply(ext_props, max)))
+  #par(mfrow = c(1, 2))
+  plot(1, 1, ylim = c(0, ymax), xlim = c(0, 100), type = "n", xlab =
+    "Year", ylab = "Cumulative proportion \"quasi-extinct\"", las = 1)
+  for(i in 1:length(ext_props)) lines(seq_len(100), ext_props[[i]], col = cols[i], lwd = 2.5)
+
+  #m1 <- glm(kk/(200*100) ~ seq_len(100), family = quasibinomial, weights = rep(800, 100))
+  #illogit <- function(x) exp(x)/(1+exp(x))
+  #p <- predict(m1, type = "response")
 
 }
 
