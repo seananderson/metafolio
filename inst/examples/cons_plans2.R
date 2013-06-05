@@ -17,7 +17,7 @@ w_plans[[4]] <- rev(w_plans[[3]])
 #plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half", "Most asynchronous only")
 plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half")
 
-n_trials <- 200 # number of trials at each n conservation plan
+n_trials <- 500 # number of trials at each n conservation plan
 num_pops <- c(10, 10, 10, 10) # n pops to conserve
 n_plans <- length(num_pops) # number of plans
 w <- list()
