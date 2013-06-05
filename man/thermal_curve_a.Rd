@@ -24,7 +24,8 @@
 \description{
   Creates a quadratic thermal tolerance curve of the form:
   width_param * (temp - optim_temp)^2 + max_a Negative
-  values are returned as 0.
+  values are *not* returned as 0 for speed of computation.
+  You should check for this after.
 }
 \examples{
 x <- seq(5, 30, length.out = 200)
