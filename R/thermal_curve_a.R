@@ -2,7 +2,8 @@
 #'
 #' Creates a quadratic thermal tolerance curve of the form:
 #' width_param * (temp - optim_temp)^2 + max_a
-#' Negative values are returned as 0.
+#' Negative values are *not* returned as 0 for speed of computation.
+#' You should check for this after.
 #'
 #' @param temp The input temperature value.
 #' @param optim_temp The optimal temperature.
