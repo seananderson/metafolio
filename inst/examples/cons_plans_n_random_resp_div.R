@@ -4,10 +4,10 @@
 # In this version, the response diversity is randomly drawn
 
 set.seed(1)
-USE_CACHE <- TRUE
+USE_CACHE <- FALSE
 
 # in this version, the pops are wiped out; total abundance changes
-n_trials <- 50 # number of trials at each n conservation plan
+n_trials <- 500 # number of trials at each n conservation plan
 num_pops <- c(2, 4, 8, 16) # n pops to conserve
 n_plans <- length(num_pops) # number of plans
 w <- list()
@@ -29,13 +29,14 @@ arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
 pdf("n-arma-sim.pdf", width = 5, height = 7)
 plot_sim_ts(meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
-    arma_env_params, env_type = "arma", assess_freq = 5),
+    arma_env_params, env_type = "arma", assess_freq = 5, max_a = thermal_integration(16)),
   years_to_show = 70, burn = 30)
 dev.off()
 
+# TODO need to fix it here to get max_a integrated based on n_pops
 if(!USE_CACHE) {
 x_arma_n <- run_cons_plans(w, env_type = "arma", env_params =
-  arma_env_params)
+  arma_env_params, max_a = thermal_integration(16))
   save(x_arma_n, file = "x_arma_n.rda")
 } else {
   load("x_arma_n.rda")
@@ -53,12 +54,12 @@ linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
 
 pdf("n-linear-sim.pdf", width = 5, height = 7)
 plot_sim_ts(meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
-    linear_env_params, env_type = "linear", assess_freq = 5),
+    linear_env_params, env_type = "linear", assess_freq = 5, max_a = thermal_integration(16)),
   years_to_show = 70, burn = 30)
 dev.off()
 
 if(!USE_CACHE) {
-x_linear_n <- run_cons_plans(w, env_type = "linear", env_params = linear_env_params) 
+x_linear_n <- run_cons_plans(w, env_type = "linear", env_params = linear_env_params, max_a = thermal_integration(16)) 
   save(x_linear_n, file = "x_linear_n.rda")
 } else {
   load("x_linear_n.rda")
