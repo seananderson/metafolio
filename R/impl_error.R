@@ -10,6 +10,7 @@ impl_error <- function(mu, sigma_impl) {
   var <- sigma_impl ^ 2
 
 est_beta_params <- function(mu, var) {
+# http://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance
   alpha <- ((1 - mu) / var - 1 / mu) * mu ^ 2
   beta <- alpha * (1 / mu - 1)
   return(list(alpha = alpha, beta = beta))
