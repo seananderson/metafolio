@@ -36,3 +36,5 @@ Collate:
     'is_quasi_ext.R'
     'count_quasi_exts.R'
     'thermal_integration.r'
+    'add_inset_env.r'
+    'plot_sp_A_ts.r'
