@@ -7,7 +7,7 @@ set.seed(1)
 USE_CACHE <- FALSE
 
 # in this version, the pops are wiped out; total abundance changes
-n_trials <- 500 # number of trials at each n conservation plan
+n_trials <- 800 # number of trials at each n conservation plan
 num_pops <- c(2, 4, 8, 16) # n pops to conserve
 n_plans <- length(num_pops) # number of plans
 w <- list()
@@ -28,9 +28,10 @@ arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
   #years_to_show = 100, burn = 0)
 
 pdf("n-arma-sim.pdf", width = 5, height = 7)
-plot_sim_ts(meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
-    arma_env_params, env_type = "arma", assess_freq = 5, max_a = thermal_integration(16)),
-  years_to_show = 70, burn = 30)
+eg_arma <- meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
+  arma_env_params, env_type = "arma", assess_freq = 5, max_a =
+  thermal_integration(16))
+plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
 
 # TODO need to fix it here to get max_a integrated based on n_pops
@@ -53,9 +54,10 @@ linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
   #years_to_show = 100, burn = 0)
 
 pdf("n-linear-sim.pdf", width = 5, height = 7)
-plot_sim_ts(meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
-    linear_env_params, env_type = "linear", assess_freq = 5, max_a = thermal_integration(16)),
-  years_to_show = 70, burn = 30)
+eg_linear <- meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
+  linear_env_params, env_type = "linear", assess_freq = 5, max_a =
+  thermal_integration(16))
+plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
 dev.off()
 
 if(!USE_CACHE) {
@@ -97,12 +99,19 @@ ylim <- c(-0.017, 0.017)
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
 plot_cons_plans(x_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
+
+add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
+
 mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
+
 par(las = 0)
 mtext("Mean of generation-to-generation\nrate of change", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las = 1)
 plot_cons_plans(x_linear_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
+
+add_inset_env(eg_linear$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
+
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
 mtext("Variance of generation-to-generation rate of change", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = 4)
 #dev.off()
@@ -112,37 +121,6 @@ mtext("Variance of generation-to-generation rate of change", side = 1, line = 2.
 # 2013-05-18 
 # possible ts plots - TODO not right - "spatial" element should be
 # fixed between runs, right now is random
-plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE, lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL, burn = 30, ...) {
-  #A_range <- ldply(X, function(x) range(rowSums(x$A[-burn, ])))
-  burn <- 1:burn
-  for(i in 1:4){
-    if(i %in% start_new_plots) {
-      plot(1,1,ylim = ylim, xlim = c(1, 70), type = "n",
-        xlab = "", ylab = "", xaxt = "n", axes = FALSE, yaxs = "i", ...)
-      if(!is.null(labels)) {
-        mtext(labels[i], side = 3, line = -1.2, cex = 0.8, adj = 0.02)
-      }
-    if(y_axis)  {
-      if(is.null(y_axis_ticks)) {
-        axis(2, col=  "grey50", at = pretty(axTicks(2), n = 2))
-      } else {
-        axis(2, col=  "grey50", at = y_axis_ticks)
-      }
-    }
-    }
-
-    x <- X[[i]]$A[-burn, ]
-    port.x <- rowSums(x)
-    if(!rate) {
-    lines(1:length(port.x), port.x, col = cols[i], lwd = lwd, lty = 1)
-    } else {
-    lines(2:length(port.x), diff(log(port.x)), col = cols[i], lwd = lwd, lty = 1)
-    }
-    box(col = "grey50")
-  }
-  if(x_axis)
-    axis(1, col=  "grey50")
-}
 
 ## time series plots:
 par(tck = -0.035) 
