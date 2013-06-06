@@ -5,7 +5,7 @@
 \begin{table}[h!]
 \centering
 \small
-\caption{Components of salmon metapopulation portfolios}
+\caption{Components of salmon metapopulation portfolios KEEP THIS?}
 \begin{tabular}{p{3.6cm}p{7.5cm}}
 \toprule
 Component          & Definition for the salmon portfolio\\
@@ -26,19 +26,31 @@ Asset risk         & Variance of generation-to-generation salmon metapopulation 
 
 \begin{table}[h!]
 \centering
-\small
-\caption{Salmon metapopulation parameters with base case and alternate values.}
-\begin{tabular}{p{7.0cm}p{1.6cm}p{3.2cm}}
+\footnotesize
+\caption{Input parameters to the salmon metapopulation simulation with default values.}
+\begin{tabular}{p{7.7cm}p{1.4cm}p{3.6cm}}
 \toprule
-Description                                                      & Parameter             & Base [lower, upper] \\
+Description                                                                                & Symbol                & Value \\
 \midrule
-Stock-recruit residual standard deviation (on log scale)         & $\sigma_v$            & 0.30 [0.05, 0.50] \\
-First order AR(1) serial correlation of stock-recruit residuals  & $\rho_w$              & 0.40 [0, 0.80] \\
-Fraction of fish that stray from natal streams                   & $f_{\mathrm{stray}}$  & 0.02 [0, 0.10] \\
-Exponential rate of decay of straying with distance              & $m$                   & 0.3 [0.05, 0.5] \\
-Standard deviation of beta distribution for implementation error & $\sigma_{h}$          & 0.05 [0, 0.20] \\
-Frequency of assessment (years)                                  & $f_{\mathrm{assess}}$ & 5 [1, 20] \\
-Environmental tolerance parameters ... & & \\
+
+\textit{Population dynamics parameters}                                                             &                       & \\
+Stock-recruit residual standard deviation (on log scale)                                   & $\sigma_v$            & 0.30  \\
+AR(1) serial correlation of stock-recruit residuals                                        & $\rho_w$              & 0.40  \\
+Fraction of fish that stray from natal streams                                             & $f_{\mathrm{stray}}$  & 0.02  \\
+Exponential rate of decay of straying with distance                                        & $m$                   & 0.3  \\
+
+\noalign{\vskip 3mm} 
+\textit{Environmental parameters}                                                                   &                       & \\
+Width of environmental-tolerance curves for populations $i$ 1 to $n$                       & $W_i$                 & seq(0.05, 0.02, 0.02 0.05, length = n pop)\\
+Optimum environmental value for populations $i$ 1 to $n$                                   & $e_i^{\mathrm{opt}}$  & seq(13, 19, length = n pop)\\
+Area under each environmental-tolerance curve in environmental units                       & $A$                   & 30\\
+AR(1) autocorrelation of the environmental signal for the short-term fluctuation scenarios & $\rho_e$              & 0.1 \\
+Standard deviation of environmental noise for the short-term fluctuation scenarios         & $\sigma_d$            & 2 \\
+
+\noalign{\vskip 3mm} 
+\textit{Fishery parameters}                                                                         &                       & \\
+Standard deviation of beta distribution for implementation error                           & $\sigma_{h}$          & 0.05  \\
+Frequency of assessment (years)                                                            & $f_{\mathrm{assess}}$ & 5  \\
 \bottomrule
 \end{tabular}
 \label{t:pars}
@@ -69,17 +81,17 @@ Environmental tolerance parameters ... & & \\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.0in]{../examples/spatial-arma-sim.pdf}
-\caption{The components of an example metapopulation simulation.  We show, from top to bottom, the environmental signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, stock-recruit residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) environmental values.}
-\label{f:sp-eg}
+\includegraphics[width=3.0in]{../examples/thermal-curve-scenarios.pdf}
+\caption{Different ways of prioritizing response-diversity conservation. Panel a shows the thermal tolerance cures for ten possible populations and panels b--e show different ways of prioritizing four of those populations. The curves describe how productivity varies with the environment for a given population. Some populations thrive at low environmental values (cool colours) and some at high (warm colours) values. Some are tolerant to a wider range of environmental conditions (yellow-to-green colours) but with a lower maximum productivity. The total possible productivity (the area under the curves) is the same for each population.}
+\label{f:curves}
 \end{figure}
 \clearpage
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=3.0in]{../examples/thermal-curve-scenarios.pdf}
-\caption{Different ways of prioritizing response-diversity conservation. Panel (a) shows the thermal tolerance cures for ten possible populations and panels (b--e) show different ways of prioritizing four of those populations. The curves describe how productivity varies with the environment for a given population. Some populations thrive at low environmental values (cool colours) and some at high (warm colours) values. Some are tolerant to a wider range of environmental conditions (yellow-to-green colours) but with a lower maximum productivity. The total possible productivity across environmental values (the area under the curves) is the same.}
-\label{f:curves}
+\includegraphics[width=4.0in]{../examples/spatial-arma-sim.pdf}
+\caption{The components of an example metapopulation simulation.  We show, from top to bottom, the environmental signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, stock-recruit residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) environmental values.}
+\label{f:sp-eg}
 \end{figure}
 \clearpage
 
@@ -94,22 +106,22 @@ Environmental tolerance parameters ... & & \\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.0in]{../examples/cons-plans-n.pdf}
-\caption{The importance of preserving as many salmon populations as possible when we don't know how response diversity is distributed. In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations (see Fig.~X). We show metapopulations in which 2 (red), 4 (orange), 8 (yellow), or 16 (green) populations of random response diversity are conserved. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation (c) rate-of-change and (d) abundance time series for the short-term environmental-fluctuation scenario.}
+\caption{The importance of preserving as many subpopulations as possible when we don't know how response diversity is distributed. In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations (see Fig.~X). We show metapopulations in which 2 (red), 4 (orange), 8 (yellow), or 16 (green) populations of random response diversity are conserved. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation (c) rate-of-change and (d) abundance time series for the short-term environmental-fluctuation scenario.}
 \label{f:n-mv}
 \end{figure}
 \clearpage
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=5.0in]{../examples/quasi-extinct.pdf}
-\caption{First draft of a quasi-extinction figure I THINK THIS WILL BE 
-SCRAPPED OR CHANGED. The y-axis shows the cumulative proportion of 
-subpopulations that have had abundance dip below a threshold of 20\% 
-of unfished equilibrium abundance. We could show a (binomial) 
-measure of uncertainty around these if we want to. Some interesting points: the 
-cumulative proportion of ``quasi-extinction'' is higher for both ``one half'' 
-scenarios. If it's set up correctly, then this means that there's a benefit to 
-the subpopulations to investing in a more ``optimal'' portfolio. The }
-\label{f:ext}
-\end{figure}
+<!--\begin{figure}[htbp]-->
+<!--\centering-->
+<!--\includegraphics[width=5.0in]{../examples/quasi-extinct.pdf}-->
+<!--\caption{First draft of a quasi-extinction figure I THINK THIS WILL BE -->
+<!--SCRAPPED OR CHANGED. The y-axis shows the cumulative proportion of -->
+<!--subpopulations that have had abundance dip below a threshold of 20\% -->
+<!--of unfished equilibrium abundance. We could show a (binomial) -->
+<!--measure of uncertainty around these if we want to. Some interesting points: the -->
+<!--cumulative proportion of ``quasi-extinction'' is higher for both ``one half'' -->
+<!--scenarios. If it's set up correctly, then this means that there's a benefit to -->
+<!--the subpopulations to investing in a more ``optimal'' portfolio. The }-->
+<!--\label{f:ext}-->
+<!--\end{figure}-->
 

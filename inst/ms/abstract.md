@@ -1,12 +1,6 @@
-% Portfolio prioritization of salmon conservation
-% 
-%
-
 *Other title ideas:*
 
 - Portfolio optimization reveals... 
-
-- something more general with animals instead of just salmon? 
 
 - Portfolio theory reveals conservation strategies that...
 
@@ -21,7 +15,7 @@
   90... usually fularound 4 or 5-->
 
 
-# Abstract #
+# Long and rambling abstract that's a bit old now #
 1. Managing risk is fundamental to the conservation of an endangered species. 
    When an endangered species exists as a metapopulation, we can manage risk at 
    two levels: at the population level or at the metapopulation level. Whereas 
@@ -54,7 +48,8 @@
    risk-averse approach is to conserve as many populations as possible. 
 
 4. Our findings highlight three key points: (1) the conservation priority of 
-   maintaining biocomplexity and therefore environmental response diversity, (2) the research priority of identifying differences in environmental 
+   maintaining biocomplexity and therefore environmental response diversity, (2) the
+   research priority of identifying differences in environmental 
    tolerance given predicted environmental changes, and (3) the utility of 
    considering risk for groups of fish stocks --- especially given 
    environmental, biological, and implementation uncertainty --- through the 
