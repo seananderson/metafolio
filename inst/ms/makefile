@@ -8,7 +8,9 @@ ms:
 	pandoc -S --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md --latex-engine=xelatex -o ms.tex
 	pandoc -S --bibliography=jshort.bib --bibliography=som.bib --natbib som.md --latex-engine=xelatex -o som.tex
 	latexmk salmonfolios
-	
+
+rtf:
+	latex2rtf -d 0 -b ms.bbl -E0 -M6 salmonfolios.tex
 
 #pdf:
 	#./knit
