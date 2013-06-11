@@ -19,7 +19,7 @@
 <!--[@schindler2010]-->
 
 - Managing risk is fundamental to the conservation of an endangered species.
-	- risk is usually assessed on a population by population basis
+	- risk is usually assessed on a population-by-population basis
 	- for metapopulations, we can consider risk for components or risk for the whole
 - The management of financial portfolios provides another way of considering risk for metapopulations.
 	- performance of weighted assets
@@ -58,10 +58,9 @@
 Here, we ask how a portfolio approach to management can inform the conservation of metapopulations in a changing world. 
 We ask two primary questions: 
 (1) What does portfolio optimization tell us about different spatial approaches to prioritizing metapopulation conservation assuming that response diversity is spatially distributed? 
-(2) In a scenario where we don't know the population-level response diversity, what does portfolio optimization tell us about the number of populations conserved? 
+(2) If we don't know how response diversity is distribute, what does portfolio optimization tell us about how many populations we should conserve?
 To answer these questions, we develop a salmon metapopulation simulation in which population-specific productivity is driven by spatially-distributed environmental tolerance and patterns of short- and long-term climatic change. 
-We then implement different conservation "rules of thumb" that control the population-level carrying capacities. 
-We evaluate the salmon portfolios along risk and return axes, similarly to how financial portfolios are assessed. 
+We then implement different conservation "rules of thumb" that control the population-level carrying capacities and evaluate the salmon portfolios along risk and return axes, as a portfolio manager would.
 Our findings illustrate that:
 (1) conserving response diversity buffers metapopulation risk given short-term climate forcing and rate of return given long-term climate forcing,
 (2) conserving more subpopulations buffers risk regardless of the climate trend, and

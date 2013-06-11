@@ -1,5 +1,7 @@
 *Other title ideas:*
 
+- Prioritizing metapopulation conservation through the lens of portfolio theory
+
 - Portfolio optimization reveals... 
 
 - Portfolio theory reveals conservation strategies that...
@@ -13,6 +15,36 @@
   Evolutionarily Significant Units":-->
   <!--straying rates from the literature for Pacific salmon. range from 0 to 
   90... usually fularound 4 or 5-->
+
+**Ecology Letters**
+
+- letters: 5000 words, 6 figures or tables
+- ideas and perspectives: 7500 words, 10 figures (needs 300 word proposal)
+
+> Ecology Letters is a forum for the very rapid publication of the most novel
+> research in ecology, research that is not yet in the public domain. Manuscripts
+> relating to the ecology of all taxa, in any biome and geographic area will be
+> considered, and priority will be given to those papers exploring or testing
+> clearly stated hypotheses. The journal publishes concise papers that merit
+> urgent publication by virtue of their originality, general interest and their
+> contribution to new developments in ecology. We discourage purely descriptive
+> papers and those merely confirming or extending results of previous work.
+
+**Ecological Applications**
+
+- 60 pages including everything
+
+> Ecological Applications is concerned broadly with the
+> applications of ecological science to environmental problems. It publishes
+> papers that develop scientific principles to support environmental
+> decision-making, as well as papers that discuss the application of ecological
+> concepts to environmental issues, policy, and management. Papers may report on
+> experimental tests, actual applications, scientific decision support
+> techniques, economic analyses, social implications of environmental issues, or
+> other relevant topics. Statistical or experimental methods papers that support
+> research and applications are welcome. Papers submitted to Ecological
+> Applications should be accessible to both scholars and practitioners.
+
 
 
 # Long and rambling abstract that's a bit old now #

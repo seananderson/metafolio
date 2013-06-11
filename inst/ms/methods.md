@@ -4,11 +4,11 @@ We developed a salmon metapopulation simulation model that includes a stock-recr
 
 ## Defining the ecological portfolio ##
 
-In our ecological portfolios, we defined assets as stream-level populations and the portfolios as salmon metapopulations (Table \ref{t:port}). We use the terms \textit{stream} and \textit{populations} interchangeably to represent the portfolio assets. We defined the portfolio investors as the stakeholders in the fishery and metapopulation performance. For example, we could consider fisheries managers, conservation agencies, or First Nations groups as investors. We defined asset value as the abundance of returning salmon in each stream and value of the portfolio as the overall metapopulation abundance. In this scenario, the equivalent to financial rate of return is the generation-to-generation rate of change of metapopulation abundance. We defined the financial asset investment weights as the capacity of the stream populations --- specifically the unfinished equilibrium stock size --- since maintaining or restoring habitat requires money, time, and resources.
+In our ecological portfolios, we defined assets as stream-level populations and the portfolios as salmon metapopulations (Table \ref{t:port}). We use the terms \textit{stream} and \textit{populations} interchangeably to represent the portfolio assets. We defined the portfolio investors as the stakeholders in the fishery and metapopulation performance. For example, we could consider fisheries managers, conservation agencies, or First Nations groups as investors. We defined asset value as the abundance of returning salmon in each stream and value of the portfolio as the overall metapopulation abundance. In this scenario, the equivalent to financial rate of return is the generation-to-generation rate of change of metapopulation abundance. We defined the financial asset investment weights as the capacity of the stream populations --- specifically the unfinished equilibrium stock size --- since maintaining or restoring habitat requires money, time, and resources. Investment in a population therefore represents investing in salmon habitat conservation or reconstruction. 
 
 ## Salmon metapopulation dynamics ##
 
-The salmon metapopulation dynamics in our simulation were governed by a spawner-return relationship with stochastic demographic noise and by straying between populations.
+The salmon metapopulation dynamics in our simulation were governed by a spawner-return relationship with demographic stochasticity and by straying between populations.
 
 ### Spawner-return relationship ###
 
@@ -18,7 +18,7 @@ We defined the spawner-return relationship with a Ricker model [@ricker1954],
 R_{ti} = S_{ti}e^{a_{ti}(1-S_{ti}/b_i) + w_{ti}}
 \end{equation}
 
-\noindent where $t$ represents a generation time, $i$ represents a population, $R$ is the number of returns, $S$ is the number of spawners, $a$ is the productivity parameter (which can vary with the environment), and $b$ is the density-dependent term (which is used as the asset weights in the portfolios). The term $w_{ti}$ represents first-order autocorrelated error. Formally, $w_{ti} = w_{ti-1} \rho_w + v_{ti}$, where $v_{ti}$ represents independent and normally distributed error with mean 0 and standard deviation of $\sigma_v$. The parameter $\rho_w$ represents the correlation between residuals from subsequent generations.
+\noindent where $t$ represents a generation time, $i$ represents a population, $R$ is the number of returns, $S$ is the number of spawners, $a$ is the productivity parameter (which can vary with the environment), and $b$ is the density-dependent term (which is used as the asset weights in the portfolios). The term $w_{ti}$ represents first-order autocorrelated error. Formally, $w_{ti} = w_{ti-1} \rho_w + r_{ti}$, where $r_{ti}$ represents independent and normally distributed error with mean 0 and standard deviation of $\sigma_r$. The parameter $\rho_w$ represents the correlation between residuals from subsequent generations.
 
 We manipulated the capacity and productivity parameters $b$ and $a$ as part of the portfolio simulation. The capacity parameters $b_i$ were controlled by the investment weights in the populations. For example, a large investment in a stream was represented by a larger unfished equilibrium stock size $b$ for stream $i$. The productivity parameters $a_{ti}$ were controlled by the interaction between an environmental signal and the stream-level population environmental-tolerance curves. 
 
@@ -89,17 +89,15 @@ We evaluated portfolio performance under short- and long-term environmental dyna
 \noindent where $e_t$ represents the environmental value in generation $t$ and $d$ represents normally distributed deviations of mean 0 and standard deviation $\sigma_d$. We represented long-term environmental dynamics as a linear shift in the environmental value through time
 
 \begin{equation}
-  e_t = \alpha_e + \beta_e t
+  e_t = \beta_e t - \overline{\beta_e t}
 \end{equation}
 
-\noindent where $\alpha_e$ represents the intercept and $\beta_e$ the slope. To maintain a balanced response, we centered the trend so that midway through the simulation (after any burn-in period) the environmental value was at the mean environmental tolerance.
+\noindent where $\beta_e$ represents the slope. To maintain a balanced response, we centered the trend by subtracting the mean $\overline{\beta_e t}$ so that midway through the simulation (after any burn-in period) the environmental value was at the mean environmental tolerance.
 
 ## Conservation rules of thumb ##
 
 We evaluated two sets of conservation rules of thumb: (1) spatial response diversity conservation strategies in an idealistic scenario where you can detect response diversity, and (2) a more realistic scenario where we know little about response diversity and we're left with a choice of how many populations to conserve. 
 <!--We then considered how optimal these rules of thumb were across all possible conservation-prioritization strategies.-->
-
-### Spatial conservation strategies ###
 
 We evaluated four spatial conservation rules of thumb (Figure \ref{f:curves}b--e). In all spatial scenarios, we conserved four populations and set the unfished equilibrium biomass of the remaining populations to near elimination (five salmon). These reduced populations could still receive straying salmon but were unlikely to rebuild on their own to a substantial abundance. The four scenarios were:
 
@@ -107,8 +105,6 @@ We evaluated four spatial conservation rules of thumb (Figure \ref{f:curves}b--e
 2. Conserve the most stable populations only.
 3. Conserve one half of the metapopulation.
 4. Conserve the other half of the metapopulation.
-
-### How many populations to conserve? ###
 
 In reality we rarely know precise levels of response diversity. We therefore additionally considered a case where the conservation was randomly assigned with respect to response diversity but where different numbers of streams could be conserved. We considered conserving from two to 16 streams. Similarly to the spatial strategies, we reduced the capacity of the remaining streams to the nominal level of five salmon.
 
