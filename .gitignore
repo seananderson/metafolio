@@ -25,3 +25,5 @@ inst/examples/cluster_dat/
 .Rproj.user
 
 *.vim
+
+inst/ms/~$reading.xlsx
