@@ -209,7 +209,7 @@ and evaluated these plans in risk-return space similar to how financial
 managers evaluate financial portfolios. See Figure \ref{f:sim-flow} for
 an illustration of the overall simulation structure. See Table
 \ref{t:pars} for a list of the input parameters to our simulation and
-their default values. We provide a package \texttt{metafolio} for the
+their default values. We provide a package `metafolio` for the
 statistical software \texttt{R} [@r2013] as an appendix, to carry out
 the simulations and analyses we describe in this paper.
 
@@ -218,7 +218,7 @@ Defining the ecological portfolio
 
 In our ecological portfolios, we defined assets as stream-level
 populations and the portfolios as salmon metapopulations (Table
-\ref{t:port}). We use the terms \textit{stream} and \textit{populations}
+\ref{t:port}). We use the terms *stream* and *populations*
 interchangeably to represent the portfolio assets. We defined the
 portfolio investors as the stakeholders in the fishery and
 metapopulation performance. For example, we could consider fisheries
@@ -424,43 +424,44 @@ Which populations to conserve?
 
 Given strong short-term environmental fluctuations, conserving response
 diversity buffers the risk properties of an ecological portfolio (Fig.
-4a). In our simulation, the median variance of generation-to-generation
-rate of change in abundance was X times lower given balanced response
-diversity (full range of responses or most stable only vs. conserving
-one half or the other). In fact, even though by conserving the full
-range of responses, the portfolio was comprised of warm and
-cool-thriving populations that were more variable on their own, each was
-balanced by an opposing population. The portfolio risk was therefore
-comparable between the full range of responses and most stable only
-portfolios.
+\ref{f:sp-mv}a). In our simulation, the median variance of
+generation-to-generation rate of change in abundance was X times lower
+given balanced response diversity (full range of responses or most
+stable only vs. conserving one half or the other). In fact, even though
+by conserving the full range of responses, the portfolio was comprised
+of warm and cool-thriving populations that were more variable on their
+own, each was balanced by an opposing population. The portfolio risk was
+therefore comparable between the full range of responses and most stable
+only portfolios.
 
 We can see the mechanism behind these portfolio properties by inspecting
-example population time series (Fig. 4c, d). If only the upper or lower
-half of response diversity is conserved, the portfolio tends to do well
-or poorly depending on the environmental conditions (Fig. 4d). This risk
-is buffered with balanced response diversity (Fig. 4c).
+example population time series (Fig. \ref{f:sp-mv}c, d). If only the
+upper or lower half of response diversity is conserved, the portfolio
+tends to do well or poorly depending on the environmental conditions
+(Fig. \ref{f:sp-mv}d). This risk is buffered with balanced response
+diversity (Fig. \ref{f:sp-mv}c).
 
 ### Long-term environment
 
 Given long-term environmental change, the choice of which populations to
 conserve affects the return properties of an ecological portfolio (Fig.
-4b). By conserving balance response diversity, an ecological manager is
-hedging his or her bets on what will happen with the environment and how
-the populations will respond. The typical return for a balanced response
-diversity strategy was zero --- the metapopulation neither increased or
-decreased in abundance in the long run. By conserving only the upper or
-lower half of response diversity, a conservation manager is putting all
-his or her eggs in one basket --- the metapopulation might do really
-well through time or it might do really poorly. The example
-metapopulation abundance time series (Fig. 4d, f) illustrate this
-effect. By conserving response diversity, when one population is doing
-poorly, another is doing well and the metapopulation abundance remains
-stationary through time.
+\ref{f:sp-mv}b). By conserving balance response diversity, an ecological
+manager is hedging his or her bets on what will happen with the
+environment and how the populations will respond. The typical return for
+a balanced response diversity strategy was zero --- the metapopulation
+neither increased or decreased in abundance in the long run. By
+conserving only the upper or lower half of response diversity, a
+conservation manager is putting all his or her eggs in one basket ---
+the metapopulation might do really well through time or it might do
+really poorly. The example metapopulation abundance time series (Fig.
+\ref{f:sp-mv}d, f) illustrate this effect. By conserving response
+diversity, when one population is doing poorly, another is doing well
+and the metapopulation abundance remains stationary through time.
 
 Notably, in theses simulations, if a managers invested in the
 populations that were doing well at the beginning they would have had
 the lowest rate-of-return portfolio in the end (purple portfolios in
-Fig. 4b).
+Fig. \ref{f:sp-mv}b).
 
 Spatial conservation strategies in the face of longterm environmental
 change hinge on whether you "get it right" --- whether you choose just
@@ -471,21 +472,23 @@ How many populations to conserve?
 
 Given a scenario where we don't know the distribution of
 population-level response diversity, portfolio optimization informs us
-about the risk buffering from maintaining multiple populations (Fig. 5).
-In short, investing in more populations buffers portfolio risk.
+about the risk buffering from maintaining multiple populations (Fig.
+\ref{f:n-mv}). In short, investing in more populations buffers portfolio
+risk.
 
 ### Short-term environment
 
 Given short-term environmental noise, conserving more populations
 buffers portfolio risk while the random conservation of response
 diversity creates a spread of metapopulation risk for the same number of
-populations conserved (Fig. 5a). For example, a metapopulation with
-eight conserved populations is X times less risky than a metapopulation
-with only four. We can see this risk-buffering effect through example
-metapopulations in Fig. 5c and 5d. We note that the risk-return axes of
-portfolio optimization ignore the absolute-abundance dimension (Fig.
-5d). As one would expect, conserving fewer populations also results in
-lower-abundance metapopulations.
+populations conserved (Fig. \ref{f:n-mv}a). For example, a
+metapopulation with eight conserved populations is X times less risky
+than a metapopulation with only four. We can see this risk-buffering
+effect through example metapopulations in Fig. \ref{f:n-mv}c and
+\ref{f:n-mv}d. We note that the risk-return axes of portfolio
+optimization ignore the absolute-abundance dimension (Fig.
+\ref{f:n-mv}d). As one would expect, conserving fewer populations also
+results in lower-abundance metapopulations.
 
 ### Long-term environment
 
@@ -493,9 +496,9 @@ Given long-term environmental noise, conserving more populations also
 buffers portfolio risk. However, in contrast to the short-term
 environmental noise scenario, the unknown response diversity creates a
 spread of possible metapopulation return for the same number of
-conserved populations (Fig. 5b). Here, the number of populations
-conserved buffers non-systematic (i.e. not-environmentally-driven)
-stochasticity.
+conserved populations (Fig. \ref{f:n-mv}b). Here, the number of
+populations conserved buffers non-systematic (i.e.
+not-environmentally-driven) stochasticity.
 
 <!--TODO selection effect vs. ...-->
 <!--- More is also usually better in terms of risk-->
