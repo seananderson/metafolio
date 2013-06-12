@@ -5,8 +5,10 @@ ms:
 	extract_bib ms.md > ms.bib
 	extract_bib som.md > som.bib
 	cp ~/Dropbox/tex/jshort.bib .
-	pandoc -S --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md --latex-engine=xelatex -o ms.tex
+	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md --latex-engine=xelatex -o ms.tex
 	pandoc -S --bibliography=jshort.bib --bibliography=som.bib --natbib som.md --latex-engine=xelatex -o som.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" som.texmd
 	latexmk salmonfolios
 
 rtf:
