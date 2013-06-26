@@ -1,14 +1,5 @@
 # Introduction #
 
-
-<!--Managing risk is fundamental to the conservation of an endangered species. -->
-
-
-<!--When an endangered species exists as a metapopulation, we can manage risk at two levels: at the population level or at the metapopulation level. Typically we treat sources of risk at the metapopulation level as external and uncontrollable and so we manage risk by altering fishing or hunting on a population level as well as improving the connectivity of populations.-->
-
-<!--The management of financial portfolios provides another way of considering risk for metapopulations. -->
-<!--Economists consider the risk and performance of a financial portfolio as a function of the weighting of individual assets that make up the portfolio. Modern Portfolio Theory (MPT) proposes that there is a set of portfolios that maximizes expected return for a level of expected risk or minimizes expected risk for a level of expected return [@markowitz1952; @markowitz1959]. This optimal set contains portfolios that range along a continuum of risk-tolerance; economists refer to this set as the efficient frontier.-->
-
 <!--Portfolios provide another way of managing risk - explain mean-variance optimization and how this translates to ecology-->
 <!--[@figge2004]-->
 <!--[@hoekstra2012] -->
