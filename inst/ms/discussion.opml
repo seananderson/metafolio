@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+  <head>
+    <title>discussion</title>
+    <expansionState>0,5,9,10,12,14,17,20,26,28,36,40,46,51,55</expansionState>
+  </head>
+  <body>
+    <outline text="Opening paragraph - reiterate main message">
+      <outline text="population diversity leads to stability in realistic metapopulation under climate change"/>
+      <outline text="also numbers..."/>
+      <outline text="we explicitly show how maintaining populations with a variety of environmental tolerances translates into lower-risk metapopulations across a variety of possible environmental scenarios   "/>
+      <outline text="focusing on well-performing stocks now at the detriment of others, is at best equivalent to a risky but efficient portfolio, at worst a poorly performing risky portfolio"/>
+    </outline>
+    <outline text="Describe interpretation of key risk-return elements; turn into take home rules of thumb">
+      <outline text="All recommendations for maintaining response diversity from Moore et al. 2010 (summarize those briefly?)"/>
+      <outline text="If closer populations are more correlated with each other, and you must prioritize, then focus on a selection that aren't spatially contiguous (as long as straying is maintained) to maximize diversity of response to the environment"/>
+      <outline text="Precuationary management: we assume precautionary abundance should we also be precautionary about response diversity?"/>
+    </outline>
+    <outline text="Link simulation and results to real issues for PNW salmon">
+      <outline text="Examples of response diversity, specifics that match up with modelling framework">
+        <outline text="maybe Doug's paper - genetic diversity is best predictor of response diversity"/>
+      </outline>
+      <outline text="Range contraction">
+        <outline text="temp. tolerance - spatial contraction of pops - one would predict increased variance and risk - losing response diversity "/>
+      </outline>
+      <outline text="Extinction isn't random">
+        <outline text="really bad or really good, but not random"/>
+        <outline text="e.g. salmon in upper watershed tend to be impacted more by dams"/>
+      </outline>
+    </outline>
+    <outline text="Highlight similar simulation-based paths to prioritization (how this complements similar work)">
+      <outline text="shiraz - single population"/>
+      <outline text="Other..."/>
+    </outline>
+    <outline text="Climate change and response diversity">
+      <outline text="those that seem productive and/or stable now may not be in the future"/>
+      <outline text="by eliminating large spacial areas (e.g. damns) you're creating a higher risk ecological portfolio, if you get lucky you'll be OK, you might do much worse"/>
+      <outline text="Cheung et al. and Mantua papers"/>
+      <outline text="Stock-recruit Fredu paper cod and Benjamin Plonque CJFAS"/>
+      <outline text="Rogers and Schindler PNAS long-term fluctuations"/>
+    </outline>
+    <outline text="There are a number of extensions to our simulation that would be fruitful.">
+      <outline text="We're only looking at one dimension of response diversity - thermal tolerance. All sorts of other kinds - climate, flow, predators and prey, behaviour..."/>
+      <outline text="Metapopulations of other taxa, but also">
+        <outline text="Community ecology"/>
+        <outline text="Metacommunities"/>
+      </outline>
+      <outline text="Work with environmental filter concept on own or in addition to response diversity"/>
+      <outline text="On longer timespan - evolution element"/>
+      <outline text="We sought general rules of thumb; could also be used to optimize decisions as part of decision analysis"/>
+      <outline text="Working with more finely tuned scenarios to test competing management hypotheses"/>
+      <outline text="Tailoring these kinds of simulations to real systems"/>
+    </outline>
+    <outline text="Our work suggests a number of broader applied research priorities.">
+      <outline text="Identifying response diversity and spatial correlation (e.g. thermal tolerance curves in the Science paper)"/>
+      <outline text="Identifying what drives recruitment in different scenarios - env. relationship, regimes?"/>
+      <outline text="Looking for real-life case studies as in situ experiments testing our conclusions"/>
+    </outline>
+    <outline text="What new do we learn for management and conservation?">
+      <outline text="Intuitive results, but we don't think about aggregate risk much, but should"/>
+      <outline text="salmon management conservation is highly fragmentary - dispersed among hatchery managers, who for example are trucking and releasing smolts all over the downstream catchment into sanf bay - no planning about whether that's a sensible strategy given climate"/>
+      <outline text="another dimension of conservation - or persistence"/>
+      <outline text="not just leave all dams in place... reinvigorate selection for response diversity;  double whammy of damns - hatcheries added, further removing response diversity"/>
+      <outline text="Scale of management; integrated management planning"/>
+    </outline>
+    <outline text="Link to existing guidelines and mandates in Canada and the US">
+      <outline text="VSP and ESUs"/>
+      <outline text="DFO Wild Salmon Policy"/>
+      <outline text="criteria for threat status"/>
+      <outline text="threat status in wild salmon policy - designate MUs sort of ESUs, and evaluate with different levels of management intervention"/>
+    </outline>
+    <outline text="Concluding paragraph">
+      <outline text="reiterate rules of thumb and priorities"/>
+      <outline text="reiterate utility of general portfolio simulation approach"/>
+    </outline>
+    <outline text="Extra">
+      <outline text="Ignore? Unpack richness and diversity elements">
+        <outline text="Beta, diversity between streams"/>
+        <outline text="beta diversity (response diversity - differences between assets), prioritizing different dimensions of diversity - turnover&#10;- alpha and beta - &#10;- beta diversity describing temporal turnover"/>
+        <outline text="Alpha, diversity within stream"/>
+      </outline>
+    </outline>
+  </body>
+</opml>
