@@ -4,47 +4,69 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-%\usepackage{mathptmx}
 \usepackage{graphicx}
-
+\usepackage{lineno}
 \usepackage{fontspec}
-%\usepackage{pdfsync}
-\defaultfontfeatures{Ligatures=TeX}
-%\setsansfont{Calibri}
-%\setmonofont{Inconsolata}
-%\setmainfont{Linux Libertine}
-%\setmainfont{Times New Roman}
-\usepackage[sectionbib]{chapterbib}
-
-%\usepackage{titlesec}
-%\titleformat*{\section}{\Large\bfseries\sffamily}
-%\titleformat*{\subsection}{\large\sc\sffamily}
-%\titleformat*{\subsubsection}{\itshape\sffamily}
-\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+\textheight 20.5cm
 \usepackage{setspace}
 \usepackage{booktabs}
-\bibliographystyle{apalike}
-%\setcounter{secnumdepth}{-2}
-
-
-
+\setlength{\parskip}{3pt} % changes vertical space between paragraphs
 \usepackage[round]{natbib}
-\bibliographystyle{apalike}
 \bibpunct{(}{)}{;}{a}{}{;}
 
-\title{Portfolio conservation of metapopulations under climate change\\Climate 
-  change and portfolio conservation of metapopulations\\Climate change and 
-  portfolio conservation\\Portfolio prioritization of salmon 
-  conservation\\Portfolio prioritization of metapopulation conservation}
-\author{Sean C. Anderson$^{1*}$ \and Jonathan W. Moore$^1$ \and Trevor A. 
-  Branch? \and Michelle M. McClure? \and Andrew B. Cooper$^2$ \and Nicholas K.  
-  Dulvy$^1$}
-%\author{Sean C. Anderson \ldots}
+\hyphenation{meta-pop-ulation meta-pop-ulations sub-pop-ulations sub-pop-ulation e-con-o-mist}
+
+\title{Portfolio conservation of metapopulations under climate change}
+
+\author{
+  Sean C. Anderson$^{1*}$, 
+  Jonathan W. Moore$^1$,
+  Trevor A. Branch?,\\
+  Nicholas K. Dulvy$^1$,
+  Michelle M. McClure?,
+  Andrew B. Cooper$^2$
+}
 \date{}
+
+%\\Climate 
+  %change and portfolio conservation of metapopulations\\Climate change and 
+  %portfolio conservation\\Portfolio prioritization of salmon 
+  %conservation\\Portfolio prioritization of metapopulation conservation
+
+%-   Prioritizing metapopulation conservation through the lens of
+    %portfolio theory
+
+%-   Portfolio optimization reveals...
+
+%-   Portfolio theory reveals conservation strategies that...
+
+%-   Intelligent tinkering with ecological portfolios: patterns of
+    %environmental response diversity drive salmon conservation
+    %priorities
+
+%-   Keeping every cog and wheel...
+
+%**Ecological Applications**
+
+%-   60 pages including everything
+
+%> Ecological Applications is concerned broadly with the applications of
+%> ecological science to environmental problems. It publishes papers that
+%> develop scientific principles to support environmental
+%> decision-making, as well as papers that discuss the application of
+%> ecological concepts to environmental issues, policy, and management.
+%> Papers may report on experimental tests, actual applications,
+%> scientific decision support techniques, economic analyses, social
+%> implications of environmental issues, or other relevant topics.
+%> Statistical or experimental methods papers that support research and
+%> applications are welcome. Papers submitted to Ecological Applications
+%> should be accessible to both scholars and practitioners.
 
 \begin{document}
 %\onehalfspacing
-%\begin{spacing}{1.2}
+\linenumbers
+\modulolinenumbers[2]
+\begin{spacing}{1.3}
 %\doublespacing
 \maketitle
 
@@ -56,11 +78,43 @@
 	\textsuperscript{2}School of Resource and Environmental Management, Simon
   Fraser University, Burnaby, BC, V5A 1S6, Canada
 
+
 \noindent
-	\textsuperscript{*}Corresponding author: sean\_anderson@sfu.ca
+Statement of authorship: 
+%Contributions by authors should be listed on the title page and will be printed at the end of the manuscript. This statement should be appropriate to the study described in the manuscript and should clarify who designed the study, who performed the research, who provided new methods or materials, and who wrote the manuscript. We encourage concise statements such as “JW performed phylogenetic analyses, MH collected data, performed modeling work and analyzed output data, and PK performed the meta-analysis. MH wrote the first draft of the manuscript, and all authors contributed substantially to revisions.”
+
+\noindent
+Running title: 
+%(abbreviated form of title) of less than 45 characters including spaces
+
+\noindent
+Keywords:
+%up to 10
+
+\noindent
+Type of article: Letters
+
+\noindent
+Abstract:
+
+\noindent
+Main text:
+%(excluding abstract, acknowledgements, references, table and figure legends), and the number of words in each text box
+
+\noindent
+References:
+
+\noindent
+Number of figures:
+
+\noindent
+Number of tables:
+
+ %- the name and complete mailing address (including telephone and fax numbers and e-mail address) of the person to whom correspondence should be sent
+\noindent
+	\textsuperscript{*}Corresponding author: Sean C. Anderson; Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A 1S6; Phone: 1-778-782-3989; E-mail: sean\_anderson@sfu.ca
 
 \clearpage
-
 
 \include{ms}
 
@@ -75,7 +129,7 @@
 
 \include{som}
 
-%\end{spacing}
+\end{spacing}
 \end{document}
 
 
