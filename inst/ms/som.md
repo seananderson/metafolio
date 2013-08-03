@@ -1,4 +1,6 @@
-# Supporting online material
+# Supplementary Information
+
+## Apendix S1 - details of parabolas?
 
 ## Supplementary code ##
 
@@ -74,6 +76,6 @@ matrix is generated through equation \ref{eq:stray}.}
 A placeholder:
 [@schindler2010]
 
-\bibliographystyle{apalike}
+\bibliographystyle{ecologyletters2}
 \bibliography{jshort,som}
 

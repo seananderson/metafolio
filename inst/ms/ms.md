@@ -4,71 +4,38 @@
 
 # Abstract #
 
-[@convertino2013; @wade2013]
-
-
 # Introduction #
 
-Managing risk is fundamental to the conservation of an endangered species. 
-When an endangered species exists as a metapopulation, we can manage risk at two levels: at the population level or at the metapopulation level [REF]. 
-Typically we treat sources of risk for metapopulations as exogenous and manage risk by altering fishing or hunting, implementing reserves, or improving connectivity for subpopulations [e.g. @akcakaya2007].
+Managing risk is fundamental to the conservation of an endangered species [@burgman2005; @iucn2009]. When an endangered species exists as a metapopulation, we can manage risk at two levels: at the population level or at the metapopulation level. Typically we treat sources of risk at the metapopulation level as exogenous and manage risk at the population level by hunting or fishing, implementing reserves, or improving connectivity [e.g. @akcakaya2007].
 
-The management of financial portfolios provides another way to consider risk. 
-Economists consider the risk and performance of a financial portfolio based on the weighting of individual investments (called assets) that make up the portfolio.
-Modern Portfolio Theory (MPT) proposes that there is a set of portfolios that maximizes expected return for a level of expected risk or minimizes expected risk for a level of expected return [@markowitz1952; @markowitz1959]. 
-Similarly, expected growth rate and variance of a metapopulation is a function of the variance, covariance, and size of the individual populations.
-A portfolio approach to managing risk for a metapopulation might therefore consider how conservation actions affect the weight of each population in a metapopulation portfolio.
+The management of financial portfolios provides another way of considering risk [@figge2004; @koellner2006; @ando2012]. Economists consider the risk and performance of a financial portfolio based on the weighting of individual investments (called assets) that make up the portfolio. Modern Portfolio Theory proposes that there is a set of portfolios that maximizes expected return for a level of expected risk or minimizes expected risk for a level of expected return [@markowitz1952; @markowitz1959]. Similarly, expected growth rate and variance of a metapopulation is a function of the variance, covariance, and size of the individual populations [@moore2010]. A portfolio approach to managing risk for a metapopulation might therefore consider how conservation actions affect the weight of each population in a metapopulation portfolio.
 
-Managing Pacific salmon under the uncertainty of climate change is an ideal scenario to consider through the lens of portfolio theory for three reasons.
-(1) Salmon often form metapopulations [REF] and we can consider the metapopulation in a river-catchment as a portfolio and the stream populations as assets.
-Continuing the analogy, predators and fisheries often integrate across multiple streams, acting as investors in the salmon portfolio.
-Fisheries managers and conservation agencies then act as portfolio managers through actions such choosing which salmon habitat to prioritize for protection or restoration. 
-(2) Many Pacific salmon metapopulations are highly threatened [REFs] and will likely become more at risk as threats such as overfishing, dams, roads, logging, and particularly climate change intensify [REFs throughout].
-(3) Salmon are highly valued by society, fishers, conservation groups, and indigenous people [REFs].
-Although civil society allocates extensive resources to conserving salmonids (e.g. XX in XX) the scale of the problem demands a prioritization of conservation efforts [REFs].
+Managing Pacific salmon under the uncertainty of climate change is an ideal scenario to consider through the lens of portfolio theory for three reasons. (1) Pacific salmon form metapopulations [@rieman2000; @schtickzelle2007] and we can consider, for example, the metapopulation in a river-catchment as a portfolio and the stream populations as assets [@schindler2010; @moore2010]. Continuing the analogy, predators and fisheries often integrate across multiple populations [@hilborn2003; @schindler2008], acting as investors in the salmon portfolio. Fisheries managers and conservation agencies then act as portfolio managers through actions such choosing which salmon habitat to prioritize for protection or restoration. (2) Many Pacific salmon metapopulations are highly threatened [@mcclure2003; @gustafson2007; @peterman2012] and will likely become more at risk as threats such as overfishing, dams, roads, logging, and particularly climate change intensify [e.g. @lackey2003]. (3) Salmon are highly valued by society, fishers, conservation groups, and indigenous people [@nrc1996]. Although civil society allocates extensive resources to conserving salmonids the scale of the problem demands a prioritization of conservation efforts [@allendorf1997].
 
-A diversified financial portfolio reduces risk by exploiting the covariance between assets --- ideally the same market forces cause one stock to rise if another one falls --- and there are two key mechanisms that reduce metapopulation risk by creating asynchronous population dynamics.
-First, localized habitat features can filter the environment creating unique conditions within a spread out metapopulation [REFS] (i.e. Moran effect REF). 
-For example, landscape topology can affect stream flow causing different streams of salmon to experience unique conditions [REF].
-Second, diversity of life-histories, behaviours, personalities, and genetics can cause populations to respond uniquely to the same environment (i.e. response diversity REF and biocomplexity REF). These unique traits can be phenotypic or genetic and derived from short-term adaptations [REF] or long-term evolution [REF] to historical conditions. In this paper we focus on the latter, response-diversity mechanism.
+A diversified financial portfolio reduces risk by exploiting the covariance between assets --- ideally one stocks rises while another one falls --- and there are two key mechanisms that generate asynchrony in metapopulation dynamics. First, localized habitat features can filter the environment generating unique conditions for subpopulations [@schindler2008] (i.e. Moran effect). For salmon, this mechanism acts primarily during freshwater life-history stages and since many salmon species spend more time in the ocean [@quinn2005], a second mechanism is also of key importance --- diversity of response to the environment [i.e. response diversity, @elmqvist2003; and biocomplexity @colwell1998; @hilborn2003]. This second mechanism can result from unique phenotypic or genetic traits [@crozier2008; @kovach2012] and be derived from rapid contemporary adaption [@stockwell2003; @fraser2011] or long-term evolution to historical conditions [@eliason2011]. In this paper we focus on this latter, response-diversity mechanism, and evaluate it in the context of thermal response diversity. 
 
-Here, we ask how a portfolio approach to management can inform the conservation of metapopulations in a changing world.
-We ask two primary questions:
-(1) What does portfolio theory tell us about spatial approaches to prioritizing metapopulation conservation?
-(2) If we don't know how response-diversity is distributed, what does portfolio theory tell us about how many populations to conserve?
-To answer these questions, we develop a salmon metapopulation simulation in which spatially-distributed thermal tolerance and patterns of short- and long-term climatic change drive population-specific productivity.
-We then implement different conservation "rules of thumb" that control the population-level carrying capacities and evaluate the salmon portfolios along risk and return axes, as a financial portfolio manager might. 
-We show that conserving response diversity buffers metapopulation risk given short-term climate forcing and metapopulation growth rate given long-term climate warming. 
-We then show that conserving more subpopulations buffers risk regardless of response diversity or climate trend, and we conclude that considering metapopulations through portfolio theory provides a useful additional dimension to evaluate conservation strategies. 
+Salmon are strongly affected by climate warming and yet show a remarkable diversity of tolerance to temperature [@beacham1989; @crozier2006; @battin2007; @crozier2008]. 
+In addition to climate warming posing perhaps the greatest threat to global biodiversity [@thomas2004], warming poses a particular threat to riverine species whose ranges are largely confined to existing habitat [@thomas2010] and where shallower water can be affected more rapidly by thermal changes than larger water basins [@isaak2010] and by snow-melt timing and extreme hydrological events [@crozier2008].
+These consequences, and in particular warmer water itself, can combine to limit salmon productivity through oxygen limitation [@portner2007] leading to decreased cardiac performance [@eliason2011] and having profound implications for behaviour [@goniea2006], disease resistance (REF), energetic costs (REF Rand 1998 from Pess 2012?), and ultimately survival [@peterman1998; @eliason2011]. 
+With 29% of Pacific Northwest salmon population having gone extinct in the last XX years and XX% of remaining stocks classified as at risk by XX, these populations are at risk from any further decline in fitness [@crozier2008; @mcclure2003]. 
+Yet, adverse stream temperatures are already impeding recovery of some PNW salmon populations [@mccullough1999] and leading to earlier and more condensed migration of salmon [@kovach2013a]... finish this.
+
+
+<!--given increasing pressure of climate change on salmonid populations [e.g. @mccullough1999; @hodgson2002; @isaak2010]. -->
+
+Here, we ask how a portfolio approach to management can inform the conservation of metapopulations in a changing world. We ask two primary questions: (1) Given a plausible distribution of response diversity, how does portfolio theory inform spatial approaches to prioritizing metapopulation conservation? (2) If we don't know how response-diversity is distributed, what does portfolio theory tell us about the number of populations to conserve? To answer these questions, we develop a salmon metapopulation simulation in which spatially-distributed thermal tolerance and patterns of short- and long-term climatic change drive population-specific productivity. We then implement conservation rules of thumb that control the population-level carrying capacities and evaluate the salmon portfolios along risk and return axes, as a financial portfolio manager might. We show that conserving response diversity buffers metapopulation risk given short-term climate forcing and ensures metapopulation persistence given long-term climate warming. We then show that conserving more subpopulations buffers risk regardless of response diversity or climate trend, and conclude that considering metapopulations through portfolio theory provides a useful additional dimension through which we can consider conservation strategies. 
 
 <!--Examples of portfolio prioritization in face of climate change: @crowe2008, @ando2012, @ando2011-->
 
 # Methods #
 
-<!--Caveats (perhaps work these into the methods)
-	functional extinction - loss of diversity through straying, not accounted for (primarily only an issue at small abundance though)
-	we know the precise response diversity and knew when it was balanced
-	short term climate and SR relationships notoriously difficult to estimate in reality
-	evolution to long-term environmental changes
-	obviously: this is a simulation, ideally work this into the methods-->
-
-
-We developed a salmon metapopulation simulation model that includes a stock-recruit relationship, demographic stochasticity, straying between populations, varying responses to the environment, escapement target setting, and implementation uncertainty.
-Under two kinds of environmental regimes we tested different conservation rules of thumb and evaluated these plans in risk-return space similar to how financial managers evaluate financial portfolios. 
-We illustrate the overall simulation structure in Fig. 1. 
+We developed a 100-year salmon metapopulation simulation model that includes a spawner-return relationship, demographic stochasticity, straying between populations, varying responses to the environment, escapement target setting, and implementation uncertainty. Under two kinds of environmental regimes we tested different conservation rules of thumb and evaluated these plans in risk-return space similar to how financial managers evaluate financial portfolios. We illustrate the overall simulation structure in Fig. 1. 
 <!--See Table \ref{t:pars} for a list of the input parameters to our simulation and their default values. -->
-We provide a package `metafolio` for the statistical software `R` [@r2013] as an appendix, to carry out the simulations and analyses we describe in this paper.
+We provide a package `metafolio` for the statistical software `R` [@r2013] as an appendix, to carry out the simulations and analyses described in this paper.
 
 ## Defining the ecological portfolio ##
 
-In our ecological portfolios, we defined assets as stream-level populations and the portfolios as salmon metapopulations. 
-We use the terms *stream* and *populations* interchangeably to represent the portfolio assets. 
-We defined the portfolio investors as the stakeholders in the fishery and metapopulation performance. 
-CHANGE THIS For example, we could consider fisheries managers, conservation agencies, or First Nations groups as investors. 
-We defined asset value as the abundance of returning salmon in each stream and value of the portfolio as the overall metapopulation abundance. 
-In this scenario, the equivalent to financial rate of return is the generation-to-generation rate of change of metapopulation abundance. 
-We defined the financial asset investment weights as the capacity of the stream populations --- specifically the unfinished equilibrium stock size --- since maintaining or restoring habitat requires money, time, and resources. 
-Investment in a population therefore represents investing in salmon habitat conservation or reconstruction.
+In our ecological portfolios, we defined assets as stream-level populations and portfolios as salmon metapopulations. We use the terms *stream* and *populations* interchangeably to represent the portfolio assets. We defined the portfolio investors as the stakeholders in the fishery and metapopulation performance. For example, the investors could be conservation agencies, First Nations groups, or civil society as a whole. The fisheries management agency then becomes the portfolio manager. We defined the asset value as the abundance of returning salmon in each stream and the value of the portfolio as the overall metapopulation abundance. In this scenario, the equivalent to financial rate of return is the generation-to-generation metapopulation growth rate. We defined the financial asset investment weights as the capacity of the stream populations --- specifically the unfinished equilibrium stock size --- since maintaining or restoring habitat requires money, time, and resources. Investment in a population therefore represents investing in salmon habitat conservation or restoration.
 
 ## Salmon metapopulation dynamics ##
 
@@ -80,16 +47,11 @@ We defined the spawner-return relationship with a Ricker model [@ricker1954],
 
 $$R_{i(t)} = S_{i(t)}e^{a_{i(t)}(1-S_{i(t)}/b_i) + w_{i(t)}}$$
 
-\noindent where $i$ represents a population, $t$ a generation time, $R$ the number of returns, $S$ the number of spawners, $a$ the productivity parameter (which can vary with the environment), and $b$ the density-dependent term (which is used as the asset weights in the portfolios). 
-The term $w_{i(t)}$ represents first-order autocorrelated error. 
-Formally, $w_{i(t)} = w_{ti-1} \rho_w + r_{i(t)}$, where $r_{i(t)}$ represents independent and normally distributed error with mean 0 and standard deviation of $\sigma_r$. 
-The parameter $\rho_w$ represents the correlation between residuals from subsequent generations.
+\noindent where $i$ represents a population, $t$ a generation time, $R$ the number of returns, $S$ the number of spawners, $a$ the productivity parameter (which can vary with the environment), and $b$ the density-dependent term (which is used as the asset weights in the portfolios). The term $w_{i(t)}$ represents first-order autocorrelated error. Formally, $w_{i(t)} = w_{ti-1} \rho_w + r_{i(t)}$, where $r_{i(t)}$ represents independent and normally distributed error with mean 0 and standard deviation of $\sigma_r$. The parameter $\rho_w$ represents the correlation between residuals from subsequent generations.
 
-We manipulated the capacity and productivity parameters $b$ and $a$ as part of the portfolio simulation. 
-The capacity parameters $b_i$ were controlled by the investment weights in the populations. For example, a large investment in a stream was represented by a larger unfished equilibrium stock size $b$ for stream $i$. 
-The productivity parameters $a_{i(t)}$ were controlled by the interaction between an environmental signal and the stream-level population environmental-tolerance curves.
+We manipulated the capacity and productivity parameters $b_i$ and $a_{i(t)}$ as part of the portfolio simulation. The capacity parameters $b_i$ were controlled by the investment weights in the populations. For example, a large investment in a stream was represented by a larger unfished equilibrium stock size $b$ for stream $i$. The productivity parameters $a_{i(t)}$ were controlled by the interaction between a temperature time series and the subpopulation thermal-tolerance curves.
 
-We generated the environmental-tolerance parabolas according to
+We generated the thermal-tolerance performance curves according to
 
 $$a_{i(t)} =
   \begin{cases}
@@ -98,40 +60,35 @@ $$a_{i(t)} =
       0, & \text{if } a_{i(t)} \leq 0
   \end{cases}$$
 
-\noindent where $W_i$ controls the width of the curve for population $i$, $e_t$ represents the environmental value at generation $t$, $e_i^{\mathrm{opt}}$ represents the optimal environmental value for population $i$, and $a_i^{\mathrm{max}}$ represents the maximum possible $a$ value for population $i$. 
-We set the $W_i$ parameters (Table S1) and calculated the $a_i^{\mathrm{max}}$ parameters so that the area under each curve $A_i$ was equal. See Figure 2a for example environmental-tolerance curves.
+\noindent where $W_i$ controls the width of the curve for population $i$, $e_t$ represents the environmental value at generation $t$, $e_i^{\mathrm{opt}}$ represents the optimal temperature for population $i$, and $a_i^{\mathrm{max}}$ represents the maximum possible $a$ value for population $i$. We set the $W_i$ parameters (Table S1) and calculated the $a_i^{\mathrm{max}}$ parameters so that the area under each curve $A_i$ was equal. We chose parameter values such that some populations were warm-tolerant, some were cold-tolerant, and some had a wider range of thermal-tolerance, but a lower maximum productivity (see Fig. 2a and Appendix S1 in Supplementary Information). Although we refer to a thermal-tolerance curve because temperature is a dominant driver of salmonid performance [@mccullough1999], our model applies to any environmental tolerance (e.g. tolerance to stream flow volume or changes in snow melt timing [@crozier2008]).
 
 ### Straying ###
 
-We implemented straying as in @cooper1999. We set up the metapopulation in a simple scenario: we arranged the populations in a line and those that were nearer to each other were more likely to stray between each other. 
-Two parameters controlled the straying: the fraction of fish $f_{\mathrm{stray}}$ that stray from their natal stream in any generation and the rate $m$ at which this straying between streams decays with distance. 
-We calculated the number of salmon straying from stream $j$ to stream $i$ as
+We implemented straying as in @cooper1999. We arranged the subpopulations in a line and salmon were more likely to stray to streams near their natal stream. Two parameters controlled the straying: the fraction of fish $f_{\mathrm{stray}}$ that stray from their natal stream in any generation and the rate $m$ at which this straying between streams decays with distance. We calculated the number of salmon straying from stream $j$ to stream $i$ as
 
-$$\mathrm{strays}_{tij} = f_{\mathrm{stray}} R_{tj}
+$$\mathrm{strays}_{ij(t)} = f_{\mathrm{stray}} R_{j(t)}
     \frac{e^{-m \lvert i-j \rvert }}
       {\displaystyle\sum\limits_{
         \substack{k = 1 \\ k \neq j}}^{n} 
         e^{-m \lvert k-j \rvert }}$$
 
-\noindent where $R_{tj}$ is the number of returning salmon at generation $t$ whose natal stream was stream $j$. 
-The subscript $k$ represents a stream ID and $n$ the number of populations. 
-The denominator is a normalizing constant to ensure the desired fraction of fish stray. See Figure \ref{f:stray} for an example straying matrix.
+\noindent where $R_{j(t)}$ is the number of returning salmon at generation $t$ whose natal stream was stream $j$. 
+The subscript $k$ represents a stream ID and $n$ the number of populations. The denominator is a normalizing constant to ensure the desired fraction of fish stray. See Figure \ref{f:stray} for an example straying matrix.
 
-## Fishing
+Our simulation did not account for the homogenization of diversity due to straying. For example, all salmon in population A maintained the same thermal-tolerance curve regardless of how many salmon it received from population B. However, the low straying rates in our simulation rate should render this effect minimal except for populations at low abundance. In our model, the main implication is that, in reality, populations that reach a low abundance may reach demographic extinction, potentially suffer consequences such as inbreeding depression [@wang2002] and subsequently contribute little to response diversity.
 
-Our simulation used a simple set of rules to establish escapement targets and harvest the fish. 
-Every five years our simulation fitted a spawner-return function and target harvest rate $H_{\mathrm{tar}}$ was set based on @hilborn1992 as
+## Fishing ##
+
+Our simulation used a simple set of rules to establish escapement targets and harvest the fish. Every five years our simulation fitted a spawner-return function and the target harvest rate $H_{\mathrm{tar}}$ was set based on @hilborn1992 as
 
 $$H_{\mathrm{tar}} = \frac{A}{b (0.5 - 0.07a)}
   \label{eq:esc}$$
 
-\noindent where $A$ represents the return abundance and $a$ and $b$ represent the Ricker model parameters.
-We included implementation uncertainty in the actual harvest rate $H_{\mathrm{act}}$ as
+\noindent where $A$ represents the return abundance and $a$ and $b$ represent the Ricker model parameters. We included implementation uncertainty in the actual harvest rate $H_{\mathrm{act}}$ as
 
 $$H_{\mathrm{act}} = \mathrm{beta}(\alpha_h, \beta_h)$$
 
-\noindent where $\alpha_h$ and $\beta_h$ are the location and shape parameters in a beta distribution.
-They can be calculated from the desired mean $H_{\mathrm{tar}}$ and standard deviation $\sigma_h$ as [@morgan1990, p. 97]
+\noindent where $\alpha_h$ and $\beta_h$ are the location and shape parameters in a beta distribution. They can be calculated from the desired mean $H_{\mathrm{tar}}$ and standard deviation $\sigma_h$ as [@morgan1990, p. 97]
 
 $$\begin{aligned}
   \alpha_h &= H_{\mathrm{tar}}^2
@@ -140,197 +97,74 @@ $$\begin{aligned}
                 \right)\\
    \beta_h &= \alpha \left({\frac{1}{H_{\mathrm{tar}}} - 1}\right).\end{aligned}$$
 
-Further, to establish a range of spawner-return values and to mimic the start of an open-access fishery, for the first 30 years we drew the fraction of fish harvested randomly from a uniform distribution between 0.1 and 0.9. 
-We discarded these initial 30 years as a burn-in period.
+\noindent
+Further, to establish a range of spawner-return values and to mimic the start of an open-access fishery, for the first 30 years we drew the fraction of fish harvested randomly from a uniform distribution between 0.1 and 0.9. We discarded these initial 30 years as a burn-in period.
 
 ## Environmental dynamics ##
 
-We evaluated portfolio performance under short- and long-term environmental dynamics. We represented short-term dynamics as a stationary first-order autoregressive process, AR(1), with correlation $\rho_e$
+Environmental dynamics typically have both short- and long-term fluctuations. We evaluated portfolio performance under these two components separately. We represented short-term dynamics as a stationary first-order autoregressive process, AR(1), with correlation $\rho_e$
 
 $$e_t = e_{t-1} \rho_e + d_t, d_t \sim \mathrm{N}(0, \sigma_d)$$
 
-\noindent where $e_t$ represents the environmental value in generation $t$ and $d$ represents normally distributed deviations of mean 0 and standard deviation $\sigma_d$. 
-We represented long-term environmental dynamics as a linear shift in the environmental value through time
+\noindent where $e_t$ represents the environmental value in generation $t$ and $d$ represents normally distributed deviations of mean 0 and standard deviation $\sigma_d$. We represented long-term environmental dynamics as a linear shift in the environmental value through time
 
 $$e_t = \beta_e t - \overline{\beta_e t}$$
 
 \noindent where $\beta_e$ represents the slope. 
 To maintain a balanced response, we centered the trend by subtracting the mean $\overline{\beta_e t}$ so that midway through the simulation (after any burn-in period) the environmental value was at the mean environmental tolerance.
 
-Mention Fig. 3 and maybe put it before Fig. 2?
+Combining salmon population dynamics, fishing, and environmental dynamics, we illustrate the components of an example simulation in Fig. 3.
 
 ## Conservation rules of thumb ##
 
-We evaluated two sets of conservation rules of thumb: (1) spatial response diversity conservation strategies in an idealistic scenario where you can detect response diversity, and (2) a more realistic scenario where we know little about response diversity and we're left with a choice of how many populations to conserve.
+We evaluated two sets of conservation rules of thumb: (1) strategies to conserve spatial response diversity, and (2) a scenario where we know little about response diversity and we're left with a choice of how many populations to conserve.
 
-We evaluated four spatial conservation rules of thumb (Fig. 2b--e). 
-In all spatial scenarios, we conserved four populations and set the unfished equilibrium biomass of the remaining populations to near elimination (five salmon). 
-These reduced populations could still receive straying salmon but were unlikely to rebuild on their own to a substantial abundance. 
-The four scenarios were:
+We evaluated four spatial conservation rules of thumb (Fig. 2b--e). In all spatial scenarios, we conserved four populations and set the unfished equilibrium biomass of the remaining populations to near elimination (five salmon). These reduced populations could still receive straying salmon but were unlikely to rebuild on their own to a substantial abundance. 
+The four scenarios we considered were:
 
-1.  Conserve an even sampling of response diversity.
-2.  Conserve the most stable populations only.
-3.  Conserve one half of the metapopulation.
-4.  Conserve the other half of the metapopulation.
+1. Conserve an even sampling of response diversity.
+2. Conserve the middle section of the metapopulation (conserve stable populations).
+3. Conserve the lower half of the metapopulation (conserve cool-tolerant populations).
+4. Conserve the upper half of the metapopulation (conserve warm-tolerant populations).
 
-In reality we rarely know precise levels of response diversity. We therefore additionally considered a case where the conservation was randomly assigned with respect to response diversity but where different numbers of streams could be conserved. 
-We considered conserving from two to 16 streams. 
-Similarly to the spatial strategies, we reduced the capacity of the remaining streams to the nominal level of five salmon.
-
+In reality we rarely know precise levels of response diversity. We therefore considered a case where the conservation was randomly assigned with respect to response diversity but where different numbers of streams could be conserved. We considered conserving from two to 16 streams. Similarly to the spatial strategies, we reduced the capacity of the remaining streams to the nominal level of five salmon.
 
 # Results #
 
 ## Which populations to conserve? ##
 
-### Short-term environment ###
+*Given short-term environmental fluctuations*, conserving response diversity buffers the risk properties of an ecological portfolio (Fig. 4a). 
+In our model, the median variance of metapopulation growth rate was X times lower given balanced response diversity (full range of responses or most stable only vs. conserving one half or the other). This increase in stability occurred despite the portfolio being comprised of warm and cool-thriving populations that were more variable on their own than populations with wide thermal-tolerance curves.We can see the mechanism behind these portfolio properties by inspecting example population time series (Fig. 4c, d).If only the upper or lower half of response diversity is conserved, the portfolio tends to alternate between performing well and poorly depending on the environmental conditions resulting in a risker portfolio (Fig. 4e). This risk is buffered with balanced response diversity (Fig. 4c).
 
-
-Given strong short-term environmental fluctuations, conserving response diversity buffers the risk properties of an ecological portfolio (Fig. 4a). 
-In our simulation, the median variance of generation-to-generation rate of change in abundance was X times lower given balanced response diversity (full range of responses or most stable only vs. conserving one half or the other). 
-In fact, even though by conserving the full range of responses, the portfolio was comprised of warm and cool-thriving populations that were more variable on their own, each was balanced by an opposing population.
-The portfolio risk was therefore comparable between the full range of responses and most stable only portfolios.
-
-We can see the mechanism behind these portfolio properties by inspecting example population time series (Fig. 4c, d).
-If only the upper or lower half of response diversity is conserved, the portfolio tends to do well or poorly depending on the environmental conditions (Fig. 4d). 
-This risk is buffered with balanced response diversity (Fig. 4c).
-
-### Long-term environment ###
-
-Given long-term environmental change, the choice of which populations to conserve affects the return properties of an ecological portfolio (Fig. 4b). 
-By conserving balanced response diversity, an ecological manager is hedging his or her bets on what will happen with the environment and how the populations will respond.
-The typical return for a balanced response diversity strategy was zero --- the metapopulation neither increased or decreased in abundance in the long run.
-By conserving only the upper or lower half of response diversity, a conservation manager is putting all his or her eggs in one basket --- the metapopulation might do really well through time or it might do really poorly. 
-The example metapopulation abundance time series (Fig. 4d, f) illustrate this effect. 
-By conserving response diversity, when one population is doing poorly, another is doing well and the metapopulation abundance remains stationary through time.
-
-Notably, in these simulations, if a managers invested in the populations that were doing well at the beginning they would have had the lowest rate-of-return portfolio in the end (purple portfolios in Fig. 4b).
-
-Spatial conservation strategies in the face of longterm environmental change hinge on whether you "get it right" --- whether you choose just the right populations to conserve.
+*Given long-term environmental change*, the choice of which populations to conserve affects the "return" (metapopulation growth rate) properties of an ecological portfolio (Fig. 4b). By conserving balanced response diversity, an ecological manager is hedging his or her bets on the environmental trend and how the populations will respond.The typical metapopulation growth rate for a balanced response diversity strategy was zero --- the metapopulation neither increased or decreased in abundance in the long run.The example metapopulation abundance time series (Fig. 4d, f) illustrate the mechanism. By conserving response diversity, when one population is doing poorly, another is doing well and the metapopulation abundance remains stationary through time. If a manager had invested in the populations that were doing well at the beginning they would have had the lowest rate-of-return portfolio in the end (purple portfolios in Fig. 4f).
 
 ## How many populations to conserve? ##
 
-Given a scenario where we don't know the distribution of population-level response diversity, portfolio optimization informs us about the risk buffering from maintaining multiple populations (Fig. 5). 
-In short, investing in more populations buffers portfolio risk.
+In a scenario where we don't know the distribution of population-level response diversity, portfolio optimization informs us that investing in more populations buffers portfolio risk regardless of environmental trend. (Fig. 5). 
 
-### Short-term environment ###
+*Given short-term environmental fluctuations*, conserving more populations buffers portfolio risk (Fig. 5a), and at the same time, the random conservation of response diversity creates a spread of metapopulation risk for the same number of populations conserved. For example, a metapopulation with eight conserved populations is X times less risky than a metapopulation with only four. 
+We can see this risk-buffering effect through example metapopulations in Fig. 5c and 5d. We note that the risk-return axes of portfolio optimization ignore the absolute-abundance dimension (Fig. 5d) --- as one would expect, conserving fewer populations also results in lower-abundance metapopulations.
 
-Given short-term environmental noise, conserving more populations buffers portfolio risk while the random conservation of response diversity creates a spread of metapopulation risk for the same number of populations conserved (Fig. 5a). 
-For example, a metapopulation with eight conserved populations is X times less risky than a metapopulation with only four. 
-We can see this risk-buffering effect through example metapopulations in Fig. 5c and 5d. 
-We note that the risk-return axes of portfolio optimization ignore the absolute-abundance dimension (Fig. 5d). 
-As one would expect, conserving fewer populations also results in lower-abundance metapopulations.
-
-### Long-term environment ###
-
-Given long-term environmental noise, conserving more populations also buffers portfolio risk. 
-However, in contrast to the short-term environmental noise scenario, the unknown response diversity creates a spread of possible metapopulation return for the same number of conserved populations (Fig. 5b). 
-Here, the number of populations conserved buffers non-systematic (i.e. not-environmentally-driven) stochasticity.
+*Given long-term environmental change*, conserving more populations also buffers portfolio risk. However, in contrast to the short-term environmental noise scenario, the unknown response diversity creates a spread of possible metapopulation return for the same number of conserved populations (Fig. 5b). Here, the number of populations conserved buffers non-systematic (primarily demographic) stochasticity.
 
 # Discussion #
 
-## Opening paragraph - reiterate main message
-  * population diversity leads to stability in realistic metapopulation
-    under climate change
-  * also numbers...
-  * we explicitly show how maintaining populations with a variety of
-    environmental tolerances translates into lower-risk metapopulations
-    across a variety of possible environmental scenarios   
-  * focusing on well-performing stocks now at the detriment of others,
-    is at best equivalent to a risky but efficient portfolio, at worst
-    a poorly performing risky portfolio
+Our model demonstrates how population diversity can stabilize realistic metapopulations under climate change. We show how maintaining populations with a variety of thermal-tolerances reduces risk caused by short-term environmental stochasticity and optimizes chances for long-term persistence given climate change. Further, without knowing how response diversity is distributed, conserving more subpopulations results in less risky metapopulations regardless of environmental trend and response-diversity distribution. Combined, these two findings illustrate that focusing on well-performing stocks now at the detriment of others is at best equivalent to a risky but efficient portfolio, and at worst a poorly-performing risky portfolio. In this discussion, we begin by linking our model with real-world conservation issues for Pacific Northwest salmon and considering the implications of our results for salmon conservation and management. We then consider broader research priorities and extensions that our results suggest for metapopulation conservation.
 
-## Describe interpretation of key risk-return elements; turn into take home rules of thumb
-  * All recommendations for maintaining response diversity from Moore et
-    al. 2010 (summarize those briefly?)
-  * If closer populations are more correlated with each other, and you
-    must prioritize, then focus on a selection that aren't spatially
-    contiguous (as long as straying is maintained) to maximize diversity
-    of response to the environment
-  * Precautionary management: we assume precautionary abundance should
-    we also be precautionary about response diversity?
+The primary lesson from our simulation model is the importance of response diversity in buffering risk and ensuring long-term persistence in the face of an uncertain world. First, our results emphasize the need to make response diversity a primary goal of conservation and recovery efforts [@moore2010] and suggest that precautionary management should not just focus on abundance but also be precautionary with respect to response diversity. Thus, our results highlight the need to preserve the processes that maintain response diversity, with habitat heterogeneity, which can lead to local adaptation [@taylor1991; @fraser2011] and hence response diversity, being a key process. Second, our results can inform habitat prioritization decisions. If closer populations are more correlated with each other and conservation actions must be prioritized, then our model suggests we should focus on populations that aren't spatially contiguous, as long as sufficient straying is maintained, to maximize diversity of response to the environment. Third, where possible, avoid structures that artificially remove response diversity. For salmon, dams are a prominent example [@waples2007; @pess2012]. Dams have a double impact whereby their introduction can selectively eliminate a large swath of habitat, perhaps analogous to our scenario X (Fig. X), and then mitigation approaches such as hatcheries and small transportation can further reduce population diversity and likely response diversity (REFS).
 
-## Link simulation and results to real issues for PNW salmon
-  * Examples of response diversity, specifics that match up with
-    modelling framework
-    * maybe Doug's paper - genetic diversity is best predictor of
-      response diversity
-  * Range contraction
-    * temp. tolerance - spatial contraction of pops - one would predict
-      increased variance and risk - losing response diversity 
-  * Extinction isn't random
-    * really bad or really good, but not random
-    * e.g. salmon in upper watershed tend to be impacted more by dams
+Our simulation model emphasizes the importance of thinking at the portfolio level --- considering aggregate risk and performance for ecological portfolios. In many ways our results are intuitive, however, we often don't consider aggregate risk despite the many benefits to doing so. Only by simultaneously considering aggregate risk and return can we optimally diversify our ecological systems [@ando2012]. To that end we can think of portfolio risk-return performance as another dimension of conservation. This dimension emphasizes the value of a broader scale of management; it emphasizes the value of integrated management planning (REF). Further, it emphasizes the need to not just focus on productive populations but also including less productive populations to lower the long-term aggregate risk for the system [@hilborn2003]. This perspective does not negate an understanding at a finer scale, say of individual stocks. Rather, as in finance, it requires an understanding at a finer scale but also an understanding of the covariance between stocks to predict the properties of the portfolio as a whole.
 
-## Highlight how this complemets similar prioritization work
-  * shiraz - single population
-  * Other...
+TODO:
+Across the range of Pacific Northwest salmonids, United States and Canadian guidelines are increasingly well-structured to benefit from the findings of our simulation model. In the United States, Evolutionary Significant Units (ESUs) represent... and Viable Salmonid Populations (VSPs) represent... [@mceacheran2000; @waples1991; @moritz1994]. In Canada, the Wild Salmon Policy [@dfo2005wsp] structures salmon populations into Conservation Units (CUs). Our recommendations support a  number of VSP and CU guidelines. For example...
 
-## Climate change and response diversity
-  * those that seem productive and/or stable now may not be in the
-    future
-  * by eliminating large spacial areas (e.g. damns) you're creating
-    a higher risk ecological portfolio, if you get lucky you'll be OK,
-    you might do much worse
-  * Cheung et al. and Mantua papers
-  * Stock-recruit Fredu paper cod and Benjamin Plonque CJFAS
-  * Rogers and Schindler PNAS long-term fluctuations
+Our model is unique in that it is the first to consider risk for the metapopulation as a whole while identifying the role of response diversity in buffering that risk. Our model follows from the work of @cooper1999 who showed the importance of metapopulation habitat structure for salmonid conservation and @moore2010 who linked salmon portfolio performance to asynchrony in population dynamics. Our model complements existing simulation-based salmon-habitat prioritization models that emphasize detailed assessment of individual stocks and we compare two of them here. One a frequently used simulation-habitat-prioritization model, the Shiraz model [@scheuerell2006], focuses on detailed conditioning of the habitat-population-dynamics relationship for a single salmon population. While the Shiraz model can be applied to an entire watershed it combines the populations together as a single unit. In contrast to our model, the Shiraz model breaks the spawner-recruit model into multiple stages. A second prioritization scheme proposes a ranking of priority based on population viability analysis (PVA) and extinction consequences [@allendorf1997]. They suggests using PVA or surrogate measures of population viability and then considering the genetic consequences of conserving various populations. @allendorf1997, however, also focus on the assessment of individual stocks without considering covariance between them and therefore the performance of the salmon portfolio as a whole. Compared to these detailed population-specific models, we emphasize that our model is, at this stage, primarily conceptual, but could be conditioned on real systems or expanded to incorporate greater life-stage realism. Our intention was to develop a parsimonious model to explore the salient aspects of metapopulation-portfolio performance.
 
-## There are a number of extensions to our simulation that would be fruitful.
-  * We're only looking at one dimension of response diversity - thermal
-    tolerance. All sorts of other kinds - climate, flow, predators and
-    prey, behaviour...
-  * Metapopulations of other taxa, but also
-    * Community ecology
-    * Metacommunities
-  * Work with environmental filter concept on own or in addition to
-    response diversity
-  * On longer timespan - evolution element
-  * We sought general rules of thumb; could also be used to optimize
-    decisions as part of decision analysis
-  * Working with more finely tuned scenarios to test competing
-    management hypotheses
-  * Tailoring these kinds of simulations to real systems
+There are number of specific extensions to our simulation model that could be useful. First our model could be extended beyond thermal response diversity. For the example of salmon this might include response diversity to inter-decadal climate signals such as the Pacific Decadal Oscillation [@mantua2002], stream flow, or dissolved oxygen [@priede1988]. Second, aspects of our model were tailored to salmon but could be extended to metapopulations of other taxa, to ecological communities, and to meta-communities. Third, an extension of our model would consider the Moran or environmental-filter concept [@schindler2008] where populations further from each other are more likely to experience different environmental forces. Fourth, a model could consider the contribution of contemporary evolution [@stockwell2003]. This rapid adaptation to changes in the environment could strongly affect portfolio performance and emphasize the importance of maintaining genetic diversity. Finally, a fruitful extension would be to condition our model on a system of interest, for example a given river basin, and optimize that metapopulation portfolio across conservation and restoration options as part of a formal decision analysis.
 
-## Our work suggests a number of broader applied research priorities.
-  * Identifying response diversity and spatial correlation (e.g. thermal
-    tolerance curves in the Science paper)
-  * Identifying what drives recruitment in different scenarios - env.
-    relationship, regimes?
-  * Looking for real-life case studies as in situ experiments testing
-    our conclusions
+Our results suggest three broad research priorities. First our work highlights the importance of identifying response diversity [e.g.@eliason2011], spatial asynchrony [e.g. @thorson2013] and in particular the management schemes that promote these processes. Our work highlights how these processes can contribute to reducing risk and increasing the likelihood of persistence of metapopulations under uncertainty. Second, our work suggests the importance of identifying what drives productivity in different scenarios. For example, what is the relative effect on productivity of population density, an environment-recruitment relationship, and environmental regime shifts [@vert-pre2013] and what management approaches are robust to our uncertainty about these contributions? Third, our work suggests research that looks for real-life case studies as in situ experiments testing our conclusions. The question remains, does managing metapopulations portfolios using modern portfolio theory result in better outcomes that are in line with the societal goals?
 
-## What new do we learn for management and conservation?
-  * Intuitive results, but we don't think about aggregate risk much, but
-    should
-  * salmon management conservation is highly fragmentary - dispersed
-    among hatchery managers, who for example are trucking and releasing
-    smolts all over the downstream catchment into sanf bay - no planning
-    about whether that's a sensible strategy given climate
-  * another dimension of conservation - or persistence
-  * not just leave all dams in place... reinvigorate selection for
-    response diversity;  double whammy of damns - hatcheries added,
-    further removing response diversity
-  * Scale of management; integrated management planning
-
-## Link to existing guidelines and mandates in Canada and the US
-  * VSP and ESUs
-  * DFO Wild Salmon Policy
-  * criteria for threat status
-  * threat status in wild salmon policy - designate MUs sort of ESUs,
-    and evaluate with different levels of management intervention
-
-## Concluding paragraph
-  * reiterate rules of thumb and priorities
-  * reiterate utility of general portfolio simulation approach
-
-## Extra
-- Ignore? Unpack richness and diversity elements
-    * Beta, diversity between streams
-    * beta diversity (response diversity - differences between assets),
-      prioritizing different dimensions of diversity - turnover
-      * alpha and beta
-      * beta diversity describing temporal turnover
-    * Alpha, diversity within stream
+In conclusion, our results demonstrate the utility of considering metapopulations in a portfolio context and the power of portfolio simulation to consider robust management strategies that minimize metapopulation risk and maximize growth under uncertain environmental conditions. Our findings show that response diversity buffers metapopulation risk given short-term environmental stochasticity and ensures persistence given long-term regime changes. Further, our findings show that, independent of response-diversity, conserving more populations buffers metapopulation risk. These results point to the critical importance of choosing management, conservation, and restoration actions that preserve and promote response diversity.
 
 # Acknowledgements #
 
@@ -343,7 +177,7 @@ Here, the number of populations conserved buffers non-systematic (i.e. not-envir
 \clearpage
 \begin{figure}[htbp]
 \centering
-\includegraphics[height=5.5in]{../examples/simulation-diagram2.pdf}
+\includegraphics[height=5.5in]{../examples/simulation-diagram3.pdf}
 \caption{Flow chart of the salmon-metapopulation simulation. There are $n$ salmon populations and $t$ generations. Blue text indicates values that are generated before the simulation progresses through time. Red text indicates steps in which calculations are performed through time. Black text indicates values that are calculated. Grey text indicates parameters that can be set. Green text indicates the looping structure of the simulation.}
 \label{f:sim-flow}
 \end{figure}
@@ -360,7 +194,7 @@ Here, the number of populations conserved buffers non-systematic (i.e. not-envir
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=4.0in]{../examples/spatial-arma-sim.pdf}
-\caption{The components of an example metapopulation simulation.  We show, from top to bottom, the environmental signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, stock-recruit residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) environmental values.}
+\caption{[TODO clean up a bit - especially estimated b y-axes] The components of an example metapopulation simulation.  We show, from top to bottom, the environmental signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, spawner-return residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) environmental values.}
 \label{f:sp-eg}
 \end{figure}
 \clearpage
@@ -376,8 +210,62 @@ Here, the number of populations conserved buffers non-systematic (i.e. not-envir
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.0in]{../examples/cons-plans-n.pdf}
-\caption{The importance of preserving as many subpopulations as possible when we don't know how response diversity is distributed. In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations (see Fig.~X). We show metapopulations in which 2 (red), 4 (orange), 8 (yellow), or 16 (green) populations of random response diversity are conserved. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation (c) rate-of-change and (d) abundance time series for the short-term environmental-fluctuation scenario.}
+\caption{[TODO move environmental ts to label, add arrow to high ext. risk, add labels to lower panels pointing out result] The importance of preserving as many subpopulations as possible when we don't know how response diversity is distributed. In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations (see Fig.~X). We show metapopulations in which 2 (red), 4 (orange), 8 (yellow), or 16 (green) populations of random response diversity are conserved. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation (c) rate-of-change and (d) abundance time series for the short-term environmental-fluctuation scenario.}
 \label{f:n-mv}
 \end{figure}
 \clearpage
+
+<!--[@convertino2013; @wade2013]-->
+
+<!--River species can't just move poleward like other species  @thomas2010 (but not a great ref)-->
+
+<!--- for discussion? what can cause productivity curves - oxygen limitation - @portner2007-->
+
+<!--- contemporary evolution ref: review - @stockwell2003-->
+<!--from Thorson et al. 2013: "Conversely, spatially structured population models-->
+<!--4 show that synchronous local fluctuations can increase over--->
+<!--5 all variability and extinction risk at the metapopulation-->
+<!--6 scale (Heino et al. 1997; Earn 2000; Engen, Lande &-->
+<!--7 Sæther 2002)."-->
+
+<!--from Thorson et al. 2013: "11 Spatial and temporal variability in demographic rates-->
+<!--12 such as survival and fecundity has been much discussed in-->
+<!--13 the ecological literature (Clark 2003) and has also-->
+<!--14 been demonstrated using high-quality data in several-->
+<!--15 high-profile cases (e.g. Coulson et al. 2001; Barrowman-->
+<!--16 et al. 2003; Clark, LaDeau & Ibanez 2004)."-->
+
+<!--From Thorson et al. 2013: "Theory suggests that local density dependence may weaken the synchrony among populations driven by either dispersal or correlated environmental forcing (i.e. the ‘Moran effect’), particularly if the strength of den- sity dependence varies spatially (Liebhold, Koenig & Bjørnstad 2004)."-->
+
+<!--from @thorson2013: "Studies in fishes and birds have reported levels of synchrony ranging from weak to strong in stage-specific survival (Grenouillet et al. 2001; Ringsby et al. 2002; Crozier & Zabel 2006; Tavecchia-->
+<!--21 et al. 2008), fecundity (Tavecchia et al. 2008), sex ratio-->
+<!--22 (Koizumi et al. 2008) and growth. However, there is little-->
+<!--23 general theory linking synchrony in vital rates to syn--->
+<!--24 chrony in abundance at a population or metapopulation-->
+<!--25 level."-->
+
+
+<!--From @thorson2013: "Density dependence has previously been documented for salmonids in migration, growth and survival (Bjornn 1971, 1978; Sekulich 1980; Walters, Copeland & Venditti 2013), and its strength has been shown to vary among populations (Barrowman et al. 2003), although our study is the first to our knowledge to quantify the degree of variability in density dependence among both years and populations. "-->
+
+<!--from @thorson2013: "Some theoretical models of spatially structured population dynamics (reviewed by Liebhold, Koenig & Bjørnstad 2004) suggest that heterogeneity among populations in the strength of density-dependent regulation can weaken temporal synchrony. The interplay between spatial and temporal variation in density dependence, environmental stochasticity and synchrony (or conversely, portfolio effects) would be a fruitful avenue for future research."-->
+
+
+<!--from @earn2000:-->
+<!--Get these papers which emphasize the "synchrony of population dynamics in different habitat patches":-->
+<!--4. R. Levins, Bull. Entomol. Soc. Am. 15, 237 (1969).-->
+<!--5. J. H. Brown, A. Kodric-Brown, Ecology 58, 445 (1977).-->
+<!--6. M. Heino, V. Kaitala, E. Ranta, J. Lindstrom, Proc. R.-->
+<!--Soc. London Ser. B 264, 481 (1997).-->
+<!--7. B. Blasius, A. Huppert, L. Stone, Nature 399, 354-->
+<!--(1999).-->
+<!--8. D. J. D. Earn, P. Rohani, B. T. Grenfell, Proc. R. Soc.-->
+<!--London Ser. B 265, 7 (1998).-->
+<!--9. P. Rohani, D. J. D. Earn, B. T. Grenfell, Science 286,-->
+<!--968 (1999).-->
+
+<!--- @earn2000: Patches could also be a bad thing by synchronizing bad years across the populations - refs 12 and 13-->
+
+<!--- @earn2000: States that realistic dispersal is somewhere between equal probability to all patches and nearest neighbour.-->
+
+<!--- @earn2000: Low enough r and high enough dispersal fraction (given equal coupling) leads to unavoidable coherence/synchrony. (Figure 1)-->
 
