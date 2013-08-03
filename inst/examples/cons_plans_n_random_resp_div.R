@@ -4,7 +4,7 @@
 # In this version, the response diversity is randomly drawn
 
 set.seed(1)
-USE_CACHE <- FALSE
+USE_CACHE <- TRUE
 
 # in this version, the pops are wiped out; total abundance changes
 n_trials <- 800 # number of trials at each n conservation plan
@@ -105,7 +105,7 @@ add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
 mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
 
 par(las = 0)
-mtext("Mean of generation-to-generation\nrate of change", side = 2, line = 3, outer = FALSE, cex = 0.8)
+mtext("Mean of metapopulation growth rate", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las = 1)
 plot_cons_plans(x_linear_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
@@ -113,7 +113,7 @@ plot_cons_plans(x_linear_n$plans_mv, plans_name = plans_name_n, cols = cols,
 add_inset_env(eg_linear$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
 
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
-mtext("Variance of generation-to-generation rate of change", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = 4)
+mtext("Variance of metapopulation growth rate", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = -3.5)
 #dev.off()
 
 
@@ -153,20 +153,22 @@ for(i in 1:4) {
 }
 
 #par(mfrow = c(2, 1), mar = c(0,0,0,0))
-plot_sp_A_ts(cons_arma_ts, ylim = c(-0.7, 0.7), rate = TRUE, x_axis = FALSE, labels = "(c)")
+plot_sp_A_ts(cons_arma_ts, ylim = c(-0.7, 0.7), rate = TRUE, x_axis = FALSE, labels = "(c)\n")
 
 par(las = 0)
-mtext("Rate of change", side = 2, line = 3, outer = FALSE, cex = 0.8)
+mtext("Metapopulation\ngrowth rate", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
 
 #plot_sp_A_ts(cons_linear_ts, ylim = c(-1, 1), rate = TRUE)
 plot_sp_A_ts(cons_arma_ts, ylim = c(1500, 40000), rate = FALSE, log = "y", y_axis = TRUE, y_axis_ticks = c(2000, 5000,  10000, 20000), labels = "(d)")
+mtext("(d)", side = 3, line = -1.2, cex = 0.8, adj = 0.025)
+
 par(xpd = NA)
 mtext("Generation", side = 1, line = 2, outer = FALSE, cex = 0.8)
 par(xpd = FALSE)
 
 par(las = 0)
-mtext("Abundance", side = 2, line = 3, outer = FALSE, cex = 0.8)
+mtext("Metapopulation\nabundance", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
 
 dev.off()

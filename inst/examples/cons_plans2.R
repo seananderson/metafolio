@@ -15,7 +15,7 @@ w_plans[[3]] <- c(rep(1000, 4), rep(5, 6))
 w_plans[[4]] <- rev(w_plans[[3]])
 #w_plans[[5]] <- c(1000, 1000, 5, 5, 5, 5, 5, 5, 1000, 1000)
 #plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half", "Most asynchronous only")
-plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half")
+plans_name_sp <- c("Full range of responses", "Most stable only", "Lower half", "Upper half")
 
 n_trials <- 500 # number of trials at each n conservation plan
 num_pops <- c(10, 10, 10, 10) # n pops to conserve
@@ -97,15 +97,16 @@ add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
 
 mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
 par(las = 0)
-mtext("Mean of generation-to-generation\nrate of change", side = 2, line = 3, outer = FALSE, cex = 0.8)
+mtext("Mean of metapopulation growth rate", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las = 1)
 
 plot_cons_plans(x_linear_sp$plans_mv, plans_name = plans_name_sp, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
 add_inset_env(eg_linear$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
+#add_spark_env(eg_linear$env_ts[-c(1:30)], x = 0.10, y = 0.015, x_scale = 0.001, y_scale = 0.0001)
 
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
-mtext("Variance of generation-to-generation rate of change", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = 3)
+mtext("Variance of metapopulation growth rate", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = -3)
 #dev.off()
 
 ###############################
@@ -148,15 +149,15 @@ burn <- 1:30
 #par(mfrow = c(2, 1))
 #par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
 
-plot_sp_A_ts(cons_arma_ts, ylim = c(0000, 11500), start_new_plots = c(1, 3), labels = c("(c)", "(d)", "(e)", "(f)"))
+plot_sp_A_ts(cons_arma_ts, ylim = c(0000, 12400), start_new_plots = c(1, 3), labels = c("(c) Response diversity dampens\n     short-term risk", "ignore", "(e)\n", "ignore"))
 
 par(las = 0)
-mtext("Abundance", side = 2, line = 3, outer = FALSE, cex = 0.8, adj = 2)
+mtext("Metapopulation abundance", side = 2, line = 3, outer = FALSE, cex = 0.8, adj = -2)
 par(las =1)
 
 #par(mfrow = c(2, 1))
 #par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
-plot_sp_A_ts(cons_linear_ts, ylim = c(0000, 11500), y_axis = FALSE, start_new_plots = c(1, 3), labels = c("(d)", "(d)", "(f)", "(f)"))
+plot_sp_A_ts(cons_linear_ts, ylim = c(0000, 12400), y_axis = FALSE, start_new_plots = c(1, 3), labels = c("(d) Response diversity ensures\n      long-term persistence", "ignore", "(f)\n", "ignore"))
 
 par(xpd = NA)
 mtext("Generation", side = 1, line = 2, outer = FALSE, cex = 0.8, adj = -.2)

@@ -7,7 +7,12 @@ plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE, lw
       plot(1,1,ylim = ylim, xlim = c(1, 70), type = "n",
         xlab = "", ylab = "", xaxt = "n", axes = FALSE, yaxs = "i", ...)
       if(!is.null(labels)) {
-        mtext(labels[i], side = 3, line = -1.2, cex = 0.8, adj = 0.02)
+        #mtext(labels[i], side = 3, line = -1.2, cex = 0.8, adj = 0.02)
+        x1 <- par("usr")[1]
+        x2 <- par("usr")[2]
+        y1 <- par("usr")[3]
+        y2 <- par("usr")[4]
+        text(x1 + (x2-x1)*0.005, y2 - (y2-y1)*0.17, labels = labels[i], pos = 4)
       }
     if(y_axis)  {
       if(is.null(y_axis_ticks)) {
