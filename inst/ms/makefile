@@ -13,21 +13,12 @@ ms:
 rtf:
 	latex2rtf -d 0 -b ms.bbl -E0 -M6 salmonfolios.tex
 
-pdf:
-	#cp ms.md ms-temp.md
-	#pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
-	#perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
-	#perl -p -i -e "s/Fig. /Fig.~/g" som.tex
-	#pandoc salmonfolios.tex -o salmonfolios.md
-	#perl -p -i -e "s/\\\substack{k = 1 \\\\\\\ k \\\neq j}/k = 1, k \\\neq j/g" salmonfolios.md
-	#pandoc -S --citation-abbreviations=/Users/seananderson/src/csl-abbrev/jabbrev.json --bibliography=ms.bib --csl=ecology-letters.csl salmonfolios.md -o salmonport.docx
-	#latexmk salmonfolios
-
-
 docx:
 	cp ms.md ms-temp.md
 	perl -p -i -e "s/\\\substack{k = 1 \\\\\\\ k \\\neq j}/k = 1, k \\\neq j/g" ms-temp.md
-	pandoc -S --citation-abbreviations=/Users/seananderson/src/csl-abbrev/jabbrev.json --bibliography=ms.bib --csl=ecology-letters.csl ms-temp.md -o salmonport.docx
+	bibtool jshort.bib ms.bib -- 'expand.macros = ON' > ms2.bib
+	pandoc -S --bibliography=ms2.bib --csl=ecology-letters.csl --reference-docx=reference.docx ms-temp.md -o salmonport.docx
+	rm ms2.bib
 	#pandoc -S --bibliography=jshort.bib --bibliography=ms.bib --csl=ecology-letters.csl ms-temp.md -o salmonport.docx
 
 

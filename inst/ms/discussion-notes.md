@@ -1,4 +1,82 @@
+
 discussion notes
+
+
+
+<!--given increasing pressure of climate change on salmonid populations [e.g. @mccullough1999; @hodgson2002; @isaak2010]. -->
+
+
+<!--Endangered species require robust strategies to manage risk.-->
+<!--e.g. problem of fragmentation - @schnell2013
+but rates of "climatic niche evolution" severely slower than required by climate change: @quintero2013-->
+
+<!--[@convertino2013; @wade2013]-->
+
+<!--River species can't just move poleward like other species  @thomas2010 (but not a great ref)-->
+
+<!--- for discussion? what can cause productivity curves - oxygen limitation - @portner2007-->
+
+<!--- contemporary evolution ref: review - @stockwell2003-->
+<!--from Thorson et al. 2013: "Conversely, spatially structured population models-->
+<!--4 show that synchronous local fluctuations can increase over--->
+<!--5 all variability and extinction risk at the metapopulation-->
+<!--6 scale (Heino et al. 1997; Earn 2000; Engen, Lande &-->
+<!--7 Sæther 2002)."-->
+
+<!--from Thorson et al. 2013: "11 Spatial and temporal variability in demographic rates-->
+<!--12 such as survival and fecundity has been much discussed in-->
+<!--13 the ecological literature (Clark 2003) and has also-->
+<!--14 been demonstrated using high-quality data in several-->
+<!--15 high-profile cases (e.g. Coulson et al. 2001; Barrowman-->
+<!--16 et al. 2003; Clark, LaDeau & Ibanez 2004)."-->
+
+<!--From Thorson et al. 2013: "Theory suggests that local density dependence may weaken the synchrony among populations driven by either dispersal or correlated environmental forcing (i.e. the ‘Moran effect’), particularly if the strength of den- sity dependence varies spatially (Liebhold, Koenig & Bjørnstad 2004)."-->
+
+<!--from @thorson2013: "Studies in fishes and birds have reported levels of synchrony ranging from weak to strong in stage-specific survival (Grenouillet et al. 2001; Ringsby et al. 2002; Crozier & Zabel 2006; Tavecchia-->
+<!--21 et al. 2008), fecundity (Tavecchia et al. 2008), sex ratio-->
+<!--22 (Koizumi et al. 2008) and growth. However, there is little-->
+<!--23 general theory linking synchrony in vital rates to syn--->
+<!--24 chrony in abundance at a population or metapopulation-->
+<!--25 level."-->
+
+
+<!--From @thorson2013: "Density dependence has previously been documented for salmonids in migration, growth and survival (Bjornn 1971, 1978; Sekulich 1980; Walters, Copeland & Venditti 2013), and its strength has been shown to vary among populations (Barrowman et al. 2003), although our study is the first to our knowledge to quantify the degree of variability in density dependence among both years and populations. "-->
+
+<!--from @thorson2013: "Some theoretical models of spatially structured population dynamics (reviewed by Liebhold, Koenig & Bjørnstad 2004) suggest that heterogeneity among populations in the strength of density-dependent regulation can weaken temporal synchrony. The interplay between spatial and temporal variation in density dependence, environmental stochasticity and synchrony (or conversely, portfolio effects) would be a fruitful avenue for future research."-->
+
+
+<!--from @earn2000:-->
+<!--Get these papers which emphasize the "synchrony of population dynamics in different habitat patches":-->
+<!--4. R. Levins, Bull. Entomol. Soc. Am. 15, 237 (1969).-->
+<!--5. J. H. Brown, A. Kodric-Brown, Ecology 58, 445 (1977).-->
+<!--6. M. Heino, V. Kaitala, E. Ranta, J. Lindstrom, Proc. R.-->
+<!--Soc. London Ser. B 264, 481 (1997).-->
+<!--7. B. Blasius, A. Huppert, L. Stone, Nature 399, 354-->
+<!--(1999).-->
+<!--8. D. J. D. Earn, P. Rohani, B. T. Grenfell, Proc. R. Soc.-->
+<!--London Ser. B 265, 7 (1998).-->
+<!--9. P. Rohani, D. J. D. Earn, B. T. Grenfell, Science 286,-->
+<!--968 (1999).-->
+
+<!--- @earn2000: Patches could also be a bad thing by synchronizing bad years across the populations - refs 12 and 13-->
+
+<!--- @earn2000: States that realistic dispersal is somewhere between equal probability to all patches and nearest neighbour.-->
+
+<!--- @earn2000: Low enough r and high enough dispersal fraction (given equal coupling) leads to unavoidable coherence/synchrony. (Figure 1)-->
+
+
+
+
+from abstract:
+<!--This finding emphasizes the risk of allowing large spatial blocks of habitat destruction, say through the development of dams. -->
+<!--Second, we show that focusing on well-performing stocks now at the detriment of others is at best equivalent to a risky but efficient portfolio and is more likely a risky and inefficient portfolio --- it neither minimizes metapopulation variance nor maximizes growth rate compared to other strategies. -->
+<!--Third, we show that maintaining more populations reduces metapopulation risk for the same spatial conservation strategy. -->
+<!--Given a lack of knowledge of how populations respond to the environment, the most risk-averse approach is to conserve as many populations as possible. -->
+<!--Our findings highlight three key points: (1) the conservation priority of maintaining biocomplexity and therefore environmental response diversity, (2) the research priority of identifying differences in environmental tolerance given predicted environmental changes, and (3) the utility of considering risk for groups of fish stocks --- especially given environmental, biological, and implementation uncertainty --- through the lens of portfolio theory.-->
+
+<!--See Table \ref{t:pars} for a list of the input parameters to our simulation and their default values. -->
+
+<!--Examples of portfolio prioritization in face of climate change: @crowe2008, @ando2012, @ando2011-->
 
 <!--Caveats TODO (perhaps work these into the methods or put back in discussion)
 -	we know the precise response diversity and knew when it was balanced
