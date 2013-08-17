@@ -2,10 +2,11 @@ all:	ms
 
 ms:
 	extract_bib ms.md > ms.bib
-	extract_bib som.md > som.bib
+	#extract_bib som.md > som.bib
 	cp ~/Dropbox/tex/jshort.bib .
 	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
-	pandoc -S --bibliography=jshort.bib --bibliography=som.bib --natbib som.md --latex-engine=xelatex -o som.tex
+	#pandoc -S --bibliography=jshort.bib --bibliography=som.bib --natbib som.md --latex-engine=xelatex -o som.tex
+	pandoc -S som.md --latex-engine=xelatex -o som.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
 	latexmk salmonfolios
@@ -17,7 +18,7 @@ docx:
 	cp ms.md ms-temp.md
 	perl -p -i -e "s/\\\substack{k = 1 \\\\\\\ k \\\neq j}/k = 1, k \\\neq j/g" ms-temp.md
 	bibtool jshort.bib ms.bib -- 'expand.macros = ON' > ms2.bib
-	pandoc -S --bibliography=ms2.bib --csl=ecology-letters.csl --reference-docx=reference.docx ms-temp.md -o salmonport.docx
+	pandoc -S --bibliography=ms2.bib --csl=ecology-letters.csl --reference-docx=reference.docx ms-temp.md -o salmonfolios.docx
 	rm ms2.bib
 	#pandoc -S --bibliography=jshort.bib --bibliography=ms.bib --csl=ecology-letters.csl ms-temp.md -o salmonport.docx
 

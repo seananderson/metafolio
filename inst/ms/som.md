@@ -1,10 +1,8 @@
-# Supplementary Information
-
-## Apendix S1 - details of parabolas?
+# Supplementary Information #
 
 ## Supplementary code ##
 
-The `metafolio` `R` package and documentation.
+The `metafolio` `R` package and documentation. Some details on what you can do with the package.
 
 ## Supplementary figures ##
 
@@ -69,12 +67,4 @@ of straying and light blue indicates a low rate of straying.}
 \label{f:eg-n-linear}
 \end{figure}
 \clearpage
-
  
-
-A placeholder:
-[@schindler2010]
-
-\bibliographystyle{ecologyletters2}
-\bibliography{jshort,som}
-
