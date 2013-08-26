@@ -8,23 +8,39 @@
 \usepackage{setspace}
 \usepackage[round]{natbib}
 \bibpunct{(}{)}{;}{a}{}{;}
-\textheight 20.5cm
+%\textheight 20.5cm
+%\topmargin -1.43cm
+%\oddsidemargin 1.2cm
+%\evensidemargin 1.2cm
+%\textwidth 14.5cm
 \usepackage{lineno}
 \usepackage{xcolor}
 \renewcommand\linenumberfont{\normalfont\tiny\sffamily\color{gray}}
+
+\usepackage{titlesec}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setsansfont{Calibri}
+\setmonofont{Inconsolata}
+\setmainfont{Minion Pro}
 
 % remove numbers in front of sections:
 \makeatletter
 \renewcommand\@seccntformat[1]{}
 \makeatother
 
-\hyphenation{meta-pop-ulation meta-pop-ulations sub-pop-ulations sub-pop-ulation e-con-o-mist}
+\hyphenation{meta-pop-ulation meta-pop-ulations sub-pop-ulations sub-pop-ulation e-con-o-mist en-vi-ron-men-tal pri-or-i-ti-za-tion}
 
 \begin{document}
 
 \linenumbers
 \modulolinenumbers[2]
-\begin{spacing}{1.5}
+\begin{spacing}{1.4}
+\setlength{\parskip}{12pt}
+\setlength{\parindent}{0cm} 
 \include{ms}
 
 % redefine the command that creates the Table number.

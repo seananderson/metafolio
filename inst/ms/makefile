@@ -1,4 +1,4 @@
-all:	ms
+all:	ms docx
 
 ms:
 	extract_bib ms.md > ms.bib
@@ -20,6 +20,7 @@ docx:
 	bibtool jshort.bib ms.bib -- 'expand.macros = ON' > ms2.bib
 	pandoc -S --bibliography=ms2.bib --csl=ecology-letters.csl --reference-docx=reference.docx ms-temp.md -o salmonfolios.docx
 	rm ms2.bib
+	rm ms-temp.md
 	#pandoc -S --bibliography=jshort.bib --bibliography=ms.bib --csl=ecology-letters.csl ms-temp.md -o salmonport.docx
 
 
