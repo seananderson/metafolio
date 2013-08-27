@@ -10,7 +10,9 @@ Overall thoughts and notes:
 
 - I think there is room for expansion of the discussion (we still have ~500
   words to play with). The discussion could benefit from bringing in more
-  concrete examples of how this ties in with PNW salmon.
+  concrete examples of how this ties in with PNW salmon and I welcome your
+  ideas here. If we have space we could also discuss our results in the
+  context of response diversity literature.
 
 - The supplementary figures and captions aren't finished but should be quick
   to generate.
@@ -25,8 +27,14 @@ Overall thoughts and notes:
 
 - We still need to discuss authorship and order of authorship.
 
-\newpage
+- Notes from Nick: (1) add something about how many of these concepts are key
+  elements of conservation ecology, but they haven't been tested
+  quantitatively before, (2) consider flipping the discussion around so the
+  broad elements come first and the salmon applications come near the end, (3)
+  consider sticking with "one half/other half", or "lower half/upper half". If
+  lower/upper, need to explain reasoning.
 
+\newpage
 
 # Portfolio conservation of metapopulations under climate change
 
