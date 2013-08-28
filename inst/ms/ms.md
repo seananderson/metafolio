@@ -28,7 +28,7 @@ Overall thoughts and notes:
 - We still need to discuss authorship and order of authorship.
 
 - Notes from Nick: (1) add something about how many of these concepts are key
-  elements of conservation ecology, but they haven't been tested
+  assumptions of conservation ecology, but they haven't been tested
   quantitatively before, (2) consider flipping the discussion around so the
   broad elements come first and the salmon applications come near the end, (3)
   consider sticking with "one half/other half", or "lower half/upper half". If
@@ -63,11 +63,11 @@ risk assessment, salmon, stochastic simulation (maximum 10)
 
 *Type of article*: Letters
 
-*Words in abstract and main text*: (maximum 150, 5000)
+*Words in abstract and main text*: 153, 4100 (maximum 150, 5000)
 
-*Number of references*: (maximum 50)
+*Number of references*: 61 (maximum 50)
 
-*Number of tables and figures*: 1, 5
+*Number of tables and figures*: 5 (maximum 6)
 
 ^*^Corresponding author: Sean C. Anderson; Department of Biological Sciences,
 Simon Fraser University, Burnaby BC, V5A 1S6; Phone: 1-778-782-3989; E-mail:
@@ -75,34 +75,32 @@ sean_anderson@sfu.ca
 
 # Abstract
 
-Managing risk is fundamental to the conservation of an endangered species.
-When an endangered species exists as a metapopulation, we typically manage
-risk at the subpopulation level. However, a portfolio approach might consider
-how conservation affects the "weight" of each population in a metapopulation
-"portfolio". Here we ask how such a portfolio approach can inform conservation
+Managing risk is fundamental to conserving endangered species. When an
+endangered species exists as a metapopulation, we typically manage risk at the
+subpopulation level. However, a portfolio approach might consider how
+conservation affects the "weight" of each population in a metapopulation
+"portfolio". Here we ask how a portfolio approach can inform conservation
 priorities for metapopulations in a changing world. We develop a salmon
-metapopulation simulation in which population-specific productivity is driven
-by spatially-distributed thermal tolerance and patterns of short- and
-long-term environmental change. We then implement spatial conservation
-strategies that control subpopulation carrying capacities and evaluate the
-salmon portfolios along risk-return axes. We show that conserving response
-diversity minimizes risk given environmental stochasticity and ensures
-persistence given long-term environmental change. Further, conserving more
-subpopulations minimizes risk regardless of response diversity distribution.
-These findings have important implications for how we prioritize
-metapopulation conservation and emphasize the importance of conserving the
-processes that promote response diversity.
-
+metapopulation simulation where population-specific productivity is driven by
+spatially-distributed thermal tolerance and patterns of short- and long-term
+environmental change. We then implement spatial conservation strategies that
+control subpopulation carrying capacities and evaluate the salmon portfolios
+along risk-return axes. We show that conserving response diversity minimizes
+risk given environmental stochasticity and ensures persistence given long-term
+environmental change. Further, conserving more subpopulations minimizes risk
+regardless of response diversity distribution. These findings have important
+implications for how we prioritize metapopulation conservation and emphasize
+the importance of conserving the processes that promote response diversity.
 
 # Introduction
 
-Managing risk is fundamental to conserving endangered species [@burgman2005;
-@iucn2009]. When an endangered species exists as a metapopulation, we can
-manage risk at two levels: at the population level or at the metapopulation
-level. Typically we treat sources of risk at the metapopulation level as
-exogenous and manage risk at the population level by manipulating hunting or
-fishing levels, implementing reserves, or improving connectivity [e.g.
-@akcakaya2007].
+Managing risk is fundamental to the conservation of an endangered species
+[@burgman2005; @iucn2009]. When an endangered species exists as a
+metapopulation, we can manage risk at two levels: at the population level or
+at the metapopulation level. Typically we treat sources of risk at the
+metapopulation level as exogenous and manage risk at the population level by
+manipulating hunting or fishing levels, implementing reserves, or improving
+connectivity [e.g. @akcakaya2007].
 
 The management of financial portfolios provides another way of considering
 risk [@figge2004; @koellner2006; @ando2012]. Economists consider the risk and
