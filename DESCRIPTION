@@ -10,6 +10,8 @@ License: MIT
 Depends:
     Rcpp (>= 0.10.3)
 LinkingTo: Rcpp
+VignetteBuilder: knitr
+Suggests: knitr
 Collate:
     'thermal_curve_a.R'
     'monte_carlo_portfolios.R'
