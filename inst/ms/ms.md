@@ -655,7 +655,8 @@ comprised primarily of (a) short-term and (b) long-term environmental
 fluctuations. The dots show simulated metapopulations and the contours show
 25% and 75% quantiles across 500 simulations per strategy. We also show
 example metapopulation abundance time series for the (c, e) short-term and (d,
-f) long-term  environmental-fluctuation scenarios.
+f) long-term environmental-fluctuation scenarios. The grey line indicates the
+efficient frontier across all simulated metapopulations.
 
 \clearpage
 
@@ -669,4 +670,5 @@ and (b) long-term environmental fluctuations. We show metapopulations in which
 diversity are conserved. The dots show simulated metapopulations and the
 contours show 25% and 75% quantiles across 500 simulations per strategy. We
 also show example metapopulation (c) rate-of-change and (d) abundance time
-series for the short-term environmental-fluctuation scenario.
+series for the short-term environmental-fluctuation scenario. The grey line
+indicates the efficient frontier across all simulated metapopulations.
