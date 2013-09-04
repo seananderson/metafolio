@@ -41,11 +41,16 @@ eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
 
+pdf("example-return-correlations.pdf", width = 5, height = 5)
+plot_correlation_between_returns(eg_arma)
+dev.off()
+
 pdf("spatial-arma-sim-onehalf.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[4]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
+
 
 if(!USE_CACHE) {
 x_arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
