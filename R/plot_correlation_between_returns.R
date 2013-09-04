@@ -5,7 +5,7 @@
 #' @param pal Colours to plot with for stocks.
 #' @export
 
-plot_correlation_between_returns <- function(x, burn = 1:30, pal = gg_color_hue(x$n_pop)) {
+plot_correlation_between_returns <- function(x, burn = 1:30, pal = rev(gg_color_hue(x$n_pop))) {
   # x is output from a simulation run
 
 par(mfrow = c(10, 10), cex = 0.5, mar = c(0,0,0,0), oma = c(4, 4, 0, 0))
