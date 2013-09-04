@@ -40,9 +40,7 @@ get_efficient_frontier <- function(m, v) {
 #' @export
 plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
   ylim = NULL, add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE,
-  y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance of
-    generation-to-generation\nrate of change", ylab = "Mean of
-    generation-to-generation\nrate of change") {
+  y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance", ylab = "Mean") {
 
   if(w_show[1] == "all") w_show <- seq_along(plans_name)
 
