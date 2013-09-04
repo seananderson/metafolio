@@ -11,6 +11,7 @@ ms:
 	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
 	latexmk salmonfolios
 	rm ms.tex
+	rm som.tex
 
 rtf:
 	latex2rtf -d 0 -b ms.bbl -E0 -M6 salmonfolios.tex
