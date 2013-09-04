@@ -35,8 +35,14 @@ arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
     #arma_env_params, env_type = "arma", assess_freq = 5),
   #years_to_show = 100, burn = 0)
 
-pdf("spatial-arma-sim.pdf", width = 5, height = 7)
+pdf("spatial-arma-sim-full.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
+  env_type = "arma", assess_freq = 5)
+plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
+dev.off()
+
+pdf("spatial-arma-sim-onehalf.pdf", width = 5, height = 7)
+eg_arma <- meta_sim(b = w[[4]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
@@ -59,8 +65,14 @@ linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
     #linear_env_params, env_type = "linear", assess_freq = 5),
   #years_to_show = 100, burn = 0)
 
-pdf("spatial-linear-sim.pdf", width = 5, height = 7)
+pdf("spatial-linear-sim-full.pdf", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params =
+    linear_env_params, env_type = "linear", assess_freq = 5)
+plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
+dev.off()
+
+pdf("spatial-linear-sim-onehalf.pdf", width = 5, height = 7)
+eg_linear <- meta_sim(b = w[[4]][[1]], n_pop = 10, env_params =
     linear_env_params, env_type = "linear", assess_freq = 5)
 plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
 dev.off()
@@ -163,3 +175,12 @@ par(xpd = NA)
 mtext("Generation", side = 1, line = 2, outer = FALSE, cex = 0.8, adj = -.2)
 par(xpd = FALSE)
 dev.off()
+
+
+## report summary statistics:
+mean.v <- plyr::ldply(x_arma_sp$plans_mv, function(x) mean(x$v))
+round(mean(mean.v$V1[3:4]) / mean(mean.v$V1[1:2]), 1)
+
+mean.m <- plyr::ldply(x_linear_sp$plans_mv, function(x) mean(x$m))
+round(mean(mean.m$V1[3:4]) / mean(mean.m$V1[1:2]), 1)
+

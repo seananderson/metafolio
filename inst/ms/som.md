@@ -4,15 +4,11 @@
 
 The `metafolio` `R` package and documentation. Some details on what you can do with the package.
 
-## Supplementary figures ##
+## Supplementary tables ##
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=4.0in]{../examples/figure/plot-various-options-ts-3pops.pdf}
-\caption{The impact of increasing or decreasing various parameter values in the simulations. The different lines represent different salmon populations. (NEED TO ADD PARAMETER VALUES AND EXPAND THIS SLIGHTLY)}
-\label{f:eg-sens}
-\end{figure}
-\clearpage
+\input{tables}
+
+## Supplementary figures ##
 
 
 <!--\begin{figure}[htbp]-->
@@ -28,7 +24,7 @@ The `metafolio` `R` package and documentation. Some details on what you can do w
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.0in]{../examples/figure/stray-matrix.pdf}
+\includegraphics[width=3.5in]{../examples/figure/stray-matrix.pdf}
 \caption{An example straying matrix. The rows and columns represent different 
 populations (indicated by population number). Dark blue indicates a high rate 
 of straying and light blue indicates a low rate of straying.}
@@ -38,33 +34,73 @@ of straying and light blue indicates a low rate of straying.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{../examples/spatial-arma-sim.pdf}
-\caption{Spatial and short-term environmental fluctuations}
+\includegraphics[width=4.0in]{../examples/plot-various-options-ts-3pops.pdf}
+\caption{The impact of increasing or decreasing various parameter values on metapopulation return abundance. The different coloured lines represent three example salmon populations. The base case represents the base-case values for the short-term environmental fluctuation scenario.}
+\label{f:eg-sens}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.5in]{../examples/spatial-arma-sim-full.pdf}
+\caption{Conserving a \textbf{full range} of response diversity (spatial conservation strategy) with \textbf{short-term} environmental fluctuations.}
 \label{f:eg-sp-arma}
 \end{figure}
 \clearpage
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{../examples/spatial-linear-sim.pdf}
-\caption{Spatial and long-term environmental fluctuations}
+\includegraphics[width=4.5in]{../examples/spatial-arma-sim-onehalf.pdf}
+\caption{Conserving \textbf{one half} of response diversity (spatial conservation strategy) with \textbf{short-term} environmental fluctuations.}
+\label{f:eg-sp-arma}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.5in]{../examples/spatial-linear-sim-full.pdf}
+\caption{Conserving a \textbf{full range} of response diversity (spatial conservation strategy) with \textbf{long-term} environmental fluctuations.}
 \label{f:eg-sp-linear}
 \end{figure}
 \clearpage
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{../examples/n-arma-sim.pdf}
-\caption{Number and short-term environmental fluctuations}
+\includegraphics[width=4.5in]{../examples/spatial-linear-sim-onehalf.pdf}
+\caption{Conserving \textbf{one half} of response diversity (spatial conservation strategy) with \textbf{long-term} environmental fluctuations.}
+\label{f:eg-sp-linear}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.5in]{../examples/n-arma-sim-2.pdf}
+\caption{\textbf{Two populations} conserved with random response diversity and \textbf{short-term} environmental fluctuations.}
 \label{f:eg-n-arma}
 \end{figure}
 \clearpage
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{../examples/n-linear-sim.pdf}
-\caption{Number and long-term environmental change}
+\includegraphics[width=4.5in]{../examples/n-arma-sim-16.pdf}
+\caption{\textbf{Sixteen populations} conserved with random response diversity and \textbf{short-term} environmental fluctuations.}
+\label{f:eg-n-arma}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.5in]{../examples/n-linear-sim-2.pdf}
+\caption{\textbf{Two populations} conserved with random response diversity and \textbf{long-term} environmental change.}
 \label{f:eg-n-linear}
 \end{figure}
 \clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.5in]{../examples/n-linear-sim-16.pdf}
+\caption{\textbf{Sixteen populations} conserved with random response diversity and \textbf{long-term} environmental change.}
+\label{f:eg-n-linear}
+\end{figure}
  

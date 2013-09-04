@@ -27,12 +27,20 @@ arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
     #arma_env_params, env_type = "arma", assess_freq = 5),
   #years_to_show = 100, burn = 0)
 
-pdf("n-arma-sim.pdf", width = 5, height = 7)
+pdf("n-arma-sim-2.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
   arma_env_params, env_type = "arma", assess_freq = 5, max_a =
   thermal_integration(16))
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
+
+pdf("n-arma-sim-16.pdf", width = 5, height = 7)
+eg_arma <- meta_sim(b = w[[4]][[2]], n_pop = 16, env_params =
+  arma_env_params, env_type = "arma", assess_freq = 5, max_a =
+  thermal_integration(16))
+plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
+dev.off()
+
 
 # TODO need to fix it here to get max_a integrated based on n_pops
 if(!USE_CACHE) {
@@ -53,7 +61,14 @@ linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
     #linear_env_params, env_type = "linear", assess_freq = 5),
   #years_to_show = 100, burn = 0)
 
-pdf("n-linear-sim.pdf", width = 5, height = 7)
+pdf("n-linear-sim-2.pdf", width = 5, height = 7)
+eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 16, env_params =
+  linear_env_params, env_type = "linear", assess_freq = 5, max_a =
+  thermal_integration(16))
+plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
+dev.off()
+
+pdf("n-linear-sim-16.pdf", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
   linear_env_params, env_type = "linear", assess_freq = 5, max_a =
   thermal_integration(16))
@@ -172,3 +187,10 @@ mtext("Metapopulation\nabundance", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
 
 dev.off()
+
+## report summary statistics:
+mean.v <- plyr::ldply(x_arma_n$plans_mv, function(x) mean(x$v))
+round(mean.v$V1[2]/mean.v$V1[4], 1)
+
+mean.v <- plyr::ldply(x_linear_n$plans_mv, function(x) mean(x$v))
+round(mean.v$V1[2]/mean.v$V1[4], 1)
