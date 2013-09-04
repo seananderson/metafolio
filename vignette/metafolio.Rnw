@@ -1,0 +1,214 @@
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{metafolio}
+
+% tw=68
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\setlength{\parskip}{12pt}
+\setlength{\parindent}{0cm} 
+
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+# set global chunk options
+opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold')
+options(replace.assign=TRUE, width=90)
+opts_knit$set(out.format = "latex")
+opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, tidy=FALSE, 
+refresh=TRUE)
+#knit_theme$set("solarized-light")
+@
+
+\title{A guide to using the \texttt{metafolio} \texttt{R} package}
+\author{Sean C. Anderson, and co-authors}
+\date{}
+\maketitle
+
+The \texttt{metafolio} \texttt{R} package is a tool to simulate salmon
+metapopulations and apply financial portfolio optimization concepts
+to those metapopulations. This vignette accompanies the paper
+\textit{Portfolio conservation of metapopulations under climate
+change}. In this vignette we will describe the main functions in the
+\texttt{metafolio} package, show how to re-create the main analyses
+in our paper, and demonstrate some of the included plotting
+functions for exploring the output.
+
+\section{Installing the package}
+
+To install and load the package:
+
+<<my-load-package, include=FALSE>>=
+library(metafolio)
+set.seed(1)
+@
+
+<<load-package, eval=FALSE>>=
+install.packages("devtools") # if needed
+devtools::install_github("metafolio", "seananderson")
+library(metafolio)
+@
+
+You can get more detailed installation instructions, read the source
+code, and report bugs on GitHub:
+\url{https://github.com/seananderson/metafolio}
+
+\section{An example simulation}
+
+The main simulation function is \texttt{meta\_sim}. We'll start by
+running a simulation using the base-case parameter values from the
+paper. First, we'll set up a list object that contains the argument
+values for the stationary environmental stochasticity scenario. The
+arguments \texttt{mean\_value}, \texttt{ar}, and \texttt{ma} refer
+to the mean, autoregressive (AR), and moving-average (MA) components
+of an ARIMA model. See \texttt{?arima} for further explanation of
+ARIMA models in R. The argument \texttt{sigma\_env} refers to the
+standard deviation.
+
+<<setup-arma>>=
+arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, 
+  ma = 0) 
+@
+
+Next we'll run the simulation for one iteration. We'll simulate ten
+subpopulations and we'll re-assess the fishery every five years.
+Re-assessing the fishery means that the simulation fits a Ricker
+curve to the observed spawner-return data and updates the
+harvest-level targets.
+
+<<base-case-run, cache=TRUE>>=
+base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, 
+  env_type = "arma", assess_freq = 5)
+@
+
+We can plot the output with the function \texttt{plot\_sim\_ts}. The
+output is shown in Figure~\ref{fig:plot-base-case-ts}.
+
+<<plot-base-case-ts, fig.width=5, fig.height=6.5, out.width="4in", fig.cap="An example simulation with stationary environmental stochasticity and the base-case parameter values.">>=
+plot_sim_ts(base1, years_to_show = 70, burn = 30)
+@
+
+\clearpage
+
+\section{Exploring prioritization strategies}
+
+One of the key elements to the analysis in our paper is the choice
+of which populations to prioritize for conservation. We can try
+different prioritization strategies by manipulating the "investment
+weights" in each stream of salmon. In the case of salmon, we
+represent these with the Ricker $b_i$ parameters, which represent
+the maximum population capacity of streams $i$ 1 through $n$.
+
+In this example, we'll create a scenario in which we conserve a
+variety of balanced response diversity and a scenario in which we
+conserve one half of the response diversity. We've set up the
+weights carefully so that each metapopulation contains the same
+number of subpopulations (10) and the same total capacity. We set
+$b$ equal to the nominal level of 5 for the streams that we choose
+not to prioritize.
+
+<<spatial-plans>>=
+w_plans <- list()
+w_plans[["balanced"]] <- matrix(c(5, 1000, 5, 1000, 5, 5, 1000, 5, 
+    1000, 5), nrow = 1) 
+w_plans[["one_half"]] <- c(rep(1000, 4), rep(5, 6))
+w <- list()
+for(i in 1:2) { # loop over plans
+ w[[i]] <- list()
+ for(j in 1:80) { # loop over iterations
+   w[[i]][[j]] <- matrix(w_plans[[i]], nrow = 1)
+ }
+}
+@
+
+We've now created a nested list object of stream capacities
+(\texttt{w}). The first level of the list contains the two different
+plans. The second level of the list contains the $b$ values for each
+iteration. Each iteration will have re-sampled process noise and
+observation error when run with \texttt{meta\_sim}. Here, we're
+keeping the $b$ values the same between iterations, but that might
+not be the case if we wanted to stochastically simulate the $b$
+values. We're only going to run 80 iterations to reduce the runtime
+of the example, but in reality you would likely want to run many
+more iterations.
+
+We can now stochastically simulate with these strategies using the
+function\\ \texttt{run\_cons\_plans} and plot the output with
+\texttt{plot\_cons\_plans} (Figure~\ref{fig:spatial-runs}).
+ 
+<<spatial-runs, fig.width=5, fig.height=5, out.width="4in", cache=TRUE, fig.cap="Two spatial conservation strategies shown in risk-return space with stationary environmental stochasticity. The dots show simulated metapopulations and the contours show 25\\% and 75\\% quantiles across 80 simulations per strategy. The grey line indicates the efficient frontier across all simulated metapopulations.">>=
+set.seed(1)
+arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
+  arma_env_params)
+plot_cons_plans(arma_sp$plans_mv, 
+  plans_name = c("Balanced", "One half"), 
+  cols = c("#E41A1C", "#377EB8"), xlab = "Variance of growth rate", 
+  ylab = "Mean growth rate")
+@
+
+\section{Generating alternative environmental time series}
+
+We can use the function \texttt{generate\_env\_ts} to create
+alternative environmental time series. The function can generate
+five kinds of time series: sine waves, regime shifts, linear
+changes, and constant values. Each type has its own set of parameter
+arguments that are passed in a list format. See
+\texttt{?generate\_env\_ts} for examples of all of these.
+
+We can see demonstrations of all environmental time series types
+with the default argument values with the following code
+(Figure~\ref{fig:env-eg}).
+
+<<env-eg, fig.width=5, fig.height=6, out.width="4in", fig.cap="Example environmental time series.">>=
+types <- c("sine", "arma", "regime", "linear", "constant")
+x <- list()
+for(i in 1:5) x[[i]] <- generate_env_ts(n_t = 100, type = types[i])
+op <- par(mfrow = c(5, 1), mar = c(3,3,1,0), cex = 0.7)
+for(i in 1:5) plot(x[[i]], type = "o", main = types[i])
+par(op)
+@
+
+\section{Extra to be incorporated above}
+
+We can visualize the variability in the Ricker $a$ parameters using the function \texttt{plot\_rickers} (Figure~\ref{fig:plot-rickers}).
+
+<<plot-rickers, fig.width=7, fig.height=4.5, out.width="5in", fig.cap="Ricker curves from a sample of 40 years in the example simulation. Each panel represents a different stream population. Population 1 is cool tolerant and population 10 is warm tolerant. The colour of the Ricker curves represents the relative temperatue in that year (warm: red; cool: blue). The grey shaded area represents the variation in spawners observed within the simulation.">>=
+pal <- rep("black", 10) # colours for the population IDs
+plot_rickers(base1, pal = pal)
+@
+
+We can also use \texttt{metafolio} to sample from possible
+investment weights (Figure~\ref{fig:monte-carlo-plot}). This type of
+stochastic sampling is sometimes referred to as Monte Carlo
+sampling.
+
+<<monte-carlo-eg, cache=TRUE, results="hide">>=
+set.seed(1)
+weights_matrix <- create_asset_weights(n_pop = 5, n_sims = 500, 
+  weight_lower_limit = 0.001)
+mc_ports <- monte_carlo_portfolios(weights_matrix = weights_matrix,
+  n_sims = 500, mean_b = 1000)
+@
+
+<<monte-carlo-plot, fig.width=7, fig.height=4, out.width="5in", fig.cap="Efficient frontier of metapopulation portfolios (red dots). Each dot represents a different set of weights of the Ricker $b$ parameters. The colours in the right panel correspond to the five subpopulations with warm tolerant populations in warmer colours and cool tolerant populations in cooler colours.">>=
+col_pal <- rev(gg_color_hue(5))
+ef_dat <- plot_efficient_portfolios(port_vals = mc_ports$port_vals,
+  pal = col_pal, weights_matrix = weights_matrix)
+@
+
+We can look at the correlation between salmon returns in the various
+streams using the function
+\texttt{plot\_correlation\_between\_returns}
+(Figure~\ref{fig:return-correlations}).
+
+<<return-correlations, fig.width=5, fig.height=5, out.width="5in", fig.cap="A plot comparing the log(returns) between each population. The subpopulation IDs are coloured from warm tolerant (warm colours) to cool tolerant (cool colours). Note how populations 1 and 10 have asynchronous returns whereas populations with more similar thermal-tolerance curves (say populations 9 and 10) have more synchronous dynamics. Populations with thermal tolerance curves in the middle (e.g. population 6) are less correlated with other populations. Their population dynamics end up primarily driven by demographic stochasticity and less so by temperature-induced systematic changes in productivity.">>=
+plot_correlation_between_returns(base1)
+@
+
+\end{document}
