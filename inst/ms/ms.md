@@ -57,9 +57,10 @@ of the manuscript. All authors contributed substantially to revisions.
 *Running title*: 
 Portfolio conservation of metapopulations (41/45 characters)
 
-*Keywords*: biocomplexity, Modern Portfolio Theory, portfolio effect,
-prioritization, resource management, range contraction, response diversity,
-risk assessment, salmon, stochastic simulation (maximum 10)
+*Keywords*: biocomplexity, ecosystem based management, Modern Portfolio
+Theory, portfolio effect, range contraction, prioritization, resource
+management, response diversity, risk assessment, salmon, stability-diversity,
+stochastic simulation (maximum 10)
 
 *Type of article*: Letters
 
@@ -80,9 +81,7 @@ endangered species exists as a metapopulation, we typically manage risk at the
 subpopulation level. However, assessing risk to the overall metapopulation
 would necessitate a more integrated perspective to consider how conservation
 affects the "portfolio" of subpopulations within the metapopulation. 
-<!--todo jwm: Try to make this a gentler transition here-->
-Here we ask how a portfolio approach can inform conservation priorities for
-metapopulations in a changing world. We develop a salmon metapopulation
+Here we ask how a portfolio approach can inform conservation priorities for metapopulations in a changing world. We develop a salmon metapopulation
 simulation where population-specific productivity is driven by
 spatially-distributed thermal tolerance and patterns of short- and long-term
 environmental change. We then implement spatial conservation scenarios that
@@ -96,7 +95,7 @@ the importance of conserving the processes that promote response diversity.
 
 # Introduction
 
-<!--todo jwm: I really liked the introduction. However, it felt like it was written for an applied journal. If the target is Ecology Letters, I am not as sure. In this case, I might try to have a first paragraph about response diversity and stability (Loreau type of stuff)-->
+*JWM: I really liked the introduction. However, it felt like it was written for an applied journal. If the target is Ecology Letters, I am not as sure. In this case, I might try to have a first paragraph about response diversity and stability (Loreau type of stuff)*
 
 Managing risk is fundamental to the conservation of an endangered species
 [@burgman2005; @iucn2009]. When an endangered species exists as a
@@ -148,14 +147,17 @@ response to the environment [i.e. response diversity, @elmqvist2003; and
 biocomplexity, @colwell1998; @hilborn2003]. This mechanism can result from
 unique phenotypic or genetic traits [@crozier2008; @kovach2012] and be derived
 from rapid contemporary adaption [@stockwell2003; @fraser2011] or long-term
-evolution to historical conditions [@eliason2011; @thorson2013]. In this paper
+evolution to historical conditions [@eliason2011]. In this paper
 we focus on this latter, response-diversity mechanism, and evaluate it in the
 context of thermal response diversity. 
 
-<!--todo jwm: I think this paragraph could be stronger. There are two main points: 1. Increased temperatures can be bad for salmon (cite Patterson, etc.). 2. There is response diversity and local adaptation to temperature (cite Eliason et al. 2011). -->
-<!--The topic sentence does a great job of outlining this, but then the body of the paragraph loses the second point. Also, it might be harder hitting if some specifics are added. For example, in warm regions steelhead have been found to persist up to 30 degrees C, where other studies have found much lower. -->
-<!--See paper: Sloat and Osterback. 2013. CJFAS 70: 64-73. And references therein. -->
-<!--The first and last sentence of the paragraph are great, but the middle could be improved. -->
+*JWM: I think this paragraph could be stronger. There are two main points: 1. Increased temperatures can be bad for salmon (cite Patterson, etc.). 2. There is response diversity and local adaptation to temperature (cite Eliason et al. 2011).*
+
+*The topic sentence does a great job of outlining this, but then the body of the paragraph loses the second point. Also, it might be harder hitting if some specifics are added. For example, in warm regions steelhead have been found to persist up to 30 degrees C, where other studies have found much lower.*
+
+*See paper: Sloat and Osterback. 2013. CJFAS 70: 64-73. And references therein.*
+
+*The first and last sentence of the paragraph are great, but the middle could be improved.*
 
 Salmon are strongly affected by climate warming and yet show a remarkable
 diversity of tolerance to temperature [@beacham1989; @crozier2006;
@@ -166,15 +168,15 @@ to riverine species whose ranges are largely confined to existing habitat
 alterations to snow-melt timing and extreme hydrological events [@crozier2008].
 In addition, warmer water itself can lead to massive mortality of salmon
 populations [@patterson2007; @macdonald2010], 
-<!--jwm: If you need to cut words/refs, the rest of this sentence could be axed -->
+*JWM: If you need to cut words/refs, the rest of this sentence could be axed *
 perhaps due to oxygen limitation [@portner2007], decreased cardiac performance
-[@eliason2011], disease resistance [@crozier2008], energetic costs in general
-[@rand1998]. With 29% of Pacific Northwest salmon populations having gone
-extinct since Euro-American contact [@gustafson2007], these populations are at
-risk from any further decline in fitness [@mcclure2003]. Yet, adverse stream
-temperatures are already impeding recovery of some Pacific salmon populations
-[@mccullough1999] and are expected to make recovery targets more difficult to
-achieve [@battin2007].
+[@eliason2011], reduced disease resistance [@crozier2008], and energetic costs
+in general [@rand1998]. With 29% of Pacific Northwest salmon populations
+having gone extinct since Euro-American contact [@gustafson2007], these
+populations are at risk from any further decline in fitness [@mcclure2003].
+Yet, adverse stream temperatures are already impeding recovery of some Pacific
+salmon populations [@mccullough1999] and are expected to make recovery targets
+more difficult to achieve [@battin2007].
 
 Here, we ask how a portfolio approach to management can inform the
 conservation of metapopulations in a changing world. We ask how portfolio
@@ -222,7 +224,7 @@ since maintaining or restoring habitat requires money, time, and resources.
 Investment in a population therefore represents investing in salmon habitat
 conservation or restoration.
 
-<!--todo jwm: I like this paragraph. . . but the following was on the back of my mind: I am wondering if we need to clear that we are not doing a simplistic portfolio analyses per se but rather doing a metapop’n model where portfolio effects arise from the built in response diversity (as an aside, doesn't this follow recommendations from Loreau to dive into the mechanisms underpinning stability-diversity). ... You probably have this cleaner in your head than me, so I trust you on this one. I just want the reader to clear that this is a metapop’n model that can be used to explore portfolio effects. -->
+*JWM: I like this paragraph. . . but the following was on the back of my mind: I am wondering if we need to clear that we are not doing a simplistic portfolio analyses per se but rather doing a metapop’n model where portfolio effects arise from the built in response diversity (as an aside, doesn't this follow recommendations from Loreau to dive into the mechanisms underpinning stability-diversity). ... You probably have this cleaner in your head than me, so I trust you on this one. I just want the reader to clear that this is a metapop’n model that can be used to explore portfolio effects.*
 
 ## Salmon metapopulation dynamics
 
@@ -295,7 +297,7 @@ Our simulation did not account for the homogenization of diversity due to
 straying. For example, all salmon in one population maintained the same
 thermal-tolerance curve regardless of how many salmon it received from another
 stream. 
-<!--todo jwm: Thus, the response diversity could be due to either local adaptation or due to habitat filtering of large-scale climate signals. Both mechanisms are covered by this approach (with the noted caveat here). This might be worth mentioning here or in the discussion. -->
+*JWM: Thus, the response diversity could be due to either local adaptation or due to habitat filtering of large-scale climate signals. Both mechanisms are covered by this approach (with the noted caveat here). This might be worth mentioning here or in the discussion.*
 However, the low straying rates in our simulation rate should render
 this effect minimal except for populations at low abundance. In our model, the
 main implication is that, in reality, populations that reach a low abundance
@@ -357,7 +359,7 @@ Combining salmon population dynamics, fishing, and environmental dynamics, we
 illustrate the components of an example simulation in Fig. 3 and the effect of
 varying parameters from their base values in Fig. S2.
 
-<!--todo sa: add in new supplementary figure references throughout-->
+*SA: add in new supplementary figure references throughout*
 
 ## Conservation rules of thumb
 
@@ -366,7 +368,7 @@ conserve spatial response diversity, and (2) a scenario where we know little
 about response diversity and we're left with a choice of how many populations
 to conserve.
 
-<!--todo jwm: A bit confusing as above only two are described. -->
+*JWM: A bit confusing as above only two are described.*
 We evaluated four spatial conservation scenarios (Fig. 2b--e). In all spatial
 scenarios, we conserved four populations and set the unfished equilibrium
 biomass of the remaining populations to near elimination (five salmon). These
@@ -437,7 +439,7 @@ conservation of response diversity creates a spread of metapopulation risk for
 the same number of populations conserved. For example, a metapopulation with
 16 conserved populations is 2.5 times less variable on average than a
 metapopulation with only four. 
-<!--todo jwm: Might be worth pointing out that there is less spread also. Some 2 pop’ns are relatively stable, some most are variable. Diversity leads to consistent stability-->
+*JWM: Might be worth pointing out that there is less spread also. Some 2 pop’ns are relatively stable, some most are variable. Diversity leads to consistent stability*
 We can see this risk-buffering effect
 through example metapopulations in Fig. 5c. We note that the risk-return
 axes of portfolio optimization ignore the absolute-abundance dimension
@@ -453,7 +455,7 @@ demographic) stochasticity.
 
 # Discussion
 
-<!--todo jwm: Feels a bit heavy on salmon. Could you build out more to spatial planning for climate change? Cite that PNAS paper on portfolio planning. Etc.-->
+*JWM: Feels a bit heavy on salmon. Could you build out more to spatial planning for climate change? Cite that PNAS paper on portfolio planning. Etc.*
 
 Our model demonstrates how population diversity can stabilize realistic
 metapopulations under climate change. We show how maintaining populations with
@@ -493,9 +495,9 @@ scenarios in Fig. 4, and then mitigation approaches such as hatcheries can
 further reduce population and response diversity if not carefully managed
 [@waples1991a; @mobrand2005].
 
-<!--todo jwm: This is a very good point. Extirpation of salmon populations has been non-random, eliminating the upper populations. -->
+*JWM: This is a very good point. Extirpation of salmon populations has been non-random, eliminating the upper populations.*
 
-<!--todo jwm: I agree that these structures do, in theory, match predictions. Yet the wild salmon policy hasn't been implemented effectively yet in most places and the US is now playing with a short deck as many rivers/populations have been heavily impacted in the past. So, there is a bit of a disconnect between theory and practice. -->
+*JWM: I agree that these structures do, in theory, match predictions. Yet the wild salmon policy hasn't been implemented effectively yet in most places and the US is now playing with a short deck as many rivers/populations have been heavily impacted in the past. So, there is a bit of a disconnect between theory and practice.*
 
 The goals of existing salmon management structures in the US and Canadian
 Pacific salmon support a portfolio conservation perspective. In the US,
@@ -512,9 +514,9 @@ structure. We suggest that a salmon portfolio in our model could represent an
 ESU or CU and that the lessons learned from our models are thus directly
 applicable to management guidelines in the Pacific Northwest.
 
-<!--todo jwm: In practice: There are still widespread hatcheries that release millions of fish, homogenizing populations across western north America. Check out paper by Pearse-->
+*JWM: In practice: There are still widespread hatcheries that release millions of fish, homogenizing populations across western north America. Check out paper by Pearse*
 
-*To be incorporated?*
+*SA: To be incorporated?*
 Some VSP guidelines [@mceacheran2000] that are in line with our findings...
 
 - maintaining diversity of a variety of forms to buffer against short-term
@@ -578,10 +580,10 @@ interactions), or to meta-communities. Third, an extension of our model would
 consider the Moran or environmental-filter concept [@schindler2008;
 @rogers2008] where populations experience increasingly different environmental
 forces at further distances. 
-<!--todo jwm: But,as I brought up in the methods, this would actually probably be exactly the same in implementation as what you did. -->
+*JWM: But, as I brought up in the methods, this would actually probably be exactly the same in implementation as what you did.*
 Fourth, a model could consider the contribution
 of contemporary evolution [@stockwell2003]. 
-<!--todo jwm: Perhaps better ref: Reed et al. 2011. Time to Evolve? PLoS ONE 6: e20380. -->
+*JWM: Perhaps better ref: Reed et al. 2011. Time to Evolve? PLoS ONE 6: e20380.*
 These rapid adaptations to changes
 in the environment could strongly affect portfolio performance and emphasize
 the importance of maintaining genetic diversity. Finally, our model could be
@@ -605,7 +607,7 @@ identifies real-life case studies as large-scale experiments testing our
 conclusions. The question remains, does managing metapopulation portfolios
 using Modern Portfolio Theory result in better outcomes that are in line with
 the societal goals?
-<!--todo jwm: I don't find this last sentence very compelling-->
+*JWM: I don't find this last sentence very compelling*
 
 In conclusion, our results demonstrate the utility of considering
 metapopulations in a portfolio context and the power of portfolio simulation
@@ -620,7 +622,7 @@ restoration actions that preserve and promote response diversity and are
 robust to our uncertainty about the distribution of response diversity
 and future climatic conditions.
 
-<!--todo jwm: Last paragraph feels a bit repetitive-->
+*JWM: Last paragraph feels a bit repetitive*
 
 # Acknowledgements
 
