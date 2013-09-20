@@ -34,7 +34,7 @@ K. Dulvy^1^, Andrew B. Cooper^3^ (Authors and order to be discussed)
 1S6, Canada
 
 ^2^Northwest Fisheries Science Center, National Marine Fisheries Service,
-Seattle, WA 98110, USA 
+Seattle, WA 98110, USA
 
 ^3^School of Resource and Environmental Management, Simon Fraser University,
 Burnaby, BC, V5A 1S6, Canada
@@ -43,7 +43,7 @@ Burnaby, BC, V5A 1S6, Canada
 SCA wrote the simulation code, analyzed the results, and wrote the first draft
 of the manuscript. All authors contributed substantially to revisions.
 
-*Running title*: 
+*Running title*:
 Portfolio conservation of metapopulations (41/45 characters)
 
 *Keywords*: biocomplexity, ecosystem based management, Modern Portfolio
@@ -137,26 +137,65 @@ unique phenotypic or genetic traits [@crozier2008; @kovach2012] and be derived
 from rapid contemporary adaption [@stockwell2003; @fraser2011] or long-term
 evolution to historical conditions [@eliason2011]. In this paper
 we focus on this latter, response-diversity mechanism, and evaluate it in the
-context of thermal response diversity. 
+context of thermal response diversity.
 
-Salmon are strongly affected by climate warming and yet show a remarkable
-diversity of tolerance to temperature [@beacham1989; @crozier2006;
-@crozier2008]. In addition to climate warming posing perhaps the greatest
-threat to global biodiversity [@thomas2004], warming poses a particular threat
-to riverine species whose ranges are largely confined to existing habitat
-[@thomas2010]. Warming can impact salmon productivity indirectly through
-alterations to snow-melt timing and extreme hydrological events [@crozier2008].
-In addition, warmer water itself can lead to massive mortality of salmon
-populations [@patterson2007; @macdonald2010], 
-*JWM: If you need to cut words/refs, the rest of this sentence could be axed *
-perhaps due to oxygen limitation [@portner2007], decreased cardiac performance
-[@eliason2011], reduced disease resistance [@crozier2008], and energetic costs
-in general [@rand1998]. With 29% of Pacific Northwest salmon populations
-having gone extinct since Euro-American contact [@gustafson2007], these
-populations are at risk from any further decline in fitness [@mcclure2003].
-Yet, adverse stream temperatures are already impeding recovery of some Pacific
-salmon populations [@mccullough1999] and are expected to make recovery targets
+Salmon are strongly affected by climate warming [e.g. @patterson2007]
+and yet show a remarkable diversity
+of tolerance to temperature [e.g. @crozier2006; @eliason2011].
+<!--Stream temperatures have increased in the Pacific Northwest [@kaushal2010]-->
+<!--and are projected to increase-->
+<!--by $\sim X^\circ$C globally in the next XX years [REF].-->
+In addition to climate warming
+posing perhaps the greatest threat to global biodiversity [@thomas2004],
+warming poses a particular threat to riverine species
+whose ranges are largely confined to existing habitat [@thomas2010].
+Warmer water can lead to massive mortality
+of salmon populations [e.g. @patterson2007; @macdonald2010]
+and indirectly impact salmon productivity through alterations
+to snow-melt timing and extreme hydrological events [@crozier2008].
+Due to these effects,
+adverse stream temperatures are already impeding recovery
+of some Pacific salmon populations [@mccullough1999]
+and are expected to make recovery targets
 more difficult to achieve [@battin2007].
+However, despite the evidence that warming impacts salmon,
+salmon also show evidence
+of response diversity and local adaptation to temperature.
+For example, juvenile Chinook salmon
+in southern regions of British Columbia, Canada,
+tolerate high temperatures better than northern populations [@beacham1991],
+and thermal tolerance of sockeye salmon in the Fraser River, British Columbia,
+varies within streams according to
+historical environmental conditions [@eliason2011].
+
+
+<!--With 29% of Pacific Northwest salmon populations having gone extinct since
+    Euro-American contact [@gustafson2007], these populations are at risk from
+    any further decline in fitness [@mcclure2003].-->
+<!--For example, Chinook and sockeye salmon from interior British Columbia,
+    compared to coastal populations, tend to be better at converting yolk to
+    body tissue and hatch larger in cool water [@beacham1989].-->
+<!--@crozier2008: Fitness in warm water is reduced by mortality at lethal
+    temperatures, and various impacts at sublethal temperatures, such as
+    increased susceptibility to warm-water diseases, inhibition of normal
+    behavior, growth and development, especially smoltification, maturation,
+    and egg development, and increased energetic costs (for reviews, see
+    McCullough 1999; Materna 2001)-->
+<!--cite @crozier2006 for work showing differential response of 18 populations
+    of Chinook salmon in the Salmon River basin to climate-->
+<!--@crozier2008: For example, coastal Chinook salmon populations show lower
+    egg and embryo survival and lower yolk conversion. efficiency at cold
+    temperatures than do interior popula- tions (Beacham and Murray 1989), and
+    juvenile Chinook salmon from southern British Columbia tolerate longer
+    exposure to high temperatures than those from northern British Columbia
+    (Beacham and Withler 1991).-->
+<!--1. Increased temperatures can be bad for salmon (cite Patterson, etc.).-->
+<!--2. There is response diversity and local adaptation to temperature (cite-->
+   <!--Eliason et al. 2011).-->
+<!--From @sloat2013 "Conservation actions that limit stream heating will be
+    especially important given evidence for contemporary (Kaushal et al. 2010;
+    Isaak et al. 2011) and projected increases in stream temperatures due to
+    climate change ( Mohseni et al. 1999; van Vliet et al. 2011)."-->
 
 Here, we ask how a portfolio approach to management can inform the
 conservation of metapopulations in a changing world. We ask how portfolio
@@ -172,7 +211,7 @@ ensures metapopulation persistence given long-term climate warming. We then
 show that conserving more subpopulations buffers risk regardless of response
 diversity or climate trend, and conclude that considering metapopulations
 through portfolio theory provides a useful additional dimension through which
-we can consider conservation strategies. 
+we can consider conservation strategies.
 
 # Methods
 
@@ -237,8 +276,8 @@ subpopulation thermal-tolerance performance curves.
 
 We generated the thermal-tolerance curves according to
 
-$$a_{i(t)} = \begin{cases} a_i^{\mathrm{max}} - 
-W_i (e_t - e_i^{\mathrm{opt}})^2, 
+$$a_{i(t)} = \begin{cases} a_i^{\mathrm{max}} -
+W_i (e_t - e_i^{\mathrm{opt}})^2,
 & \text{if } a_{i(t)} > 0\\ 0, & \text{if } a_{i(t)} \leq
 0 \end{cases}$$
 
@@ -363,7 +402,7 @@ considered were:
    temperature-tolerant populations with the widest response curves).
 
 3. Conserve the lower half of the metapopulation (conserve cool-tolerant
-   populations). 
+   populations).
 
 4. Conserve the upper half of the metapopulation (conserve warm-tolerant
    populations).
@@ -411,15 +450,15 @@ beginning they would have had the lowest rate-of-return portfolio in the end
 
 In a scenario where we don't know the distribution of population-level
 response diversity, portfolio optimization informs us that investing in more
-populations buffers portfolio risk regardless of environmental trend (Fig. 5). 
+populations buffers portfolio risk regardless of environmental trend (Fig. 5).
 
 *Given short-term environmental fluctuations*, conserving more populations
 buffers portfolio risk (Fig. 5a), and at the same time, the random
 conservation of response diversity creates a spread of metapopulation risk for
 the same number of populations conserved. For example, a metapopulation with
 16 conserved populations is 2.5 times less variable on average than a
-metapopulation with only four. 
-*JWM: Might be worth pointing out that there is less spread also. Some 2 pop’ns are relatively stable, some most are variable. Diversity leads to consistent stability*
+metapopulation with only four.
+*JWM: Might be worth pointing out that there is less spread also. Some 2 pop’ns are relatively stable, some are variable. Diversity leads to consistent stability*
 We can see this risk-buffering effect
 through example metapopulations in Fig. 5c. We note that the risk-return
 axes of portfolio optimization ignore the absolute-abundance dimension
