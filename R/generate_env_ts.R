@@ -17,7 +17,7 @@
 #' types <- c("sine", "arma", "regime", "linear", "constant")
 #' x <- list()
 #' for(i in 1:5) x[[i]] <- generate_env_ts(n_t = 100, type = types[i])
-#' op <- par(mfrow = c(5, 1), mar = c(3,3,1,0), cex = 0.7) 
+#' op <- par(mfrow = c(5, 1), mar = c(3,3,1,0), cex = 0.7)
 #' for(i in 1:5) plot(x[[i]], type = "o", main = types[i])
 #' par(op)
 
@@ -32,9 +32,9 @@ generate_env_ts <- function(
   constant_params = list(value = 0)
   ) {
   type <- type[1]
-  env_ts <- switch(type, 
-    arma = as.numeric(with(arma_params, mean_value + arima.sim(model = list(ar = ar, ma = ma),
-        n = n_t, sd = sigma_env))), 
+  env_ts <- switch(type,
+    arma = as.numeric(with(arma_params, mean_value + arima.sim(model =
+          list(ar = ar, ma = ma), n = n_t, sd = sigma_env))),
     sine = {
       x <- seq_len(n_t)
       y <- with(sine_params, amplitude * sin(ang_frequency * x + phase) + mean_value + x * slope + rnorm(n_t, mean = 0, sd = sigma_env))
@@ -53,7 +53,7 @@ generate_env_ts <- function(
     linear = {
       trend_years <- n_t - (linear_params$start_t - 1)
       trend <- with(linear_params, seq(min_value, max_value, length.out = trend_years) + rnorm(trend_years, mean = 0, sd = sigma_env))
-      burnin_and_trend <- with(linear_params, c(rep(min_value, start_t - 1), trend)) 
+      burnin_and_trend <- with(linear_params, c(rep(min_value, start_t - 1), trend))
       burnin_and_trend
     },
     constant = {
