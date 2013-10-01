@@ -160,7 +160,7 @@ meta_sim <- function(
         for(j in 1:n_pop) {
           recruits <- A[3:i, j]
           spawners <- E[2:(i - 1), j]
-          rick <- fit_ricker_fast(R = recruits, S = spawners)
+          rick <- fit_ricker(R = recruits, S = spawners)
           # bounds for sanity:
           if (rick$a > 4) rick$a <- 4
           if (rick$a < 0.02) rick$a <- 0.02
