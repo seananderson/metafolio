@@ -4,9 +4,12 @@
 #' @param dat Input data. Should be a list of lists. The first level
 #' corresponds to the conservation plan and the second level
 #' corresponds to the replicate.
-#' @param quasi_thresh
-#' @param ignore_pops_thresh
-#' @param duration
+#' @param quasi_thresh The quasi extinction threshold
+#' @param ignore_pops_thresh Threshold below which to ignore
+#' populations (e.g. if you started some populations with very low
+#' abundance and you don't want to count those populations.
+#' @param duration Number of years that the abundance must be below
+#' the \code{quasi_thresh} before being counted as quasi extinct.
 #' @return
 #' A list of matrices. The list elements correspond to the
 #' conservation plans. The columns of the matrix correspond to the

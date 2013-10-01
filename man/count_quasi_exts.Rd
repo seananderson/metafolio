@@ -11,11 +11,16 @@ extinctions}
   first level corresponds to the conservation plan and the
   second level corresponds to the replicate.}
 
-  \item{quasi_thresh}{}
+  \item{quasi_thresh}{The quasi extinction threshold}
 
-  \item{ignore_pops_thresh}{}
+  \item{ignore_pops_thresh}{Threshold below which to ignore
+  populations (e.g. if you started some populations with
+  very low abundance and you don't want to count those
+  populations.}
 
-  \item{duration}{}
+  \item{duration}{Number of years that the abundance must
+  be below the \code{quasi_thresh} before being counted as
+  quasi extinct.}
 }
 \value{
   A list of matrices. The list elements correspond to the
