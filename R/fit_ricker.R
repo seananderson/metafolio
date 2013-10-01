@@ -1,13 +1,12 @@
 #' Fit a Ricker curve (quickly)
 #'
 #' Fit a Ricker curve to spawner-recruit data and return the intercept
-#' (a) and slope (b).
-#' This function uses \code{\link{lm.fit()}} by directly
-#' specifying the model matrix. This is about an order of magnitude
-#' faster than \code{lm()}.
+#' (a) and slope (b). This function uses \code{\link{lm.fit()}} by
+#' directly specifying the model matrix. This is about an order of
+#' magnitude faster than \code{lm()}.
 #'
-#' @param S Spawners as a numeric vector
-#' @param R Recruits or returns as a numeric vector
+#' @param S Spawners as a numeric vector.
+#' @param R Recruits or returns as a numeric vector.
 #' @export
 #' @return
 #' A named list with components \code{a} for the intercept and

@@ -5,9 +5,9 @@
   fit_ricker(S, R)
 }
 \arguments{
-  \item{S}{Spawners as a numeric vector}
+  \item{S}{Spawners as a numeric vector.}
 
-  \item{R}{Recruits or returns as a numeric vector}
+  \item{R}{Recruits or returns as a numeric vector.}
 }
 \value{
   A named list with components \code{a} for the intercept
