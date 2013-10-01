@@ -33,32 +33,35 @@
 #' @param add_straying Implement straying between (sub)populations?
 #' @param add_impl_error Add implementation error?
 #' @export
+
 meta_sim <- function(
-  n_t = 100, # number of years
-  n_pop = 10, # number of subpopulations
-  stray_decay_rate = 0.3, # rate that straying decays with distance
-  stray_fraction = 0.01, # fraction of fish that stray from natal streams
-  b = rep(1000, n_pop), # Ricker density-dependent parameter
-  spawners_0 = round(b), # spawners at start
-  sigma_v = 0.3, # stock-recruit residual SD
-  v_rho = 0.4, # stock-recruit residual AR1 correlation
-  a_width_param = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))), # width of thermal curves by pop
-  optim_temp = seq(13, 19, length.out = n_pop), # optimal temperatures by pop
-  max_a = c(seq(2.8, 2.2, length.out = n_pop/2), rev(seq(2.8, 2.2, length.out = n_pop/2))), # maximum Ricker a values by pop at optimum temp
+  n_t = 100,
+  n_pop = 10,
+  stray_decay_rate = 0.3,
+  stray_fraction = 0.01,
+  b = rep(1000, n_pop),
+  spawners_0 = round(b),
+  sigma_v = 0.3,
+  v_rho = 0.4,
+  a_width_param = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02,
+        length.out = n_pop/2))),
+  optim_temp = seq(13, 19, length.out = n_pop),
+  max_a = c(seq(2.8, 2.2, length.out = n_pop/2), rev(seq(2.8, 2.2, length.out
+        = n_pop/2))),
   env_type = c("sine", "arma", "regime", "linear", "constant"),
-  env_params = list(amplitude = 3.2, ang_frequency = 0.2, phase = runif(1, -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.30),
-  start_assessment = 20, # generation to start estimating SR relationship for escapement targets
-  assessment_window = 25, # number of generations to use when fitting SR relationship for escapement targets; must be bigger than start_assessment
-  sigma_impl = 0.05, # sd on beta implementation error
-  assess_freq = 10, # how many generations between SR assessments
-  use_cache = FALSE, # regenerate stochastic values? caches everything
-  cache_env = FALSE, # cache env? this lets you not cache everything else if you want by setting use_cache = FALSE and cache_env = TRUE
-  add_straying = TRUE, # include or ignore straying
-  add_impl_error = TRUE # include implementation error?
-) {
+  env_params = list(amplitude = 3.2, ang_frequency = 0.2, phase = runif(1,
+      -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.30),
+  start_assessment = 20,
+  assessment_window = 25,
+  sigma_impl = 0.05,
+  assess_freq = 10,
+  use_cache = FALSE,
+  cache_env = FALSE,
+  add_straying = TRUE,
+  add_impl_error = TRUE
+  ) {
 
-
-  if(use_cache | cache_env) {
+  if (use_cache | cache_env) {
     load("env_ts.rda")
   } else {
     env_type <- env_type[1]
@@ -73,24 +76,23 @@ meta_sim <- function(
         linear_params = env_params),
       constant = generate_env_ts(n_t = n_t, type = "constant",
         constant_params = env_params)
-    )
+      )
     save(env_ts, file = "env_ts.rda")
   }
 
-
   # create vectors and matrices that are not developed iteratively:
-  if(use_cache) {
+  if (use_cache) {
     load("sim_dat.rda")
   } else {
 
-# Figure out alpha parameters before running through the loops:
-  A_params <- matrix(ncol = n_pop, nrow = n_t) # a parameters from Ricker
+    # Figure out alpha parameters before running through the loops:
+    A_params <- matrix(ncol = n_pop, nrow = n_t) # a parameters from Ricker
     for(j in 1:n_pop) {
       A_params[, j] <- thermal_curve_a(env_ts, optim_temp =
         optim_temp[j], max_a = max_a[j], width_param =
         a_width_param[j])
     }
-  A_params[A_params<0] <- 0
+    A_params[A_params<0] <- 0
 
     stray_mat <- generate_straying_matrix(n_pop = n_pop, stray_fraction
       = stray_fraction, stray_decay_rate = stray_decay_rate)
@@ -98,10 +100,12 @@ meta_sim <- function(
     epsilon_mat <- matrix(ncol = n_pop, nrow = n_t)
     epsilon_mat[1, ] <- rnorm(n_pop, mean = 0, sd = sigma_v)
     for(i in 2:n_t) {
-      epsilon_mat[i, ] <- epsilon_mat[i - 1, ] * v_rho + rnorm(n_pop, mean = 0, sd = sigma_v) # stock-recruit residuals
+      epsilon_mat[i, ] <- epsilon_mat[i - 1, ] * v_rho + rnorm(n_pop, mean =
+        0, sd = sigma_v) # stock-recruit residuals
     }
-# now develop random escapement targets at start of open access
-    r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data = runif(n_pop*start_assessment, 0.1, 0.9))
+    # now develop random escapement targets at start of open access
+    r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data =
+      runif(n_pop*start_assessment, 0.1, 0.9))
     save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
   }
 
@@ -125,13 +129,14 @@ meta_sim <- function(
       # spawner-recruit section:
       A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = A_params[i, j],
         b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation added
-      if(A[i,j] < 0) warning("Abundance before straying or harvesting was < 0.")
+      if (A[i,j] < 0) warning("Abundance before straying or harvesting was < 0.")
     }
     # now we have the returns for this year, let's allocate straying:
-    if(add_straying) {
+    if (add_straying) {
       to_reallocate <- matrix(ncol = n_pop, nrow = n_pop)
       for(j in 1:n_pop) {
-        to_reallocate[j, ] <- stray_mat[j, ] * A[i, j]  # from column to row populations
+        # from column to row populations:
+        to_reallocate[j, ] <- stray_mat[j, ] * A[i, j]
       }
       to_subtract <- rowSums(to_reallocate)
       to_add <- colSums(to_reallocate)
@@ -143,46 +148,44 @@ meta_sim <- function(
     # setting escapement according to Hilborn and Walters p272
     # (pdf p139), Table 7.2: Smsy = b(0.5 - 0.07*a)
 
-    # fit recent data to get estimated a and b values, set escapement
-    # based on these
-    if(i < start_assessment) escapement_goals <- A[i, ] * r_escp_goals[i, ] # random fishery for first X years, establish S-R data to work with
-    #if(i == 30) Est_a[i, ] <- max_a # set starting values to check against
-    if(i == (start_assessment - 1)) Est_b[i, ] <- b # sanity check - make sure estimate isn't too far from this
-    if(i >= start_assessment) {
-      #if(i == 101) browser()
-      if((i - start_assessment)%%assess_freq == 0) { # every 20th year, re-assess a and b
+    # Fit recent data to get estimated a and b values, set escapement
+    # based on these.
+    # Random fishery for first X years, establish S-R data to work with:
+    if (i < start_assessment) escapement_goals <- A[i, ] * r_escp_goals[i, ]
+    # sanity check - make sure estimate isn't too far from this:
+    if (i == (start_assessment - 1)) Est_b[i, ] <- b
+    if (i >= start_assessment) {
+      # every nth year, re-assess a and b:
+      if ((i - start_assessment)%%assess_freq == 0) {
         for(j in 1:n_pop) {
-          #browser()
-          #recruits <- A[(i - assessment_window):i, j]
           recruits <- A[3:i, j]
-          #spawners <- E[(i - 1 - assessment_window):(i - 1), j]
           spawners <- E[2:(i - 1), j]
           rick <- fit_ricker_fast(R = recruits, S = spawners)
-          #if( i == 57) browser()
-          #if(j == 1) plot(spawners, log(recruits/spawners), main = i)
-          #if(j == 1) print(rick)
           # bounds for sanity:
-          if(rick$a > 4) rick$a <- 4
-          if(rick$a < 0.02) rick$a <- 0.02
-          if(rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5 # at most increase b by 50%
-          if(rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5 # at most decrease b by 50%
+          if (rick$a > 4) rick$a <- 4
+          if (rick$a < 0.02) rick$a <- 0.02
+          # at most increase b by 50%
+          if (rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5
+          # at most decrease b by 50%
+          if (rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5
           Est_a[i,j]<-rick$a
           Est_b[i,j]<-rick$b
-
-          }
+        }
         escapement_goals <- ricker_escapement(Est_a[i,],Est_b[i,])
-      }else{ # no assessment
-          Est_a[i,]<-Est_a[i-1,]
-          Est_b[i,]<-Est_b[i-1,]
-        escapement_goals <- ricker_escapement(Est_a[i-1,],Est_b[i-1,]) # no assessment, use last year's values
+      } else { # no assessment
+        Est_a[i,]<-Est_a[i-1,]
+        Est_b[i,]<-Est_b[i-1,]
+        # no assessment, use last year's values
+        escapement_goals <- ricker_escapement(Est_a[i-1,],Est_b[i-1,])
       }
     }
-    #if (i == start_assessment) browser()
-    #escapement_goals <- ricker_escapement(A_params[i,],b) # b is also a vector
-    if(add_impl_error) {
+    if (add_impl_error) {
       escapement_goals_fraction <- escapement_goals / A[i,]
-      escapement_goals_fraction[escapement_goals_fraction > .95] <- .95 # avoid rbeta errors if fraction too big - would have got reduced below anyways
-      escapement_goals_fraction_w_error <-  impl_error(mu = escapement_goals_fraction, sigma_impl = sigma_impl)
+      # avoid rbeta errors if fraction too big - would have got reduced below
+      # anyways
+      escapement_goals_fraction[escapement_goals_fraction > .95] <- .95
+      escapement_goals_fraction_w_error <-  impl_error(mu =
+        escapement_goals_fraction, sigma_impl = sigma_impl)
       escapement_goals <- escapement_goals_fraction_w_error * A[i,]
     }
     F[i, ] <- A[i, ] - escapement_goals # catch to leave escapement behind
@@ -191,7 +194,7 @@ meta_sim <- function(
     E[i, ] <- A[i, ] - F[i, ] # escapement
   }
   return(list(A = A, F = F, E = E, Eps = epsilon_mat, A_params = A_params,
-    Strays_leaving = Strays_leaving, Strays_joining = Strays_joining,
-    env_ts = env_ts, stray_mat = stray_mat, n_pop = n_pop, n_t = n_t, b = b, Est_a = Est_a, Est_b = Est_b))
+      Strays_leaving = Strays_leaving, Strays_joining = Strays_joining,
+      env_ts = env_ts, stray_mat = stray_mat, n_pop = n_pop, n_t = n_t, b = b,
+      Est_a = Est_a, Est_b = Est_b))
 }
-
