@@ -6,14 +6,22 @@
     pal = rev(gg_color_hue(x$n_pop)))
 }
 \arguments{
-  \item{x}{A list output object from \code{meta_sim}.}
+  \item{x}{A list output object from
+  \code{\link{meta_sim}}.}
 
-  \item{burn}{Number of years to discard at start as
-  burnin.}
+  \item{burn}{Number of years to discard at start as burn
+  in.}
 
-  \item{pal}{Colours to plot with for stocks.}
+  \item{pal}{Colours to label each stock/asset.}
 }
 \description{
-  Plot correlation of returns across stocks.
+  Create a matrix plot showing the correlation between the
+  returns of each stock/asset.
+}
+\examples{
+arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
+base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
+  "arma", assess_freq = 5)
+plot_correlation_between_returns(base1)
 }
 
