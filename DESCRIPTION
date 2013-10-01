@@ -11,7 +11,6 @@ VignetteBuilder: knitr
 Suggests:
     knitr
 Collate:
-    'thermal_curve_a.R'
     'monte_carlo_portfolios.R'
     'plot_correlation_between_returns.R'
     'plot_efficient_portfolios.R'
@@ -37,3 +36,4 @@ Collate:
     'thermal_integration.r'
     'add_inset_env.r'
     'plot_sp_A_ts.r'
+    'thermal_curve_a.R'
