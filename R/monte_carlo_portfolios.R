@@ -41,7 +41,7 @@ monte_carlo_portfolios_foreach <- function(weights_matrix, n_sims = 500, mean_b 
 
 # just set cache:
 junk <- meta_sim(b = b_vals_matrix[1,], use_cache = FALSE, n_pop = n_pop, ...)
-  
+
 sims_out <- foreach(k = 1:n_sims) %dopar% {
     b_vals <- b_vals_matrix[k, ]
     meta_sim(b = b_vals, use_cache = TRUE, n_pop = n_pop, ...)
@@ -54,8 +54,4 @@ sims_out <- foreach(k = 1:n_sims) %dopar% {
 
 #return(list(port_vals = port_vals, n_sims = 500, sims_out = sims_out))
 sims_out
-}                                                                                          
-
-  
-
-
+}
