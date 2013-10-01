@@ -1,24 +1,24 @@
 #' Run a (salmon) metapopulation simulation.
-#' 
+#'
 #' @param n_t The number of years.
 #' @param n_pop Number of (sub)populations
-#' @param stray_decay_rate Rate that straying (exponentially) decays with 
+#' @param stray_decay_rate Rate that straying (exponentially) decays with
 #' distance.
 #' @param stray_fraction Fraction of fish that stray from natal streams.
-#' @param b Ricker density-dependent parameter. Should be one per 
+#' @param b Ricker density-dependent parameter. Should be one per
 #' (sub)population.
-#' @param spawners_0 A vector of spawner abundances at the start of the 
+#' @param spawners_0 A vector of spawner abundances at the start of the
 #' simulation. Length of the vector should equal the number of subpopulations.
-#' @param sigma_v Stock-recruit residual standard deviation. Will be 
+#' @param sigma_v Stock-recruit residual standard deviation. Will be
 #' exponentiated.
 #' @param v_rho AR1 serial correlation of stock-recruit residuals.
 #' @param a_width_param Width of the thermal curves by (sub)population.
 #' @param optim_temp Optimal temperatures by (sub)population.
 #' @param max_a Maximum Ricker productivity parameters (a) by (sub)population.
 #' The value obtained at the optimum temperature.m
-#' @param env_type The type of environmental time series to generate.  One of 
+#' @param env_type The type of environmental time series to generate.  One of
 #' "sine", "arma", "regime", "linear", or "constant".
-#' @param env_params Parameters to pass on to \code{generate_env_ts}. You must 
+#' @param env_params Parameters to pass on to \code{generate_env_ts}. You must
 #' provide the appropriate list given your chosen type of environmental signal.
 #' @param start_assessment Generation to start estimating SR
 #' relationship for escapement targets
@@ -56,13 +56,13 @@ meta_sim <- function(
   add_straying = TRUE, # include or ignore straying
   add_impl_error = TRUE # include implementation error?
 ) {
-  
+
 
   if(use_cache | cache_env) {
     load("env_ts.rda")
   } else {
     env_type <- env_type[1]
-    env_ts <- switch(env_type, 
+    env_ts <- switch(env_type,
       sine = generate_env_ts(n_t = n_t, type = "sine", sine_params =
         env_params),
       arma = generate_env_ts(n_t = n_t, type = "arma", arma_params =
@@ -88,13 +88,13 @@ meta_sim <- function(
     for(j in 1:n_pop) {
       A_params[, j] <- thermal_curve_a(env_ts, optim_temp =
         optim_temp[j], max_a = max_a[j], width_param =
-        a_width_param[j]) 
+        a_width_param[j])
     }
   A_params[A_params<0] <- 0
 
     stray_mat <- generate_straying_matrix(n_pop = n_pop, stray_fraction
       = stray_fraction, stray_decay_rate = stray_decay_rate)
-    
+
     epsilon_mat <- matrix(ncol = n_pop, nrow = n_t)
     epsilon_mat[1, ] <- rnorm(n_pop, mean = 0, sd = sigma_v)
     for(i in 2:n_t) {
@@ -104,7 +104,7 @@ meta_sim <- function(
     r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data = runif(n_pop*start_assessment, 0.1, 0.9))
     save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
   }
-  
+
   # matrices to store output:
   A <- matrix(ncol = n_pop, nrow = n_t) # total abundance (say returns)
   F <- matrix(ncol = n_pop, nrow = n_t) # fisheries catch
@@ -114,20 +114,17 @@ meta_sim <- function(
   Strays_joining <- matrix(ncol = n_pop, nrow = n_t)
   Est_a <- matrix(ncol = n_pop, nrow = n_t)
   Est_b <- matrix(ncol = n_pop, nrow = n_t)
-  
+
   A[1, ] <- spawners_0 # first year
   E[1, ] <- spawners_0 # first year
   Eps[1, ] <- rep(0, n_pop) # first year
-  
+
   # run the simulation through time:
   for(i in 2:n_t){
     for(j in 1:n_pop) {
       # spawner-recruit section:
-      A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = A_params[i, j], 
-        b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation added!!!!
-      #A[i, j] <- ricker_out
-      #Eps[i, j] <- ricker_out$eps
-      #if(is.na(A[i,j])) browser()
+      A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = A_params[i, j],
+        b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation added
       if(A[i,j] < 0) warning("Abundance before straying or harvesting was < 0.")
     }
     # now we have the returns for this year, let's allocate straying:
@@ -140,7 +137,7 @@ meta_sim <- function(
       to_add <- colSums(to_reallocate)
       Strays_leaving[i, ] <- to_subtract
       Strays_joining[i, ] <- to_add
-      A[i, ] <- A[i, ] - to_subtract + to_add 
+      A[i, ] <- A[i, ] - to_subtract + to_add
     }
     # harvesting:
     # setting escapement according to Hilborn and Walters p272
@@ -167,11 +164,11 @@ meta_sim <- function(
           # bounds for sanity:
           if(rick$a > 4) rick$a <- 4
           if(rick$a < 0.02) rick$a <- 0.02
-          if(rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5 # at most increase b by 50% 
-          if(rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5 # at most decrease b by 50% 
+          if(rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5 # at most increase b by 50%
+          if(rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5 # at most decrease b by 50%
           Est_a[i,j]<-rick$a
           Est_b[i,j]<-rick$b
-    
+
           }
         escapement_goals <- ricker_escapement(Est_a[i,],Est_b[i,])
       }else{ # no assessment
@@ -193,8 +190,8 @@ meta_sim <- function(
     F[i, negative_F] <- 0
     E[i, ] <- A[i, ] - F[i, ] # escapement
   }
-  return(list(A = A, F = F, E = E, Eps = epsilon_mat, A_params = A_params, 
-    Strays_leaving = Strays_leaving, Strays_joining = Strays_joining, 
+  return(list(A = A, F = F, E = E, Eps = epsilon_mat, A_params = A_params,
+    Strays_leaving = Strays_leaving, Strays_joining = Strays_joining,
     env_ts = env_ts, stray_mat = stray_mat, n_pop = n_pop, n_t = n_t, b = b, Est_a = Est_a, Est_b = Est_b))
 }
 
