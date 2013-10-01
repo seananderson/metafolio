@@ -1,16 +1,47 @@
 \name{thermal_integration}
 \alias{thermal_integration}
-\title{Get maximum Ricker a values for a given number of populations}
+\title{Integrate thermal tolerance curves to get maximum Ricker a values}
 \usage{
   thermal_integration(n_pop,
     width_params = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))),
-    optim_temps = seq(13, 19, length.out = n_pop))
+    optim_temps = seq(13, 19, length.out = n_pop),
+    desired_area = 30)
 }
 \arguments{
-  \item{n_pop}{The number of populations}
+  \item{n_pop}{The number of populations.}
+
+  \item{width_params}{Desired widths of the thermal
+  tolerance curves.}
+
+  \item{optim_temps}{Temperature value at which to reach
+  the peak of each thermal tolerance curve.}
+
+  \item{desired_area}{Desired area under each curve.}
 }
 \description{
   Get maximum Ricker a values for a given number of
-  populations
+  populations. Useful for assembling multiple thermal
+  tolerance curves in which each has the same total area
+  under it.
+}
+\examples{
+# Minimal example:
+thermal_integration(16)
+
+# Elaborate example:
+optim_temps <- seq(13, 19, length.out = 10)
+widths <- c(seq(0.05, 0.02, length.out = 5), rev(seq(0.05, 0.02,
+      length.out = 5)))
+heights <- c(seq(2.8, 2.2, length.out = 5), rev(seq(2.8, 2.2,
+      length.out = 5)))
+x <- seq(3, 29, length.out = 200)
+plot(1, 1, xlim = c(4, 28), ylim = c(-0.01, 2.9), ylab = "Ricker
+  productivity parameter (a)", xlab = "Environmental value", type =
+  "n", yaxs = "i", las = 1)
+for(i in 1:10) {
+  a <- thermal_curve_a(x, optim_temp = optim_temps[i], max_a =
+    heights[i], width_param = widths[i])
+  lines(x, a, col = "grey40", lwd = 1.5)
+}
 }
 
