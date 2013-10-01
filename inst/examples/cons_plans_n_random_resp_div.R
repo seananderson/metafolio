@@ -87,7 +87,7 @@ plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
 dev.off()
 
 if(!USE_CACHE) {
-x_linear_n <- run_cons_plans(w, env_type = "linear", env_params = linear_env_params, max_a = thermal_integration(16)) 
+x_linear_n <- run_cons_plans(w, env_type = "linear", env_params = linear_env_params, max_a = thermal_integration(16))
   save(x_linear_n, file = "x_linear_n.rda")
 } else {
   load("x_linear_n.rda")
@@ -122,7 +122,7 @@ layout(rbind(
 #par(mfrow = c(1, 2))
 xlim <- c(0.008, 0.15)
 ylim <- c(-0.017, 0.017)
-par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
+par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0))
 plot_cons_plans(x_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
 
@@ -144,12 +144,12 @@ mtext("Variance of metapopulation growth rate", side = 1, line = 2.25, outer = F
 
 
 # ignore below for now
-# 2013-05-18 
+# 2013-05-18
 # possible ts plots - TODO not right - "spatial" element should be
 # fixed between runs, right now is random
 
 ## time series plots:
-par(tck = -0.035) 
+par(tck = -0.035)
 w <- list()
 for(i in 1:n_plans) { # loop over number conserved
  w[[i]] <- list()
