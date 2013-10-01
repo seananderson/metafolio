@@ -40,7 +40,6 @@ Collate:
     'gg_color_hue.R'
     'plot_cons_plans.R'
     'run_cons_plans.R'
-    'plot_cons_plans_ts.R'
     'is_quasi_ext.R'
     'count_quasi_exts.R'
     'thermal_integration.r'
