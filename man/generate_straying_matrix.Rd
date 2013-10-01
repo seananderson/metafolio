@@ -16,10 +16,8 @@
 }
 \description{
   Generate a matrix of straying proportions within a
-  metapopulation
-}
-\details{
-  Based on Eq. 2 in Cooper and Mangel (1999).
+  metapopulation. Based on Eq. 2 in Cooper and Mangel
+  (1999).
 }
 \examples{
 x <- generate_straying_matrix(10, 0.01, 0.3)
@@ -28,6 +26,6 @@ image(x, col = rev(heat.colors(12)))
 \references{
   Cooper, A.B. and Mangel, M. 1999. The dangers of ignoring
   metapopulation structure for the conservation of
-  salmonids. Fish. Bull. 97(2): 213–226.
+  salmonids. Fish. Bull. 97(2): 213-226.
 }
 
