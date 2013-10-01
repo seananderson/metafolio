@@ -21,6 +21,8 @@
 #' \code{\link{generate_env_ts}}
 #' @param show_progress Logical: show an indication of progress?
 #' @param burn Cycles to throw out as burn in
+#' @param assess_freq How frequently (in years) to re-assess the
+#' Ricker a and b values.
 #' @param ... Other values to pass to \code{\link{meta_sim}}
 #' @export
 #' @return A list with two high-level elements: the mean variance
@@ -58,7 +60,6 @@
 #' plot_cons_plans(x_arma_sp$plans_mv, plans_name = plans_name_sp, cols =
 #'   cols, add_all_efs = FALSE, xlim = c(0.02, 0.15), ylim = c(-0.017,
 #'     0.017), add_legend = FALSE)
-#' }
 #'
 #' # In this version, the pops are wiped out; total abundance changes
 #' n_trials <- 50 # number of trials at each n conservation plan

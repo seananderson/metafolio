@@ -14,7 +14,8 @@ License: GPL-3
 VignetteBuilder: knitr
 Imports:
     plyr (>= 1.8),
-    colorspace (>= 1.2-2)
+    colorspace (>= 1.2-2),
+    MASS (>= 7.3-29)
 Suggests:
     knitr,
     devtools,

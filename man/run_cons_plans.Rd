@@ -27,6 +27,9 @@ values}
 
   \item{burn}{Cycles to throw out as burn in}
 
+  \item{assess_freq}{How frequently (in years) to re-assess
+  the Ricker a and b values.}
+
   \item{...}{Other values to pass to
   \code{\link{meta_sim}}}
 }
@@ -79,7 +82,6 @@ x_arma_sp <- run_cons_plans(w, env_type = "arma", env_params = arma_env_params)
 plot_cons_plans(x_arma_sp$plans_mv, plans_name = plans_name_sp, cols =
   cols, add_all_efs = FALSE, xlim = c(0.02, 0.15), ylim = c(-0.017,
     0.017), add_legend = FALSE)
-}
 
 # In this version, the pops are wiped out; total abundance changes
 n_trials <- 50 # number of trials at each n conservation plan
