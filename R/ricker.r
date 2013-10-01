@@ -8,7 +8,7 @@
 #' @export
 #' @examples
 #' S <- seq(100, 1000, length.out = 100)
-#' R <- ricker_ar1(S, a = 1.9, b = 900)
+#' R <- ricker(S, a = 1.9, b = 900)
 #' plot(S, R)
 
 ricker <- function(spawners, a, b) {
