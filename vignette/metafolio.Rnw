@@ -11,7 +11,7 @@
 \usepackage{graphicx}
 
 \setlength{\parskip}{12pt}
-\setlength{\parindent}{0cm} 
+\setlength{\parindent}{0cm}
 
 \begin{document}
 
@@ -21,7 +21,7 @@ library(knitr)
 opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold')
 options(replace.assign=TRUE, width=90)
 opts_knit$set(out.format = "latex")
-opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, tidy=FALSE, 
+opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, tidy=FALSE,
 refresh=TRUE)
 #knit_theme$set("solarized-light")
 @
@@ -72,8 +72,8 @@ ARIMA models in R. The argument \texttt{sigma\_env} refers to the
 standard deviation.
 
 <<setup-arma>>=
-arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, 
-  ma = 0) 
+arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2,
+  ma = 0)
 @
 
 Next we'll run the simulation for one iteration. We'll simulate ten
@@ -83,7 +83,7 @@ curve to the observed spawner-return data and updates the
 harvest-level targets.
 
 <<base-case-run, cache=TRUE>>=
-base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, 
+base1 <- meta_sim(n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 @
 
@@ -115,8 +115,8 @@ not to prioritize.
 
 <<spatial-plans>>=
 w_plans <- list()
-w_plans[["balanced"]] <- matrix(c(5, 1000, 5, 1000, 5, 5, 1000, 5, 
-    1000, 5), nrow = 1) 
+w_plans[["balanced"]] <- matrix(c(5, 1000, 5, 1000, 5, 5, 1000, 5,
+    1000, 5), nrow = 1)
 w_plans[["one_half"]] <- c(rep(1000, 4), rep(5, 6))
 w <- list()
 for(i in 1:2) { # loop over plans
@@ -141,14 +141,14 @@ more iterations.
 We can now stochastically simulate with these strategies using the
 function\\ \texttt{run\_cons\_plans} and plot the output with
 \texttt{plot\_cons\_plans} (Figure~\ref{fig:spatial-runs}).
- 
+
 <<spatial-runs, fig.width=5, fig.height=5, out.width="4in", cache=TRUE, fig.cap="Two spatial conservation strategies shown in risk-return space with stationary environmental stochasticity. The dots show simulated metapopulations and the contours show 25\\% and 75\\% quantiles across 80 simulations per strategy. The grey line indicates the efficient frontier across all simulated metapopulations.">>=
 set.seed(1)
 arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
   arma_env_params)
-plot_cons_plans(arma_sp$plans_mv, 
-  plans_name = c("Balanced", "One half"), 
-  cols = c("#E41A1C", "#377EB8"), xlab = "Variance of growth rate", 
+plot_cons_plans(arma_sp$plans_mv,
+  plans_name = c("Balanced", "One half"),
+  cols = c("#E41A1C", "#377EB8"), xlab = "Variance of growth rate",
   ylab = "Mean growth rate")
 @
 
@@ -190,7 +190,7 @@ sampling.
 
 <<monte-carlo-eg, cache=TRUE, results="hide">>=
 set.seed(1)
-weights_matrix <- create_asset_weights(n_pop = 5, n_sims = 500, 
+weights_matrix <- create_asset_weights(n_pop = 5, n_sims = 500,
   weight_lower_limit = 0.001)
 mc_ports <- monte_carlo_portfolios(weights_matrix = weights_matrix,
   n_sims = 500, mean_b = 1000)
