@@ -18,7 +18,8 @@ Imports:
 Suggests:
     knitr,
     devtools,
-    TeachingDemos
+    TeachingDemos,
+    RColorBrewer
 Collate:
     'monte_carlo_portfolios.R'
     'plot_correlation_between_returns.R'
