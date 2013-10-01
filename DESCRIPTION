@@ -12,8 +12,12 @@ Authors@R: c(person("Sean", "Anderson", email =
 Description: Simulations are based around salmon metapopulations.
 License: GPL-3
 VignetteBuilder: knitr
+Imports:
+    plyr (>= 1.8),
 Suggests:
-    knitr
+    knitr,
+    devtools,
+    TeachingDemos
 Collate:
     'monte_carlo_portfolios.R'
     'plot_correlation_between_returns.R'
