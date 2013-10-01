@@ -1,16 +1,33 @@
 \name{get_port_vals}
 \alias{get_port_vals}
-\title{Get portfolio mean and variance values from a meta_sim() object}
+\title{Get portfolio mean and variance values}
 \usage{
   get_port_vals(x, burn = 1:30)
 }
 \arguments{
-  \item{x}{A list object as returned from \code{meta_sim}}
+  \item{x}{A list object as returned from
+  \code{\link{meta_sim}}}
 
-  \item{burn}{Number of years to throw out at burn in}
+  \item{burn}{Number of years to throw out as burn in}
+}
+\value{
+  A data frame with columns for the mean (m) and variance
+  (v).
 }
 \description{
-  Get portfolio mean and variance values from a meta_sim()
-  object
+  Takes a list created by \code{\link{meta_sim}} and
+  returns the mean and variance values. This function is
+  used by other internal functions, but can also be used as
+  its own low-level function.
+}
+\examples{
+arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
+base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
+  "arma", assess_freq = 5)
+get_port_vals(base1)
+}
+\seealso{
+  \code{\link{get_conserv_plans_mv}},
+  \code{\link{plot_cons_plans}}
 }
 
