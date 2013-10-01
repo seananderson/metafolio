@@ -1,11 +1,15 @@
-- I think there is room for expansion of the discussion (we still have ~500
-  words to play with). The discussion could benefit from bringing in more
-  concrete examples of how this ties in with PNW salmon and I welcome your
-  ideas here. If we have space we could also discuss our results in the
-  context of response diversity literature.
+- The first paragraph of the introduction and the last paragraph of the
+  discussion will be replaced with something broader about the need to
+  understand the mechanisms underpinning stability in ecological systems. This
+  will hopefully make the paper more appropriate for Ecology Letters.
 
-- I am writing a short vignette describing how to use the R package like I did
-  for the Methods in Ecology and Evolution paper.
+- There is room for expansion of the discussion (we still have ~500 words to
+  play with). The discussion could benefit from bringing in more concrete
+  examples of how this ties in with PNW salmon and I welcome your ideas here.
+  If we have space we could also discuss our results in the context of
+  response diversity literature.
+
+- I am writing a short vignette describing how to use the R package.
 
 - I will submit the `.pdf` version; the `.docx` version is for you to edit
   with Track Changes, if you'd like. Only the `.pdf` version contains the
@@ -13,6 +17,7 @@
   the `.pdf` version.
 
 - We still need to discuss authorship and order of authorship.
+
 
 - Notes from Nick: (1) add something about how many of these concepts are key
   assumptions of conservation ecology, but they haven't been tested
@@ -382,12 +387,6 @@ varying parameters from their base values in Fig. S2.
 
 ## Conservation rules of thumb
 
-We evaluated two sets of conservation rules of thumb: (1) strategies to
-conserve spatial response diversity, and (2) a scenario where we know little
-about response diversity and we're left with a choice of how many populations
-to conserve.
-
-*JWM: A bit confusing as above only two are described.*
 We evaluated four spatial conservation scenarios (Fig. 2b--e). In all spatial
 scenarios, we conserved four populations and set the unfished equilibrium
 biomass of the remaining populations to near elimination (five salmon). These
@@ -420,11 +419,13 @@ level of five salmon.
 
 *Given short-term environmental fluctuations*, conserving response diversity
 buffers the risk properties of an ecological portfolio (Fig. 4a). In our
-model, the mean variance of metapopulation growth rate was 2.8 times lower
+model, the average variance of metapopulation growth rate was 2.8 times lower
 given balanced response diversity (full range of responses or most
-temperature-tolerant populations vs. conserving one half or the other). This
-increase in stability occurred despite the portfolio being comprised of warm
-and cool-thriving populations that were more variable on their own than
+temperature-tolerant populations vs. conserving one half or the other).
+Response diversity also led to more consistent stability --- there was less
+spread in variance across simulated metapopulations. These increases in
+stability occurred despite the portfolios being comprised of warm and
+cool-thriving populations that were more variable on their own than
 populations with wide thermal-tolerance curves. We can see the mechanism
 behind these portfolio properties by inspecting example population time series
 (Fig. 4c, d). If only the upper or lower half of response diversity is
@@ -457,13 +458,12 @@ buffers portfolio risk (Fig. 5a), and at the same time, the random
 conservation of response diversity creates a spread of metapopulation risk for
 the same number of populations conserved. For example, a metapopulation with
 16 conserved populations is 2.5 times less variable on average than a
-metapopulation with only four.
-*JWM: Might be worth pointing out that there is less spread also. Some 2 pop’ns are relatively stable, some are variable. Diversity leads to consistent stability*
-We can see this risk-buffering effect
-through example metapopulations in Fig. 5c. We note that the risk-return
-axes of portfolio optimization ignore the absolute-abundance dimension
-(Fig. 5d). As one would expect, conserving fewer populations also results
-in lower-abundance metapopulations.
+metapopulation with only four. Metapopulations with more conserved
+populations We can see this risk-buffering effect through example
+metapopulations in Fig. 5c. We note that the risk-return axes of portfolio
+optimization ignore the absolute-abundance dimension (Fig. 5d). As one
+would expect, conserving fewer populations also results in lower-abundance
+metapopulations.
 
 *Given long-term environmental change*, conserving more populations also
 buffers portfolio risk. However, in contrast to the short-term environmental
@@ -474,7 +474,8 @@ demographic) stochasticity.
 
 # Discussion
 
-*JWM: Feels a bit heavy on salmon. Could you build out more to spatial planning for climate change? Cite that PNAS paper on portfolio planning. Etc.*
+*JWM: Feels a bit heavy on salmon. Could you build out more to spatial
+planning for climate change? Cite that PNAS paper on portfolio planning. Etc.*
 
 Our model demonstrates how population diversity can stabilize realistic
 metapopulations under climate change. We show how maintaining populations with
@@ -514,9 +515,14 @@ scenarios in Fig. 4, and then mitigation approaches such as hatcheries can
 further reduce population and response diversity if not carefully managed
 [@waples1991a; @mobrand2005].
 
-*JWM: This is a very good point. Extirpation of salmon populations has been non-random, eliminating the upper populations.*
+*JWM: This is a very good point. Extirpation of salmon populations has been
+non-random, eliminating the upper populations.*
 
-*JWM: I agree that these structures do, in theory, match predictions. Yet the wild salmon policy hasn't been implemented effectively yet in most places and the US is now playing with a short deck as many rivers/populations have been heavily impacted in the past. So, there is a bit of a disconnect between theory and practice.*
+*JWM: I agree that these structures do, in theory, match predictions. Yet the
+wild salmon policy hasn't been implemented effectively yet in most places and
+the US is now playing with a short deck as many rivers/populations have been
+heavily impacted in the past. So, there is a bit of a disconnect between
+theory and practice.*
 
 The goals of existing salmon management structures in the US and Canadian
 Pacific salmon support a portfolio conservation perspective. In the US,
@@ -533,7 +539,9 @@ structure. We suggest that a salmon portfolio in our model could represent an
 ESU or CU and that the lessons learned from our models are thus directly
 applicable to management guidelines in the Pacific Northwest.
 
-*JWM: In practice: There are still widespread hatcheries that release millions of fish, homogenizing populations across western north America. Check out paper by Pearse*
+*JWM: In practice: There are still widespread hatcheries that release millions
+of fish, homogenizing populations across western north America. Check out
+paper by Pearse*
 
 *SA: To be incorporated?*
 Some VSP guidelines [@mceacheran2000] that are in line with our findings...
@@ -599,14 +607,13 @@ interactions), or to meta-communities. Third, without any modifications, our
 model could be used to consider the Moran or environmental-filter concept
 [@schindler2008; @rogers2008] where populations experience increasingly
 different environmental forces at further distances. Fourth, a model could
-consider the contribution of contemporary evolution [@stockwell2003]. *JWM:
-Perhaps better ref: Reed et al. 2011. Time to Evolve? PLoS ONE 6: e20380.*
-These rapid adaptations to changes in the environment could strongly affect
-portfolio performance and emphasize the importance of maintaining genetic
-diversity. Finally, our model could be conditioned on a system of interest ---
-a particular river basin for example --- and the metapopulation portfolio
-could be optimized across conservation and restoration options as part of a
-formal decision analysis.
+consider the contribution of contemporary evolution [@stockwell2003;
+@reed2011]. These rapid adaptations to changes in the environment could
+strongly affect portfolio performance and emphasize the importance of
+maintaining genetic diversity. Finally, our model could be conditioned on a
+system of interest --- a particular river basin for example --- and the
+metapopulation portfolio could be optimized across conservation and
+restoration options as part of a formal decision analysis.
 
 Our results suggest three broad research priorities. First, our work
 highlights the importance of research that identifies response diversity [e.g.
@@ -624,7 +631,7 @@ identifies real-life case studies as large-scale experiments testing our
 conclusions. Portfolio optimization focuses on rate of change, but in
 ecological systems, society might care more about absolute abundance. For
 example, low-growth-high-abundance systems might be preferred to
-high-growth-low-abundance systems.
+high-growth-low-abundance systems. [last point needs to be re-worked]
 
 *Last paragraph will be re-worked to be less repetitive and to broaden out to
 response diversity and mechanisms underpinning stability.*
