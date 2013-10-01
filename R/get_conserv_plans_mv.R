@@ -16,7 +16,8 @@
 #' @param ... Other values to pass to \code{\link{meta_sim}}.
 
 get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 5,
-  burn = 1:30, ...) { n_pop = ncol(weights)
+  burn = 1:30, ...) {
+  n_pop = ncol(weights)
   port_mv <- list()
   port_out <- list()
   for(j in 1:nrow(weights)) {
