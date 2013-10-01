@@ -1,21 +1,30 @@
 \name{fit_ricker}
 \alias{fit_ricker}
-\title{Fit a Ricker curve}
+\title{Fit a Ricker curve (quickly)}
 \usage{
   fit_ricker(S, R)
 }
 \arguments{
-  \item{S}{Spawners}
+  \item{S}{Spawners as a numeric vector}
 
-  \item{R}{Recruits or returns}
+  \item{R}{Recruits or returns as a numeric vector}
+}
+\value{
+  A named list with components \code{a} for the intercept
+  and \code{b} for the slope.
 }
 \description{
-  Fit a Ricker curve
+  Fit a Ricker curve to spawner-recruit data and return the
+  intercept (a) and slope (b). This function uses
+  \code{\link{lm.fit()}} by directly specifying the model
+  matrix. This is about an order of magnitude faster than
+  \code{lm()}.
 }
 \examples{
 S <- seq(100, 1000, length.out = 25)
 R <- sapply(S, function(x) ricker_ar1(spawners = x, a = 1.9, b =
 900, sigma_sq_v = 0.01)$recruits)
 plot(S, log(R/S))
+fit_ricker(S, R)
 }
 
