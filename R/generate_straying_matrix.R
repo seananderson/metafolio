@@ -8,6 +8,7 @@
 #' given subpopulation.
 #' @param stray_decay_rate Exponential rate that straying decays with
 #' distance between subpopulations.
+#' @export
 #' @references
 #' Cooper, A.B. and Mangel, M. 1999. The dangers of ignoring
 #' metapopulation structure for the conservation of salmonids. Fish.
