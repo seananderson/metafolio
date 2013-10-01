@@ -8,6 +8,7 @@
 #' @param v_t Residual on the curve. Will be exponentiated. Not that
 #' we are *not* bias correcting (subtracting half the variance) and so
 #' the deviations will not be mean unbiased.
+#' @return Returns a vector of recruits.
 #' @export
 #' @examples
 #' x <- seq(1, 100)

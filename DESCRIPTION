@@ -25,7 +25,7 @@ Collate:
     'plot_efficient_portfolios.R'
     'plot_rickers.R'
     'plot_sim_ts.R'
-    'ricker_ar1.R'
+    'ricker.r'
     'ricker_escapement.R'
     'ricker_v_t.R'
     'meta_sim.R'

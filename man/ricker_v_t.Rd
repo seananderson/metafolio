@@ -20,6 +20,9 @@
   the variance) and so the deviations will not be mean
   unbiased.}
 }
+\value{
+  Returns a vector of recruits.
+}
 \description{
   Ricker stock-recruit function with specified error
 }

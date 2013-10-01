@@ -56,7 +56,7 @@ plot_rickers <- function( x, pal = rep("black", x$n_pop), n_samples
     for (i in 1:length(samples)){
       rickers_to_plot[[j]][ , i] <- ricker_ar1(spawners = seq(min_sp,
           max_sp, length.out = 100), a = x$A_params[samples[i], j], b
-        = x$b[j])$recruits
+        = x$b[j])
     }
   }
 
