@@ -21,9 +21,9 @@
   \code{lm()}.
 }
 \examples{
-S <- seq(100, 1000, length.out = 25)
-R <- sapply(S, function(x) ricker_ar1(spawners = x, a = 1.9, b =
-900, sigma_sq_v = 0.01)$recruits)
+S <- seq(100, 1000, length.out = 100)
+v_t <- rnorm(100, 0, 0.1)
+R <- ricker_v_t(spawners = S, a = 1.9, b = 900, d = 1, v_t)
 plot(S, log(R/S))
 fit_ricker(S, R)
 }
