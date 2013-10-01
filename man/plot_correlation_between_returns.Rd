@@ -3,7 +3,7 @@
 \title{Plot correlation of returns across stocks.}
 \usage{
   plot_correlation_between_returns(x, burn = 1:30,
-    pal = gg_color_hue(x$n_pop))
+    pal = rev(gg_color_hue(x$n_pop)))
 }
 \arguments{
   \item{x}{A list output object from \code{meta_sim}.}
