@@ -3,7 +3,7 @@ get_quantile_contour <- function(x, alpha = 0.8) {
   zdens <- rev(sort(x$z))
   Czdens <- cumsum(zdens)
   Czdens <- (Czdens/Czdens[length(zdens)])
-  crit.val <- zdens[max(which(Czdens<=alpha))]    
+  crit.val <- zdens[max(which(Czdens<=alpha))]
   b.full=contourLines(x,levels=crit.val)
   list(x = b.full[[1]]$x, y = b.full[[1]]$y)
 }
@@ -46,10 +46,11 @@ plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
 
 
   if(is.null(xlim)) {
-    lims <- ldply(plans_mv, function(x) data.frame(x.max = max(x$v), x.min
-        = min(x$v), y.max = max(x$m), y.min = min(x$m)))
-    xlim = c(min(lims$x.min), max(lims$x.max)*0.8)
-    ylim = c(min(lims$y.min), max(lims$y.max))
+    lims <- plyr::ldply(plans_mv, function(x) data.frame(x.max =
+        max(x$v, na.rm = TRUE), x.min = min(x$v, na.rm = TRUE), y.max
+        = max(x$m, na.rm = TRUE), y.min = min(x$m, na.rm = TRUE)))
+    xlim = c(min(lims$x.min, na.rm = TRUE), max(lims$x.max, na.rm = TRUE)*0.8)
+    ylim = c(min(lims$y.min, na.rm = TRUE), max(lims$y.max, na.rm = TRUE))
   }
 
   plot(1, 1, xlim = xlim, ylim = ylim, type = "n", xlab = xlab, ylab = ylab, axes = FALSE)
