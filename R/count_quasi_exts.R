@@ -6,7 +6,7 @@
 #' corresponds to the replicate.
 #' @param quasi_thresh
 #' @param ignore_pops_thresh
-#' @param duration 
+#' @param duration
 #' @return
 #' A list of matrices. The list elements correspond to the
 #' conservation plans. The columns of the matrix correspond to the
@@ -14,10 +14,32 @@
 #' The rows of the matrix correspond to the replicates.
 #' @export
 #' @examples \dontrun{
+#' set.seed(1)
+#' w_plans <- list()
+#' w_plans[[1]] <- c(5, 1000, 5, 1000, 5, 5, 1000, 5, 1000, 5)
+#' w_plans[[2]] <- c(5, 5, 5, 1000, 1000, 1000, 1000, 5, 5, 5)
+#' w_plans[[3]] <- c(rep(1000, 4), rep(5, 6))
+#' w_plans[[4]] <- rev(w_plans[[3]])
+#' plans_name_sp <- c("Full range of responses", "Most stable only",
+#' "Lower half", "Upper half")
+#'  n_trials <- 50 # number of trials at each n conservation plan
+#'  n_plans <- 4 # number of plans
+#'  num_pops <- c(2, 4, 8, 16) # n pops to conserve
+#'  w <- list()
+#'  for(i in 1:n_plans) { # loop over number conserved
+#'   w[[i]] <- list()
+#'   for(j in 1:n_trials) { # loop over trials
+#'     w[[i]][[j]] <- matrix(rep(625, 16), nrow = 1)
+#'     w[[i]][[j]][-sample(1:16, num_pops[i])] <- 5
+#'   }
+#'  }
+#' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
+#'
+#' x_arma_sp <- run_cons_plans(w, env_type = "arma", env_params = arma_env_params)
 #' count_quasi_exts(x_arma_sp$plans_port, quasi_thresh = 200)
 #'}
 
-count_quasi_exts <- function(dat, quasi_thresh, ignore_pops_thresh = 5, 
+count_quasi_exts <- function(dat, quasi_thresh, ignore_pops_thresh = 5,
   duration = 1) {
   subpop_qe <- plyr::llply(dat, function(x) {
     plyr::laply(x, function(y) {
