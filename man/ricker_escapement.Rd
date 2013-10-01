@@ -10,10 +10,7 @@
   \item{b}{Ricker density-dependent parameter.}
 }
 \description{
-  Assign a salmon escapement target based on a Ricker curve
-}
-\details{
-  Set escapement according to Hilborn and Walters (1992)
+  Sets escapement according to Hilborn and Walters (1992)
   p272, Table 7.2. Smsy = b(0.5 - 0.07*a).
 }
 \examples{
