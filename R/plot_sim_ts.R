@@ -16,93 +16,109 @@ my.axis <- function(side, shade_years = NULL, ylab = "") {
   par(las = 1)
 }
 
-#' Plot various time series from a simulation runn
-#' 
-#' @param x A list output object from a simulation run.
-#' @param years_to_show How many years to plot after the burn in period.
-#' @param burn The number of years to discard as burnin a the beginning of the time 
-#' series.
-#' @param adj adj parameter to mtext for panel labels
+#' Plot various time series from a simulation run
+#'
+#' This function is rather crude at the moment. It lets you quickly
+#' visualize the time series of output from a simulation run, but it
+#' isn't very flexible yet.
+#'
+#' @param x A list output object from a simulation run of
+#' \code{link{meta_sim}}.
+#' @param years_to_show How many years to plot after the burn in
+#' period.
+#' @param burn The number of years to discard as burn in at the
+#' beginning of the time series.
+#' @param adj \code{adj} parameter to pass to \code{mtext} for panel
+#' labels
 #' @param shade_years Shade some years? Give a vector. Can be used to
 #' show burn in period.
 #' @export
+#' @examples
+#' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
+#' base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
+#'   "arma", assess_freq = 5)
+#' plot_sim_ts(base1)
 
-plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30, burn = 1:50, shade_years = NULL, adj = 0.02) {
-# x is output from a simulation run; it's a list
-# pal is the colour palette
+plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
+  years_to_show = 30, burn = 1:50, shade_years = NULL, adj = 0.02) {
 
-#plot(1:6, col = pal, cex = 2,pch = 20) 
+  # years to show in time series example plots
+  to_show <- (max(burn)):(max(burn)+years_to_show)
 
-to_show <- (max(burn)):(max(burn)+years_to_show) # years to show in time series example plots
+  par(mfrow = c(10, 1), mar = c(0,0,0,0), oma = c(4, 4.5, 1, 1), cex =
+    0.7, las = 1, xpd = FALSE)
+  par(tck = -0.03, mgp = c(2, .5, 0))
 
+  # environmental signal
+  plot(x$env_ts[to_show], type = "l", xaxs = "i", axes = FALSE)
+  box(col = "grey50")
+  abline(h = 0, lty = 2, lwd = 1.5, col = "grey50")
+  annotate("Environmental signal", adj = adj)
+  my.axis(2, shade_years = shade_years, ylab = "Value")
 
-par(mfrow = c(10, 1), mar = c(0,0,0,0), oma = c(4, 4.5, 1, 1), cex = 0.7, las = 1, xpd = FALSE)
-par(tck = -0.03, mgp = c(2, .5, 0)) 
+  # Ricker a values:
+  matplot(x$A_params[to_show, ], type = "l", col = pal, lty = 1, ylab =
+    "Returns", xlab = "Time", axes = FALSE, xaxs = "i", ylim = c(0,
+      max(x$A_params[to_show, ]) * 1.25))
+  box(col = "grey50")
+  my.axis(2, shade_years = shade_years, ylab = "Value")
+  annotate("Productivity parameter", adj = adj)
 
-# environmental signal
-plot(x$env_ts[to_show], type = "l", xaxs = "i", axes = FALSE)
-box(col = "grey50")
-abline(h = 0, lty = 2, lwd = 1.5, col = "grey50")
-annotate("Environmental signal", adj = adj)
-my.axis(2, shade_years = shade_years, ylab = "Value")
+  # returns:
+  matplot(x$A[to_show, ], type = "l", col = pal, lty = 1, ylab =
+    "Returns", xlab = "Time", xaxt = "n", axes = FALSE, xaxs = "i")
+  annotate("Returns", adj = adj)
+  box(col = "grey50")
+  my.axis(2, shade_years = shade_years, ylab = "#")
 
-# Ricker a values:
-matplot(x$A_params[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i", ylim = c(0, max(x$A_params[to_show, ]) * 1.25))
-box(col = "grey50")
-my.axis(2, shade_years = shade_years, ylab = "Value")
-annotate("Productivity parameter", adj = adj)
+  # catch
+  matplot(x$F[to_show, ], type = "l", col = pal, lty = 1, ylab =
+    "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
+  box(col = "grey50")
+  my.axis(2, shade_years = shade_years, ylab = "#")
+  annotate("Fisheries catch", adj = adj)
 
-# returns:
-matplot(x$A[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", xaxt = "n", axes = FALSE, xaxs = "i")
-annotate("Returns", adj = adj)
-box(col = "grey50")
-my.axis(2, shade_years = shade_years, ylab = "#")
+  # escapement
+  matplot(x$E[to_show, ], type = "l", col = pal, lty = 1, ylab =
+    "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
+  box(col = "grey50")
+  my.axis(2, shade_years = shade_years, ylab = "#")
+  annotate("Escapement", adj = adj)
 
-# catch
-matplot(x$F[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
-box(col = "grey50")
-my.axis(2, shade_years = shade_years, ylab = "#")
-annotate("Fisheries catch", adj = adj)
+  # strays leaving
+  matplot(x$Strays_leaving[to_show, ], type = "l", col = pal, lty = 1,
+    ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
+  box(col = "grey50")
+  my.axis(2, shade_years = shade_years, ylab = "#")
+  annotate("Strays leaving", adj = adj)
 
-# escapement
-matplot(x$E[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
-box(col = "grey50")
-my.axis(2, shade_years = shade_years, ylab = "#")
-annotate("Escapement", adj = adj)
+  # strays joining
+  matplot(x$Strays_joining[to_show, ], type = "l", col = pal, lty = 1,
+    ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
+  box(col = "grey50")
+  my.axis(2, shade_years = shade_years, ylab = "#")
+  annotate("Strays joining", adj = adj)
 
-# strays leaving
-matplot(x$Strays_leaving[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
-box(col = "grey50")
-my.axis(2, shade_years = shade_years, ylab = "#")
-annotate("Strays leaving", adj = adj)
+  # SR residuals
+  matplot(x$Eps[to_show, ], type = "l", col = pal, lty = 1, ylab =
+    "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
+  box(col = "grey50")
+  abline(h = 0, lty = 2, lwd = 1.5, col = "grey50")
+  my.axis(2, shade_years = shade_years, ylab = "Value")
+  annotate("Spawner-return residuals", adj = adj)
 
-# strays joining
-matplot(x$Strays_joining[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
-box(col = "grey50")
-my.axis(2, shade_years = shade_years, ylab = "#")
-annotate("Strays joining", adj = adj)
+  matplot(x$Est_a[to_show, ], type = "l", col = pal, lty = 1, ylab =
+    "Estimated a", xlab = "", axes = FALSE, xaxs = "i")
+  box(col = "grey50")
+  annotate("Estimated a", adj = adj)
+  my.axis(2, shade_years = shade_years, ylab = "Value")
 
-# SR residuals
-matplot(x$Eps[to_show, ], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", axes = FALSE, xaxs = "i")
-box(col = "grey50")
-abline(h = 0, lty = 2, lwd = 1.5, col = "grey50")
-my.axis(2, shade_years = shade_years, ylab = "Value")
-annotate("Spawner-return residuals", adj = adj)
-
-matplot(x$Est_a[to_show, ], type = "l", col = pal, lty = 1, ylab = "Estimated a", xlab = "", axes = FALSE, xaxs = "i")
-box(col = "grey50")
-annotate("Estimated a", adj = adj)
-my.axis(2, shade_years = shade_years, ylab = "Value")
-
-matplot(x$Est_b[to_show, ], type = "l", col = pal, lty = 1, ylab = "Estimated b", xlab = "", axes = FALSE, xaxs = "i")
-box(col = "grey50")
-annotate("Estimated b", adj = adj)
-my.axis(2, shade_years = shade_years, ylab = "Value")
+  matplot(x$Est_b[to_show, ], type = "l", col = pal, lty = 1, ylab =
+    "Estimated b", xlab = "", axes = FALSE, xaxs = "i")
+  box(col = "grey50")
+  annotate("Estimated b", adj = adj)
+  my.axis(2, shade_years = shade_years, ylab = "Value")
 
   axis(1, col = "grey50")
-mtext("Generation", side = 1, outer = TRUE, line = 2.0, cex = 0.8)
-#browser()
-
-
+  mtext("Generation", side = 1, outer = TRUE, line = 2.0, cex = 0.8)
 }
-
