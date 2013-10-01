@@ -1,27 +1,45 @@
 \name{plot_rickers}
 \alias{plot_rickers}
-\title{Plot sample ricker curves for each stock}
+\title{Plot sample Ricker curves for each stock}
 \usage{
-  plot_rickers(x, pal, n_samples = 40,
-    add_y_axes_pops = c(1, 6), add_x_axes_pops = c(6:10),
-    burn = 1:30)
+  plot_rickers(x, pal = rep("black", x$n_pop),
+    n_samples = 40, add_y_axes_pops = c(1, 6),
+    add_x_axes_pops = c(6:10), burn = 1:30,
+    add_shading = TRUE, ...)
 }
 \arguments{
-  \item{x}{Output list from \code{meta_sim}}
+  \item{x}{Output list from \code{\link{meta_sim}}.}
 
-  \item{pal}{Colours for stocks}
+  \item{pal}{Colours for stocks.}
 
   \item{n_samples}{Number of sample lines to draw from the
-  a parameters}
+  \code{a} parameters.}
 
-  \item{add_y_axes_pops}{Panels to add y axes on}
+  \item{add_y_axes_pops}{Panels to add y axes on.}
 
-  \item{add_x_axes_pops}{Panels to add x axes on}
+  \item{add_x_axes_pops}{Panels to add x axes on.}
 
-  \item{burn}{Number of initial years to throw out as
-  burnin}
+  \item{burn}{Number of initial years to throw out as burn
+  in.}
+
+  \item{add_shading}{Logical: add the light grey shading
+  for the range of observed spawner abundance?}
+
+  \item{...}{Anything else to pass to \code{plot}}
 }
 \description{
-  Plot sample ricker curves for each stock
+  Make a plot of Ricker curves for each stock. Can be
+  useful for visualizing how the simulation parameters are
+  impacting the Ricker curves and how these vary with
+  temperature across stocks. The colour of the lines
+  corresponds to the relative thermal tolerance of that
+  stock. The shaded region shows the range of spawners
+  observed throughout the simulations.
+}
+\examples{
+arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
+base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
+  "arma", assess_freq = 5)
+plot_rickers(base1)
 }
 
