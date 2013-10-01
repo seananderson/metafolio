@@ -1,5 +1,3 @@
-export(add_inset_env)
-export(add_spark_env)
 export(count_quasi_exts)
 export(create_asset_weights)
 export(fit_ricker)
