@@ -4,7 +4,7 @@
 #' @param a Ricker productivity parameter. Recruits are e^a at the
 #' origin.
 #' @param b Ricker density dependent parameter.
-#' @return Returns a vector of recruits.
+#' @return Returns the number of recruits.
 #' @export
 #' @examples
 #' S <- seq(100, 1000, length.out = 100)

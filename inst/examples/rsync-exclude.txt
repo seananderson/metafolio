@@ -1,9 +1,0 @@
-archive
-notes
-figure
-cache
-*.docx
-*.Rproj
-*.graffle
-*.pdf
-

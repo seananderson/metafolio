@@ -12,8 +12,8 @@
 
   \item{weight_lower_limit}{The lowest fraction allowed for
   a subpopulation weight. For example, a value of 0.02
-  means a subpopulation will at least be assigned 2% of the
-  total capacity}
+  means a subpopulation will at least be assigned 2\% of
+  the total capacity}
 }
 \value{
   A matrix. The columns represent subpopulations. The rows

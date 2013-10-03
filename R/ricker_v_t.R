@@ -1,11 +1,11 @@
 #' Ricker stock-recruit function with specified error
 #'
 #' @param spawners Spawner abundance
-#' @param a Ricker productivity paramater. Recruits are e^a at the origin.
+#' @param a Ricker productivity parameter. Recruits are e^a at the origin.
 #' @param b Ricker density dependent parameter.
 #' @param d Depensation parameter. A value of 1 means no depensation.
 #' Larger values indicate depensation.
-#' @param v_t Residual on the curve. Will be exponentiated. Not that
+#' @param v_t Residual on the curve. Will be exponentiated. Note that
 #' we are *not* bias correcting (subtracting half the variance) and so
 #' the deviations will not be mean unbiased.
 #' @return Returns a vector of recruits.

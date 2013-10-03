@@ -7,7 +7,7 @@
 #' @param  n_sims The number of simulations.
 #' @param  weight_lower_limit The lowest fraction allowed for a
 #' subpopulation weight. For example, a value of 0.02 means a
-#' subpopulation will at least be assigned 2% of the total capacity
+#' subpopulation will at least be assigned 2\% of the total capacity
 #' @examples
 #' create_asset_weights(n_pop = 5, n_sims = 10, weight_lower_limit = 0.001)
 #' @export

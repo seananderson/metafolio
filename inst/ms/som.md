@@ -36,8 +36,15 @@ of straying and light blue indicates a low rate of straying.}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=4.5in]{../examples/example-return-correlations.pdf}
-\caption{A plot comparing the log(returns) between each population. The subpopulation IDs are coloured from warm tolerant (warm colours) to cool tolerant (cool colours). Note how populations 1 and 10 have asynchronous returns whereas populations with more similar thermal-tolerance curves (say populations 9 and 10) have more synchronous dynamics. Populations with thermal tolerance curves in the middle (e.g. population 6) are less correlated with other populations. Their population dynamics end up primarily driven by demographic stochasticity and less so by temperature-induced systematic changes in productivity.}
-\label{f:return-correlations}
+\caption{A plot comparing the log(returns) between each population. The
+subpopulation IDs are coloured from warm tolerant (warm colours) to cool
+tolerant (cool colours). Note how populations 1 and 10 have asynchronous
+returns whereas populations with more similar thermal-tolerance curves (say
+populations 9 and 10) have more synchronous dynamics. Populations with
+thermal tolerance curves in the middle (e.g. population 6) are less
+correlated with other populations. Their population dynamics end up primarily
+driven by demographic stochasticity and less so by temperature-induced
+systematic changes in productivity.} \label{f:return-correlations}
 \end{figure}
 \clearpage
 
