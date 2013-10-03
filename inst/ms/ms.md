@@ -432,7 +432,7 @@ varying parameters from their base values in Fig. S2.
 
 <!--MMM: I like figure 3 – I especially like how it shows the additional effect of each component of the model.  However, consider posing the "effect of varying parameters from their base" differently, since that's kind of the point of what you’ve done, right?-->
 
-*SA: add in new supplementary figure references throughout*
+<!--*SA: add in new supplementary figure references throughout*-->
 
 ## Conservation scenarios
 
@@ -530,8 +530,7 @@ demographic) stochasticity.
 
 # Discussion
 
-*JWM: Feels a bit heavy on salmon. Could you build out more to spatial
-planning for climate change? Cite that PNAS paper on portfolio planning. Etc.*
+<!--*JWM: Feels a bit heavy on salmon. Could you build out more to spatial planning for climate change? Cite that PNAS paper on portfolio planning. Etc.*-->
 
 <!--MMM: GitHub issues: I think somewhere in the discussion of response diversity we want to have a full paragraph on ecological conditions and/or management actions that increase diversity of response to environmental conditions.-->
 
