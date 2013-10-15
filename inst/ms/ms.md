@@ -659,7 +659,7 @@ and future climatic conditions.
 
 # Acknowledgements
 
-Funding was provided by Simon Fraser Univresity, NSERC (ABC, NKD, SCA), the
+Funding was provided by Simon Fraser University, NSERC (ABC, NKD, SCA), the
 Canada Research Chairs Program (NKD), the Liber Ero Chair of Coastal Science
 and Management (JWM), Fulbright Canada (SCA), and a Garfield Weston
 Foundation/B.C. Packers Ltd. Graduate Fellowship in Marine Sciences (SCA).
