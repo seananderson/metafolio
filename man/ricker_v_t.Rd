@@ -7,7 +7,7 @@
 \arguments{
   \item{spawners}{Spawner abundance}
 
-  \item{a}{Ricker productivity paramater. Recruits are e^a
+  \item{a}{Ricker productivity parameter. Recruits are e^a
   at the origin.}
 
   \item{b}{Ricker density dependent parameter.}
@@ -16,7 +16,7 @@
   depensation. Larger values indicate depensation.}
 
   \item{v_t}{Residual on the curve. Will be exponentiated.
-  Not that we are *not* bias correcting (subtracting half
+  Note that we are *not* bias correcting (subtracting half
   the variance) and so the deviations will not be mean
   unbiased.}
 }

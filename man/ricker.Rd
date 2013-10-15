@@ -13,7 +13,7 @@
   \item{b}{Ricker density dependent parameter.}
 }
 \value{
-  Returns a vector of recruits.
+  Returns the number of recruits.
 }
 \description{
   A simple Ricker model
