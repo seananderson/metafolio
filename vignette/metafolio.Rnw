@@ -60,19 +60,22 @@ report bugs on GitHub: \url{https://github.com/seananderson/metafolio}
 
 \section{An example simulation}
 
-The main simulation function is \texttt{meta\_sim}. We'll start by running a
-simulation using the base-case parameter values from the paper. First, we'll
-set up a list object that contains the argument values for the stationary
-environmental stochasticity scenario. The arguments \texttt{mean\_value},
-\texttt{ar}, and \texttt{ma} refer to the mean, autoregressive (AR), and
-moving-average (MA) components of an ARIMA model. See \texttt{?arima} for
-further explanation of ARIMA models in R. The argument \texttt{sigma\_env}
-refers to the standard deviation of the environmental signal.
+The main simulation function in \texttt{metafolio} is
+\texttt{meta\_sim}. We'll start by running a simulation using the base-case
+parameter values from the paper. First, we'll set up a list object that
+contains the argument values for the stationary environmental stochasticity
+scenario. 
 
 <<setup-arma>>=
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2,
   ma = 0)
 @
+
+The arguments \texttt{mean\_value}, \texttt{ar}, and \texttt{ma} refer to
+the mean, autoregressive (AR), and moving-average (MA) components of an
+ARIMA model. See \texttt{?arima} for further explanation of ARIMA models in
+R. The argument \texttt{sigma\_env} refers to the standard deviation of the
+environmental signal.
 
 Next we'll run the simulation for one iteration. We'll simulate ten
 populations and re-assess the fishery every five years.  Re-assessing the
@@ -99,7 +102,7 @@ One of the key elements to the analysis in our paper is the choice of
 which populations to prioritize for conservation. We can try different
 prioritization strategies by manipulating the ``investment weights'' in each
 stream of salmon. In the case of salmon, we represent these with the Ricker
-$b_i$ parameters, which represent the maximum population capacity of streams
+$b_i$ parameters, which indicate the maximum population capacity of streams
 $i$ 1 through $n$.
 
 In this example, we'll create a scenario in which we conserve response
