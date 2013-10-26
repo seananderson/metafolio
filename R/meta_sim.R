@@ -101,7 +101,7 @@ meta_sim <- function(
     epsilon_mat[1, ] <- rnorm(n_pop, mean = 0, sd = sigma_v)
     for(i in 2:n_t) {
       epsilon_mat[i, ] <- epsilon_mat[i - 1, ] * v_rho + rnorm(n_pop, mean =
-        0, sd = sigma_v) # stock-recruit residuals
+        0 - (sigma_v^2)/2, sd = sigma_v) # stock-recruit residuals; note bias correction
     }
     # now develop random escapement targets at start of open access
     r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data =
@@ -128,7 +128,7 @@ meta_sim <- function(
     for(j in 1:n_pop) {
       # spawner-recruit section:
       A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = A_params[i, j],
-        b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation added
+        b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation hard coded
       if (A[i,j] < 0) warning("Abundance before straying or harvesting was < 0.")
     }
     # now we have the returns for this year, let's allocate straying:

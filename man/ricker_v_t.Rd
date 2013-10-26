@@ -16,9 +16,10 @@
   depensation. Larger values indicate depensation.}
 
   \item{v_t}{Residual on the curve. Will be exponentiated.
-  Note that we are *not* bias correcting (subtracting half
-  the variance) and so the deviations will not be mean
-  unbiased.}
+  Note that we are *not* bias correcting within this
+  function (subtracting half the variance squared) and so
+  the deviations will not be mean unbiased unless they were
+  bias corrected previously.}
 }
 \value{
   Returns a vector of recruits.
