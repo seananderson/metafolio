@@ -1,2 +1,8 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.gitignore
+^\.git$
+^inst/examples/x_arma_n.rda$
+^inst/examples/x_linear_n.rda$
+^inst/examples/x_arma_sp.rda$
+^inst/examples/x_linear_sp.rda$
