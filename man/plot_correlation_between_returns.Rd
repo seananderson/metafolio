@@ -4,7 +4,7 @@
 \usage{
   plot_correlation_between_returns(x, burn = 1:30,
     pal = rev(gg_color_hue(x$n_pop)),
-    xlab = "log of return abundance by\n  population",
+    xlab = "log of return abundance by population",
     ylab = "log of return abundance by population")
 }
 \arguments{
