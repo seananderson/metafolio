@@ -37,7 +37,7 @@ est_beta_params <- function(mu, var) {
 
 
 impl_error <- function(mu, sigma_impl) {
-  if(mu > 1 | mu < 0) stop("mu must be between 0 and 1")
+  if(max(mu) > 1 | min(mu) < 0) stop("mu must be between 0 and 1")
   var <- sigma_impl ^ 2
   bp <- est_beta_params(mu, var)
   mapply(rbeta, n = 1, shape1 = bp$alpha, shape2 = bp$beta)
