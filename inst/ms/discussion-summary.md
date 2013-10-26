@@ -73,3 +73,18 @@ TODO
         uncertainty and risk due to environmental change and ecological
         reactions to that change
 
+<!--*JWM: Feels a bit heavy on salmon. Could you build out more to spatial
+    planning for climate change? Cite that PNAS paper on portfolio planning.
+    Etc.*-->
+
+<!--MMM: GitHub issues: I think somewhere in the discussion of response
+    diversity we want to have a full paragraph on ecological conditions and/or
+    management actions that increase diversity of response to environmental
+    conditions.-->
+
+<!--*JWM: I agree that these structures do, in theory, match predictions. Yet
+    the wild salmon policy hasn't been implemented effectively yet in most
+    places and the US is now playing with a short deck as many
+    rivers/populations have been heavily impacted in the past. So, there is a
+    bit of a disconnect between theory and practice.*-->
+
