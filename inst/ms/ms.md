@@ -712,7 +712,7 @@ the same for each population.
 \clearpage
 
 \begin{center}
-\includegraphics[width=4.0in]{../examples/spatial-arma-sim.pdf}
+\includegraphics[width=4.0in]{../examples/spatial-arma-sim-full.pdf}
 \end{center}
 
 Fig. 3: The components of an example metapopulation simulation. We show, from
