@@ -38,7 +38,7 @@ arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 pdf("spatial-arma-sim-full.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
-plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
+plot_sim_ts(eg_arma, years_to_show = 70, burn = 30, yticks = list(NA, NA, NA, NA, NA, NA, NA, c(-0.6, 0, 0.6), c(2.5, 3), NA))
 dev.off()
 
 pdf("example-return-correlations.pdf", width = 5, height = 5)
