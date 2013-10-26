@@ -73,7 +73,7 @@ plot_efficient_portfolios <- function(port_vals, weights_matrix, pal,
     par(mfrow = c(1, 2), xpd = NA)
     par(cex = 0.8)
     with(pv, plot(v, m, pch = pch, col = port_cols[optim_set+1], cex =
-        0.8, xlab = xlab, ylab = ylab, ...))
+        0.8, xlab = xlab_dots, ylab = ylab_dots, ...))
   }
 
   pv <- pv[order(pv$v), ]
