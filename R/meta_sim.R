@@ -46,8 +46,7 @@ meta_sim <- function(
   a_width_param = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02,
         length.out = n_pop/2))),
   optim_temp = seq(13, 19, length.out = n_pop),
-  max_a = c(seq(2.8, 2.2, length.out = n_pop/2), rev(seq(2.8, 2.2, length.out
-        = n_pop/2))),
+  max_a = thermal_integration(n_pop),
   env_type = c("sine", "arma", "regime", "linear", "constant"),
   env_params = list(amplitude = 3.2, ang_frequency = 0.2, phase = runif(1,
       -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.30),
