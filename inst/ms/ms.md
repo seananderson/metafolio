@@ -586,6 +586,24 @@ assessment of the covariance between assets to predict properties of the
 portfolio as a whole.
 
 TODO add spatial planning in this paragraph above.
+<!--Possible environments and types of variable responses-->
+To promote the stabilizing effect of a diversified ecological portfolio, there are three key components to focus on:
+(1) the environmental drivers to which a variable response might arise,
+(2) the traits and behaviours that respond in variable ways to the environment, 
+and (3) the conservation actions that can increase or decrease the diversity of response. 
+*Environmental drivers* of response can include any habitat alterations such changes to temperature, habitat availability, water chemistry, air quality, or food availability.
+*Traits and behaviours* that can respond with variation include population responses such as productivity, fitness, or mortality, as well as individual-based responses such as foraging and migration behaviours.
+*Identifying conservation actions* that increase or decrease environmental response diversity is critical to developing stable ecological portfolios.
+However, even measuring environmental response diversity in real ecological systems is challenging (Mayfield et al. 2010 from Mori et al.), although possible (ecology paper, REFs).
+Thus, a realistic solution may be to generate general guidelines from intensively-monitored systems in which we can associate changes in synchrony of responses of interest (e.g.\ foraging behaviour) to environmental changes (e.g.\ temperature) across conservation actions (e.g.\ spatial conservation strategies).
+In the mean time, common sense guidelines include maintaining genetic diversity, which may correlate with response diversity (REF), and not just focussing on conserving populations that are doing well given today's environment.
+Additionally, given that response diversity is probably spatially distributed (REF), not eliminating large swaths of habitat (e.g. one half of something non salmon).
+
+<!--means identifying the combination of plausible environmental drivers and important traits that may vary in response to it, and devising ways to conserve individuals, species, or populations with varying responses.-->
+<!--(bring in Gompez model)-->
+<!--Tilman and Lehman 2001 - many small changes can act multiplicatively to be similar to one large change - response diversity-->
+<!--land-use intensity for birds - Karp et al. (2011) from Mori-->
+<!--land-use intensity @laliberte2010-->
 
 <!--MMM: Build on this in a little bit more positive or certain way.  I would
     bet that you could predict some of the results.   Consider adding those.
