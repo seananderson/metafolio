@@ -47,7 +47,7 @@
 
   \item{max_a}{Maximum Ricker productivity parameters (a)
   by (sub)population. The value obtained at the optimum
-  temperature.m}
+  temperature.}
 
   \item{env_type}{The type of environmental time series to
   generate.  One of "sine", "arma", "regime", "linear", or
