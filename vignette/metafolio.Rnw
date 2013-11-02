@@ -1,5 +1,5 @@
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{metafolio}
+%\VignetteIndexEntry{An introduction to the metafolio R package}
 
 % tw=68 for code
 \documentclass[12pt]{article}
