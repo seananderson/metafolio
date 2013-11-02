@@ -6,7 +6,7 @@ See `inst/examples/README.R` for the analysis from the paper.
 
 See `inst/ms/ms.md` for the paper itself.
 
-See the vignette in `vignette/metafolio.pdf` or by installing the package and running the code as outlined below.
+See the vignette in `inst/doc/metafolio.pdf` or by installing the package and running the code as outlined below.
 
 This is ongoing work for a PhD thesis chapter (by Sean Anderson). Until this work is published, please contact Sean (sean "at" seananderson.ca) before using the code in any of your own work that will be published.
 
