@@ -15,7 +15,8 @@ The package can be installed and loaded in R by running:
 ```S
 # install.packages("devtools") # if not already installed
 library(devtools)
-install_github("metafolio", "seananderson", auth_user = "YOUR-USER-NAME", password = "YOUR-PASSWORD", dependencies = TRUE)
+install_github("metafolio", "seananderson", auth_user = "YOUR-USER-NAME", 
+  password = "YOUR-PASSWORD", dependencies = TRUE)
 library(metafolio)
 ```
 
