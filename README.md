@@ -18,7 +18,6 @@ library(devtools)
 install_github("metafolio", "seananderson", 
 auth_user = "YOUR-USER-NAME", password = "YOUR-PASSWORD",
 dependencies = TRUE)
-)
 library(metafolio)
 ```
 
