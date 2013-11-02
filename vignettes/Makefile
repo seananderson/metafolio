@@ -4,3 +4,4 @@ vignette:
 	xelatex metafolio.tex
 	xelatex metafolio.tex
 	rm metafolio.tex
+	cp metafolio.pdf ../inst/doc/metafolio.pdf
