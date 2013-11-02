@@ -10,8 +10,10 @@ Authors@R: c(person("Sean", "Anderson", email =
     person("Nicholas", "Dulvy", role = "ths"), person("Andrew",
     "Cooper", role = "ths"))
 Description: Simulations are based around salmon metapopulations.
-License: GPL-3
+License: MIT
 VignetteBuilder: knitr
+Depends:
+    R (>= 3.0.0)
 Imports:
     plyr (>= 1.8),
     colorspace (>= 1.2-2),
