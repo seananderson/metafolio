@@ -1,14 +1,18 @@
--   I will submit the `.pdf` version; the `.docx` version is for you to edit
-    with Track Changes, if you'd like. Only the `.pdf` version contains the
-    figures and if you can't see the equations in the `.docx` version then see
-    the `.pdf` version.
+<!---   I will submit the `.pdf` version; the `.docx` version is for you to edit-->
+    <!--with Track Changes, if you'd like. Only the `.pdf` version contains the-->
+    <!--figures and if you can't see the equations in the `.docx` version then see-->
+    <!--the `.pdf` version.-->
 
--   We still need to discuss order of authorship.
+<!---   We still need to discuss order of authorship.-->
 
--   Add something about how many of these concepts are key assumptions of
-    conservation ecology, but they haven't been tested quantitatively before.
+<!---   Add something about how many of these concepts are key assumptions of-->
+    <!--conservation ecology, but they haven't been tested quantitatively before.-->
 
-\newpage
+<!--\newpage-->
+
+<!--cite Haak: Spreading the risk: native trout management in a warmer and less-certain future-->
+
+<!--TODO we have a poor understanding of the relative role of the effects of short-term vs. long-term stochasticity in climate on ecological systems (could cite @walther2002 Nature review)-->
 
 Portfolio conservation of metapopulations under climate change
 ==============================================================
@@ -16,7 +20,8 @@ Portfolio conservation of metapopulations under climate change
 \bigskip
 
 Sean C. Anderson^1\*^, Jonathan W. Moore^1^, Michelle M. McClure^2^, Nicholas
-K. Dulvy^1^, Andrew B. Cooper^3^
+K. Dulvy^1^,\
+Andrew B. Cooper^3^
 
 ^1^Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A
 1S6, Canada
@@ -84,26 +89,26 @@ quantitatively.-->
 Introduction
 ============
 
-Untangling the mechanisms that underpin the stability of ecological systems
-is a critical focus of ecology [@loreau2010a; @loreau2013; @demazancourt2013]
-(REFS). Decades of research has focused on the role of species richness
-and functional diversity in driving community stability (REFS). However,
-recent research has highlighted that the drivers of ecological stability are
-more complex and multidimensional than previously thought [@balvanera2006]
-(REFs). Two key dimensions of stability that have been comparatively
-understudied are response diversity [@mori2013] --- different responses to
-the environment by functionally similar species [@chapin1997; @elmqvist2003]
---- and the role of metapopulations (REF). Here, we unpack the role of
-response diversity conservation in stabilizing metapopulations given projected
-changes in climate. With unprecedented loss of biodiversity and levels of
-environmental change, it is more critical than ever to consider conservation
-approaches that maintain system stability in the face of environmental
-uncertainty [@ando2012].
+Untangling the mechanisms that underpin the stability of ecological
+systems is a critical focus of ecology [e.g. @ives2007; @loreau2010a;
+@loreau2013; @demazancourt2013]. Decades of research has focused on the
+role of species richness and functional diversity in driving community
+stability; however, recent research has highlighted that the
+drivers of ecological stability are more complex and multidimensional than
+previously thought [e.g. @balvanera2006; @ives2007; @demazancourt2013]. Two
+key dimensions of stability that have been comparatively understudied are
+response diversity [@mori2013] --- different responses to the environment by
+functionally similar species [@chapin1997; @elmqvist2003] --- and the role of
+metapopulations. Here, we unpack the role of response diversity conservation
+in stabilizing metapopulations given projected changes in climate. With
+unprecedented loss of biodiversity and levels of environmental change, it is
+more critical than ever to consider conservation approaches that maintain
+system stability in the face of environmental uncertainty [@ando2012].
 
 Typically, conservation actions to maintain system stability and thereby
 reduce risk are driven by an ad hoc combination of scientific information,
-political influences, and feasibility (REFs); the management of financial
-portfolios provides another way of considering risk [@figge2004;
+political influences, and feasibility [@margules2000]; the management of
+financial portfolios provides another way of considering risk [@figge2004;
 @koellner2006; @ando2012]. Economists work to minimize risk and maximize
 performance of a financial portfolio by building a portfolio of individual
 investments (called assets) with different attributes. For example, different
@@ -118,35 +123,34 @@ from a portfolio [@markowitz1952].
 Similarly, expected growth rate and variance of a metapopulation is a
 function of the variance, covariance, and size of the individual populations
 [@moore2010]. An ecological portfolio approach to managing risk for a
-metapopulation might therefore consider how conservation actions affect
-the weight of each population in a metapopulation portfolio. In one
-interpretation, this investment weight could represent the conservation budget
-or the habitat conserved for each population. The population growth rate could
-then represent the rate of return and the variability of that growth rate a
-metric of risk. Given this interpretation, ecological managers could consider
-how various investment strategies affect the expected risk and return of their
-ecological portfolio.
+metapopulation might therefore consider how conservation actions affect the
+weight of each population in a metapopulation portfolio. This investment
+weight could represent the conservation budget or the habitat conserved for
+each population. The population growth rate could then represent the rate of
+return and the variability of that growth rate a metric of risk. Given this
+interpretation, ecological managers could consider how various conservation
+strategies affect the expected risk and return of their ecological portfolio.
 
-Managing Pacific salmonids under the uncertainty of climate change is
-an ideal scenario to consider through the lens of portfolio theory for
-three reasons.  (1) Pacific salmonids form metapopulations [@rieman2000;
-@schtickzelle2007] and we can consider, for example, the metapopulation
-in a river-catchment as a portfolio and the stream populations as assets
-[@schindler2010; @moore2010].  Continuing the with salmon analogy, fisheries
-[@hilborn2003] and predators [@schindler2013] often integrate across multiple
-populations, acting as investors in the salmon portfolio. Fisheries managers
-and conservation agencies then act as portfolio managers by choosing which
-salmon habitat to prioritize for protection or restoration. Indeed, recovery
-goals for Pacific salmonids are often set at the metapopulation level, and
-knowing what minimizes risk to the metapopulation can help choose efficient
-conservation actions (REFS). (2) Many Pacific salmonid metapopulations are
-highly threatened [@mcclure2003; @gustafson2007; @peterman2012] and will
-likely become more at risk as threats such as overfishing, dams, roads,
-logging, and particularly climate change, intensify [e.g. @lackey2003]. (3)
-Salmonids are highly valued by society, fishers, conservation groups, and
-indigenous people [@nrc1996]. Although civil society allocates extensive
-resources to conserving salmonids, the scale of the problem demands a
-prioritization of conservation efforts [@allendorf1997; @ruckelshaus2002].
+Managing Pacific salmonids under the uncertainty of climate change is an ideal
+scenario to consider through the lens of portfolio theory for three reasons.
+(1) Pacific salmonids form metapopulations [@rieman2000; @schtickzelle2007]
+and we can consider, for example, the metapopulation in a river-catchment as a
+portfolio and the stream populations as assets [@schindler2010; @moore2010].
+Continuing the with salmon analogy, fisheries [@hilborn2003] and predators
+[@schindler2013] often integrate across multiple populations, acting as
+investors in the salmon portfolio. Fisheries managers and conservation
+agencies then act as portfolio managers by choosing which salmon habitat
+to prioritize for protection or restoration. Indeed, recovery goals for
+Pacific salmonids are often set at the metapopulation level, and knowing what
+minimizes risk to the metapopulation can help choose efficient conservation
+actions [@mcelhany2000]. (2) Many Pacific salmonid metapopulations are highly
+threatened [@mcclure2003; @gustafson2007; @peterman2012] and will likely
+become more at risk as threats such as overfishing, dams, roads, logging, and
+particularly climate change, intensify [e.g. @lackey2003]. (3) Salmonids are
+highly valued by society, fishers, conservation groups, and indigenous people
+[@nrc1996]. Although civil society allocates extensive resources to conserving
+salmonids, the scale of the problem demands a prioritization of conservation
+efforts [@allendorf1997; @ruckelshaus2002].
 
 Two key mechanisms can generate the asynchrony in metapopulation dynamics that
 is critical to a diversified portfolio. First, localized habitat features
@@ -334,9 +338,9 @@ Environmental dynamics
 ----------------------
 
 Environmental dynamics typically have both short- and long-term fluctuations,
-such as annual variability as well as directional climatic warming. We
-evaluated portfolio performance under these two components separately. We did
-not explicitly model a cyclical climate trend, such as the Pacific Decadal
+such as annual variability and directional climatic warming. We evaluated
+portfolio performance under these two components separately. We did not
+explicitly model a cyclical climate trend, such as the Pacific Decadal
 Oscillation, but the effect of such a trend would likewise largely be a
 product of the short-term variability and long-term trend. We represented
 short-term dynamics $e_{\mathrm{short}(t)}$ as a stationary first-order
@@ -479,7 +483,6 @@ general.
 Implications for salmonid conservation
 --------------------------------------
 
-<!--Summary-->
 Our results emphasize the importance of promoting ecological conditions that
 increase response diversity if stability is to be maintained in the face of
 environmental uncertainty.  For example, since habitat heterogeneity can lead
@@ -500,8 +503,7 @@ biased towards warmer, drier, higher habitats (McClure et al. 2008 REF TODO)
 and our findings suggest this may make current populations more risky in the
 face of environmental change.
 
-<!--Goals align-->
-The goals of existing salmonid management structures in the US and western
+The goals of existing salmonid management structures in the western US and
 Canada support a portfolio conservation perspective. In the US, Evolutionarily
 Significant Units (ESUs) represent salmon populations that are reproductively
 isolated with an evolutionary heritage [@waples1991; @moritz1994] and
@@ -521,23 +523,31 @@ conservation efforts not just where salmon are currently abundant, and
 maintaining metapopulations with some populations near each other and others
 further apart [@mcelhany2000].
 
-<!--But reality doesn't-->
-Despite existing VSP and CU guidelines, salmonid management in western North America often deviates substantially from these goals 
+<!--But reality doesn't always match-->
 
-hasn't been implemented effectively in most places
+<!--look at: @angilletta2008 Big dams and salmon evolution: changes in thermal
+    regimes and their potential evolutionary consequences-->
 
-Dealing with already heavily impacted populations (REFS).
+Despite the existence of these VSP and CU guidelines, they have not been
+effectively implemented in most places.
 
-Existing dams break these rules
+Despite existing VSP and CU guidelines, salmonid management in western North
+America has often failed to maintain the critical portfolio properties our
+analysis identifies.
 
-Ongoing hatcheries homogenize.
+29% of 1400 historical salmonid populations in the Pacific North West and
+California have been lost since European-Americans arrived [@gustafson2007].
 
-For example, there are still widespread hatcheries that release millions of
-fish, homogenizing populations (and possibly reducing response diversity)
-across North America (Pearse et al.\ 20XX TODO, McClure et al.\ 2008b
-Evo.\ Apps.\ TODO).
+And management is dealing with already heavily impacted populations --- already compromised portfolios.
+
+Something about existing dams - number, extent...
+
+For example, there are still widespread hatcheries across North America
+that release millions of fish, homogenizing populations and likely reducing
+response diversity [@mcclure2008b].
 
 <!--Model comparison-->
+
 Our model complements other simulation-based salmon-habitat prioritization
 models. While these other models tend to focus on detailed assessment of
 individual fish stocks, our model is the first to consider the role of
@@ -560,8 +570,10 @@ numerous sources of uncertainty.
 Broad implications, research extensions, and priorities
 -------------------------------------------------------
 
-<!--The portfolio dimension-->
 <!--Rework this to emphasize spatial planning element from Ando-->
+<!--TODO and bring in that although intuitive, and frequent tenant, hasn't
+    been quantitative shown before-->
+
 Our results emphasize the importance of thinking at the portfolio level when
 making conservation decisions --- considering aggregate risk and performance
 for ecological portfolios. Although our results may appear intuitive,
@@ -577,22 +589,44 @@ it requires both an understanding of individual asset performance and an
 assessment of the covariance between assets to predict properties of the
 portfolio as a whole.
 
-<!--Possible environments and types of variable responses-->
-To promote the stabilizing effect of a diversified ecological portfolio, there are three key components to focus on:
-(1) the environmental drivers to which a variable response might arise,
-(2) the traits and behaviours that respond in variable ways to the environment, 
-and (3) the conservation actions that can increase or decrease the diversity of response. 
-*Environmental drivers* of response can include any habitat alterations such changes to temperature, habitat availability, water chemistry, air quality, or food availability.
-*Traits and behaviours* that can respond with variation include population responses such as productivity, fitness, or mortality, as well as individual-based responses such as foraging and migration behaviours.
-*Identifying conservation actions* that increase or decrease environmental response diversity is critical to developing stable ecological portfolios.
-However, even measuring environmental response diversity in real ecological systems is challenging (Mayfield et al. 2010 from Mori et al.), although possible (ecology paper, REFs).
-Thus, a realistic solution may be to generate general guidelines from intensively-monitored systems in which we can associate changes in synchrony of responses of interest (e.g.\ foraging behaviour) to environmental changes (e.g.\ temperature) across conservation actions (e.g.\ spatial conservation strategies).
-In the mean time, common sense guidelines include maintaining genetic diversity, which may correlate with response diversity (REF), and not just focussing on conserving populations that are doing well given today's environment.
-Additionally, given that response diversity is probably spatially distributed (REF), not eliminating large swaths of habitat (e.g. one half of something non salmon).
+To promote the stabilizing effect of a diversified ecological portfolio,
+there are three key components to focus on identifying: (1) the environmental
+drivers to which a variable response might arise, (2) the traits and
+behaviours that respond in variable ways to the environment, and (3) the
+conservation actions that can increase or decrease the diversity of response.
+Environmental drivers of response can include changes to temperature, habitat
+availability, air quality, water chemistry, fire, or extreme weather, for
+example [@tilman2001a; @elmqvist2003]. Traits and behaviours that can respond
+with variation include population responses such as productivity, fitness,
+or mortality, as well as behaviour responses such as foraging and migration
+[@elmqvist2003]. Identifying conservation actions that promote environmental
+response diversity is critical to developing stable ecological systems
+[@mori2013]. However, even just measuring environmental response diversity in
+real ecological systems is challenging, albeit possible [e.g. @mayfield2010;
+@thibaut2012; @cariveau2013]. Thus, a realistic solution may be to generate
+general guidelines from a small number of intensively-monitored systems in
+which we can associate changes in synchrony of responses of interest (e.g.\
+productivity or foraging behaviour) to environmental changes (e.g.\ changes to
+temperature or drought) across conservation strategies.
 
-<!--means identifying the combination of plausible environmental drivers and important traits that may vary in response to it, and devising ways to conserve individuals, species, or populations with varying responses.-->
-<!--(bring in Gompez model)-->
-<!--Tilman and Lehman 2001 - many small changes can act multiplicatively to be similar to one large change - response diversity-->
+TODO Bring in spatial planning here?
+@pressey2007: conservation planning (which inherently means spatial) needs
+to focus also on natural processes, not just biodiversity, and be robust to
+increasingly diverse and more rapid environmental changes
+@hannah2002a: we need "dynamic" approaches to conservation planning - CCS
+(climate change-integrated conservation strategies)
+and @ando2012 work
+We need not wait for detailed analysis to incorporate common sense guidelines
+for diversified ecological portfolios.  Common sense guidelines include
+maintaining genetic diversity, which may correlate with response diversity
+(REF), and not just focussing on conserving populations that are doing well
+given today's environment.  Additionally, given that response diversity is
+probably spatially distributed (REF), not eliminating large swaths of habitat
+(e.g. one half of something non salmon).  TODO, gather recommendations from
+elsewhere here with concrete examples. Not too much salmon!
+
+<!--Tilman and Lehman 2001 - many small environmental forces can act
+    multiplicatively to be similar to one large force  @tilman2001a-->
 <!--land-use intensity for birds - Karp et al. (2011) from Mori-->
 <!--land-use intensity @laliberte2010-->
 
@@ -602,29 +636,27 @@ Additionally, given that response diversity is probably spatially distributed (R
     This kind of work can generally inform protected area design (maximize
     habitat diversity) and so forth.  -->
 
-<!--Model extensions--> 
-
 We suggest a number of specific extensions to our simulation model. First
-the environment-response-diversity mechanism could be expanded. While, other
-forms of response diversity affecting productivity would have a similar
-effect, the distribution of response diversity across a metapopulation
-does not necessarily follow a linear gradient, different forms of response
-diversity could interact (REF from Mori), and environmental conditions could
-affect populations through other mechanisms than productivity. Second, in
-addition to other taxa, our model could be extended to ecological communities
-after accounting for species interactions, or to meta-communities. Third,
-without any modifications, our model could be used to consider the Moran
-or environmental-filter concept [@schindler2008; @rogers2008] where
-populations experience increasingly different environmental forces at further
-distances. Fourth, a model could consider the contribution of contemporary
-evolution [@stockwell2003; @reed2011]. These rapid adaptations to changes in
-the environment could strongly affect portfolio performance and emphasize
-the importance of maintaining genetic diversity. Finally, our model could be
-conditioned on a system of interest --- a particular river basin for example
---- and the metapopulation portfolio could be optimized across conservation
-and restoration options as part of a formal decision analysis.
+the environment-response-diversity mechanism could be expanded. Whereas
+other forms of response diversity affecting productivity would have
+a similar effect to thermal tolerance, the distribution of response
+diversity across a metapopulation does not necessarily follow a linear
+gradient, different forms of response diversity could interact, and
+environmental conditions could affect populations through mechanisms
+other than productivity. Second, in addition to other taxa, our model
+could be extended to ecological communities after accounting for species
+interactions, or to meta-communities. Third, without any modifications,
+our model could consider the Moran or environmental-filter concept
+[@schindler2008; @rogers2008] whereby populations experience increasingly
+different environmental forces at further distances. Fourth, a model could
+consider the contribution of contemporary evolution [@stockwell2003]. These
+rapid adaptations to changes in the environment could strongly influence
+portfolio performance and emphasize the importance of maintaining genetic
+diversity. Finally, our model could be conditioned on a system of interest
+--- say a particular river basin in our example --- and the metapopulation
+portfolio could be optimized across conservation and restoration options as
+part of a formal decision analysis.
 
-<!--Research priorities-->
 Our results suggest three broad research priorities. First, our work
 highlights the importance of research that identifies response diversity
 [e.g. @eliason2011], spatial asynchrony [e.g. @thorson2013], and in
@@ -644,41 +676,57 @@ change, but in ecological systems, society might care more about absolute
 abundance --- low-growth-high-abundance systems might be preferred to
 high-growth-low-abundance systems.
 
-<!--Concluding paragraph-->
-Our analysis illustrates a pathway through which diversity of response
-to environmental conditions can underpin the stability of ecological
-systems. This pathway suggests increasing the focus on response diversity
-in the discussion of ecological stability and resilience in addition to the
-historically strong focus on species and functional diversity [@mori2013].
-As ecology explores the role of response diversity, metapopulations make an
-ideal first study system since they can mostly isolate response diversity (or
-spatially diverse environmental conditions) from the complexity of species
-interactions and diversity of functional roles. <!--A richer understanding of the
-mechanisms underpinning stability and resilience in the face of environmental
-change will requiring integrating response diversity with other stabilizing
-mechanisms in more fully-featured ecosystems [@demazancourt2013; @loreau2013].
---> 
-The mean-variance portfolio approach used here offers promise in
-reconciling the interaction between mechanisms that influence functionality or
-"return" and instability or "risk". Given current and pending dramatic changes
-to climate and the uncertainty involved in predicting the impacts on habitat
-availability, local temperature, and local precipitation (REF), strategies
-such as the portfolio approach outlined here, are a useful way to integrate
-across this uncertainty.
+TODO Bring in that the climate variability will probably increase: (Seager et
+al. 2012), global to regional climate effects uncertain (Solomon et al. 2007,
+Deser et al. 2012), and effects on ecological systems strong but variable and
+uncertain @walther2002 or @parmesan2006
+therefore need for these kinds of approaches increasing in importance
 
-<!--Old conclusion-->
+Our analysis illustrates a pathway through which diversity of response to
+environmental conditions can underpin the stability of ecological systems.
+This pathway suggests increasing the focus on response diversity in the
+discussion of ecological stability in addition to the historically strong
+focus on species and functional diversity [@mori2013]. This historical focus
+has also primarily concerned communities (REFS), however, metapopulations
+make an ideal study system to mostly isolate response diversity (or spatially
+diverse environmental conditions) from the complexity of species interactions
+and diversity of functional roles.  The mean-variance portfolio approach used
+here may help reconcile the interaction between mechanisms that influence
+functioning or "return" and instability or "risk".  Thus, the concept of
+ecological portfolios holds considerable promise both as an applied management
+tool and a theoretical research paradigm.
+
+<!--The approach also naturally encourages a consideration of return and risk
+    simultaneously in theoretical discussions of stability-diversity
+    relationships and in applied conservation decisions.-->
+<!--Given current and pending dramatic changes to climate (REF) and the
+    uncertainty involved in predicting the impacts on habitat availability,
+    local temperature, and local precipitation (REF), the ecological
+    portfolios hold considerable promise both as  theoretical research
+    approaches and applied management tools to integrate across uncertainty
+    (REF).-->
+
+<!--ecology explores the role of response diversity, metapopulations make an
+    ideal first study system since they can mostly isolate response diversity
+    (or spatially diverse environmental conditions) from the complexity of
+    species-->
+<!--A richer understanding of the mechanisms underpinning stability and
+    resilience in the face of environmental change will requiring integrating
+    response diversity with other stabilizing mechanisms in more
+    fully-featured ecosystems [@demazancourt2013; @loreau2013]. --> 
+
 <!--In conclusion, our results demonstrate the utility of considering
-metapopulations in a portfolio context and the power of portfolio simulation
-to consider management strategies that minimize metapopulation risk and
-maximize growth under uncertain environmental conditions. Our findings
-show that response diversity buffers metapopulation risk given short-term
-environmental stochasticity and ensures persistence given longterm regime
-changes. Further, our findings show that, independent of response-diversity,
-conserving more populations buffers metapopulation risk. These results
-point to the critical importance of choosing management, conservation, and
-restoration actions that preserve and promote response diversity and are
-robust to our uncertainty about the distribution of response diversity and
-future climatic conditions.-->
+    metapopulations in a portfolio context and the power of portfolio
+    simulation to consider management strategies that minimize metapopulation
+    risk and maximize growth under uncertain environmental conditions. Our
+    findings show that response diversity buffers metapopulation risk given
+    short-term environmental stochasticity and ensures persistence given
+    longterm regime changes. Further, our findings show that, independent of
+    response-diversity, conserving more populations buffers metapopulation
+    risk. These results point to the critical importance of choosing
+    management, conservation, and restoration actions that preserve and
+    promote response diversity and are robust to our uncertainty about the
+    distribution of response diversity and future climatic conditions.-->
 
 Acknowledgements
 ================
