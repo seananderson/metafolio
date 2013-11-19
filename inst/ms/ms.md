@@ -2,7 +2,7 @@
 
 \bigskip
 
-Sean C. Anderson^1\*^, Jonathan W. Moore^1^, Michelle M. McClure^2^, Nicholas
+Sean C. Anderson^1\*^, Jonathan W. Moore^1,3^, Michelle M. McClure^2^, Nicholas
 K. Dulvy^1^,\
 Andrew B. Cooper^3^
 
@@ -29,7 +29,7 @@ range contraction,
 prioritization,
 response diversity,
 risk assessment,
-salmonids,
+Pacific salmon,
 stability-diversity,
 stochastic simulation
 (maximum 10)
@@ -52,11 +52,11 @@ The mechanisms underlying the stability of ecological systems are a
 central focus of ecology and of increasing importance given the rate
 and magnitude of biodiversity loss and environmental change. Here,
 we ask how a financial-portfolio approach can inform conservation
-priorities for metapopulations in a changing world. We develop a salmonid
+priorities for metapopulations in a changing world. We develop a salmon
 metapopulation simulation where population-specific productivity is driven by
 spatially-distributed thermal tolerance and patterns of short- and long-term
 environmental change. We then implement spatial conservation scenarios that
-control population carrying capacities and evaluate the salmonid portfolios
+control population carrying capacities and evaluate the salmon portfolios
 as a portfolio manager might --- along axes of risk and return. We show that
 conserving response diversity minimizes risk given environmental stochasticity
 and ensures persistence given long-term environmental change. Furthermore,
@@ -145,9 +145,9 @@ conditions could represent the financial market conditions. Given this
 interpretation, ecological managers could consider how various conservation
 strategies affect the expected risk and return of their ecological portfolio.
 
-Managing Pacific salmonids under the uncertainty of climate change is an ideal
+Managing Pacific salmon under the uncertainty of climate change is an ideal
 scenario to consider through the lens of portfolio theory for three reasons.
-(1) Pacific salmonids form metapopulations [@rieman2000; @schtickzelle2007]
+(1) Pacific salmon form metapopulations [@rieman2000; @schtickzelle2007]
 and we can consider, for example, the metapopulation in a river-catchment as a
 portfolio and the stream populations as assets [@schindler2010; @moore2010].
 Continuing the salmon analogy, fisheries [@hilborn2003] and predators
@@ -155,21 +155,21 @@ Continuing the salmon analogy, fisheries [@hilborn2003] and predators
 investors in the salmon portfolio. Fisheries managers and conservation
 agencies then act as portfolio managers by choosing which salmon habitat
 to prioritize for protection or restoration. Indeed, recovery goals for
-Pacific salmonids are often set at the metapopulation level, and knowing what
+Pacific salmon are often set at the metapopulation level, and knowing what
 minimizes risk to the metapopulation can help choose efficient conservation
-actions [@mcelhany2000]. (2) Many Pacific salmonid metapopulations are highly
+actions [@mcelhany2000]. (2) Many Pacific salmon metapopulations are highly
 threatened [e.g. @gustafson2007] and will likely become more at
 risk as threats such as overfishing, dams, roads, logging, and particularly
-climate change, intensify [e.g. @lackey2003]. (3) Salmonids are highly
+climate change, intensify [e.g. @lackey2003]. (3) Salmon are highly
 valued by society, fishers, conservation groups, and indigenous people, and
-although civil society allocates extensive resources to conserving salmonids,
+although civil society allocates extensive resources to conserving salmon,
 the scale of the problem demands a prioritization of conservation efforts
 [@allendorf1997; @ruckelshaus2002].
 
 Two key mechanisms can generate the asynchrony in metapopulation dynamics that
 is critical to a diversified portfolio. First, localized habitat features
 can filter the environment generating unique conditions for populations
-[@schindler2008] (*senu* the Moran effect). However, since salmonids spend
+[@schindler2008] (*senu* the Moran effect). However, since salmon spend
 considerable time in a shared ocean environment, a second mechanism is
 also important --- diversity of response to the environment [i.e. response
 diversity, @elmqvist2003; and biocomplexity, @hilborn2003]. This mechanism
@@ -180,7 +180,7 @@ these mechanisms can interact. For example, salmonid response diversity in
 the marine environment can be driven by adaptation to localized freshwater
 environments [@eliason2011].
 
-Salmonids are strongly affected by climate warming [e.g. @patterson2007]
+Salmon are strongly affected by climate warming [e.g. @patterson2007]
 and yet show a remarkable diversity of tolerance to temperature [e.g.
 @crozier2006; @eliason2011]. In addition to posing perhaps the greatest
 threat to global biodiversity in general [@thomas2004], climate warming
@@ -192,7 +192,7 @@ extreme hydrological events [@crozier2008]. Due to these effects, adverse
 stream temperatures are already impeding recovery of some Pacific salmonid
 populations [@mccullough1999] and are expected to make recovery targets
 more difficult to achieve [@battin2007]. However, despite the evidence that
-warming impacts salmonids, salmonids also show evidence of response diversity
+warming impacts salmon, salmon also show evidence of response diversity
 and local adaptation to temperature. For example, juvenile Chinook salmon
 in southern regions of British Columbia, Canada, tolerate high temperatures
 better than northern populations [@beacham1991], and thermal tolerance of
@@ -476,7 +476,7 @@ Combined, these findings illustrate that focusing on well-performing stocks
 now at the detriment of others is at best equivalent to an efficient but
 risky portfolio, and at worst a poorly-performing risky portfolio. In this
 discussion, we begin by linking our model with real-world conservation issues
-for Pacific Northwest salmonids. We then consider broader implications for
+for Pacific Northwest salmon. We then consider broader implications for
 metapopulation conservation of any species and ecological stability in
 general.
 
@@ -492,7 +492,7 @@ conservation actions must be prioritized, then our model suggests we should
 focus on populations that aren't spatially contiguous to maximize diversity of
 response to the environment. Finally, our results demonstrate the advantages
 of avoiding structures that artificially remove response diversity. For
-salmonids, dams are a prominent example [e.g. @mcclure2008a]. Dams can
+salmon, dams are a prominent example [e.g. @mcclure2008a]. Dams can
 have a double impact whereby their introduction selectively eliminates a large
 swath of contiguous habitat, perhaps analogous to our upper- or lower-half
 scenarios in Fig. 4, and then mitigation approaches such as hatcheries can
@@ -510,13 +510,13 @@ evolutionary heritage [@moritz1994] --- and finer-scale Viable Salmonid
 Populations (VSPs) --- populations that are demographically independent of
 other populations over a 100-year time frame [@mcelhany2000]. In Canada, the
 rough equivalent to the ESU is a Conservation Unit (CU), which consists of a
-group of salmonids that are reproductively isolated and that if lost would be
+group of salmon that are reproductively isolated and that if lost would be
 unlikely to recolonize in a reasonable time frame [@dfo2005wsp]. A salmonid
 portfolio in our model could represent an ESU or CU and that the lessons
 learned from our models are thus directly applicable to management guidelines
 in the Pacific Northwest. In fact, a number of VSP guidelines agree with our
 findings. For example, VSP guidelines suggest maintaining diversity in a
-variety of forms, focusing conservation efforts not just where salmonids are
+variety of forms, focusing conservation efforts not just where salmon are
 currently abundant, and maintaining metapopulations with some populations near
 each other and others further apart [@mcelhany2000].
 
@@ -760,7 +760,7 @@ the same for each population.
 Fig. 3: The components of an example metapopulation simulation. We show, from
 top to bottom, the temperature signal, the resulting productivity parameter
 (Ricker $a$), the salmonid returns, fisheries catch, salmonid escapement,
-salmonid straying from their natal streams, salmonids joining from other
+salmonid straying from their natal streams, salmon joining from other
 streams, spawner-return residuals on a log scale, and the estimated $a$
 and $b$ parameters in the fitted Ricker curve. The colored lines indicate
 populations that thrive at low (cool colours) to high (warm colours)
