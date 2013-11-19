@@ -21,16 +21,24 @@ of the manuscript. All authors contributed substantially to revisions.
 
 *Running title*: Portfolio conservation of metapopulations (41/45 characters)
 
-*Keywords*: biocomplexity, ecosystem based management, Modern
-Portfolio Theory, portfolio effect, range contraction, prioritization,
-resource management, response diversity, risk assessment, salmonids,
-stability-diversity, stochastic simulation (maximum 10)
+*Keywords*:
+biocomplexity,
+ecosystem based management,
+portfolio effect,
+range contraction,
+prioritization,
+response diversity,
+risk assessment,
+salmonids,
+stability-diversity,
+stochastic simulation
+(maximum 10)
 
 *Type of article*: Letters
 
-*Words in abstract and main text*: 159, 4100 (maximum 150, 5000)
+*Words in abstract and main text*: 158, 4730 (maximum 150, 5000)
 
-*Number of references*: 73 (maximum 50)
+*Number of references*: 58 (maximum 50)
 
 *Number of tables and figures*: 5 (maximum 6)
 
@@ -42,7 +50,7 @@ sean@seananderson.ca
 
 The mechanisms underlying the stability of ecological systems are a
 central focus of ecology and of increasing importance given the rate
-and magnitude of biodiversity loss and environmental change. Here
+and magnitude of biodiversity loss and environmental change. Here,
 we ask how a financial-portfolio approach can inform conservation
 priorities for metapopulations in a changing world. We develop a salmonid
 metapopulation simulation where population-specific productivity is driven by
@@ -75,13 +83,27 @@ quantitatively.-->
 short-term vs. long-term stochasticity in climate on ecological systems (could
 cite @walther2002 Nature review)-->
 
+<!--TODO look at: @angilletta2008 Big dams and salmon evolution: changes in
+    thermal regimes and their potential evolutionary consequences-->
+
+<!--TODO: work with this from Crimson Tide paper?-->
+<!--While scientific and policy attention has focused on conserving species
+diversity, it is becoming increasingly appar- ent that distinct populations
+are under substantially more threat from human activities than are species
+[15]. For example, salmon watersheds of the Pacific Northwest have lost
+approxi- mately 29 per cent of the population diversity of Pacific salmon
+[16], whereas no single species is at imminent risk of extinction. We suggest
+that future work should focus on understanding how biological diversity within
+individual taxa affects species’ interactions, and ecosystem processes and
+services, to better inform conservation and management policy.-->
+
 # Introduction
 
 <!--The importance of conserving response diversity is a key assumption of-->
 <!--conservation ecology, but has rarely been tested quantitatively (but see REF).-->
 
-Untangling the mechanisms that underpin the stability of ecological systems
-is a critical focus of ecology [e.g. @ives2007; @loreau2010a; @loreau2013;
+Untangling the mechanisms that underpin the stability of ecological
+systems is a critical focus of ecology [e.g. @ives2007; @loreau2013;
 @demazancourt2013]. Decades of research has focused on the role of species
 richness and functional diversity in driving community stability; however,
 recent research has highlighted that the drivers of ecological stability
@@ -89,7 +111,7 @@ are more complex and multidimensional than previously thought [e.g.
 @balvanera2006; @ives2007; @demazancourt2013]. Two key dimensions of stability
 that have been comparatively understudied are response diversity [@mori2013]
 --- different responses to the environment by functionally similar species
-[@chapin1997; @elmqvist2003] --- and the role of metapopulations. Here,
+[@elmqvist2003] --- and the role of metapopulations [@akcakaya2007]. Here,
 we unpack the role of response diversity conservation in stabilizing
 metapopulations given projected changes in climate. With unprecedented loss of
 biodiversity and levels of environmental change, it is more critical than ever
@@ -136,35 +158,35 @@ to prioritize for protection or restoration. Indeed, recovery goals for
 Pacific salmonids are often set at the metapopulation level, and knowing what
 minimizes risk to the metapopulation can help choose efficient conservation
 actions [@mcelhany2000]. (2) Many Pacific salmonid metapopulations are highly
-threatened [e.g. @mcclure2003; @gustafson2007; @peterman2012] and will likely
-become more at risk as threats such as overfishing, dams, roads, logging, and
-particularly climate change, intensify [e.g. @lackey2003]. (3) Salmonids are
-highly valued by society, fishers, conservation groups, and indigenous people
-[@nrc1996]. Although civil society allocates extensive resources to conserving
-salmonids, the scale of the problem demands a prioritization of conservation
-efforts [@allendorf1997; @ruckelshaus2002].
+threatened [e.g. @gustafson2007] and will likely become more at
+risk as threats such as overfishing, dams, roads, logging, and particularly
+climate change, intensify [e.g. @lackey2003]. (3) Salmonids are highly
+valued by society, fishers, conservation groups, and indigenous people, and
+although civil society allocates extensive resources to conserving salmonids,
+the scale of the problem demands a prioritization of conservation efforts
+[@allendorf1997; @ruckelshaus2002].
 
-Two key mechanisms can generate the asynchrony in metapopulation dynamics
-that is critical to a diversified portfolio. First, localized habitat
-features can filter the environment generating unique conditions for
-populations [@schindler2008] (*senu* the Moran effect). However, since
-salmonids spend considerable time in a shared ocean environment [@quinn2005],
-a second mechanism is also important --- diversity of response to the
-environment [i.e. response diversity, @elmqvist2003; and biocomplexity,
-@hilborn2003]. This mechanism can result from unique phenotypic or genetic
-traits [@crozier2008; @kovach2012] and be derived from rapid contemporary
-adaption [@stockwell2003; @fraser2011] or long-term evolution to historical
-conditions [@eliason2011]. In reality, these mechanisms can interact. For
-example, salmonid response diversity in the marine environment can be driven
-by adaptation to localized freshwater environments [@eliason2011].
+Two key mechanisms can generate the asynchrony in metapopulation dynamics that
+is critical to a diversified portfolio. First, localized habitat features
+can filter the environment generating unique conditions for populations
+[@schindler2008] (*senu* the Moran effect). However, since salmonids spend
+considerable time in a shared ocean environment, a second mechanism is
+also important --- diversity of response to the environment [i.e. response
+diversity, @elmqvist2003; and biocomplexity, @hilborn2003]. This mechanism
+can result from unique phenotypic or genetic traits [@crozier2008] and be
+derived from rapid contemporary adaption [@stockwell2003; @fraser2011] or
+long-term evolution to historical conditions [@eliason2011]. In reality,
+these mechanisms can interact. For example, salmonid response diversity in
+the marine environment can be driven by adaptation to localized freshwater
+environments [@eliason2011].
 
 Salmonids are strongly affected by climate warming [e.g. @patterson2007]
 and yet show a remarkable diversity of tolerance to temperature [e.g.
-@crozier2006; @eliason2011]. In addition to posing perhaps the greatest threat
-to global biodiversity in general [@thomas2004], climate warming poses a
-particular threat to riverine species whose ranges are largely confined to
-existing habitat [@thomas2010]. Warmer water can lead to massive mortality
-of salmonid populations [e.g. @patterson2007; @macdonald2010] and indirectly
+@crozier2006; @eliason2011]. In addition to posing perhaps the greatest
+threat to global biodiversity in general [@thomas2004], climate warming
+poses a particular threat to riverine species whose ranges are largely
+confined to existing habitat [@thomas2010]. Warmer water can lead to massive
+mortality of salmonid populations [e.g. @patterson2007] and indirectly
 impact salmonid productivity through alterations to snow-melt timing and
 extreme hydrological events [@crozier2008]. Due to these effects, adverse
 stream temperatures are already impeding recovery of some Pacific salmonid
@@ -224,7 +246,7 @@ becomes an emergent property of our metapopulation model.
 The salmon metapopulation dynamics in our simulation were governed by a
 spawner-return relationship with demographic stochasticity and straying
 between populations. We defined the spawner-return relationship with a Ricker
-model [@ricker1954],
+model,
 
 $$R_{i(t)} = S_{i(t)}e^{a_{i(t)}(1-S_{i(t)}/b_i) + w_{i(t)}}$$
 
@@ -266,16 +288,16 @@ parameter values such that some populations were warm-tolerant, some were
 cold-tolerant, and some had a wider range of thermal-tolerance, but a lower
 maximum productivity (Fig. 2a). Although we refer to a thermal-tolerance
 curve because temperature is a dominant driver of salmonid performance
-[@mccullough1999], our model applies to any environmental tolerance [e.g.
-tolerance to stream flow volume or changes in snow melt timing; @crozier2008].
+[@mccullough1999; @patterson2007], our model applies to any environmental
+tolerance [e.g. tolerance to stream flow volume or changes in snow melt
+timing; @crozier2008].
 
 We implemented straying as in @cooper1999. We arranged the populations in a
 line and salmon were more likely to stray to streams near their natal stream
 (Fig. \ref{f:stray}). Two parameters controlled the straying: the fraction
 of fish $f_{\mathrm{stray}}$ (0.02) that stray from their natal stream in
 any generation and the rate $m$ (0.3) at which this straying between streams
-decays with distance. We calculated the number of salmon straying from stream
-$j$ to stream $i$ as
+
 
 $$\mathrm{strays}_{ij(t)} = f_{\mathrm{stray}} R_{j(t)} \frac{e^{-m \lvert i-j
 \rvert }} {\displaystyle\sum\limits_{ \substack{k = 1 \\ k \neq j}}^{n} e^{-m
@@ -312,7 +334,7 @@ $$H_{\mathrm{act}} = \mathrm{beta}(\alpha_h, \beta_h)$$
 
 where $\alpha_h$ and $\beta_h$ are the location and shape parameters in a beta
 distribution. They can be calculated from the desired mean $H_{\mathrm{tar}}$
-and standard deviation $\sigma_h$ (0.05) as [@morgan1990, p. 97]
+and standard deviation $\sigma_h$ (0.05) as
 
 $$\begin{aligned} \alpha_h &= H_{\mathrm{tar}}^2 \left( \frac{1 -
 H_{\mathrm{tar}}}{\sigma_h^2} - \frac{1}{H_{\mathrm{tar}}} \right)\\ \beta_h
@@ -470,7 +492,7 @@ conservation actions must be prioritized, then our model suggests we should
 focus on populations that aren't spatially contiguous to maximize diversity of
 response to the environment. Finally, our results demonstrate the advantages
 of avoiding structures that artificially remove response diversity. For
-salmonids, dams are a prominent example [@waples2007; @pess2012]. Dams can
+salmonids, dams are a prominent example [e.g. @mcclure2008a]. Dams can
 have a double impact whereby their introduction selectively eliminates a large
 swath of contiguous habitat, perhaps analogous to our upper- or lower-half
 scenarios in Fig. 4, and then mitigation approaches such as hatcheries can
@@ -498,19 +520,16 @@ variety of forms, focusing conservation efforts not just where salmonids are
 currently abundant, and maintaining metapopulations with some populations near
 each other and others further apart [@mcelhany2000].
 
-<!--TODO look at: @angilletta2008 Big dams and salmon evolution: changes in
-    thermal regimes and their potential evolutionary consequences-->
-
 However, salmonid populations in the Pacific Northwest are already heavily
-impacted [e.g. @mcclure2003; @gustafson2007; @peterman2012] and VSP
-and CU guidelines have not yet been effectively implemented for most
-populations. Since European-Americans arrived, 29% of 1400 historical
-salmonid populations in the Pacific Northwest and California have been lost
-[@gustafson2007]. Furthermore, 44% of salmon habitat in the western US has
-been lost to dams and other freshwater blockages [@mcclure2008a]. Changes to
-habitat combined with increasing climate variability has led to disturbance
-regimes that differ substantially in the frequency, magnitude, and duration
-from historical patterns, and threatens the resilience of salmonid populations
+impacted [e.g. @gustafson2007] and VSP and CU guidelines
+have not yet been effectively implemented for most populations. Since
+European-Americans arrived, 29% of 1400 historical salmonid populations in the
+Pacific Northwest and California have been lost [@gustafson2007]. Furthermore,
+44% of salmon habitat in the western US has been lost to dams and other
+freshwater blockages [@mcclure2008a]. Changes to habitat combined with
+increasing climate variability has led to disturbance regimes that
+differ substantially in the frequency, magnitude, and duration from
+historical patterns, and threatens the resilience of salmonid populations
 [@waples2009]. Many remaining populations rely on hatcheries for long-term
 population viability --- creating substantial evolutionary risks such as
 outbreeding depression, genetic homogenization, reduced effective population
@@ -545,59 +564,60 @@ growth.
 ## Broad implications, research extensions, and priorities
 
 To promote the stabilizing effect of a diversified ecological portfolio,
-there are three key components to identify: (1) the environmental drivers to
-which a variable response might occur, (2) the traits and behaviours that
-respond in variable ways to the environment, and (3) the conservation actions
-that can increase or decrease the diversity of response.  Environmental
-drivers of response can include, for example, changes to temperature,
-habitat availability, land-use intensity, air quality, water chemistry,
-fire, or extreme weather [@tilman2001a; @elmqvist2003; @laliberte2010;
-@cariveau2013]. Traits and behaviours that can respond with variation include
-population responses such as productivity, fitness, or mortality, as well
-as behavioural responses such as foraging and migration [@elmqvist2003].
-Identifying conservation actions that promote environmental response diversity
-is critical to developing stable ecological systems [@mori2013].  However,
-even just measuring environmental response diversity in real ecological
-systems is challenging, albeit possible [e.g. @mayfield2010; @thibaut2012;
-@cariveau2013]. Therefore, a realistic solution may be to generate general
-guidelines from a small number of intensively-monitored systems in which we
-can associate changes in synchrony of traits or behaviours with changes in
-conservation regimes.
+there are three key components to identify: (1) the environmental drivers
+to which a variable response might occur, (2) the traits and behaviours
+that respond in variable ways to the environment, and (3) the conservation
+actions that can increase or decrease the diversity of response. Environmental
+drivers of response can include, for example, changes to temperature, habitat
+availability, land-use intensity, air quality, water chemistry, fire, or
+extreme weather [@elmqvist2003; @laliberte2010; @cariveau2013]. Traits and
+behaviours that can respond with variation include population responses such
+as productivity, fitness, or mortality, as well as behavioural responses such
+as foraging and migration [@elmqvist2003]. Identifying conservation actions
+that promote environmental response diversity is critical to developing stable
+ecological systems [@mori2013]. However, even just measuring environmental
+response diversity in real ecological systems is challenging, albeit possible
+[e.g. @thibaut2012; @cariveau2013]. Therefore, a realistic solution may be
+to generate general guidelines from a small number of intensively-monitored
+systems in which we can associate changes in synchrony of traits or behaviours
+with changes in conservation regimes.
 
 Conservation planning is inherently a spatial activity [@pressey2007] and
 our results can inform how we approach spatial conservation planning. First,
 our results suggest focusing on conserving the processes and mechanisms
 underlying stability, not just biodiversity itself [@pressey2007]. Our
 results also illustrate the importance of integrating across environmental
-uncertainty [@ando2012], particularly given the uncertainty surrounding the
-effects of climate change on ecological systems [@walther2002]. Testing
-performance across multiple states of nature is a goal well-suited for
-decision analysis [@keeney1982] and portfolio risk and return performance
-could be useful outcomes to measure as part of decision analyses evaluating
-spatial planning. The increasing rapidness and variability of environmental
-change also necessitates a dynamic approach in which spatial planning is
-re-evaluated at regular intervals [@hannah2002a] --- perhaps testing for
-changes in population and species asynchrony in addition to changes in local
-productivity and variability.
+uncertainty [@ando2012] when spatial planning, particularly given the
+uncertainty surrounding the effects of climate change on ecological systems
+[@walther2002].
+<!--Testing performance across multiple states of nature is a-->
+<!--goal well-suited for decision analysis [@keeney1982] and portfolio risk and-->
+<!--return performance could be useful outcomes to measure as part of decision-->
+<!--analyses evaluating spatial planning. -->
+Finally, the increasing rapidness and variability of environmental change
+necessitates a dynamic approach in which spatial planning is re-evaluated at
+regular intervals [@hannah2002a] --- perhaps testing for changes in population
+and species asynchrony in addition to changes in local productivity and
+variability.
 
-We suggest a number of specific extensions to our simulation model. First the
-environment-response-diversity mechanism could be expanded. The distribution
-of response diversity across a metapopulation does not necessarily follow
-a linear gradient, different forms of response diversity could interact,
-and environmental conditions could affect populations through mechanisms
-other than productivity. Second, in addition to other taxa, our model could
-be extended to ecological communities or meta-communities after accounting
-for species interactions. Third, without any modifications, our model
-could consider the Moran or environmental-filter concept [@schindler2008;
-@rogers2008] whereby populations experience increasingly different
-environmental forces at further distances. Fourth, a model could consider
-the contribution of contemporary evolution [@stockwell2003]. These rapid
-adaptations to changes in the environment could strongly influence portfolio
-performance and emphasize the importance of maintaining genetic diversity
-and a variety of local habitat. Finally, our model could be conditioned on
-a system of interest --- say a particular river basin in our example ---
-and the metapopulation portfolio could be optimized across conservation and
-restoration options as part of a formal decision analysis.
+We suggest a number of specific extensions to our simulation model. First
+the environment-response-diversity mechanism could be expanded --- the
+distribution of response diversity across a metapopulation does not
+necessarily follow a linear gradient, different forms of response diversity
+could interact, and environmental conditions could affect populations through
+mechanisms other than productivity. Second, in addition to other taxa, our
+model could be extended to ecological communities or meta-communities after
+accounting for species interactions. Third, without any modifications,
+our model could consider the Moran or environmental-filter concept
+[@schindler2008; @rogers2008] whereby populations experience increasingly
+different environmental forces at further distances. Fourth, a model could
+consider the contribution of contemporary evolution [@stockwell2003]. These
+rapid adaptations to changes in the environment could strongly influence
+portfolio performance and emphasize the importance of maintaining genetic
+diversity and a variety of local habitat. Finally, our model could be
+conditioned on a system of interest --- say a particular river basin in
+our example --- and the metapopulation portfolio could be optimized across
+conservation and restoration options as part of a formal decision analysis.
 
 Our results suggest three broad research priorities. First, our work
 highlights the importance of research that identifies response diversity [e.g.
@@ -675,7 +695,7 @@ research paradigm.
 <!--A richer understanding of the mechanisms underpinning stability and
     resilience in the face of environmental change will requiring integrating
     response diversity with other stabilizing mechanisms in more
-    fully-featured ecosystems [@demazancourt2013; @loreau2013]. --> 
+    fully-featured ecosystems [@demazancourt2013; @loreau2013]. -->
 
 <!--In conclusion, our results demonstrate the utility of considering
     metapopulations in a portfolio context and the power of portfolio
@@ -696,7 +716,7 @@ Funding was provided by Simon Fraser University, NSERC (ABC, NKD, SCA),
 the Canada Research Chairs Program (NKD), the Liber Ero Chair of Coastal
 Science and Management (JWM), Fulbright Canada (SCA), and a Garfield Weston
 Foundation/B.C. Packers Ltd. Graduate Fellowship in Marine Sciences (SCA).
-**TODO MMM - any funding to acknowledge?**
+**TODO MMM: funding to acknowledge?**
 
 \bibliographystyle{ecologyletters2}
 \bibliography{jshort,ms}
