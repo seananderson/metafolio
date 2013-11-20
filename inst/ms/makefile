@@ -1,17 +1,28 @@
 all:	ms
 
 ms:
-	#extract_bib ms.md > ms.bib
-	#cp ~/Dropbox/tex/jshort.bib .
+	extract_bib ms.md > ms.bib
+	cp ~/Dropbox/tex/jshort.bib .
 	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
-	#pandoc -S --bibliography=jshort.bib --bibliography=som.bib --natbib som.md --latex-engine=xelatex -o som.tex
 	pandoc -S som.md --latex-engine=xelatex -o som.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
-	#latexmk salmonfolios
 	xelatex salmonfolios
-	rm ms.tex
 	rm som.tex
+
+bib:
+	extract_bib ms.md > ms.bib
+	cp ~/Dropbox/tex/jshort.bib .
+	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
+	pandoc -S som.md --latex-engine=xelatex -o som.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
+	xelatex salmonfolios
+	rm som.tex
+	xelatex salmonfolios
+	bibtex salmonfolios
+	xelatex salmonfolios
+	xelatex salmonfolios
 
 rtf:
 	latex2rtf -d 0 -b ms.bbl -E0 -M6 salmonfolios.tex
