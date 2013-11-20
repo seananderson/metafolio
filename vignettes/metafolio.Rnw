@@ -10,8 +10,10 @@
 \usepackage{amsfonts}
 \usepackage{graphicx}
 
-\setlength{\parskip}{12pt}
+\setlength{\parskip}{10pt}
 \setlength{\parindent}{0cm}
+
+\textheight 21cm
 
 \begin{document}
 
@@ -27,18 +29,34 @@ refresh=TRUE, cache=TRUE, autodep=TRUE)
 @
 
 \title{An introduction to the \texttt{metafolio} \texttt{R} package}
-\author{Sean C. Anderson, and co-authors}
+\author{
+Sean C. Anderson\textsuperscript{1*},
+Jonathan W. Moore\textsuperscript{1},
+Michelle M. McClure\textsuperscript{2},\\
+Nicholas K. Dulvy\textsuperscript{1}
+Andrew B. Cooper\textsuperscript{3}
+}
+
 \date{}
 \maketitle
 
+\textsuperscript{1}Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A 1S6, Canada
+
+\textsuperscript{2}Northwest Fisheries Science Center, National Marine Fisheries Service, Seattle, WA 98110, USA
+
+\textsuperscript{3}School of Resource and Environmental Management, Simon Fraser University, Burnaby, BC, V5A 1S6, Canada
+
+\bigskip
+
 The \texttt{metafolio} \texttt{R} package is a tool to simulate
 metapopulations and apply financial portfolio optimization concepts to those
-metapopulations. The package is primarily geared towards salmon, but could
-be adapted for other taxonomic groups. This vignette accompanies the paper
-\textit{Portfolio conservation of metapopulations under climate change}. In
-this vignette we will describe the main functions in the \texttt{metafolio}
-package, show how to re-create the main analyses in our paper, and demonstrate
-some of the included plotting functions for exploring the output.
+metapopulations. The package is primarily intended for salmonid simulations,
+but could be adapted for other taxonomic groups. This vignette accompanies
+the paper \textit{Portfolio conservation of metapopulations under climate
+change}. In this vignette we will describe the main functions in the
+\texttt{metafolio} package, show how to re-create the main analyses in our
+paper, and demonstrate some of the included plotting functions for exploring
+the output.
 
 \section{Installing the package}
 
@@ -56,31 +74,39 @@ library(metafolio)
 @
 
 You can get more detailed installation instructions, read the source code, and
-report bugs on GitHub: \url{https://github.com/seananderson/metafolio}
+report bugs on GitHub: \url{https://github.com/seananderson/metafolio}  (This website is a
+private repository while the paper is in review.)
+
+You can find a copy of this vignette and access the help files with:
+
+<<help, eval=FALSE>>=
+vignette("metafolio", package = "metafolio")
+help(package = "metafolio")
+@
 
 \section{An example simulation}
 
-The main simulation function in \texttt{metafolio} is
-\texttt{meta\_sim}. We'll start by running a simulation using the base-case
-parameter values from the paper. First, we'll set up a list object that
-contains the argument values for the stationary environmental stochasticity
-scenario. 
+The main simulation function in \texttt{metafolio} is \texttt{meta\_sim}.
+We'll start by running a simulation using the base-case parameter values from
+the paper. First, we'll set up an \texttt{R} list object that contains the
+argument values for the stationary environmental stochasticity scenario. 
 
 <<setup-arma>>=
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2,
   ma = 0)
 @
 
-The arguments \texttt{mean\_value}, \texttt{ar}, and \texttt{ma} refer to
-the mean, autoregressive (AR), and moving-average (MA) components of an
-ARIMA model. See \texttt{?arima} for further explanation of ARIMA models in
-R. The argument \texttt{sigma\_env} refers to the standard deviation of the
-environmental signal.
+The arguments \texttt{mean\_value}, \texttt{ar}, and \texttt{ma} refer to the
+mean, autoregressive (AR), and moving-average (MA) components of an ARIMA
+model. See \texttt{?arima} for further explanation of ARIMA models in
+\texttt{R}. The argument \texttt{sigma\_env} refers to the standard deviation
+of the environmental signal.
 
 Next we'll run the simulation for one iteration. We'll simulate ten
 populations and re-assess the fishery every five years.  Re-assessing the
 fishery means that the simulation fits a Ricker curve to the observed
-spawner-return data and updates the harvest-level targets.
+spawner-return data and updates the harvest-level targets. See the
+accompanying paper for details.
 
 <<base-case-run, cache=TRUE>>=
 base1 <- meta_sim(n_pop = 10, env_params = arma_env_params,
@@ -105,13 +131,13 @@ stream of salmon. In the case of salmon, we represent these with the Ricker
 $b_i$ parameters, which indicate the maximum population capacity of streams
 $i$ 1 through $n$.
 
-In this example, we'll create a scenario in which we conserve response
-diversity from across the spectrum of possible responses and a scenario
+In this example, we'll create one scenario in which we conserve response
+diversity from across the spectrum of possible responses and another scenario
 in which we conserve one half of the response diversity. We've set up the
-weights carefully so that each metapopulation contains the same number of
-populations (10) and the same total capacity. We set the Ricker $b_i$ parameters
-equal to the nominal level of five salmon for the streams that we choose not to
-prioritize.
+weights carefully so that each metapopulation contains the same number
+of populations (10) and the same total capacity. We set the Ricker $b_i$
+parameters equal to the nominal level of five salmon for the streams that we
+choose not to prioritize.
 
 <<spatial-plans>>=
 w_plans <- list()
@@ -127,13 +153,13 @@ for(i in 1:2) { # loop over plans
 }
 @
 
-We've now created a nested list of stream capacities (\texttt{w}). The
-first level of the list contains the two different plans. The second level
-of the list contains the $b$ values for each iteration. Each iteration
+We've now created a nested list of stream capacities (\texttt{w}). The first
+level of the list contains the two different scenarios The second level
+of the list contains the $b_i$ values for each iteration. Each iteration
 will have re-sampled process noise and observation error when run with
-\texttt{meta\_sim}. Here, we're keeping the $b$ values the same between
+\texttt{meta\_sim}. Here, we're keeping the $b_i$ values the same between
 iterations, but that might not be the case if we wanted to stochastically
-simulate the $b$ values. We're only going to run 80 iterations to reduce the
+simulate the $b_i$ values. We're only going to run 80 iterations to reduce the
 runtime of the example, but in reality you would likely want to run many more
 iterations.
 
@@ -141,7 +167,7 @@ We can now stochastically simulate with these strategies using the function\\
 \texttt{run\_cons\_plans} and plot the output with \texttt{plot\_cons\_plans}
 (Figure~\ref{fig:spatial-runs}).
 
-<<spatial-runs, fig.width=5, fig.height=5, out.width="4in", cache=TRUE, fig.cap="Two spatial conservation strategies shown in risk-return space with stationary environmental stochasticity. The dots show simulated metapopulations and the contours show 25\\% and 75\\% quantiles across 80 simulations per strategy. The grey line indicates the efficient frontier across all simulated metapopulations. The efficient frontier represents the minimum expected mean growth rate for a given expected variance in growth rate.">>=
+<<spatial-runs, fig.width=5, fig.height=5, out.width="4in", cache=TRUE, fig.cap="Two spatial conservation strategies shown in risk-return space with stationary environmental stochasticity. The dots show simulated metapopulations and the contours show 25\\% and 75\\% quantiles across 80 simulations per scenario. The grey line indicates the efficient frontier across all simulated metapopulations. The efficient frontier represents the minimum expected mean growth rate for a given expected variance in growth rate.">>=
 set.seed(1)
 arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
   arma_env_params)
@@ -162,7 +188,7 @@ format. See \texttt{?generate\_env\_ts} for examples of all of these.
 We can see demonstrations of all environmental time series types with the
 default argument values with the following code (Figure~\ref{fig:env-eg}).
 
-<<env-eg, fig.width=5, fig.height=6, out.width="4in", fig.cap="Example environmental time series.">>=
+<<env-eg, fig.width=5, fig.height=6, out.width="3in", fig.cap="Example environmental time series.", fig.pos="hpb">>=
 types <- c("sine", "arma", "regime", "linear", "constant")
 x <- list()
 for(i in 1:5) x[[i]] <- generate_env_ts(n_t = 100, type = types[i])
@@ -172,12 +198,12 @@ for(i in 1:5) plot(x[[i]], type = "o", main = types[i])
 
 \clearpage
 
-\section{Included plot types}
+\section{Additional plotting functions}
 
 We can visualize the variability in the Ricker $a$ parameters using the
 function \texttt{plot\_rickers} (Figure~\ref{fig:plot-rickers}).
 
-<<plot-rickers, fig.width=7, fig.height=4.5, out.width="5in", fig.cap="Ricker curves from a sample of 40 years in the example simulation. Each panel represents a different stream population. Population 1 is more productive in cool conditions and population 10 is more producitive in warm conditions. The colour of the Ricker curves represents the relative temperatue in that year (warm: red; cool: blue). The grey shaded area represents the variation in spawners observed within the simulation.">>=
+<<plot-rickers, fig.width=7, fig.height=4.5, out.width="5in", fig.pos="hpb", fig.cap="Ricker curves from a sample of 40 years in the example simulation. Each panel represents a different stream population. Population 1 is more productive in cool conditions and population 10 is more producitive in warm conditions. The colour of the Ricker curves represents the relative temperatue in that year (warm: red; cool: blue). The grey shaded area represents the variation in spawners observed within the simulation.">>=
 plot_rickers(base1, pal = rep("black", 10))
 @
 
@@ -192,14 +218,15 @@ plot_correlation_between_returns(base1)
 
 \section{Optimizing metapopulation portfolios}
 
-A standard procedure in financial portfolio management is to determine optimal
-weights of the assets in a portfolio. The optimal portfolio weights are
-referred to as the efficient frontier. This efficient frontier describes a
-set of portfolios which have minimal risk for a specified level of return or
-maximum return for a specified level of risk. While it would be complicated
-to determine the optimal metapopulation portfolios via algebra we can do
-so by letting \texttt{metafolio} sample from possible investment weights
-(Figure~\ref{fig:monte-carlo-plot}) --- a form of Monte Carlo sampling.
+A standard procedure in financial portfolio management is to determine
+optimal investment weights of the assets in a portfolio. The portfolios made
+up of these optimal investment weights are referred to as the efficient
+frontier. This efficient frontier describes a set of portfolios which
+have minimal risk for a specified level of return or maximum return for a
+specified level of risk. While it would be complicated to determine the
+optimal metapopulation portfolios via algebra we can do so by letting
+\texttt{metafolio} sample from possible investment weights --- a form of Monte
+Carlo sampling (Figure~\ref{fig:monte-carlo-plot}).
 
 <<monte-carlo-eg, eval=FALSE>>=
 set.seed(999)
