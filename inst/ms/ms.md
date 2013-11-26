@@ -88,14 +88,14 @@ cite @walther2002 Nature review)-->
 
 <!--TODO: work with this from Crimson Tide paper?-->
 <!--While scientific and policy attention has focused on conserving species
-diversity, it is becoming increasingly appar- ent that distinct populations
-are under substantially more threat from human activities than are species
-[15]. For example, salmon watersheds of the Pacific Northwest have lost
-approxi- mately 29 per cent of the population diversity of Pacific salmon
-[16], whereas no single species is at imminent risk of extinction. We suggest
-that future work should focus on understanding how biological diversity within
-individual taxa affects species’ interactions, and ecosystem processes and
-services, to better inform conservation and management policy.-->
+diversity, it is becoming increasingly appar- ent that distinct populations are
+under substantially more threat from human activities than are species [15]. For
+example, salmon watersheds of the Pacific Northwest have lost approxi- mately 29
+per cent of the population diversity of Pacific salmon [16], whereas no single
+species is at imminent risk of extinction. We suggest that future work should
+focus on understanding how biological diversity within individual taxa affects
+species’ interactions, and ecosystem processes and services, to better inform
+conservation and management policy.-->
 
 # Introduction
 
@@ -674,54 +674,36 @@ Diverse natural portfolios may be critical for the
 conservation of populations in the face of increasing climate variability and
 change.
 
-
 <!--Our analysis details a pathway by which diversity of response to environmental-->
 <!--conditions can underpin the stability of ecological systems.-->
-<!--This pathway suggests greater consideration of response diversity in discussions of ecological stability, in addition to focusing on species and functional diversity [@mori2013].-->
+<!--This pathway suggests greater consideration of response diversity in
+    discussions of ecological stability, in addition to focusing on species and
+    functional diversity [@mori2013].-->
 
-<!--Furthermore, while such discussions have historically focused on communities, metapopulations make ideal study systems for isolating the influence of response diversity on ecological stability from that of species interactions and functional diversity [@akcakaya2007; @anderson2013].-->
+<!--Furthermore, while such discussions have historically focused on
+    communities, metapopulations make ideal study systems for isolating the
+    influence of response diversity on ecological stability from that of species
+    interactions and functional diversity [@akcakaya2007; @anderson2013].-->
 
-<!--By simultaneously evaluating mean and variance dimensions, the portfolio approach used here may help unite the long-standing discussions about mechanisms that influence functioning [e.g. @loreau2001] and instability [e.g. @ives2007] of ecological systems.-->
+<!--By simultaneously evaluating mean and variance dimensions, the portfolio
+    approach used here may help unite the long-standing discussions about
+    mechanisms that influence functioning [e.g. @loreau2001] and instability
+    [e.g. @ives2007] of ecological systems.-->
 
-<!--Thus, the ecological portfolio concept holds considerable promise both as an applied management tool and a theoretical research paradigm.-->
+<!--Thus, the ecological portfolio concept holds considerable promise both as an
+    applied management tool and a theoretical research paradigm.-->
 
-
-
-<!--Michelle suggestions: I think I would focus this last paragraph more on the management implications.  You could take the phrase that I’ve highlighted above, and use that to draw some common sense conclusions about varying habitats, artificial selection that reduces diversity (e.g. in the salmon world, partially passable barriers can reduce the range of viable run timings; harvest reduces fish size, and so forth…), possibly even mention translocation as an option (this one isn’t my favorite, but it’s one we have to accept or reject looking at all the risks and benefits.)  So, maybe reduce this paragraph, and add a final third one on that topic   -->
-
-<!--Jon suggestions: Yeah, I am not crazy about this paragraph. Doesn’t say that much. I wonder if you could replace most of this paragraph with the spatial design paragraph. -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--The approach also naturally encourages a consideration of return and risk
-    simultaneously in theoretical discussions of stability-diversity
-    relationships and in applied conservation decisions.-->
-<!--Given current and pending dramatic changes to climate (REF) and the
-    uncertainty involved in predicting the impacts on habitat availability,
-    local temperature, and local precipitation (REF), the ecological
-    portfolios hold considerable promise both as  theoretical research
-    approaches and applied management tools to integrate across uncertainty
-    (REF).-->
-
-<!--ecology explores the role of response diversity, metapopulations make an
-    ideal first study system since they can mostly isolate response diversity
-    (or spatially diverse environmental conditions) from the complexity of
-    species-->
-<!--A richer understanding of the mechanisms underpinning stability and
-    resilience in the face of environmental change will requiring integrating
-    response diversity with other stabilizing mechanisms in more
-    fully-featured ecosystems [@demazancourt2013; @loreau2013]. -->
+<!--Michelle suggestions: I think I would focus this last paragraph more on the
+    management implications.  You could take the phrase that I’ve highlighted
+    above, and use that to draw some common sense conclusions about varying
+    habitats, artificial selection that reduces diversity (e.g. in the salmon
+    world, partially passable barriers can reduce the range of viable run
+    timings; harvest reduces fish size, and so forth…), possibly even mention
+    translocation as an option (this one isn’t my favorite, but it’s one we have
+    to accept or reject looking at all the risks and benefits.)  So, maybe
+    reduce this paragraph, and add a final third one on that topic   -->
+<!--Sean: This approach sounds good if we go with an applied/conservation
+    journal-->
 
 <!--In conclusion, our results demonstrate the utility of considering
     metapopulations in a portfolio context and the power of portfolio
