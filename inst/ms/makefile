@@ -7,6 +7,7 @@ ms:
 	pandoc -S som.md --latex-engine=xelatex -o som.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
+	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
 	xelatex salmonfolios
 	rm som.tex
 
