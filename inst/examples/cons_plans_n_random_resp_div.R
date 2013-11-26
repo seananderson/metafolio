@@ -199,9 +199,38 @@ par(las =1)
 
 dev.off()
 
-## report summary statistics:
+# report summary statistics:
+
+# short term summaries:
+
+message("mean variance in growth rate for short term")
 mean.v <- plyr::ldply(x_arma_n$plans_mv, function(x) mean(x$v))
 round(mean.v$V1[2]/mean.v$V1[4], 1)
 
-mean.v <- plyr::ldply(x_linear_n$plans_mv, function(x) mean(x$v))
-round(mean.v$V1[2]/mean.v$V1[4], 1)
+message("width of 80% quantile of variance for short term")
+quant.80.v <- plyr::laply(x_arma_n$plans_mv, function(x) {
+  q.10 <- as.numeric(quantile(x$v, probs = 0.10))
+  q.90 <- as.numeric(quantile(x$v, probs = 0.90))
+  q.90 - q.10
+    }
+  )
+round(quant.80.v[2]/quant.80.v[4], 1)
+
+# long term summaries:
+
+message("width of 80% quantile of mean for long term")
+quant.80.m <- plyr::laply(x_linear_n$plans_mv, function(x) {
+  q.10 <- as.numeric(quantile(x$m, probs = 0.10))
+  q.90 <- as.numeric(quantile(x$m, probs = 0.90))
+  q.90 - q.10
+    }
+  )
+round(quant.80.m[2]/quant.80.m[4], 1)
+
+message("mean variance in growth rate for long term")
+mean.m <- plyr::ldply(x_linear_n$plans_mv, function(x) mean(x$v))
+message("16 vs. 4")
+round(mean.m$V1[2]/mean.m$V1[4], 1)
+message("16 vs. 2")
+round(mean.m$V1[1]/mean.m$V1[4], 1)
+
