@@ -1,6 +1,6 @@
 ## R package to simulate metapopulations for portfolio optimization
 
-Reusable functions are part of the package in the `R` folder. Current work in development, figures, and writing are in the `inst` folder. 
+Reusable functions are part of the package in the `R` folder. Current work in development, figures, and writing are in the `inst` folder.
 
 See `inst/examples/README.R` for the analysis from the paper.
 
@@ -15,7 +15,7 @@ The package can be installed and loaded in R by running:
 ```S
 # install.packages("devtools") # if not already installed
 library(devtools)
-install_github("metafolio", "seananderson", auth_user = "YOUR-USER-NAME", 
+install_github("metafolio", "seananderson", auth_user = "YOUR-USER-NAME",
   password = "YOUR-PASSWORD", dependencies = TRUE)
 library(metafolio)
 ```
@@ -23,6 +23,7 @@ library(metafolio)
 For help see:
 
 ```S
-help(package = "metafolio")
+?metafolio
 vignette("metafolio")
+help(package = "metafolio")
 ```
