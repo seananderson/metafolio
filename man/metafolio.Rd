@@ -2,7 +2,7 @@
 \name{metafolio}
 \alias{metafolio}
 \alias{metafolio-package}
-\title{metafolio: An \R package to simulate salmon metapopulation for
+\title{metafolio: An R package to simulate salmon metapopulation for
 portfolio optimization}
 \description{
   The \pkg{metafolio} \R package is a tool to simulate
