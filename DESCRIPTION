@@ -48,3 +48,4 @@ Collate:
     'thermal_integration.R'
     'plot_sp_A_ts.R'
     'thermal_curve_a.R'
+    'metafolio.R'
