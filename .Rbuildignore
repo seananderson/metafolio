@@ -8,7 +8,7 @@ inst/examples/x_arma_sp.rda$
 inst/examples/x_linear_sp.rda$
 \.DS_Store$
 ^\.git$
-inst/ms/
+inst/ms
 Session.vim
 env_ts.rda
 sim_dat.rda
