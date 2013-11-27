@@ -1,4 +1,7 @@
 #' Get quantile contour
+#'
+#' @param x Output from \code{MASS::kde2d()}.
+#' @param alpha The quantile level.
 get_quantile_contour <- function(x, alpha = 0.8) {
   zdens <- rev(sort(x$z))
   Czdens <- cumsum(zdens)
@@ -9,7 +12,16 @@ get_quantile_contour <- function(x, alpha = 0.8) {
 }
 
 #' Add a kernel density polygon
-add_dens_polygon <- function(x, y, col, lwd = 1.7, alpha = 0.75, add_pts = FALSE) {
+#'
+#' @param x x values
+#' @param y y values
+#' @param col Colour to add polygon with. Will be made into two levels of
+#'   opacity.
+#' @param col lwd Line width
+#' @param alpha A numeric vector of length 2 that gives the confidence levels
+#'   for the two kernel density polygons.
+#' @param add_pts Logical: should points be added?
+add_dens_polygon <- function(x, y, col, lwd = 1.7, alpha = c(0.25, 0.75), add_pts = FALSE) {
   k <- get_quantile_contour(MASS::kde2d(x,y), alpha = 0.75)
   polygon(k$x, k$y, border = col, col = paste(col, "30", sep = ""), lwd = lwd)
   k <- get_quantile_contour(MASS::kde3d(x,y), alpha = 0.25)
@@ -18,6 +30,9 @@ add_dens_polygon <- function(x, y, col, lwd = 1.7, alpha = 0.75, add_pts = FALSE
 }
 
 #' Get the efficient frontier from mean and variance values
+#'
+#' @param m A vector of mean values
+#' @param v A vector of variance values
 get_efficient_frontier <- function(m, v) {
   d <- data.frame(m = m, v = v)
   ef_front <- d[chull(d$v, d$m), ]
@@ -37,13 +52,37 @@ get_efficient_frontier <- function(m, v) {
 }
 
 #' Plot conservation plans in mean-variance space
+#'
+#' This makes a mean-variance plot of the portfolio output. It can take care of:
+#' plotting the individual portfolios, adding 2D kernel density polygons at two
+#' quantile levels, adding an efficient frontier.
+#'
+#' @param plans_mv The \code{plans_mv} element of the output from
+#'   \code{\link{run_cons_plans}}.
+#' @param plans_name A character vector of what to label each conservation
+#'   plan.
+#' @param cols Colours for the conservation plan polygons.
+#' @param xlim X limits
+#' @param ylim Y limits
+#' @param add_pts Logical: add the points?
+#' @param add_all_efs Logical: add efficient frontiers?
+#' @param x_axis Logical: add x axis?
+#' @param y_axis Logical: add y axis?
+#' @param add_legend Logical: add y legend?
+#' @param w_show If \code{"all"} then all plans will be shown. If a numeric
+#'   vector, then those plans will be shown. E.g. \code{c(1, 3)} will only show
+#'   the first and third plans.
+#' @param xlab X axis label.
+#' @param ylab Y axis label.
+#' @return A plot. Also, the x and y limits are returned invisibly as a list.
+#'   This makes it easy to make the first plot and then save those x and y
+#'   limits to fix them in subsequent (multipanel) plots.
 #' @export
 plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
   ylim = NULL, add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE,
   y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance", ylab = "Mean") {
 
   if(w_show[1] == "all") w_show <- seq_along(plans_name)
-
 
   if(is.null(xlim)) {
     lims <- plyr::ldply(plans_mv, function(x) data.frame(x.max =
@@ -81,4 +120,3 @@ plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
     }
     invisible(list(xlim = xlim, ylim = ylim))
 }
-
