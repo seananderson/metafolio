@@ -1,5 +1,8 @@
+#' TODO document plot_sp_A_ts
 #' @export
-plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE, lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL, burn = 30, ...) {
+plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE,
+  lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL, burn = 30,
+  ...) {
   #A_range <- ldply(X, function(x) range(rowSums(x$A[-burn, ])))
   burn <- 1:burn
   for(i in 1:4){

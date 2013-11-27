@@ -74,6 +74,7 @@ get_efficient_frontier <- function(m, v) {
 #'   the first and third plans.
 #' @param xlab X axis label.
 #' @param ylab Y axis label.
+#' @param ... Anything else to pass to \code{plot.default}.
 #' @return A plot. Also, the x and y limits are returned invisibly as a list.
 #'   This makes it easy to make the first plot and then save those x and y
 #'   limits to fix them in subsequent (multipanel) plots.
@@ -92,7 +93,8 @@ plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
     ylim = c(min(lims$y.min, na.rm = TRUE), max(lims$y.max, na.rm = TRUE))
   }
 
-  plot(1, 1, xlim = xlim, ylim = ylim, type = "n", xlab = xlab, ylab = ylab, axes = FALSE)
+  plot.default(1, 1, xlim = xlim, ylim = ylim, type = "n", xlab = xlab, ylab = ylab,
+    axes = FALSE, ...)
     box(col = "grey50")
     if(x_axis) axis(1, col=  "grey50", at = pretty(axTicks(1), n = 4))
     if(y_axis) axis(2, col=  "grey50", at = pretty(axTicks(2), n = 4))

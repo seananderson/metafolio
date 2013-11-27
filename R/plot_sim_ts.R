@@ -38,20 +38,18 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 
 #' Plot various time series from a simulation run
 #'
-#' This function is rather crude at the moment. It lets you quickly
-#' visualize the time series of output from a simulation run, but it
-#' isn't very flexible yet.
+#' This function is rather crude at the moment. It lets you quickly visualize
+#' the time series of output from a simulation run, but it isn't very flexible
+#' yet.
 #'
 #' @param x A list output object from a simulation run of
-#' \code{link{meta_sim}}.
-#' @param years_to_show How many years to plot after the burn in
-#' period.
-#' @param burn The number of years to discard as burn in at the
-#' beginning of the time series.
-#' @param adj \code{adj} parameter to pass to \code{mtext} for panel
-#' labels
-#' @param shade_years Shade some years? Give a vector. Can be used to
-#' show burn in period.
+#'   \code{link{meta_sim}}.
+#' @param years_to_show How many years to plot after the burn in period.
+#' @param burn The number of years to discard as burn in at the beginning of
+#'   the time series.
+#' @param adj \code{adj} parameter to pass to \code{mtext} for panel labels
+#' @param shade_years Shade some years? Give a vector. Can be used to show burn
+#'   in period.
 #' @export
 #' @examples
 #' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
@@ -68,7 +66,6 @@ plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
   } else {
     ylabs <- c(rep("Value", 2), rep("#", 5), rep("Value", 3))
   }
-
 
   # years to show in time series example plots
   to_show <- (max(burn)):(max(burn)+years_to_show)

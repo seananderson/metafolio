@@ -1,7 +1,7 @@
 #' Monte Carlo asset weights into portfolios
 #'
-#' Monte Carlo the asset weights into portfolios and record the
-#' simulation output and portfolio metrics (mean and variance).
+#' Monte Carlo the asset weights into portfolios and record the simulation
+#' output and portfolio metrics (mean and variance).
 #'
 #' @param weights_matrix A matrix of asset weights. The columns correspond to
 #'   the different assets and the rows correspond to the simulation iterations.

@@ -34,8 +34,6 @@ est_beta_params <- function(mu, var) {
 #' y <- sapply(1:200, function(x) impl_error(0.3, 0.1))
 #' hist(y)
 
-
-
 impl_error <- function(mu, sigma_impl) {
   if(max(mu) > 1 | min(mu) < 0) stop("mu must be between 0 and 1")
   var <- sigma_impl ^ 2

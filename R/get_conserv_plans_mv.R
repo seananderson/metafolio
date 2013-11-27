@@ -1,12 +1,8 @@
 #' Run simulation for conservation schemes
 #'
-#' Run the metapopulation simulation for various conservation
-#' prioritization schemes.
+#' Run the metapopulation simulation for various conservation prioritization
+#' schemes.
 #'
-#' @return Returns the portfolio mean and variance values and the simulation
-#'   runs.
-#'
-
 #' @param weights A matrix of habitat weights. Each row corresponds to another
 #'   scenario. Each column is a different habitat location.
 #' @param reps Number of portfolios to simulate.
@@ -14,6 +10,8 @@
 #'   re-assessment. Passed to \code{\link{meta_sim}}.
 #' @param burn Cycles to throw out as burn in.
 #' @param ... Other values to pass to \code{\link{meta_sim}}.
+#' @return Returns the portfolio mean and variance values and the simulation
+#'   runs.
 
 get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 5,
   burn = 1:30, ...) {

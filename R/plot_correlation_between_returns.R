@@ -1,7 +1,7 @@
 #' Plot correlation of returns (i.e. metapopulation abundance) across stocks.
 #'
-#' Create a matrix plot showing the correlation between the log
-#' returns of each stock/asset.
+#' Create a matrix plot showing the correlation between the log returns of each
+#' stock/asset.
 #'
 #' @param x A list output object from \code{\link{meta_sim}}.
 #' @param burn Number of years to discard at start as burn in.
@@ -14,7 +14,7 @@
 #' @export
 
 plot_correlation_between_returns <- function(x, burn = 1:30, pal =
-  rev(gg_color_hue(x$n_pop)), xlab = "log of return abundance by population", 
+  rev(gg_color_hue(x$n_pop)), xlab = "log of return abundance by population",
   ylab = "log of return abundance by population") {
 
 par(mfrow = c(10, 10), cex = 0.5, mar = c(0,0,0,0), oma = c(4, 4, 0, 0))
