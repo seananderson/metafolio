@@ -72,7 +72,7 @@ portfolio optimization}
   plot the optimization output.
 
   See the package vignette \code{vignette("metafolio")} for
-  more extensive explanation of how to use
-  \code{\pkg{metafolio}} along with some examples.
+  more extensive explanation of how to use \pkg{metafolio}
+  along with some examples.
 }
 

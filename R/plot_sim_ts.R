@@ -42,7 +42,7 @@ my.axis <- function(side, shade_years = NULL, ylab = "", yticks = NA) {
 #' @param ymin Minimum y value for axis
 #' @param ystretch A fraction to multiply the max value of when setting the y
 #' axis limits. This is useful to make space for a panel label within the plot.
-#' @param ... Anything else to pass to \code{\link[matplot]{matplot}}.
+#' @param ... Anything else to pass to \code{\link[graphics]{matplot}}.
 plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) {
   if(ymin[1] == "zero")
     ylim <- c(0, max(dat) * ystretch)

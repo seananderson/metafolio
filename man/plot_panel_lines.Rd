@@ -15,7 +15,7 @@
   space for a panel label within the plot.}
 
   \item{...}{Anything else to pass to
-  \code{\link[matplot]{matplot}}.}
+  \code{\link[graphics]{matplot}}.}
 }
 \description{
   Standard matrix plot of values by stream for one panel:
