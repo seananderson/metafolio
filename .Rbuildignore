@@ -14,3 +14,5 @@ Session.vim
 env_ts.rda
 sim_dat.rda
 tags
+*.aux$
+*.log$
