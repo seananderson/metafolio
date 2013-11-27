@@ -10,7 +10,7 @@ See the vignette in `inst/doc/metafolio.pdf` or by installing the package and ru
 
 This is ongoing work for a PhD thesis chapter (by Sean Anderson). Until this work is published, please contact Sean (sean "at" seananderson.ca) before using the code in any of your own work that will be published.
 
-The package can be installed and loaded in R by running:
+The package can be installed and loaded in `R` by running:
 
 ```S
 # install.packages("devtools") # if not already installed
