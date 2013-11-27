@@ -46,11 +46,11 @@
   (sub)population.}
 
   \item{max_a}{Maximum Ricker productivity parameters (a)
-  by (sub)population. The value obtained at the optimum
+  by (sub)population.  The value obtained at the optimum
   temperature.}
 
   \item{env_type}{The type of environmental time series to
-  generate.  One of "sine", "arma", "regime", "linear", or
+  generate. One of "sine", "arma", "regime", "linear", or
   "constant".}
 
   \item{env_params}{Parameters to pass on to

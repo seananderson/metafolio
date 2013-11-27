@@ -1,7 +1,6 @@
 \name{run_cons_plans}
 \alias{run_cons_plans}
-\title{Run conservation plans and return the portfolio mean and variance
-values}
+\title{Run conservation plans and return the portfolio mean and variance values}
 \usage{
   run_cons_plans(w, env_type, env_params,
     show_progress = TRUE, burn = 1:30, assess_freq = 5,
@@ -10,7 +9,7 @@ values}
 \arguments{
   \item{w}{A (nested) list of weights. The first list level
   contains the different plans. The next level contains
-  repetitions for a given plan. E.g. \code{cp[[2]][[1]]}
+  repetitions for a given plan.  E.g. \code{cp[[2]][[1]]}
   contains the first iteration of the second conservation
   plan. Each end element should be a matrix of weights with
   one row and the number of columns equal to the number of
@@ -36,9 +35,9 @@ values}
 \value{
   A list with two high-level elements: the mean variance
   output (\code{plans_mv}) and the raw simulation output
-  (\code{plans_port}). Within \code{plans_mv}, each element
-  of the list contains a conservation plan. Each row of the
-  data frames represents a trial run. Within
+  (\code{plans_port}).  Within \code{plans_mv}, each
+  element of the list contains a conservation plan. Each
+  row of the data frames represents a trial run. Within
   \code{plans_port}, each first level of the list contains
   a weight element and each second level of the list
   contains a replicate.

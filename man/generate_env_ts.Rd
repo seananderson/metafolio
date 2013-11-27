@@ -25,10 +25,11 @@
   time series.}
 
   \item{linear_params}{Parameters controlling warming or
-  cooling time series. Minimum environmental value, maximum
-  environmental value, environmental standard deviation,
-  and the year to start the linear trend (useful if you're
-  going to throw out the early years as burn in).}
+  cooling time series.  Minimum environmental value,
+  maximum environmental value, environmental standard
+  deviation, and the year to start the linear trend (useful
+  if you're going to throw out the early years as burn
+  in).}
 
   \item{constant_params}{Parameter controlling constant
   time series.}

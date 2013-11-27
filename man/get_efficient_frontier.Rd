@@ -4,6 +4,11 @@
 \usage{
   get_efficient_frontier(m, v)
 }
+\arguments{
+  \item{m}{A vector of mean values}
+
+  \item{v}{A vector of variance values}
+}
 \description{
   Get the efficient frontier from mean and variance values
 }

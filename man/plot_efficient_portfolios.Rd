@@ -12,7 +12,7 @@
 }
 \arguments{
   \item{port_vals}{A matrix of means and variances (down
-  the two columns). This likely comes from the output of
+  the two columns).  This likely comes from the output of
   \code{\link{monte_carlo_portfolios}}.}
 
   \item{weights_matrix}{The same weight matrix that was

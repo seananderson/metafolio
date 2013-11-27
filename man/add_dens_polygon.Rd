@@ -2,8 +2,23 @@
 \alias{add_dens_polygon}
 \title{Add a kernel density polygon}
 \usage{
-  add_dens_polygon(x, y, col, lwd = 1.7, alpha = 0.75,
-    add_pts = FALSE)
+  add_dens_polygon(x, y, col, lwd = 1.7,
+    alpha = c(0.25, 0.75), add_pts = FALSE)
+}
+\arguments{
+  \item{x}{x values}
+
+  \item{y}{y values}
+
+  \item{col}{Colour to add polygon with. Will be made into
+  two levels of opacity.}
+
+  \item{col}{lwd Line width}
+
+  \item{alpha}{A numeric vector of length 2 that gives the
+  confidence levels for the two kernel density polygons.}
+
+  \item{add_pts}{Logical: should points be added?}
 }
 \description{
   Add a kernel density polygon
