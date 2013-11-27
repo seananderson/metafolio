@@ -74,6 +74,12 @@
   (SR residuals and possibly environmental time series)
   from the previous run?}
 
+  \item{cache_env}{Logical: Should the environmental time
+  series be cached? If \code{use_cache = TRUE} then this
+  will automatically happen. But, you could set
+  \code{cache_env = TRUE} and \code{use_cache = FALSE} to
+  only cache the environmental time series.}
+
   \item{add_straying}{Implement straying between
   (sub)populations?}
 

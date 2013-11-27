@@ -13,7 +13,7 @@
   \item{col}{Colour to add polygon with. Will be made into
   two levels of opacity.}
 
-  \item{col}{lwd Line width}
+  \item{lwd}{lwd Line width}
 
   \item{alpha}{A numeric vector of length 2 that gives the
   confidence levels for the two kernel density polygons.}

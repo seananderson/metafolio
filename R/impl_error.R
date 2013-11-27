@@ -1,4 +1,7 @@
 #' Get beta parameters from mean and variance
+#'
+#' @param mu Mean
+#' @param var Variance
 est_beta_params <- function(mu, var) {
   alpha <- ((1 - mu) / var - 1 / mu) * mu ^ 2
   beta <- alpha * (1 / mu - 1)

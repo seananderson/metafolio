@@ -37,7 +37,8 @@ generate_env_ts <- function(
           list(ar = ar, ma = ma), n = n_t, sd = sigma_env))),
     sine = {
       x <- seq_len(n_t)
-      y <- with(sine_params, amplitude * sin(ang_frequency * x + phase) + mean_value + x * slope + rnorm(n_t, mean = 0, sd = sigma_env))
+      y <- with(sine_params, amplitude * sin(ang_frequency * x + phase) +
+        mean_value + x * slope + rnorm(n_t, mean = 0, sd = sigma_env))
       y
     },
     regime = {
@@ -52,8 +53,10 @@ generate_env_ts <- function(
     },
     linear = {
       trend_years <- n_t - (linear_params$start_t - 1)
-      trend <- with(linear_params, seq(min_value, max_value, length.out = trend_years) + rnorm(trend_years, mean = 0, sd = sigma_env))
-      burnin_and_trend <- with(linear_params, c(rep(min_value, start_t - 1), trend))
+      trend <- with(linear_params, seq(min_value, max_value, length.out =
+          trend_years) + rnorm(trend_years, mean = 0, sd = sigma_env))
+      burnin_and_trend <- with(linear_params, c(rep(min_value, start_t - 1),
+          trend))
       burnin_and_trend
     },
     constant = {

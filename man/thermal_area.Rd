@@ -6,8 +6,25 @@ area under a curve}
   thermal_area(max_a, desired_area, optim_temp,
     width_param, lower = -5, upper = 40)
 }
+\arguments{
+  \item{max_a}{Maximum Ricker a productivity value}
+
+  \item{desired_area}{Desired area under the thermal curve}
+
+  \item{optim_temp}{Optimal temperature}
+
+  \item{width_param}{The width parameter as a numeric
+  value}
+
+  \item{lower}{Lower bound to pass to \code{uniroot}}
+
+  \item{upper}{Upper bound to pass to \code{uniroot}}
+}
 \description{
-  Return desired squared deviation between desired area and
-  actual area under a curve
+  The function finds the lower and upper roots (where the
+  thermal curve crosses 0) with the \code{uniroot} function
+  and then integrates the area under the thermal curve with
+  the \code{integrate} function. This is useful as part of
+  the optimization routine in \code{\link{optim_thermal}}.
 }
 

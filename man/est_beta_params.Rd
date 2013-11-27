@@ -4,6 +4,11 @@
 \usage{
   est_beta_params(mu, var)
 }
+\arguments{
+  \item{mu}{Mean}
+
+  \item{var}{Variance}
+}
 \description{
   Get beta parameters from mean and variance
 }

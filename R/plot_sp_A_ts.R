@@ -1,8 +1,21 @@
 #' TODO document plot_sp_A_ts
+#'
+#' @param X  object to plot
+#' @param ylim    y limits
+#' @param x_axis  TRUE
+#' @param y_axis  TRUE
+#' @param rate  FALSE
+#' @param lwd  1.7
+#' @param y_axis_ticks  NULL
+#' @param start_new_plots  1
+#' @param labels  NULL
+#' @param burn  30
+#' @param cols Colours
+#' @param ... anything else to pass to \code{plot.default()}
 #' @export
 plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE,
   lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL, burn = 30,
-  ...) {
+  cols, ...) {
   #A_range <- ldply(X, function(x) range(rowSums(x$A[-burn, ])))
   burn <- 1:burn
   for(i in 1:4){

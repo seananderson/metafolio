@@ -8,6 +8,7 @@
 #' @param n_sims The number of simulations to run.
 #' @param mean_b The mean Ricker capacity value.
 #' @param burn The number of years to discard as burn in.
+#' @param ... Anything else to pass to \code{\link{meta_sim}}.
 #' @return A list object with three elements: \code{port_vals} (a matrix with a
 #'   column of mean rate of change and variance of rate of change),
 #'   \code{n_sims} (the number of simulations ran), and \code{sims_out} (a list
@@ -16,7 +17,7 @@
 #' @seealso \code{\link{meta_sim}}, \code{\link{create_asset_weights}}
 #' @export
 #' @examples
-#' weights_matrix <- create_asset_weights(n_pop = 5, n_sims = 3,
+#' weights_matrix <- create_asset_weights(n_pop = 4, n_sims = 3,
 #'   weight_lower_limit = 0.001)
 #' mc_ports <- monte_carlo_portfolios(weights_matrix = weights_matrix,
 #'   n_sims = 3, mean_b = 1000)

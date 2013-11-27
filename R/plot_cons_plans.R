@@ -17,7 +17,7 @@ get_quantile_contour <- function(x, alpha = 0.8) {
 #' @param y y values
 #' @param col Colour to add polygon with. Will be made into two levels of
 #'   opacity.
-#' @param col lwd Line width
+#' @param lwd lwd Line width
 #' @param alpha A numeric vector of length 2 that gives the confidence levels
 #'   for the two kernel density polygons.
 #' @param add_pts Logical: should points be added?
@@ -81,7 +81,8 @@ get_efficient_frontier <- function(m, v) {
 #' @export
 plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
   ylim = NULL, add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE,
-  y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance", ylab = "Mean") {
+  y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance", ylab =
+  "Mean", ...) {
 
   if(w_show[1] == "all") w_show <- seq_along(plans_name)
 

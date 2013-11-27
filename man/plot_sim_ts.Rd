@@ -11,6 +11,9 @@
   \item{x}{A list output object from a simulation run of
   \code{link{meta_sim}}.}
 
+  \item{pal}{A colour palette for the lines. One colour per
+  line (population time series).}
+
   \item{years_to_show}{How many years to plot after the
   burn in period.}
 
@@ -20,8 +23,14 @@
   \item{adj}{\code{adj} parameter to pass to \code{mtext}
   for panel labels}
 
-  \item{shade_years}{Shade some years? Give a vector. Can
-  be used to show burn in period.}
+  \item{shade_years}{Shade some years? Give a vector.
+  Shading will be applied from the minimum to maximum
+  value. Can be used to show burn in period.}
+
+  \item{add_units}{Should the units be added to the y
+  axis?}
+
+  \item{yticks}{Position of ticks on the Y axis.}
 }
 \description{
   This function is rather crude at the moment. It lets you

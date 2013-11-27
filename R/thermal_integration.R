@@ -1,5 +1,17 @@
 #' Return desired squared deviation between desired area and actual
 #' area under a curve
+#'
+#' The function finds the lower and upper roots (where the thermal curve crosses
+#' 0) with the \code{uniroot} function and then integrates the area under the
+#' thermal curve with the \code{integrate} function. This is useful as part of
+#' the optimization routine in \code{\link{optim_thermal}}.
+#'
+#' @param max_a Maximum Ricker a productivity value
+#' @param desired_area Desired area under the thermal curve
+#' @param optim_temp Optimal temperature
+#' @param width_param The width parameter as a numeric value
+#' @param lower Lower bound to pass to \code{uniroot}
+#' @param upper Upper bound to pass to \code{uniroot}
 thermal_area <- function(max_a, desired_area, optim_temp, width_param,
   lower = -5, upper = 40) {
 
@@ -17,7 +29,11 @@ thermal_area <- function(max_a, desired_area, optim_temp, width_param,
   (desired_area - int$value)^2
 }
 
-#' Optimize to find optimal max a
+#' Optimize to find optimal max productivity Ricker a
+#'
+#' @param optim_temp The optimum temperature as a numeric value
+#' @param width_param The width parameter as a numeric value
+#' @param desired_area The desired area as a numeric value
 optim_thermal <- function(optim_temp, width_param, desired_area) {
   optimize(thermal_area, desired_area, optim_temp = optim_temp,
     width_param = width_param, interval = c(0, 5))$minimum

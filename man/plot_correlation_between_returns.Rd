@@ -15,6 +15,10 @@
   in.}
 
   \item{pal}{Colours to label each stock/asset.}
+
+  \item{xlab}{X axis label}
+
+  \item{ylab}{Y axis label}
 }
 \description{
   Create a matrix plot showing the correlation between the

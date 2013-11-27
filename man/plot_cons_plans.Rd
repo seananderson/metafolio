@@ -5,7 +5,7 @@
   plot_cons_plans(plans_mv, plans_name, cols, xlim = NULL,
     ylim = NULL, add_pts = TRUE, add_all_efs = FALSE,
     x_axis = TRUE, y_axis = TRUE, add_legend = TRUE,
-    w_show = "all", xlab = "Variance", ylab = "Mean")
+    w_show = "all", xlab = "Variance", ylab = "Mean", ...)
 }
 \arguments{
   \item{plans_mv}{The \code{plans_mv} element of the output
