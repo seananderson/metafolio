@@ -50,7 +50,7 @@ Andrew B. Cooper\textsuperscript{3}
 
 The \texttt{metafolio} \texttt{R} package is a tool to simulate
 metapopulations and apply financial portfolio optimization concepts to those
-metapopulations. The package is primarily intended for salmonid simulations,
+metapopulations. The package is primarily intended for salmon simulations,
 but could be adapted for other taxonomic groups. This vignette accompanies
 the paper \textit{Portfolio conservation of metapopulations under climate
 change}. In this vignette we will describe the main functions in the
@@ -80,7 +80,8 @@ private repository while the paper is in review.)
 You can find a copy of this vignette and access the help files with:
 
 <<help, eval=FALSE>>=
-vignette("metafolio", package = "metafolio")
+vignette("metafolio")
+?metafolio
 help(package = "metafolio")
 @
 
