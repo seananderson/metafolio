@@ -20,14 +20,9 @@ inst/examples/cluster_dat/
 *.jpg
 *.doc
 *.Rapp.history
-
-
 .Rproj.user
-
 *.vim
-
 inst/ms/~$reading.xlsx
-
 *.pdfsync
-
 tags
+Session.vim
