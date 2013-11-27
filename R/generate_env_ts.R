@@ -7,10 +7,10 @@
 #' @param sine_params Parameters controlling sine wave time series.
 #' @param arma_params Parameters controlling ARMA time series.
 #' @param regime_params Parameters controlling regime-shift time series.
-#' @param linear_params Parameters controlling warming or cooling time
-#' series. Minimum environmental value, maximum environmental value,
-#' environmental standard deviation, and the year to start the linear trend
-#' (useful if you're going to throw out the early years as burn in).
+#' @param linear_params Parameters controlling warming or cooling time series.
+#'   Minimum environmental value, maximum environmental value, environmental
+#'   standard deviation, and the year to start the linear trend (useful if
+#'   you're going to throw out the early years as burn in).
 #' @param constant_params Parameter controlling constant time series.
 #' @export
 #' @examples

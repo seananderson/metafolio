@@ -3,12 +3,12 @@
 #' @param spawners Spawner abundance
 #' @param a Ricker productivity parameter. Recruits are e^a at the origin.
 #' @param b Ricker density dependent parameter.
-#' @param d Depensation parameter. A value of 1 means no depensation.
-#' Larger values indicate depensation.
-#' @param v_t Residual on the curve. Will be exponentiated. Note that
-#' we are *not* bias correcting within this function (subtracting half
-#' the variance squared) and so the deviations will not be mean
-#' unbiased unless they were bias corrected previously.
+#' @param d Depensation parameter. A value of 1 means no depensation. Larger
+#'   values indicate depensation.
+#' @param v_t Residual on the curve. Will be exponentiated. Note that we are
+#'   *not* bias correcting within this function (subtracting half the variance
+#'   squared) and so the deviations will not be mean unbiased unless they were
+#'   bias corrected previously.
 #' @return Returns a vector of recruits.
 #' @export
 #' @examples

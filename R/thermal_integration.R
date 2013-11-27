@@ -25,14 +25,14 @@ optim_thermal <- function(optim_temp, width_param, desired_area) {
 
 #' Integrate thermal tolerance curves to get maximum Ricker a values
 #'
-#' Get maximum Ricker a values for a given number of populations.
-#' Useful for assembling multiple thermal tolerance curves in which
-#' each has the same total area under it.
+#' Get maximum Ricker a values for a given number of populations. Useful for
+#' assembling multiple thermal tolerance curves in which each has the same total
+#' area under it.
 #'
 #' @param n_pop The number of populations.
 #' @param width_params Desired widths of the thermal tolerance curves.
-#' @param optim_temps Temperature value at which to reach the peak of
-#' each thermal tolerance curve.
+#' @param optim_temps Temperature value at which to reach the peak of each
+#'   thermal tolerance curve.
 #' @param desired_area Desired area under each curve.
 #' @export
 #' @examples
@@ -64,4 +64,3 @@ thermal_integration <- function(n_pop, width_params = c(seq(0.05,
   }
   mapply(optim_thermal, optim_temps, width_params, desired_area)
 }
-

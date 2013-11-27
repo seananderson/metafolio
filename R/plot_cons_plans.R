@@ -12,7 +12,7 @@ get_quantile_contour <- function(x, alpha = 0.8) {
 add_dens_polygon <- function(x, y, col, lwd = 1.7, alpha = 0.75, add_pts = FALSE) {
   k <- get_quantile_contour(MASS::kde2d(x,y), alpha = 0.75)
   polygon(k$x, k$y, border = col, col = paste(col, "30", sep = ""), lwd = lwd)
-  k <- get_quantile_contour(MASS::kde2d(x,y), alpha = 0.25)
+  k <- get_quantile_contour(MASS::kde3d(x,y), alpha = 0.25)
   polygon(k$x, k$y, border = col, col = paste(col, "70", sep = ""), lwd = lwd)
   if(add_pts) points(x, y, pch = 21, col = paste(col, "30", sep = ""), cex = 0.7)
 }

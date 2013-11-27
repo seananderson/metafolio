@@ -3,17 +3,16 @@
 #' Monte Carlo the asset weights into portfolios and record the
 #' simulation output and portfolio metrics (mean and variance).
 #'
-#' @param weights_matrix A matrix of asset weights. The columns
-#' correspond to the different assets and the rows correspond to the
-#' simulation iterations.
+#' @param weights_matrix A matrix of asset weights. The columns correspond to
+#'   the different assets and the rows correspond to the simulation iterations.
 #' @param n_sims The number of simulations to run.
 #' @param mean_b The mean Ricker capacity value.
 #' @param burn The number of years to discard as burn in.
-#' @return A list object with three elements: \code{port_vals} (a
-#' matrix with a column of mean rate of change and variance of rate of
-#' change), \code{n_sims} (the number of simulations ran), and
-#' \code{sims_out} (a list in which each element corresponds to the
-#' output from the run of \code{\link{meta_sim}}.
+#' @return A list object with three elements: \code{port_vals} (a matrix with a
+#'   column of mean rate of change and variance of rate of change),
+#'   \code{n_sims} (the number of simulations ran), and \code{sims_out} (a list
+#'   in which each element corresponds to the output from the run of
+#'   \code{\link{meta_sim}}.
 #' @seealso \code{\link{meta_sim}}, \code{\link{create_asset_weights}}
 #' @export
 #' @examples

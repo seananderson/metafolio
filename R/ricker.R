@@ -1,8 +1,7 @@
 #' A simple Ricker model
 #'
 #' @param spawners Spawner abundance
-#' @param a Ricker productivity parameter. Recruits are e^a at the
-#' origin.
+#' @param a Ricker productivity parameter. Recruits are e^a at the origin.
 #' @param b Ricker density dependent parameter.
 #' @return Returns the number of recruits.
 #' @export

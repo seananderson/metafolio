@@ -1,16 +1,15 @@
 #' Basic plot of efficient portfolio and asset contributions
 #'
-#' This function creates a mean-variance plot of the portfolios across
-#' possible asset weights, colour the efficient frontier, and show the
-#' contribution of the different stocks/assets. It also (invisibly)
-#' returns the values that make up the plot so you can create your own
-#' custom plots with the data. See the Returns section for more
-#' details.
-#' @param port_vals A matrix of means and variances (down the two
-#' columns). This likely comes from the output of
-#' \code{\link{monte_carlo_portfolios}}.
+#' This function creates a mean-variance plot of the portfolios across possible
+#' asset weights, colour the efficient frontier, and show the contribution of
+#' the different stocks/assets. It also (invisibly) returns the values that make
+#' up the plot so you can create your own custom plots with the data. See the
+#' Returns section for more details.
+#'
+#' @param port_vals A matrix of means and variances (down the two columns).
+#'   This likely comes from the output of \code{\link{monte_carlo_portfolios}}.
 #' @param weights_matrix The same weight matrix that was passed to
-#' \code{\link{monte_carlo_portfolios}}.
+#'   \code{\link{monte_carlo_portfolios}}.
 #' @param pal Colour palette for the stocks/assets in the barplot.
 #' @param plot Logical: should the plots be made?
 #' @param ylab_dots Y axis label for the mean-variance scatterplot.
@@ -18,18 +17,17 @@
 #' @param ylab_bars Y axis label for the barplot.
 #' @param xlab_bars X axis label for the barplot.
 #' @param port_cols Colours for the dots. A vector of colours for the
-#' non-efficient and efficient portfolios.
+#'   non-efficient and efficient portfolios.
 #' @param pch Dot type
 #' @param ... Anything else to pass to both \code{plot.default} and
-#' \code{barplot}.
+#'   \code{barplot}.
 #' @return
-#' A two panel plot and an (invisible) list of values calculated
-#' within the function. This list contains \code{pv} (mean, variance,
-#' and whether it was part of the efficient frontier);
-#' \code{ef_port_ids} (the portfolio IDs [run numbers] that are part
-#' of the efficient frontier; \code{min_var_port_id} (the portfolio ID
-#' for the minimum-variance portfolio); \code{ef_weights} (the weights
-#' of the portfolios on the efficient frontier).
+#' A two panel plot and an (invisible) list of values calculated within the
+#' function. This list contains \code{pv} (mean, variance, and whether it was
+#' part of the efficient frontier); \code{ef_port_ids} (the portfolio IDs [run
+#' numbers] that are part of the efficient frontier; \code{min_var_port_id} (the
+#' portfolio ID for the minimum-variance portfolio); \code{ef_weights} (the
+#' weights of the portfolios on the efficient frontier).
 #' @export
 #' @examples
 #' \dontrun{

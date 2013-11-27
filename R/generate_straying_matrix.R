@@ -4,10 +4,10 @@
 #' Based on Eq. 2 in Cooper and Mangel (1999).
 #'
 #' @param n_pop Number of subpopulations.
-#' @param stray_fraction Fraction of individuals that stray from a
-#' given subpopulation.
-#' @param stray_decay_rate Exponential rate that straying decays with
-#' distance between subpopulations.
+#' @param stray_fraction Fraction of individuals that stray from a given
+#'   subpopulation.
+#' @param stray_decay_rate Exponential rate that straying decays with distance
+#'   between subpopulations.
 #' @export
 #' @references
 #' Cooper, A.B. and Mangel, M. 1999. The dangers of ignoring

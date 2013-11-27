@@ -2,8 +2,8 @@
 #'
 #' @param x A numeric vector.
 #' @param thresh The quasi-extinction threshold in absolute numbers.
-#' @param duration The number of years below the threshold before a
-#' quasi extinction has occurred.
+#' @param duration The number of years below the threshold before a quasi
+#'   extinction has occurred.
 #' @export
 #' @examples
 #' x <- seq(100, 0, length.out = 20)

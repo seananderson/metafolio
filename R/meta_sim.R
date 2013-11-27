@@ -3,33 +3,34 @@
 #' @param n_t The number of years.
 #' @param n_pop Number of (sub)populations
 #' @param stray_decay_rate Rate that straying (exponentially) decays with
-#' distance.
+#'   distance.
 #' @param stray_fraction Fraction of fish that stray from natal streams.
 #' @param b Ricker density-dependent parameter. Should be one per
-#' (sub)population.
+#'   (sub)population.
 #' @param spawners_0 A vector of spawner abundances at the start of the
-#' simulation. Length of the vector should equal the number of subpopulations.
+#'   simulation. Length of the vector should equal the number of
+#'   subpopulations.
 #' @param sigma_v Stock-recruit residual standard deviation. Will be
-#' exponentiated.
+#'   exponentiated.
 #' @param v_rho AR1 serial correlation of stock-recruit residuals.
 #' @param a_width_param Width of the thermal curves by (sub)population.
 #' @param optim_temp Optimal temperatures by (sub)population.
 #' @param max_a Maximum Ricker productivity parameters (a) by (sub)population.
-#' The value obtained at the optimum temperature.
+#'   The value obtained at the optimum temperature.
 #' @param env_type The type of environmental time series to generate.  One of
-#' "sine", "arma", "regime", "linear", or "constant".
+#'   "sine", "arma", "regime", "linear", or "constant".
 #' @param env_params Parameters to pass on to \code{generate_env_ts}. You must
-#' provide the appropriate list given your chosen type of environmental signal.
-#' @param start_assessment Generation to start estimating SR
-#' relationship for escapement targets
-#' @param assessment_window Number of generations to use when fitting
-#' SR relationship for escapement targets; must be bigger than
-#' start_assessment
+#'   provide the appropriate list given your chosen type of environmental
+#'   signal.
+#' @param start_assessment Generation to start estimating SR relationship for
+#'   escapement targets
+#' @param assessment_window Number of generations to use when fitting SR
+#'   relationship for escapement targets; must be bigger than start_assessment
 #' @param sigma_impl implementation sd for beta distribution
 #' @param assess_freq How many generations before re-assessing a and b
-#' parameters.
+#'   parameters.
 #' @param use_cache Use the stochastically generated values (SR residuals and
-#' possibly environmental time series) from the previous run?
+#'   possibly environmental time series) from the previous run?
 #' @param add_straying Implement straying between (sub)populations?
 #' @param add_impl_error Add implementation error?
 #' @export

@@ -1,21 +1,20 @@
 #' Plot sample Ricker curves for each stock
 #'
-#' Make a plot of Ricker curves for each stock. Can be useful for
-#' visualizing how the simulation parameters are impacting the Ricker
-#' curves and how these vary with temperature across stocks. The
-#' colour of the lines corresponds to the relative thermal tolerance
-#' of that stock. The shaded region shows the range of spawners
-#' observed throughout the simulations.
+#' Make a plot of Ricker curves for each stock. Can be useful for visualizing
+#' how the simulation parameters are impacting the Ricker curves and how these
+#' vary with temperature across stocks. The colour of the lines corresponds to
+#' the relative thermal tolerance of that stock. The shaded region shows the
+#' range of spawners observed throughout the simulations.
 #'
 #' @param x Output list from \code{\link{meta_sim}}.
 #' @param pal Colours for stocks.
 #' @param n_samples Number of sample lines to draw from the \code{a}
-#' parameters.
+#'   parameters.
 #' @param add_y_axes_pops Panels to add y axes on.
 #' @param add_x_axes_pops Panels to add x axes on.
 #' @param burn Number of initial years to throw out as burn in.
-#' @param add_shading Logical: add the light grey shading for the
-#' range of observed spawner abundance?
+#' @param add_shading Logical: add the light grey shading for the range of
+#'   observed spawner abundance?
 #' @param ... Anything else to pass to \code{plot}
 #' @export
 #' @examples

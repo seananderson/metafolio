@@ -3,15 +3,15 @@
 #' Run the metapopulation simulation for various conservation
 #' prioritization schemes.
 #'
-#' @return
-#' Returns the portfolio mean and variance values and the simulation
-#' runs.
+#' @return Returns the portfolio mean and variance values and the simulation
+#'   runs.
 #'
-#' @param weights A matrix of habitat weights. Each row corresponds to
-#' another scenario. Each column is a different habitat location.
+
+#' @param weights A matrix of habitat weights. Each row corresponds to another
+#'   scenario. Each column is a different habitat location.
 #' @param reps Number of portfolios to simulate.
-#' @param assess_freq The frequency (in generations) of
-#' spawner-recruit re-assessment. Passed to \code{\link{meta_sim}}.
+#' @param assess_freq The frequency (in generations) of spawner-recruit
+#'   re-assessment. Passed to \code{\link{meta_sim}}.
 #' @param burn Cycles to throw out as burn in.
 #' @param ... Other values to pass to \code{\link{meta_sim}}.
 
