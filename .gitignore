@@ -27,3 +27,7 @@ inst/examples/cluster_dat/
 *.vim
 
 inst/ms/~$reading.xlsx
+
+*.pdfsync
+
+tags
