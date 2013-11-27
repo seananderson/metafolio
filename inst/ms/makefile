@@ -1,8 +1,6 @@
 all:	ms
 
 ms:
-	extract_bib ms.md > ms.bib
-	cp ~/Dropbox/tex/jshort.bib .
 	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
 	pandoc -S som.md --latex-engine=xelatex -o som.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
@@ -10,6 +8,7 @@ ms:
 	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
 	xelatex salmonfolios
 	rm som.tex
+	cp salmonfolios.pdf ~/Dropbox/Public/
 
 bib:
 	extract_bib ms.md > ms.bib
@@ -24,6 +23,9 @@ bib:
 	bibtex salmonfolios
 	xelatex salmonfolios
 	xelatex salmonfolios
+
+letter:
+	xelatex salmonfolios-letter.tex
 
 rtf:
 	latex2rtf -d 0 -b ms.bbl -E0 -M6 salmonfolios.tex
