@@ -58,7 +58,7 @@
 #' output.
 #'
 #' See the package vignette \code{vignette("metafolio")} for more extensive
-#' explanation of how to use \code{\pkg{metafolio}} along with some examples.
+#' explanation of how to use \pkg{metafolio} along with some examples.
 #'
 #' @docType package
 #' @name metafolio
