@@ -1,4 +1,4 @@
-#' metafolio: An \R package to simulate salmon metapopulation for
+#' metafolio: An R package to simulate salmon metapopulation for
 #' portfolio optimization
 #'
 #' The \pkg{metafolio} \R package is a tool to simulate metapopulations and
