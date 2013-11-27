@@ -17,7 +17,7 @@
 #' @param optim_temp Optimal temperatures by (sub)population.
 #' @param max_a Maximum Ricker productivity parameters (a) by (sub)population.
 #'   The value obtained at the optimum temperature.
-#' @param env_type The type of environmental time series to generate.  One of
+#' @param env_type The type of environmental time series to generate. One of
 #'   "sine", "arma", "regime", "linear", or "constant".
 #' @param env_params Parameters to pass on to \code{generate_env_ts}. You must
 #'   provide the appropriate list given your chosen type of environmental

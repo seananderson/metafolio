@@ -6,7 +6,7 @@
 #' @param a Ricker productivity parameter.
 #' @param b Ricker density-dependent parameter.
 #' @references Hilborn, R.W. and Walters, C. 1992. Quantitative fisheries stock
-#'   assessment: Choice, dynamics, and uncertainty.  Chapman and Hall, London.
+#'   assessment: Choice, dynamics, and uncertainty. Chapman and Hall, London.
 #' @export
 #' @examples
 #' ricker_escapement(1.1, 1000)
