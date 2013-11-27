@@ -1,6 +1,6 @@
 #' Get quantile contour
 #'
-#' @param x Output from \code{MASS::kde2d()}.
+#' @param x Output from \code{\link[MASS]{kde2d}}.
 #' @param alpha The quantile level.
 get_quantile_contour <- function(x, alpha = 0.8) {
   zdens <- rev(sort(x$z))
@@ -74,7 +74,7 @@ get_efficient_frontier <- function(m, v) {
 #'   the first and third plans.
 #' @param xlab X axis label.
 #' @param ylab Y axis label.
-#' @param ... Anything else to pass to \code{plot.default}.
+#' @param ... Anything else to pass to \code{\link[graphics]{plot.default}}.
 #' @return A plot. Also, the x and y limits are returned invisibly as a list.
 #'   This makes it easy to make the first plot and then save those x and y
 #'   limits to fix them in subsequent (multipanel) plots.

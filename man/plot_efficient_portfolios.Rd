@@ -39,7 +39,8 @@
   \item{pch}{Dot type}
 
   \item{...}{Anything else to pass to both
-  \code{plot.default} and \code{barplot}.}
+  \code{\link[graphics]{plot.default}} and
+  \code{\link[graphics]{barplot}}.}
 }
 \value{
   A two panel plot and an (invisible) list of values

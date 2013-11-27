@@ -20,7 +20,8 @@
   ggplot2-like colour scale in HCL space
 }
 \details{
-  See the \code{hcl} function for details.
+  See the \code{\link[grDevices]{hcl}} function for
+  details.
 }
 \examples{
 gg_color_hue(10)

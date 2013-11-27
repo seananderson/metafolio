@@ -12,11 +12,14 @@
 
   \item{yfrac}{Fraction down from the top}
 
-  \item{pos}{Position of text to pass to \code{text()}}
+  \item{pos}{Position of text to pass to
+  \code{\link[graphics]{text}}}
 
-  \item{cex}{cex to pass to \code{text()}}
+  \item{cex}{Character expansion value to pass to
+  \code{\link[graphics]{text}}}
 
-  \item{...}{Anything else to pass to \code{text()}}
+  \item{...}{Anything else to pass to
+  \code{\link[graphics]{text}}}
 }
 \description{
   Add annotations to panel

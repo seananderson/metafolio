@@ -2,9 +2,9 @@
 #' @param label The text to add as a label
 #' @param xfrac Fraction over from the left
 #' @param yfrac Fraction down from the top
-#' @param pos Position of text to pass to \code{text()}
-#' @param cex cex to pass to \code{text()}
-#' @param ... Anything else to pass to \code{text()}
+#' @param pos Position of text to pass to \code{\link[graphics]{text}}
+#' @param cex Character expansion value to pass to \code{\link[graphics]{text}}
+#' @param ... Anything else to pass to \code{\link[graphics]{text}}
 annotate <- function(label, xfrac = 0.008, yfrac = 0.18, pos = 4, cex = 0.9, ...) {
   u <- par("usr")
   x <- u[1] + xfrac * (u[2] - u[1])
@@ -13,8 +13,8 @@ annotate <- function(label, xfrac = 0.008, yfrac = 0.18, pos = 4, cex = 0.9, ...
 }
 
 #' Add a pretty axis
-#' @param side Number indicating the side to add an axis (as in the number
-#' passed to \code{axis(side = ...)}
+#' @param side Number indicating the side to add an axis (as in the side number
+#' passed to \code{\link[graphics]{axis}}).
 #' @param shade_years An optional numerical vector of length two giving the
 #' minimum and maximum years over which to add a light grey shading.
 #' @param ylab Y axis label
@@ -42,7 +42,7 @@ my.axis <- function(side, shade_years = NULL, ylab = "", yticks = NA) {
 #' @param ymin Minimum y value for axis
 #' @param ystretch A fraction to multiply the max value of when setting the y
 #' axis limits. This is useful to make space for a panel label within the plot.
-#' @param ... Anything else to pass to \code{matplot()}.
+#' @param ... Anything else to pass to \code{\link[matplot]{matplot}}.
 plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) {
   if(ymin[1] == "zero")
     ylim <- c(0, max(dat) * ystretch)
@@ -67,7 +67,8 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 #' @param years_to_show How many years to plot after the burn in period.
 #' @param burn The number of years to discard as burn in at the beginning of
 #'   the time series.
-#' @param adj \code{adj} parameter to pass to \code{mtext} for panel labels
+#' @param adj \code{adj} parameter to pass to \code{\link[graphics]{mtext}} for
+#'   panel labels
 #' @param shade_years Shade some years? Give a vector. Shading will be applied
 #' from the minimum to maximum value. Can be used to show burn in period.
 #' @param add_units Should the units be added to the y axis?

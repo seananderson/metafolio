@@ -16,15 +16,19 @@ area under a curve}
   \item{width_param}{The width parameter as a numeric
   value}
 
-  \item{lower}{Lower bound to pass to \code{uniroot}}
+  \item{lower}{Lower bound to pass to
+  \code{\link[stats]{uniroot}}}
 
-  \item{upper}{Upper bound to pass to \code{uniroot}}
+  \item{upper}{Upper bound to pass to
+  \code{\link[stats]{uniroot}}}
 }
 \description{
   The function finds the lower and upper roots (where the
-  thermal curve crosses 0) with the \code{uniroot} function
-  and then integrates the area under the thermal curve with
-  the \code{integrate} function. This is useful as part of
-  the optimization routine in \code{\link{optim_thermal}}.
+  thermal curve crosses 0) with the
+  \code{\link[stats]{uniroot}} function and then integrates
+  the area under the thermal curve with the
+  \code{\link[stats]{integrate}} function. This is useful
+  as part of the optimization routine in
+  \code{\link{optim_thermal}}.
 }
 

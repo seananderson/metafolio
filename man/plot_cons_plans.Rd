@@ -39,7 +39,8 @@
 
   \item{ylab}{Y axis label.}
 
-  \item{...}{Anything else to pass to \code{plot.default}.}
+  \item{...}{Anything else to pass to
+  \code{\link[graphics]{plot.default}}.}
 }
 \value{
   A plot. Also, the x and y limits are returned invisibly

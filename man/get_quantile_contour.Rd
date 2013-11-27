@@ -5,7 +5,7 @@
   get_quantile_contour(x, alpha = 0.8)
 }
 \arguments{
-  \item{x}{Output from \code{MASS::kde2d()}.}
+  \item{x}{Output from \code{\link[MASS]{kde2d}}.}
 
   \item{alpha}{The quantile level.}
 }

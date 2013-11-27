@@ -15,7 +15,7 @@
 #' @param burn Number of initial years to throw out as burn in.
 #' @param add_shading Logical: add the light grey shading for the range of
 #'   observed spawner abundance?
-#' @param ... Anything else to pass to \code{plot}
+#' @param ... Anything else to pass to \code{\link[graphics]{plot.default}}.
 #' @export
 #' @examples
 #' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)

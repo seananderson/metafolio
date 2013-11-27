@@ -19,8 +19,8 @@
 #' @param port_cols Colours for the dots. A vector of colours for the
 #'   non-efficient and efficient portfolios.
 #' @param pch Dot type
-#' @param ... Anything else to pass to both \code{plot.default} and
-#'   \code{barplot}.
+#' @param ... Anything else to pass to both
+#'   \code{\link[graphics]{plot.default}} and \code{\link[graphics]{barplot}}.
 #' @return
 #' A two panel plot and an (invisible) list of values calculated within the
 #' function. This list contains \code{pv} (mean, variance, and whether it was

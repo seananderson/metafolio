@@ -14,7 +14,8 @@
   when setting the y axis limits. This is useful to make
   space for a panel label within the plot.}
 
-  \item{...}{Anything else to pass to \code{matplot()}.}
+  \item{...}{Anything else to pass to
+  \code{\link[matplot]{matplot}}.}
 }
 \description{
   Standard matrix plot of values by stream for one panel:

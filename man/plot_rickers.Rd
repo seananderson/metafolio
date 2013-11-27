@@ -25,7 +25,8 @@
   \item{add_shading}{Logical: add the light grey shading
   for the range of observed spawner abundance?}
 
-  \item{...}{Anything else to pass to \code{plot}}
+  \item{...}{Anything else to pass to
+  \code{\link[graphics]{plot.default}}.}
 }
 \description{
   Make a plot of Ricker curves for each stock. Can be

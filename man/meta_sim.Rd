@@ -54,8 +54,9 @@
   "constant".}
 
   \item{env_params}{Parameters to pass on to
-  \code{generate_env_ts}. You must provide the appropriate
-  list given your chosen type of environmental signal.}
+  \code{\link{generate_env_ts}}.  You must provide the
+  appropriate list given your chosen type of environmental
+  signal.}
 
   \item{start_assessment}{Generation to start estimating SR
   relationship for escapement targets}
@@ -72,13 +73,14 @@
 
   \item{use_cache}{Use the stochastically generated values
   (SR residuals and possibly environmental time series)
-  from the previous run?}
+  from the previous run? See the Details section below.}
 
   \item{cache_env}{Logical: Should the environmental time
   series be cached? If \code{use_cache = TRUE} then this
   will automatically happen. But, you could set
   \code{cache_env = TRUE} and \code{use_cache = FALSE} to
-  only cache the environmental time series.}
+  only cache the environmental time series. See the details
+  section below.}
 
   \item{add_straying}{Implement straying between
   (sub)populations?}
@@ -87,5 +89,18 @@
 }
 \description{
   Run a (salmon) metapopulation simulation.
+}
+\details{
+  To use either of the caching options, you must have run
+  \code{meta_sim} at least once in the current session with
+  both caching arguments set to \code{FALSE} to generate
+  the cached values first. If you're running many
+  iterations of \code{meta_sim} and you want to cache, then
+  the first iteration should have both cache arguments set
+  to \code{FALSE}, and subsequent runs can set one or both
+  to \code{TRUE}. Internally, \code{meta_sim} caches by
+  writing the appropriate data to a \code{.rda} file in a
+  temporary directory as created by the function
+  \code{\link[base]{tempdir}}.
 }
 

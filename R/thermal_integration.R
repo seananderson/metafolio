@@ -2,16 +2,17 @@
 #' area under a curve
 #'
 #' The function finds the lower and upper roots (where the thermal curve crosses
-#' 0) with the \code{uniroot} function and then integrates the area under the
-#' thermal curve with the \code{integrate} function. This is useful as part of
-#' the optimization routine in \code{\link{optim_thermal}}.
+#' 0) with the \code{\link[stats]{uniroot}} function and then integrates the
+#' area under the thermal curve with the \code{\link[stats]{integrate}}
+#' function. This is useful as part of the optimization routine in
+#' \code{\link{optim_thermal}}.
 #'
 #' @param max_a Maximum Ricker a productivity value
 #' @param desired_area Desired area under the thermal curve
 #' @param optim_temp Optimal temperature
 #' @param width_param The width parameter as a numeric value
-#' @param lower Lower bound to pass to \code{uniroot}
-#' @param upper Upper bound to pass to \code{uniroot}
+#' @param lower Lower bound to pass to \code{\link[stats]{uniroot}}
+#' @param upper Upper bound to pass to \code{\link[stats]{uniroot}}
 thermal_area <- function(max_a, desired_area, optim_temp, width_param,
   lower = -5, upper = 40) {
 

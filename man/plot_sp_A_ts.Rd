@@ -31,7 +31,7 @@
   \item{cols}{Colours}
 
   \item{...}{anything else to pass to
-  \code{plot.default()}}
+  \code{\link[graphics]{plot.default}}}
 }
 \description{
   TODO document plot_sp_A_ts

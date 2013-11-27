@@ -22,4 +22,3 @@ get_port_vals <- function(x, burn = 1:30) {
     mean.x <- mean(ret.x)
     data.frame(m = mean.x, v = var.x)
 }
-

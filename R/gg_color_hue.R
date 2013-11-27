@@ -5,7 +5,7 @@
 #' @param hue_max Maximum hue value in the range [0,360]
 #' @param l Luminance in the range [0,100]
 #' @param c Chroma of the colour.
-#' @details See the \code{hcl} function for details.
+#' @details See the \code{\link[grDevices]{hcl}} function for details.
 #' @export
 #' @examples
 #' gg_color_hue(10)

@@ -20,8 +20,8 @@
   \item{burn}{The number of years to discard as burn in at
   the beginning of the time series.}
 
-  \item{adj}{\code{adj} parameter to pass to \code{mtext}
-  for panel labels}
+  \item{adj}{\code{adj} parameter to pass to
+  \code{\link[graphics]{mtext}} for panel labels}
 
   \item{shade_years}{Shade some years? Give a vector.
   Shading will be applied from the minimum to maximum

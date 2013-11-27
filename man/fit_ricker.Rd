@@ -16,9 +16,9 @@
 \description{
   Fit a Ricker curve to spawner-recruit data and return the
   intercept (a) and slope (b). This function uses
-  \code{lm.fit()} by directly specifying the model matrix.
-  This is about an order of magnitude faster than
-  \code{lm()}.
+  \code{\link[stats]{lm.fit}} by directly specifying the
+  model matrix. This is about an order of magnitude faster
+  than \code{\link[stats]{lm}}.
 }
 \examples{
 S <- seq(100, 1000, length.out = 100)

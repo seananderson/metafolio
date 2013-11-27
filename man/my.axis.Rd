@@ -6,7 +6,8 @@
 }
 \arguments{
   \item{side}{Number indicating the side to add an axis (as
-  in the number passed to \code{axis(side = ...)}}
+  in the side number passed to
+  \code{\link[graphics]{axis}}).}
 
   \item{shade_years}{An optional numerical vector of length
   two giving the minimum and maximum years over which to
