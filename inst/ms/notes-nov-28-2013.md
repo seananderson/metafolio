@@ -1,4 +1,18 @@
 
+<!--TODO add: The importance of conserving response diversity is a
+key assumption of conservation ecology, but has rarely been tested
+quantitatively.-->
+
+<!--TODO we have a poor understanding of the relative role of the effects of
+short-term vs. long-term stochasticity in climate on ecological systems (could
+cite @walther2002 Nature review)-->
+
+<!--TODO add: The importance of conserving response diversity is a key assumption of-->
+<!--conservation ecology, but has rarely been tested quantitatively (but see REF).-->
+
+
+
+
 <!--TODO: add @grman2010? Mechanisms contributing to stability in ecosystem function depend on the environmental context-->
 
 <!--TODO: move Thorson ref somewhere else?-->
