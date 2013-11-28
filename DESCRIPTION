@@ -1,6 +1,6 @@
 Package: metafolio
 Type: Package
-Title: Simulate metapopulations for portfolio optimization
+Title: Simulation of metapopulations for portfolio optimization
 Version: 0.3.0
 Date: 2013-11-26
 Author: Sean C. Anderson <sean@seananderson.ca>
