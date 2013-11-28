@@ -2,8 +2,34 @@
 
 ## Supplementary code ##
 
-The `metafolio` `R` package and documentation. Some details on what you can do
-with the package.
+The `metafolio` `R` package contains the functions and code to carry out the analyses in our paper.
+In an `R` console, you can install `metafolio` by first setting your working directory with `setwd()` to wherever you saved the package and then running:
+
+```
+# On OS X or Linux:
+install.packages("metafolio_0.3.0.tgz", repos = NULL)
+# On Windows:
+install.packages("metafolio_0.3.0.zip", repos = NULL)
+# Then load the package:
+library(metafolio)
+```
+
+The included vignette describes the package and illustrates some example simulations.
+You can view the vignette with:
+
+```
+vignette("metafolio")
+```
+
+You can view the help for the package with:
+
+```
+?metafolio
+```
+
+The source code is available in `metafolio_0.3.0.tar.gz`.
+
+\clearpage
 
 ## Supplementary tables ##
 
@@ -130,4 +156,3 @@ and \textbf{short-term} environmental fluctuations.}
 and \textbf{long-term} environmental change.}
 \label{f:eg-n-linear-sixteen}
 \end{figure}
- 
