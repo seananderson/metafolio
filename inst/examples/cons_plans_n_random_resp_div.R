@@ -179,14 +179,14 @@ for(i in 1:4) {
 }
 
 #par(mfrow = c(2, 1), mar = c(0,0,0,0))
-plot_sp_A_ts(cons_arma_ts, ylim = c(-0.7, 0.7), rate = TRUE, x_axis = FALSE, labels = "(c)\n")
+plot_sp_A_ts(cons_arma_ts, ylim = c(-0.7, 0.7), rate = TRUE, x_axis = FALSE, labels = "(c)\n", cols = cols)
 
 par(las = 0)
 mtext("Metapopulation\ngrowth rate", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
 
 #plot_sp_A_ts(cons_linear_ts, ylim = c(-1, 1), rate = TRUE)
-plot_sp_A_ts(cons_arma_ts, ylim = c(1500, 40000), rate = FALSE, log = "y", y_axis = TRUE, y_axis_ticks = c(2000, 5000,  10000, 20000), labels = "(d)")
+plot_sp_A_ts(cons_arma_ts, ylim = c(1500, 40000), rate = FALSE, log = "y", y_axis = TRUE, y_axis_ticks = c(2000, 5000,  10000, 20000), labels = "(d)", cols = cols)
 mtext("(d)", side = 3, line = -1.2, cex = 0.8, adj = 0.025)
 
 par(xpd = NA)
@@ -205,7 +205,7 @@ dev.off()
 
 message("mean variance in growth rate for short term")
 mean.v <- plyr::ldply(x_arma_n$plans_mv, function(x) mean(x$v))
-round(mean.v$V1[2]/mean.v$V1[4], 1)
+message(round(mean.v$V1[2]/mean.v$V1[4], 1))
 
 message("width of 80% quantile of variance for short term")
 quant.80.v <- plyr::laply(x_arma_n$plans_mv, function(x) {
@@ -214,7 +214,7 @@ quant.80.v <- plyr::laply(x_arma_n$plans_mv, function(x) {
   q.90 - q.10
     }
   )
-round(quant.80.v[2]/quant.80.v[4], 1)
+message(round(quant.80.v[2]/quant.80.v[4], 1))
 
 # long term summaries:
 
@@ -225,12 +225,12 @@ quant.80.m <- plyr::laply(x_linear_n$plans_mv, function(x) {
   q.90 - q.10
     }
   )
-round(quant.80.m[2]/quant.80.m[4], 1)
+message(round(quant.80.m[2]/quant.80.m[4], 1))
 
 message("mean variance in growth rate for long term")
 mean.m <- plyr::ldply(x_linear_n$plans_mv, function(x) mean(x$v))
 message("16 vs. 4")
-round(mean.m$V1[2]/mean.m$V1[4], 1)
+message(round(mean.m$V1[2]/mean.m$V1[4], 1))
 message("16 vs. 2")
-round(mean.m$V1[1]/mean.m$V1[4], 1)
+message(round(mean.m$V1[1]/mean.m$V1[4], 1))
 
