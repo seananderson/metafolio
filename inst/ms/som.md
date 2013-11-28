@@ -6,6 +6,8 @@ The `metafolio` `R` package contains the functions and code to carry out the ana
 In an `R` console, you can install `metafolio` by first setting your working directory with `setwd()` to wherever you saved the package and then running:
 
 ```
+# Install dependencies:
+install.packages(c("plyr", "colorspace"))
 # On OS X or Linux:
 install.packages("metafolio_0.3.0.tgz", repos = NULL)
 # On Windows:
