@@ -31,10 +31,10 @@ refresh=TRUE, cache=TRUE, autodep=TRUE)
 \title{An introduction to the \texttt{metafolio} \texttt{R} package}
 \author{
 Sean C. Anderson\textsuperscript{1*},
-Jonathan W. Moore\textsuperscript{1},
-Michelle M. McClure\textsuperscript{2},\\
+Jonathan W. Moore\textsuperscript{1,2},
+Michelle M. McClure\textsuperscript{3},\\
 Nicholas K. Dulvy\textsuperscript{1}
-Andrew B. Cooper\textsuperscript{3}
+Andrew B. Cooper\textsuperscript{2}
 }
 
 \date{}
@@ -42,9 +42,9 @@ Andrew B. Cooper\textsuperscript{3}
 
 \textsuperscript{1}Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A 1S6, Canada
 
-\textsuperscript{2}Northwest Fisheries Science Center, National Marine Fisheries Service, Seattle, WA 98110, USA
+\textsuperscript{2}School of Resource and Environmental Management, Simon Fraser University, Burnaby, BC, V5A 1S6, Canada
 
-\textsuperscript{3}School of Resource and Environmental Management, Simon Fraser University, Burnaby, BC, V5A 1S6, Canada
+\textsuperscript{3}Northwest Fisheries Science Center, National Marine Fisheries Service, Seattle, WA 98110, USA
 
 \bigskip
 
