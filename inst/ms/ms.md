@@ -163,7 +163,7 @@ Although we refer to a thermal-tolerance curve because temperature is a dominant
 
 We implemented straying as in @cooper1999.
 We arranged the populations in a line and salmon were more likely to stray to streams near their natal stream (Fig. \ref{f:stray}).
-Two parameters controlled the straying: the fraction of fish $f_{\mathrm{stray}}$ (0.02) that stray from their natal stream in any generation and the rate $m$ (0.3) at which this straying between streams
+Two parameters controlled the straying: the fraction of fish $f_{\mathrm{stray}}$ (0.02) that stray from their natal stream in any generation and the rate $m$ (0.3) at which this straying between streams decays with distance
 
 $$\mathrm{strays}_{ij(t)} = f_{\mathrm{stray}} R_{j(t)} \frac{e^{-m \lvert i-j
 \rvert }} {\displaystyle\sum\limits_{ \substack{k = 1 \\ k \neq j}}^{n} e^{-m
