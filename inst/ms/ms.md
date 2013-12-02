@@ -1,4 +1,4 @@
-# STUFF Portfolio conservation of metapopulations under climate change
+# Portfolio conservation of metapopulations under climate change
 
 \bigskip
 
@@ -61,7 +61,7 @@ The mechanisms underlying the stability of ecological systems are a central focu
 Here, we ask how a financial-portfolio approach can inform conservation priorities for metapopulations in a changing world.
 We develop a salmon metapopulation simulation where population-specific productivity is driven by spatially-distributed thermal tolerance and patterns of short- and long-term environmental change.
 We then implement spatial conservation scenarios that control population carrying capacities and evaluate the salmon portfolios as a portfolio manager might --- along axes of risk and return.
-We show that conserving response diversity minimizes risk given environmental stochasticity and ensures persistence given long-term environmental change.
+We show that conserving response diversity minimizes risk given environmental stochasticity and ensures persistence given long-term environmental change. Doubling population diversity *halved* the variance in population size and extinciton risk (variance in popualtion growht rate). 
 Furthermore, conserving more populations minimizes risk regardless of response diversity distribution.
 These findings have important implications for how we prioritize conservation actions and emphasize conserving the processes that promote response diversity such as genetic diversity, habitat heterogeneity, and natural disturbance regimes.
 
