@@ -203,34 +203,48 @@ dev.off()
 
 # short term summaries:
 
-message("mean variance in growth rate for short term")
 mean.v <- plyr::ldply(x_arma_n$plans_mv, function(x) mean(x$v))
+
+message("mean variance in growth rate for short term: 4 vs. 16")
 message(round(mean.v$V1[2]/mean.v$V1[4], 1))
 
-message("width of 80% quantile of variance for short term")
-quant.80.v <- plyr::laply(x_arma_n$plans_mv, function(x) {
-  q.10 <- as.numeric(quantile(x$v, probs = 0.10))
-  q.90 <- as.numeric(quantile(x$v, probs = 0.90))
-  q.90 - q.10
+message("mean variance in growth rate for short term: 8 vs. 16")
+message(round(mean.v$V1[3]/mean.v$V1[4], 1))
+
+quant.v <- plyr::laply(x_arma_n$plans_mv, function(x) {
+  q.l <- as.numeric(quantile(x$v, probs = 0.125))
+  q.u <- as.numeric(quantile(x$v, probs = 0.875))
+  q.u - q.l
     }
   )
-message(round(quant.80.v[2]/quant.80.v[4], 1))
+message("width of 75% quantile of variance for short term: 16 vs. 4")
+message(round(quant.v[2]/quant.v[4], 1))
+
+message("width of 75% quantile of variance for short term: 16 vs. 8")
+message(round(quant.v[3]/quant.v[4], 1))
 
 # long term summaries:
 
-message("width of 80% quantile of mean for long term")
-quant.80.m <- plyr::laply(x_linear_n$plans_mv, function(x) {
-  q.10 <- as.numeric(quantile(x$m, probs = 0.10))
-  q.90 <- as.numeric(quantile(x$m, probs = 0.90))
-  q.90 - q.10
+quant.m <- plyr::laply(x_linear_n$plans_mv, function(x) {
+  q.l <- as.numeric(quantile(x$m, probs = 0.125))
+  q.u <- as.numeric(quantile(x$m, probs = 0.875))
+  q.u - q.l
     }
   )
-message(round(quant.80.m[2]/quant.80.m[4], 1))
+message("width of 75% quantile of mean for long term: 16 vs. 4")
+message(round(quant.m[2]/quant.m[4], 1))
+
+message("width of 75% quantile of mean for long term: 16 vs. 8")
+message(round(quant.m[3]/quant.m[4], 1))
 
 message("mean variance in growth rate for long term")
-mean.m <- plyr::ldply(x_linear_n$plans_mv, function(x) mean(x$v))
+mean.v <- plyr::ldply(x_linear_n$plans_mv, function(x) mean(x$v))
 message("16 vs. 4")
-message(round(mean.m$V1[2]/mean.m$V1[4], 1))
+message(round(mean.v$V1[2]/mean.v$V1[4], 1))
 message("16 vs. 2")
-message(round(mean.m$V1[1]/mean.m$V1[4], 1))
+message(round(mean.v$V1[1]/mean.v$V1[4], 1))
+message("16 vs. 8")
+message(round(mean.v$V1[3]/mean.v$V1[4], 1))
+message("8 vs. 4")
+message(round(mean.v$V1[2]/mean.v$V1[3], 1))
 
