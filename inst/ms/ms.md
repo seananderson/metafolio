@@ -181,7 +181,7 @@ For example, all salmon in one population maintained the same thermal-tolerance 
 Our simulation used a simple set of rules to establish the exploitation rate of fisheries and the remainder left to spawn (escapement target).
 First, to establish a range of spawner-return values and to mimic the start of an open-access fishery, for the first 30 years we drew the fraction of fish harvested randomly from a uniform distribution between 0.1 and 0.9.
 We discarded these initial 30 years as a burn-in period.
-Then, every five years our simulation fitted a spawner-return function and the target harvest rate $H_{\mathrm{tar}}$ was set based on @hilborn1992 as
+Then, every five years our simulation fitted a spawner-return function and the target harvest rate $H_{\mathrm{tar}}$ (a proportion per year) was set based on @hilborn1992 as
 
 $$H_{\mathrm{tar}} = \frac{A}{b (0.5 - 0.07a)} \label{eq:esc}$$
 
