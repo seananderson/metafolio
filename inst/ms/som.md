@@ -1,3 +1,12 @@
+<!--% redefine the command that creates the Table number.-->
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{table}{0}
+
+<!--% redefine the command that creates the Figure number.-->
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\figurename}{Fig.}
+\setcounter{figure}{0}
+
 # Supplementary Information #
 
 ## Supplementary code ##
