@@ -84,6 +84,7 @@ This investment weight could represent the conservation budget or the habitat co
 The population growth rate is then analogous to the rate of return and the variability of that growth rate a metric of risk.
 Environmental conditions could represent the financial market conditions.
 Given this interpretation, ecological managers could consider how various conservation strategies affect the expected risk and return of their ecological portfolio.
+<!--TODO Lindsay: state that growth and variance are return and risk in topic sentence.-->
 
 The migration of Pacific salmon biomass profoundly influences aquatic and terrestrial coastal ecosystems throughout the North Pacific ocean from Korea to California [@quinn2005].
 Managing Pacific salmon under the uncertainty of climate change is an ideal scenario to consider through the lens of portfolio theory for three reasons.
@@ -92,13 +93,13 @@ Fisheries often integrate across multiple populations, acting as investors in th
 Fisheries managers and conservation agencies can act as portfolio managers by choosing which salmon habitat to prioritize for protection or restoration.
 (2) Many Pacific salmon metapopulations are highly threatened [e.g. @gustafson2007] and will likely become more at risk as threats such as overfishing, damming, logging, and particularly changing climate, intensify [e.g. @lackey2003].
 Indeed, recovery goals for Pacific salmon are often set at the metapopulation level, and knowing what minimizes risk to the metapopulation can help choose efficient conservation actions [@mcelhany2000].
-(3) Given the scale and variety of the problems facing salmon, some prioritization will be required to recover these highly-valued, even iconic species [@allendorf1997; @ruckelshaus2002].
+(3) Given the scale and variety of the threats facing salmon, some prioritization will be required to recover these highly-valued, even iconic species [@allendorf1997; @ruckelshaus2002].
 
 Two key mechanisms can generate the asynchrony in metapopulation dynamics that is critical to a diversified portfolio.
 First, localized habitat features can filter larger-scale environments, generating unique conditions for populations [@schindler2008] (*sensu* the Moran effect).
 Second, salmon populations may respond differently to environmental variability [i.e.
-response diversity, @elmqvist2003; and biocomplexity, @hilborn2003].
-This mechanism can result from unique local adaptations and traits [@crozier2008; @fraser2011; @eliason2011].
+response diversity, @elmqvist2003; and biocomplexity, @hilborn2003]
+arising from unique local adaptations and traits [@crozier2008; @fraser2011; @eliason2011].
 In reality, these mechanisms can interact. For example, salmon response diversity in the marine environment can be driven by adaptation to localized freshwater environments [@johnson2013a].
 
 In addition to posing perhaps the greatest threat to global biodiversity in general [@thomas2004], climate warming poses a particular threat to riverine species whose ranges are largely confined to existing habitat [@thomas2010].
@@ -251,15 +252,17 @@ This risk is buffered with balanced response diversity (Fig. 4c) and the resulti
 *Given long-term environmental change*, such as climate warming, an ecological manager is hedging his or her bets on the environmental trend and how the populations will respond by conserving balanced response diversity.
 The choice of which populations to conserve affects the "rate of return" (metapopulation growth rate) properties of an ecological portfolio (Fig. 4b; Figs. \ref{f:eg-sp-linear-full}, \ref{f:eg-sp-linear-half}).
 The typical metapopulation growth rate for a balanced response diversity strategy was zero --- the metapopulation neither increased nor decreased in abundance in the long run.
+<!--TODO Lindsay: Can you compare to a typical growth rate in the non balanced reponse scenarios.-->
 The example metapopulation abundance time series (Fig. 4d, f) illustrate the mechanism: by conserving response diversity, when one population is doing poorly, another is doing well and the metapopulation abundance remains stationary through time.
 If a manager had invested only in the populations that were doing well at the beginning they would have had the lowest rate-of-return portfolio at the end (purple portfolios in Fig. 4f).
 
 ## How many populations to conserve?
 
 In a scenario where we don't know the distribution of population-level response diversity, portfolio optimization informs us that investing in more populations buffers portfolio risk regardless of environmental trend (Fig. 5).
-
+<!--TODO Lindsay: (instead of portfolio risk can you say growth rate variance?) -->
 *Given short-term environmental fluctuations*, conserving more populations buffers portfolio risk (Fig. 5a, c; Figs. \ref{f:eg-n-arma-two}, \ref{f:eg-n-arma-sixteen}).
 For example, a metapopulation with 16 conserved populations is 2.5 times less variable on average than a metapopulation with only four.
+<!--TODO Lindsay: (can you say out of how many total populations)-->
 At the same time, the random conservation of response diversity creates a spread of metapopulation risk for the same number of populations conserved, particularly given fewer populations (Fig. 5a).
 For example, the width of the 80% quantile of variance in metapopulation growth rate was 2.9 times narrower for the metapopulations with 16 conserved populations compared to the metapopulations with only four.
 We note that the risk-return axes of portfolio optimization ignore the absolute-abundance dimension.
@@ -276,7 +279,7 @@ Here, the number of conserved populations buffers non-systematic (primarily demo
 
 Our model quantitatively confirms our intuition by demonstrating how population diversity can stabilize metapopulations under climate change.
 We show how maintaining populations with a variety of thermal-tolerances reduces risk caused by short-term environmental stochasticity and optimizes chances for long-term persistence given climate change.
-Further, without knowing how response diversity is distributed, conserving more populations reduces metapopulation risk regardless of environmental trend and response-diversity distribution.
+Further, conserving more populations reduces metapopulation risk regardless of environmental trend and knowledge of response-diversity distribution.
 Combined, these findings illustrate that focusing on well-performing stocks now at the detriment of others is at best equivalent to an efficient but risky portfolio, and at worst a poorly-performing risky portfolio.
 In this discussion, we begin by linking our model with real-world conservation issues for Pacific Northwest salmon.
 We then consider broader implications for metapopulation conservation of any species and ecological stability in general.
@@ -284,7 +287,7 @@ We then consider broader implications for metapopulation conservation of any spe
 ## Implications for salmon conservation
 
 Our results emphasize the importance of promoting ecological conditions that increase response diversity if stability is to be maintained in the face of environmental uncertainty.
-For example, since habitat heterogeneity can lead to local adaptation [e.g. @fraser2011], our results emphasize the need to maintain a diversity of salmon habitat [@rogers2008].
+Therefore, since habitat heterogeneity can lead to local adaptation [e.g. @fraser2011], our results emphasize the need to maintain a diversity of salmon habitat [@rogers2008].
 Our results can also inform decisions about salmon habitat prioritization.
 If conservation actions must be prioritized, then our model suggests we should focus on populations that aren't spatially contiguous to maximize diversity of response to the environment.
 Finally, our results demonstrate the advantages of avoiding structures that artificially remove response diversity.
@@ -305,7 +308,7 @@ Since European-Americans arrived, 29% of 1400 historical salmon populations in t
 Furthermore, 44% of salmon habitat in the western US (in the lower 48 states) has been lost to dams and other freshwater blockages [@mcclure2008a].
 Changes to habitat, combined with increasing climate variability, has led to disturbance regimes that differ substantially in the frequency, magnitude, and duration from historical patterns, and threaten the resilience of salmon populations [@waples2009].
 Many remaining populations rely on hatcheries for long-term population viability --- creating substantial evolutionary risks such as outbreeding depression, genetic homogenization, reduced effective population size, and domestication of fish (adaption to artificial environments and reduced fitness in wild environments) [@mcclure2008b].
-Reduction of long-term reliance on hatcheries, accompanied by habitat restoration through, for example, restoring connectivity of floodplains and stream flow regimes, remains a critical component of long-term salmon sustainability in the Pacific Northwest, particularly given predicted patterns of climate change [@beechie2013].
+Reduction of long-term reliance on hatcheries, accompanied by habitat restoration through, for example, restoring connectivity of floodplains and stream flow regimes, remains a critical component of long-term salmon sustainability in the Pacific Northwest --- particularly given predicted patterns of climate change [@beechie2013].
 
 Our model complements other simulation-based salmon-habitat prioritization models.
 While these other models tend to focus on detailed assessment of individual fish stocks, our model is the first to consider the role of response diversity in buffering risk for metapopulations as a whole.
