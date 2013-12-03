@@ -177,12 +177,24 @@ meta_sim <- function(
           spawners <- E[2:(i - 1), j]
           rick <- fit_ricker(R = recruits, S = spawners)
           # bounds for sanity:
-          if (rick$a > 4) rick$a <- 4
-          if (rick$a < 0.02) rick$a <- 0.02
+          if (rick$a > 4) {
+            warning("Ricker a was estimated at greater than 4. Setting to 4.")
+            rick$a <- 4
+          }
+          if (rick$a < 0.02) {
+            warning("Ricker a was estimated at less than 0.02. Setting to 0.02.")
+            rick$a <- 0.02
+          }
           # at most increase b by 50%
-          if (rick$b > Est_b[i - 1, j] * 1.5) rick$b <- Est_b[i - 1, j] * 1.5
+          if (rick$b > Est_b[i - 1, j] * 1.5) {
+            warning("Jump in Ricker b was too large. Setting to 150% of previous value.")
+            rick$b <- Est_b[i - 1, j] * 1.5
+          }
           # at most decrease b by 50%
-          if (rick$b < Est_b[i - 1, j] * 0.5) rick$b <- Est_b[i - 1, j] * 0.5
+          if (rick$b < Est_b[i - 1, j] * 0.5) {
+            warning("Jump in Ricker b was too large. Setting to 50% of previous value.")
+            rick$b <- Est_b[i - 1, j] * 0.5
+          }
           Est_a[i,j]<-rick$a
           Est_b[i,j]<-rick$b
         }
