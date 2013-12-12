@@ -18,6 +18,10 @@ col_pal <- rev(gg_color_hue(10))
 #
 # Figure showing random response diversity but different
 # numbers of populations conserved:
+
+source("pdf_eps.R")
+TYPE <- "pdf" # or "pdf" for plot output
+
 source("cons_plans_n_random_resp_div.R")
 
 # Figure showing different spatial rules of thumb:
@@ -31,3 +35,6 @@ col_pal <- rev(gg_color_hue(10))
 source("plot_straying_matrix.R")
 source("plot_thermal_curves.R")
 source("example_returns_3.R")
+
+# covert to .eps:
+#source("figs2eps.R")
