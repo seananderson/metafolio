@@ -27,6 +27,7 @@ source("cons_plans2.R")
 source("plot_thermal_curves_scenarios.R")
 
 # Supplementary Figures:
+col_pal <- rev(gg_color_hue(10))
 source("plot_straying_matrix.R")
 source("plot_thermal_curves.R")
 source("example_returns_3.R")
