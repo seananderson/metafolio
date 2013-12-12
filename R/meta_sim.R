@@ -65,8 +65,7 @@
 #' iterations of \code{meta_sim} and you want to cache, then the first iteration
 #' should have both cache arguments set to \code{FALSE}, and subsequent runs can
 #' set one or both to \code{TRUE}. Internally, \code{meta_sim} caches by writing
-#' the appropriate data to a \code{.rda} file in a temporary directory as
-#' created by the function \code{\link[base]{tempdir}}.
+#' the appropriate data to a \code{.rda} file in the current working directory.
 #' @return
 #' A list is returned that contains the following elements. All matrices that
 #' are returned (except the straying matrix) feature populations along the
