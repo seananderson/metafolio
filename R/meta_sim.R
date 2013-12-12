@@ -41,6 +41,9 @@
 #'   the estimated Ricker b values *as fractions* of the previously assessed
 #'   value. If a value is estimated beyond these limits it will be set to the
 #'   limit value.
+#' @param silence_warnings Should the warnings be skipped if the Ricker a or b
+#'   values exceed their specified bounds? \code{meta_sim} will still print
+#'   other warnings regardless of this argument value.
 #' @param sigma_impl Implementation standard deviation for the implementation
 #'   error beta distribution.
 #' @param assess_freq How many generations before re-assessing Ricker a and b
@@ -115,6 +118,7 @@ meta_sim <- function(
   assessment_window = 25,
   a_lim = c(0.02, 4),
   b_lim = c(0.5, 1.5),
+  silence_warnings = TRUE,
   sigma_impl = 0.05,
   assess_freq = 10,
   use_cache = FALSE,
@@ -225,19 +229,23 @@ meta_sim <- function(
           rick <- fit_ricker(R = recruits, S = spawners)
           # bounds for sanity:
           if (rick$a > a_lim[2]) {
-            warning("Ricker a was estimated at greater than upper limit. Setting to upper limit.")
+            if(!silence_warnings)
+              warning("Ricker a was estimated at greater than upper limit. Setting to upper limit.")
             rick$a <- a_lim[2]
           }
           if (rick$a < a_lim[1]) {
-            warning("Ricker a was estimated at less than lower limit. Setting to lower limit.")
+            if(!silence_warnings)
+              warning("Ricker a was estimated at less than lower limit. Setting to lower limit.")
             rick$a <- a_lim[1]
           }
           if (rick$b > Est_b[i - 1, j] * b_lim[2]) {
-            warning("Jump in Ricker b was larger than limit. Setting to upper limit times the previous value.")
+            if(!silence_warnings)
+              warning("Jump in Ricker b was larger than limit. Setting to upper limit times the previous value.")
             rick$b <- Est_b[i - 1, j] * b_lim[2]
           }
           if (rick$b < Est_b[i - 1, j] * b_lim[1]) {
-            warning("Jump in Ricker b was larger than limit. Setting to lower limit times the previous value.")
+            if(!silence_warnings)
+              warning("Jump in Ricker b was larger than limit. Setting to lower limit times the previous value.")
             rick$b <- Est_b[i - 1, j] * b_lim[1]
           }
           Est_a[i,j]<-rick$a

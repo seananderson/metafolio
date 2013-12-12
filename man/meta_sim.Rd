@@ -11,9 +11,9 @@ meta_sim(n_t = 100, n_pop = 10, stray_decay_rate = 0.3,
   "linear", "constant"), env_params = list(amplitude = 3.2, ang_frequency =
   0.2, phase = runif(1, -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.3),
   start_assessment = 20, assessment_window = 25, a_lim = c(0.02, 4),
-  b_lim = c(0.5, 1.5), sigma_impl = 0.05, assess_freq = 10,
-  use_cache = FALSE, cache_env = FALSE, add_straying = TRUE,
-  add_impl_error = TRUE)
+  b_lim = c(0.5, 1.5), silence_warnings = TRUE, sigma_impl = 0.05,
+  assess_freq = 10, use_cache = FALSE, cache_env = FALSE,
+  add_straying = TRUE, add_impl_error = TRUE)
 }
 \arguments{
   \item{n_t}{The number of years.}
@@ -78,6 +78,11 @@ meta_sim(n_t = 100, n_pop = 10, stray_decay_rate = 0.3,
   fractions* of the previously assessed value. If a value
   is estimated beyond these limits it will be set to the
   limit value.}
+
+  \item{silence_warnings}{Should the warnings be skipped if
+  the Ricker a or b values exceed their specified bounds?
+  \code{meta_sim} will still print other warnings
+  regardless of this argument value.}
 
   \item{sigma_impl}{Implementation standard deviation for
   the implementation error beta distribution.}
