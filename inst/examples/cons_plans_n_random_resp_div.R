@@ -4,7 +4,7 @@
 # In this version, the response diversity is randomly drawn
 
 set.seed(1)
-USE_CACHE <- FALSE
+USE_CACHE <- TRUE
 
 # moved this out of the package to avoid Teaching Demos import
 add_inset_env <- function(env, x = 0.12, y = -0.013, size = c(1, .5), ...) {
@@ -34,14 +34,14 @@ plans_name_n <- paste(num_pops, "populations")
 ## ARMA:
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
-pdf("n-arma-sim-2.pdf", width = 5, height = 7)
+pdf_eps("n-arma-sim-2", width = 5, height = 7, type = TYPE)
 eg_arma <- meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
   arma_env_params, env_type = "arma", assess_freq = 5, max_a =
   thermal_integration(16))
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
 
-pdf("n-arma-sim-16.pdf", width = 5, height = 7)
+pdf_eps("n-arma-sim-16", width = 5, height = 7, type = TYPE)
 eg_arma <- meta_sim(b = w[[4]][[2]], n_pop = 16, env_params =
   arma_env_params, env_type = "arma", assess_freq = 5, max_a =
   thermal_integration(16))
@@ -61,14 +61,14 @@ x_arma_n <- run_cons_plans(w, env_type = "arma", env_params =
 linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
   start_t = 30)
 
-pdf("n-linear-sim-2.pdf", width = 5, height = 7)
+pdf_eps("n-linear-sim-2", width = 5, height = 7, type = TYPE)
 eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 16, env_params =
   linear_env_params, env_type = "linear", assess_freq = 5, max_a =
   thermal_integration(16))
 plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
 dev.off()
 
-pdf("n-linear-sim-16.pdf", width = 5, height = 7)
+pdf_eps("n-linear-sim-16", width = 5, height = 7, type = TYPE)
 eg_linear <- meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
   linear_env_params, env_type = "linear", assess_freq = 5, max_a =
   thermal_integration(16))
@@ -85,7 +85,7 @@ x_linear_n <- run_cons_plans(w, env_type = "linear",
 }
 
 cols <- RColorBrewer::brewer.pal(5, "Spectral")
-pdf("cons-plans-n.pdf", width = 6.5, height = 6.8)
+pdf_eps("cons-plans-n", width = 6.5, height = 6.8, type = TYPE)
 
 layout(rbind(
   c(1, 1, 1, 2, 2, 2),

@@ -1,6 +1,6 @@
 #' plot thermal curves for different conservation scenarios
 
-pdf("thermal-curve-scenarios.pdf", width = 2.6, height = 4.7)
+pdf_eps("thermal-curve-scenarios", width = 2.6, height = 4.7, type = TYPE)
 par(cex = 0.8, mgp = c(2.4, 0.55, 0), tck = -0.04, mfrow = c(5,1), mar = c(0,3,0,.5), oma = c(3, 0, .5, 0))
     par(las = 1)
 
@@ -29,18 +29,18 @@ bg.plot <- function(colour = "#00000019") rect(par("usr")[1],
   FALSE)
 
 al <- function(x) {text(3, 3.20, x, pos = 4)}
-plot_the_curves(1:10) 
+plot_the_curves(1:10)
 al("(a) All possible tolerance curves")
 #bg.plot()
-plot_the_curves(c(2, 4, 7, 9)) 
+plot_the_curves(c(2, 4, 7, 9))
 al("(b) Conserve full range")
-plot_the_curves(c(4, 5, 6, 7)) 
+plot_the_curves(c(4, 5, 6, 7))
 al("(c) Conserve most tolerant")
-plot_the_curves(c(1, 2, 3, 4)) 
+plot_the_curves(c(1, 2, 3, 4))
 al("(d) Conserve one half")
-plot_the_curves(c(7, 8, 9, 10)) 
+plot_the_curves(c(7, 8, 9, 10))
 al("(e) Conserve other half")
-#plot_the_curves(c(1, 2, 9, 10)) 
+#plot_the_curves(c(1, 2, 9, 10))
 axis(1, col = "grey50")
 par(xpd = NA)
 mtext("Ricker productivity parameter (a)", side = 2, outer = TRUE, line = -1.2, las = 0, cex = 0.7)

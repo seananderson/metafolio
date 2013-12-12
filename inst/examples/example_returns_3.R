@@ -39,7 +39,7 @@
 #col_pal <- rev(gg_color_hue(10))
 
 
-pdf("plot-various-options-ts-3pops.pdf", width = 4, height = 6.4)
+pdf_eps("plot-various-options-ts-3pops", width = 4, height = 6.4, type = TYPE)
 
 eg <- list()
 ex <- list()

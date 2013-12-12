@@ -30,7 +30,7 @@ for(i in 1:10) {
     mtext("Source population", side = 2, line = 2.5, cex = 0.8, outer = TRUE, las = 0)
 }
 
-pdf("stray-matrix.pdf", width = 4, height = 4)
+pdf_eps("stray-matrix", width = 4, height = 4, type = TYPE)
 plot_straying_matrix(M, pal = col_pal)
 dev.off()
 

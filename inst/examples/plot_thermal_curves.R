@@ -8,7 +8,7 @@
   #lines(x, thermal_curve_a(x, optim_temp = optim_temps[i], max_a = 1.3, width_param = 0.02), ylab = "a", xlab = "Temperature", type = "l", col = col_pal[i], lwd = 1.5)
 #}
 
-pdf("thermal-curves.pdf", width = 6, height = 4)
+pdf_eps("thermal-curves", width = 6, height = 4, type = TYPE)
 par(cex = 0.8, mgp = c(2.4, 0.65, 0), tck = -0.02, mfrow = c(1,1), mar = c(4,4,.5,.5))
 optim_temps <- seq(13, 19, length.out = 10)
 widths <- c(seq(0.05, 0.02, length.out = 5), rev(seq(0.05, 0.02, length.out = 5)))

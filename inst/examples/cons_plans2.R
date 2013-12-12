@@ -1,7 +1,7 @@
 # This file looks at different spatial conservation strategies
 
 set.seed(2)
-USE_CACHE <- FALSE
+USE_CACHE <- TRUE
 
 w_plans <- list()
 w_plans[[1]] <- c(5, 1000, 5, 1000, 5, 5, 1000, 5, 1000, 5)
@@ -25,18 +25,18 @@ for(i in 1:n_plans) { # loop over plans
 ## ARMA:
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
-pdf("spatial-arma-sim-full.pdf", width = 5, height = 7)
+pdf_eps("spatial-arma-sim-full", width = 5, height = 7, type = TYPE)
 eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30, yticks = list(NA, NA, NA,
     NA, NA, NA, NA, c(-0.6, 0, 0.6), c(2.5, 3), NA))
 dev.off()
 
-pdf("example-return-correlations.pdf", width = 5, height = 5)
+pdf_eps("example-return-correlations", width = 5, height = 5, type = TYPE)
 plot_correlation_between_returns(eg_arma)
 dev.off()
 
-pdf("spatial-arma-sim-onehalf.pdf", width = 5, height = 7)
+pdf_eps("spatial-arma-sim-onehalf", width = 5, height = 7, type = TYPE)
 eg_arma <- meta_sim(b = w[[4]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
@@ -55,13 +55,13 @@ x_arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
 linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
   start_t = 30)
 
-pdf("spatial-linear-sim-full.pdf", width = 5, height = 7)
+pdf_eps("spatial-linear-sim-full", width = 5, height = 7, type = TYPE)
 eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params =
     linear_env_params, env_type = "linear", assess_freq = 5)
 plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
 dev.off()
 
-pdf("spatial-linear-sim-onehalf.pdf", width = 5, height = 7)
+pdf_eps("spatial-linear-sim-onehalf", width = 5, height = 7, type = TYPE)
 eg_linear <- meta_sim(b = w[[4]][[1]], n_pop = 10, env_params =
     linear_env_params, env_type = "linear", assess_freq = 5)
 plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
@@ -78,7 +78,7 @@ if(!USE_CACHE) {
 
 cols <- RColorBrewer::brewer.pal(5, "Dark2")
 
-pdf("spatial-mv.pdf", width = 6.5, height = 6.8)
+pdf_eps("spatial-mv", width = 6.5, height = 6.8, type = TYPE)
 layout(rbind(
   c(1, 2),
   c(1, 2),
