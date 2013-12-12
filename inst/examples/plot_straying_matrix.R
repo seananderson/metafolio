@@ -15,11 +15,11 @@ plot_straying_matrix <- function(x, pal) {
 par(mfrow = c(10, 10), cex = 0.7, mar = c(0,0,0,0), oma = c(4, 4, .5, .5))
 for(i in 1:10) {
   for(j in 1:10) {
-    #if(j < i){ 
+    #if(j < i){
       plot(1, 1, xlim = c(0, 1), ylim = c(0, 1), yaxs = "i", xaxs = "i", axes = FALSE, pch = 20, col = "grey20", type = "n")
     with(x[x$Var1 == i & x$Var2 == j, ], rect(0, 0, 1, 1, col = colour, border = NA))
     box(col = "grey50")
-    #}else{ 
+    #}else{
       #plot(1,1, type = "n", xlab = "", ylab = "", axes = FALSE)
     #}
     if(i == 10) mtext(j, side = 1, line = 1, cex = 0.8, col = pal[j])
@@ -30,5 +30,7 @@ for(i in 1:10) {
     mtext("Source population", side = 2, line = 2.5, cex = 0.8, outer = TRUE, las = 0)
 }
 
+pdf("stray-matrix.pdf", width = 4, height = 4)
 plot_straying_matrix(M, pal = col_pal)
+dev.off()
 
