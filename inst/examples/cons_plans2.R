@@ -135,15 +135,16 @@ burn <- 1:30
 plot_sp_A_ts(cons_arma_ts, ylim = c(0000, 12400),
   start_new_plots = c(1, 3),
   labels = c("(c) Response diversity dampens\n     short-term risk",
-    "ignore", "(e)\n", "ignore"))
+    "ignore", "(e)\n", "ignore"), cols = cols)
 
 par(las = 0)
 mtext("Metapopulation abundance", side = 2, line = 3, outer = FALSE, cex = 0.8, adj = -2)
 par(las =1)
 
 plot_sp_A_ts(cons_linear_ts, ylim = c(0000, 12400), y_axis = FALSE,
-  start_new_plots = c(1, 3), labels = c("(d) Response diversity ensures\n
-    long-term persistence", "ignore", "(f)\n", "ignore"))
+  start_new_plots = c(1, 3), labels =
+  c("(d) Response diversity ensures\n      long-term persistence",
+    "ignore", "(f)\n", "ignore"), cols = cols)
 
 par(xpd = NA)
 mtext("Generation", side = 1, line = 2, outer = FALSE, cex = 0.8, adj = -.2)
