@@ -1,43 +1,60 @@
-#' Run a (salmon) metapopulation simulation.
+#' Run a single (salmon) metapopulation simulation.
+#'
+#' This is the master function for running \pkg{metafolio} simulations. It runs
+#' a single iteration of a simulation. The arguments can be manipulated with
+#' other functions in the package to use this function as part of a portfolio
+#' analysis.
 #'
 #' @param n_t The number of years.
-#' @param n_pop Number of (sub)populations
+#' @param n_pop Number of populations
 #' @param stray_decay_rate Rate that straying (exponentially) decays with
 #'   distance.
 #' @param stray_fraction Fraction of fish that stray from natal streams.
-#' @param b Ricker density-dependent parameter. Should be one per
-#'   (sub)population.
+#' @param b Ricker density-dependent parameter. A vector with one numeric value
+#'   per population.
 #' @param spawners_0 A vector of spawner abundances at the start of the
-#'   simulation. Length of the vector should equal the number of
-#'   subpopulations.
-#' @param sigma_v Stock-recruit residual standard deviation. Will be
-#'   exponentiated.
+#'   simulation. Length of the vector should equal the number of populations.
+#' @param sigma_v Stock-recruit residual standard deviation of the
+#'   log-deviations.
 #' @param v_rho AR1 serial correlation of stock-recruit residuals.
-#' @param a_width_param Width of the thermal curves by (sub)population.
-#' @param optim_temp Optimal temperatures by (sub)population.
-#' @param max_a Maximum Ricker productivity parameters (a) by (sub)population.
-#'   The value obtained at the optimum temperature.
+#' @param a_width_param Width of the thermal curves by population.
+#' @param optim_temp Optimal temperatures by population.
+#' @param max_a Maximum Ricker productivity parameters (a) by population.  The
+#'   value obtained at the optimum temperature. Note how the default argument
+#'   uses the \code{\link{thermal_integration}} function.
 #' @param env_type The type of environmental time series to generate. One of
-#'   "sine", "arma", "regime", "linear", or "constant".
+#'   \code{"sine"}, \code{"arma"}, \code{"regime"}, \code{"linear"}, or
+#'   \code{"constant"}. See \code{\link{generate_env_ts}}.
 #' @param env_params Parameters to pass on to \code{\link{generate_env_ts}}.
 #'   You must provide the appropriate list given your chosen type of
 #'   environmental signal.
-#' @param start_assessment Generation to start estimating SR relationship for
-#'   escapement targets
-#' @param assessment_window Number of generations to use when fitting SR
-#'   relationship for escapement targets; must be bigger than start_assessment
-#' @param sigma_impl implementation sd for beta distribution
-#' @param assess_freq How many generations before re-assessing a and b
+#' @param start_assessment Generation to start estimating the stock recruit
+#'   relationship for escapement targets. The assessment is carried out using
+#'   \code{\link{fit_ricker}}.
+#' @param assessment_window Number of generations to use when fitting fitting
+#'   the stock-recruit relationship for escapement targets; must be bigger than
+#'   \code{start_assessment}.
+#' @param a_lim A vector of length two giving the lower and upper limits for
+#'   Ricker a values. If a value is estimated beyond these limits it will be
+#'   set to the limit value.
+#' @param b_lim A vector of length two giving the lower and upper limits for
+#'   the estimated Ricker b values *as fractions* of the previously assessed
+#'   value. If a value is estimated beyond these limits it will be set to the
+#'   limit value.
+#' @param sigma_impl Implementation standard deviation for the implementation
+#'   error beta distribution.
+#' @param assess_freq How many generations before re-assessing Ricker a and b
 #'   parameters.
-#' @param use_cache Use the stochastically generated values (SR residuals and
-#'   possibly environmental time series) from the previous run? See the Details
-#'   section below.
+#' @param use_cache Use the stochastically generated values (stock-recruit
+#'   residuals and possibly environmental time series) from the previous run?
+#'   See the Details section below.
 #' @param cache_env Logical: Should the environmental time series be cached? If
 #'   \code{use_cache = TRUE} then this will automatically happen. But, you
 #'   could set \code{cache_env = TRUE} and \code{use_cache = FALSE} to only
-#'   cache the environmental time series. See the details section below.
-#' @param add_straying Implement straying between (sub)populations?
-#' @param add_impl_error Add implementation error?
+#'   cache the environmental time series. See the Details section below.
+#' @param add_straying Implement straying between populations?
+#' @param add_impl_error Add implementation error? Implementation error is
+#'   derived using \code{\link{impl_error}}.
 #' @details
 #' To use either of the caching options, you must have run \code{meta_sim} at
 #' least once in the current session with both caching arguments set to
@@ -47,8 +64,36 @@
 #' set one or both to \code{TRUE}. Internally, \code{meta_sim} caches by writing
 #' the appropriate data to a \code{.rda} file in a temporary directory as
 #' created by the function \code{\link[base]{tempdir}}.
-#'
+#' @return
+#' A list is returned that contains the following elements. All matrices that
+#' are returned (except the straying matrix) feature populations along the
+#' columns and generations/years along the rows.
+#' \describe{
+#'    \item{\code{A}}{A matrix of abundances.}
+#'    \item{\code{F}}{A matrix of fishing mortality in numbers.}
+#'    \item{\code{E}}{A matrix of realized escapement.}
+#'    \item{\code{Eps}}{A matrix of (log) spawner-return residuals. These have been
+#'    log-normal bias corrected so their expected value after exponentiation
+#'    will be one.}
+#'    \item{\code{A_params}}{A matrix of actual Ricker a parameters.}
+#'    \item{\code{Strays_leaving}}{A matrix of strays leaving.}
+#'    \item{\code{Strays_joining}}{A matrix of strays joining.}
+#'    \item{\code{env_ts}}{A vector of the environmental time series.}
+#'    \item{\code{stray_mat}}{The straying matrix. These fractions are constant across
+#'    generations/years. Rows and columns are populations.}
+#'    \item{\code{n_pop}}{The total possible populations as input in the simulation.}
+#'    \item{\code{n_t}}{The number of generations/years the simulation was run for.}
+#'    \item{\code{b}}{The original Ricker b values as specified.}
+#'    \item{\code{Est_a}}{A matrix of estimated Ricker a values.}
+#'    \item{\code{Est_b}}{A matrix of estimated Ricker b values.}
+#' }
 #' @export
+#' @examples
+#' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
+#' base1 <- meta_sim(n_pop = 10, env_params = arma_env_params,
+#'   env_type = "arma", assess_freq = 5)
+#'
+#' plot_sim_ts(base1, years_to_show = 70, burn = 30)
 
 meta_sim <- function(
   n_t = 100,
@@ -68,6 +113,8 @@ meta_sim <- function(
       -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.30),
   start_assessment = 20,
   assessment_window = 25,
+  a_lim = c(0.02, 4),
+  b_lim = c(0.5, 1.5),
   sigma_impl = 0.05,
   assess_freq = 10,
   use_cache = FALSE,
@@ -177,23 +224,21 @@ meta_sim <- function(
           spawners <- E[2:(i - 1), j]
           rick <- fit_ricker(R = recruits, S = spawners)
           # bounds for sanity:
-          if (rick$a > 4) {
-            warning("Ricker a was estimated at greater than 4. Setting to 4.")
-            rick$a <- 4
+          if (rick$a > a_lim[2]) {
+            warning("Ricker a was estimated at greater than upper limit. Setting to upper limit.")
+            rick$a <- a_lim[2]
           }
-          if (rick$a < 0.02) {
-            warning("Ricker a was estimated at less than 0.02. Setting to 0.02.")
-            rick$a <- 0.02
+          if (rick$a < a_lim[1]) {
+            warning("Ricker a was estimated at less than lower limit. Setting to lower limit.")
+            rick$a <- a_lim[1]
           }
-          # at most increase b by 50%
-          if (rick$b > Est_b[i - 1, j] * 1.5) {
-            warning("Jump in Ricker b was too large. Setting to 150% of previous value.")
-            rick$b <- Est_b[i - 1, j] * 1.5
+          if (rick$b > Est_b[i - 1, j] * b_lim[2]) {
+            warning("Jump in Ricker b was larger than limit. Setting to upper limit times the previous value.")
+            rick$b <- Est_b[i - 1, j] * b_lim[2]
           }
-          # at most decrease b by 50%
-          if (rick$b < Est_b[i - 1, j] * 0.5) {
-            warning("Jump in Ricker b was too large. Setting to 50% of previous value.")
-            rick$b <- Est_b[i - 1, j] * 0.5
+          if (rick$b < Est_b[i - 1, j] * b_lim[1]) {
+            warning("Jump in Ricker b was larger than limit. Setting to lower limit times the previous value.")
+            rick$b <- Est_b[i - 1, j] * b_lim[1]
           }
           Est_a[i,j]<-rick$a
           Est_b[i,j]<-rick$b
