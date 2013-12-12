@@ -2,7 +2,7 @@
 \alias{ricker_v_t}
 \title{Ricker stock-recruit function with specified error}
 \usage{
-  ricker_v_t(spawners, a, b, d, v_t)
+ricker_v_t(spawners, a, b, d, v_t)
 }
 \arguments{
   \item{spawners}{Spawner abundance}
@@ -22,10 +22,10 @@
   bias corrected previously.}
 }
 \value{
-  Returns a vector of recruits.
+Returns a vector of recruits.
 }
 \description{
-  Ricker stock-recruit function with specified error
+Ricker stock-recruit function with specified error
 }
 \examples{
 x <- seq(1, 100)

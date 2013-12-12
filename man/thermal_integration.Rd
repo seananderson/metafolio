@@ -2,10 +2,9 @@
 \alias{thermal_integration}
 \title{Integrate thermal tolerance curves to get maximum Ricker a values}
 \usage{
-  thermal_integration(n_pop,
-    width_params = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))),
-    optim_temps = seq(13, 19, length.out = n_pop),
-    desired_area = 30)
+thermal_integration(n_pop, width_params = c(seq(0.05, 0.02, length.out =
+  n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))), optim_temps = seq(13,
+  19, length.out = n_pop), desired_area = 30)
 }
 \arguments{
   \item{n_pop}{The number of populations.}
@@ -19,10 +18,10 @@
   \item{desired_area}{Desired area under each curve.}
 }
 \description{
-  Get maximum Ricker a values for a given number of
-  populations. Useful for assembling multiple thermal
-  tolerance curves in which each has the same total area
-  under it.
+Get maximum Ricker a values for a given number of
+populations. Useful for assembling multiple thermal
+tolerance curves in which each has the same total area
+under it.
 }
 \examples{
 # Minimal example:

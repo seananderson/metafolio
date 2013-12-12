@@ -2,10 +2,9 @@
 \alias{plot_sim_ts}
 \title{Plot various time series from a simulation run}
 \usage{
-  plot_sim_ts(x, pal = rev(gg_color_hue(x$n_pop)),
-    years_to_show = 30, burn = 1:50, shade_years = NULL,
-    adj = 0.02, add_units = FALSE,
-    yticks = rep(list(NA), x$n_pop))
+plot_sim_ts(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30,
+  burn = 1:50, shade_years = NULL, adj = 0.02, add_units = FALSE,
+  yticks = rep(list(NA), x$n_pop))
 }
 \arguments{
   \item{x}{A list output object from a simulation run of
@@ -33,9 +32,9 @@
   \item{yticks}{Position of ticks on the Y axis.}
 }
 \description{
-  This function is rather crude at the moment. It lets you
-  quickly visualize the time series of output from a
-  simulation run, but it isn't very flexible yet.
+This function is rather crude at the moment. It lets you
+quickly visualize the time series of output from a
+simulation run, but it isn't very flexible yet.
 }
 \examples{
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)

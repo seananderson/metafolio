@@ -2,8 +2,8 @@
 \alias{monte_carlo_portfolios}
 \title{Monte Carlo asset weights into portfolios}
 \usage{
-  monte_carlo_portfolios(weights_matrix, n_sims = 500,
-    mean_b = 1000, burn = 1:30, ...)
+monte_carlo_portfolios(weights_matrix, n_sims = 500, mean_b = 1000,
+  burn = 1:30, ...)
 }
 \arguments{
   \item{weights_matrix}{A matrix of asset weights. The
@@ -20,17 +20,17 @@
   \code{\link{meta_sim}}.}
 }
 \value{
-  A list object with three elements: \code{port_vals} (a
-  matrix with a column of mean rate of change and variance
-  of rate of change), \code{n_sims} (the number of
-  simulations ran), and \code{sims_out} (a list in which
-  each element corresponds to the output from the run of
-  \code{\link{meta_sim}}.
+A list object with three elements: \code{port_vals} (a
+matrix with a column of mean rate of change and variance of
+rate of change), \code{n_sims} (the number of simulations
+ran), and \code{sims_out} (a list in which each element
+corresponds to the output from the run of
+\code{\link{meta_sim}}.
 }
 \description{
-  Monte Carlo the asset weights into portfolios and record
-  the simulation output and portfolio metrics (mean and
-  variance).
+Monte Carlo the asset weights into portfolios and record
+the simulation output and portfolio metrics (mean and
+variance).
 }
 \examples{
 weights_matrix <- create_asset_weights(n_pop = 4, n_sims = 3,
@@ -39,7 +39,6 @@ mc_ports <- monte_carlo_portfolios(weights_matrix = weights_matrix,
   n_sims = 3, mean_b = 1000)
 }
 \seealso{
-  \code{\link{meta_sim}},
-  \code{\link{create_asset_weights}}
+\code{\link{meta_sim}}, \code{\link{create_asset_weights}}
 }
 

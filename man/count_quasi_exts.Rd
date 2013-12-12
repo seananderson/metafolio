@@ -3,8 +3,7 @@
 \title{Take \code{\link{meta_sim}} output objects and count quasi
 extinctions}
 \usage{
-  count_quasi_exts(dat, quasi_thresh,
-    ignore_pops_thresh = 5, duration = 1)
+count_quasi_exts(dat, quasi_thresh, ignore_pops_thresh = 5, duration = 1)
 }
 \arguments{
   \item{dat}{Input data. Should be a list of lists. The
@@ -23,15 +22,15 @@ extinctions}
   quasi extinct.}
 }
 \value{
-  A list of matrices. The list elements correspond to the
-  conservation plans. The columns of the matrix correspond
-  to the subpopulations that were above the
-  \code{ignore_pops_thresh} level. The rows of the matrix
-  correspond to the replicates.
+A list of matrices. The list elements correspond to the
+conservation plans. The columns of the matrix correspond to
+the subpopulations that were above the
+\code{ignore_pops_thresh} level. The rows of the matrix
+correspond to the replicates.
 }
 \description{
-  Take \code{\link{meta_sim}} output objects and count
-  quasi extinctions
+Take \code{\link{meta_sim}} output objects and count quasi
+extinctions
 }
 \examples{
 \dontrun{

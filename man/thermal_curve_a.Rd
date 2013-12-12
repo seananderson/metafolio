@@ -2,8 +2,7 @@
 \alias{thermal_curve_a}
 \title{Create thermal tolerance curves.}
 \usage{
-  thermal_curve_a(temp, optim_temp = 15, max_a = 1.4,
-    width_param = 0.02)
+thermal_curve_a(temp, optim_temp = 15, max_a = 1.4, width_param = 0.02)
 }
 \arguments{
   \item{temp}{The input temperature value.}
@@ -18,14 +17,14 @@
   the parabola. Smaller numbers make wider parabolas.}
 }
 \value{
-  A productivity parameter given the location on a thermal
-  tolerance curve.
+A productivity parameter given the location on a thermal
+tolerance curve.
 }
 \description{
-  Creates a quadratic thermal tolerance curve of the form:
-  width_param * (temp - optim_temp)^2 + max_a Negative
-  values are *not* returned as 0 for speed of computation.
-  You should check for this after.
+Creates a quadratic thermal tolerance curve of the form:
+width_param * (temp - optim_temp)^2 + max_a Negative values
+are *not* returned as 0 for speed of computation. You
+should check for this after.
 }
 \examples{
 x <- seq(5, 30, length.out = 200)

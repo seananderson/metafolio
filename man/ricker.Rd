@@ -2,7 +2,7 @@
 \alias{ricker}
 \title{A simple Ricker model}
 \usage{
-  ricker(spawners, a, b)
+ricker(spawners, a, b)
 }
 \arguments{
   \item{spawners}{Spawner abundance}
@@ -13,10 +13,10 @@
   \item{b}{Ricker density dependent parameter.}
 }
 \value{
-  Returns the number of recruits.
+Returns the number of recruits.
 }
 \description{
-  A simple Ricker model
+A simple Ricker model
 }
 \examples{
 S <- seq(100, 1000, length.out = 100)

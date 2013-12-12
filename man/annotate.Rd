@@ -2,8 +2,7 @@
 \alias{annotate}
 \title{Add annotations to panel}
 \usage{
-  annotate(label, xfrac = 0.008, yfrac = 0.18, pos = 4,
-    cex = 0.9, ...)
+annotate(label, xfrac = 0.008, yfrac = 0.18, pos = 4, cex = 0.9, ...)
 }
 \arguments{
   \item{label}{The text to add as a label}
@@ -22,6 +21,6 @@
   \code{\link[graphics]{text}}}
 }
 \description{
-  Add annotations to panel
+Add annotations to panel
 }
 

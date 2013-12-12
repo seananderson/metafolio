@@ -2,8 +2,7 @@
 \alias{create_asset_weights}
 \title{Create an asset weights matrix}
 \usage{
-  create_asset_weights(n_pop, n_sims,
-    weight_lower_limit = 0.02)
+create_asset_weights(n_pop, n_sims, weight_lower_limit = 0.02)
 }
 \arguments{
   \item{n_pop}{The number of subpopulations.}
@@ -16,12 +15,12 @@
   the total capacity}
 }
 \value{
-  A matrix. The columns represent subpopulations. The rows
-  represent simulation repetitions.
+A matrix. The columns represent subpopulations. The rows
+represent simulation repetitions.
 }
 \description{
-  Create an asset weight matrix to run through the Monte
-  Carlo algorithm and test possible portfolios.
+Create an asset weight matrix to run through the Monte
+Carlo algorithm and test possible portfolios.
 }
 \examples{
 create_asset_weights(n_pop = 5, n_sims = 10, weight_lower_limit = 0.001)

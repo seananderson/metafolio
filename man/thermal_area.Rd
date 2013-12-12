@@ -3,8 +3,8 @@
 \title{Return desired squared deviation between desired area and actual
 area under a curve}
 \usage{
-  thermal_area(max_a, desired_area, optim_temp,
-    width_param, lower = -5, upper = 40)
+thermal_area(max_a, desired_area, optim_temp, width_param, lower = -5,
+  upper = 40)
 }
 \arguments{
   \item{max_a}{Maximum Ricker a productivity value}
@@ -23,12 +23,12 @@ area under a curve}
   \code{\link[stats]{uniroot}}}
 }
 \description{
-  The function finds the lower and upper roots (where the
-  thermal curve crosses 0) with the
-  \code{\link[stats]{uniroot}} function and then integrates
-  the area under the thermal curve with the
-  \code{\link[stats]{integrate}} function. This is useful
-  as part of the optimization routine in
-  \code{\link{optim_thermal}}.
+The function finds the lower and upper roots (where the
+thermal curve crosses 0) with the
+\code{\link[stats]{uniroot}} function and then integrates
+the area under the thermal curve with the
+\code{\link[stats]{integrate}} function. This is useful as
+part of the optimization routine in
+\code{\link{optim_thermal}}.
 }
 

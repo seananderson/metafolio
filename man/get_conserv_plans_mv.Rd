@@ -2,8 +2,8 @@
 \alias{get_conserv_plans_mv}
 \title{Run simulation for conservation schemes}
 \usage{
-  get_conserv_plans_mv(weights, reps = 150,
-    assess_freq = 5, burn = 1:30, ...)
+get_conserv_plans_mv(weights, reps = 150, assess_freq = 5, burn = 1:30,
+  ...)
 }
 \arguments{
   \item{weights}{A matrix of habitat weights. Each row
@@ -22,11 +22,11 @@
   \code{\link{meta_sim}}.}
 }
 \value{
-  Returns the portfolio mean and variance values and the
-  simulation runs.
+Returns the portfolio mean and variance values and the
+simulation runs.
 }
 \description{
-  Run the metapopulation simulation for various
-  conservation prioritization schemes.
+Run the metapopulation simulation for various conservation
+prioritization schemes.
 }
 

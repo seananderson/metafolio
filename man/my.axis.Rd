@@ -2,7 +2,7 @@
 \alias{my.axis}
 \title{Add a pretty axis}
 \usage{
-  my.axis(side, shade_years = NULL, ylab = "", yticks = NA)
+my.axis(side, shade_years = NULL, ylab = "", yticks = NA)
 }
 \arguments{
   \item{side}{Number indicating the side to add an axis (as
@@ -18,6 +18,6 @@
   \item{yticks}{Logical: should y-axis ticks be added?}
 }
 \description{
-  Add a pretty axis
+Add a pretty axis
 }
 

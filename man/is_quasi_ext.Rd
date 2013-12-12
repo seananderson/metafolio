@@ -2,7 +2,7 @@
 \alias{is_quasi_ext}
 \title{Return whether there was an instance of quasi extinction}
 \usage{
-  is_quasi_ext(x, thresh, duration = 1)
+is_quasi_ext(x, thresh, duration = 1)
 }
 \arguments{
   \item{x}{A numeric vector.}
@@ -14,7 +14,7 @@
   before a quasi extinction has occurred.}
 }
 \description{
-  Return whether there was an instance of quasi extinction
+Return whether there was an instance of quasi extinction
 }
 \examples{
 x <- seq(100, 0, length.out = 20)

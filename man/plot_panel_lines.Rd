@@ -2,8 +2,7 @@
 \alias{plot_panel_lines}
 \title{Standard matrix plot of values by stream for one panel:}
 \usage{
-  plot_panel_lines(dat, ymin = c("zero", "min"),
-    ystretch = 1.1, ...)
+plot_panel_lines(dat, ymin = c("zero", "min"), ystretch = 1.1, ...)
 }
 \arguments{
   \item{dat}{The matrix of values to plot}
@@ -18,6 +17,6 @@
   \code{\link[graphics]{matplot}}.}
 }
 \description{
-  Standard matrix plot of values by stream for one panel:
+Standard matrix plot of values by stream for one panel:
 }
 

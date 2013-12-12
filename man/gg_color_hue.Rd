@@ -2,8 +2,7 @@
 \alias{gg_color_hue}
 \title{ggplot2-like colour scale in HCL space}
 \usage{
-  gg_color_hue(n, hue_min = 10, hue_max = 280, l = 62,
-    c = 100)
+gg_color_hue(n, hue_min = 10, hue_max = 280, l = 62, c = 100)
 }
 \arguments{
   \item{n}{Number of colours to return.}
@@ -17,11 +16,10 @@
   \item{c}{Chroma of the colour.}
 }
 \description{
-  ggplot2-like colour scale in HCL space
+ggplot2-like colour scale in HCL space
 }
 \details{
-  See the \code{\link[grDevices]{hcl}} function for
-  details.
+See the \code{\link[grDevices]{hcl}} function for details.
 }
 \examples{
 gg_color_hue(10)

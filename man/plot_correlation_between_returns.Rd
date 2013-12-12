@@ -2,10 +2,10 @@
 \alias{plot_correlation_between_returns}
 \title{Plot correlation of returns (i.e. metapopulation abundance) across stocks.}
 \usage{
-  plot_correlation_between_returns(x, burn = 1:30,
-    pal = rev(gg_color_hue(x$n_pop)),
-    xlab = "log of return abundance by population",
-    ylab = "log of return abundance by population")
+plot_correlation_between_returns(x, burn = 1:30,
+  pal = rev(gg_color_hue(x$n_pop)),
+  xlab = "log of return abundance by population",
+  ylab = "log of return abundance by population")
 }
 \arguments{
   \item{x}{A list output object from
@@ -21,8 +21,8 @@
   \item{ylab}{Y axis label}
 }
 \description{
-  Create a matrix plot showing the correlation between the
-  log returns of each stock/asset.
+Create a matrix plot showing the correlation between the
+log returns of each stock/asset.
 }
 \examples{
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)

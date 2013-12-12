@@ -2,10 +2,9 @@
 \alias{plot_rickers}
 \title{Plot sample Ricker curves for each stock}
 \usage{
-  plot_rickers(x, pal = rep("black", x$n_pop),
-    n_samples = 40, add_y_axes_pops = c(1, 6),
-    add_x_axes_pops = c(6:10), burn = 1:30,
-    add_shading = TRUE, ...)
+plot_rickers(x, pal = rep("black", x$n_pop), n_samples = 40,
+  add_y_axes_pops = c(1, 6), add_x_axes_pops = c(6:10), burn = 1:30,
+  add_shading = TRUE, ...)
 }
 \arguments{
   \item{x}{Output list from \code{\link{meta_sim}}.}
@@ -29,13 +28,13 @@
   \code{\link[graphics]{plot.default}}.}
 }
 \description{
-  Make a plot of Ricker curves for each stock. Can be
-  useful for visualizing how the simulation parameters are
-  impacting the Ricker curves and how these vary with
-  temperature across stocks. The colour of the lines
-  corresponds to the relative thermal tolerance of that
-  stock. The shaded region shows the range of spawners
-  observed throughout the simulations.
+Make a plot of Ricker curves for each stock. Can be useful
+for visualizing how the simulation parameters are impacting
+the Ricker curves and how these vary with temperature
+across stocks. The colour of the lines corresponds to the
+relative thermal tolerance of that stock. The shaded region
+shows the range of spawners observed throughout the
+simulations.
 }
 \examples{
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)

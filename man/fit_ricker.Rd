@@ -2,7 +2,7 @@
 \alias{fit_ricker}
 \title{Fit a Ricker curve (quickly)}
 \usage{
-  fit_ricker(S, R)
+fit_ricker(S, R)
 }
 \arguments{
   \item{S}{Spawners as a numeric vector.}
@@ -10,15 +10,15 @@
   \item{R}{Recruits or returns as a numeric vector.}
 }
 \value{
-  A named list with components \code{a} for the intercept
-  and \code{b} for the slope.
+A named list with components \code{a} for the intercept and
+\code{b} for the slope.
 }
 \description{
-  Fit a Ricker curve to spawner-recruit data and return the
-  intercept (a) and slope (b). This function uses
-  \code{\link[stats]{lm.fit}} by directly specifying the
-  model matrix. This is about an order of magnitude faster
-  than \code{\link[stats]{lm}}.
+Fit a Ricker curve to spawner-recruit data and return the
+intercept (a) and slope (b). This function uses
+\code{\link[stats]{lm.fit}} by directly specifying the
+model matrix. This is about an order of magnitude faster
+than \code{\link[stats]{lm}}.
 }
 \examples{
 S <- seq(100, 1000, length.out = 100)

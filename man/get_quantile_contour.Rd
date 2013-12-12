@@ -2,7 +2,7 @@
 \alias{get_quantile_contour}
 \title{Get quantile contour}
 \usage{
-  get_quantile_contour(x, alpha = 0.8)
+get_quantile_contour(x, alpha = 0.8)
 }
 \arguments{
   \item{x}{Output from \code{\link[MASS]{kde2d}}.}
@@ -10,6 +10,6 @@
   \item{alpha}{The quantile level.}
 }
 \description{
-  Get quantile contour
+Get quantile contour
 }
 

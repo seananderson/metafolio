@@ -2,9 +2,8 @@
 \alias{run_cons_plans}
 \title{Run conservation plans and return the portfolio mean and variance values}
 \usage{
-  run_cons_plans(w, env_type, env_params,
-    show_progress = TRUE, burn = 1:30, assess_freq = 5,
-    ...)
+run_cons_plans(w, env_type, env_params, show_progress = TRUE, burn = 1:30,
+  assess_freq = 5, ...)
 }
 \arguments{
   \item{w}{A (nested) list of weights. The first list level
@@ -33,25 +32,24 @@
   \code{\link{meta_sim}}}
 }
 \value{
-  A list with two high-level elements: the mean variance
-  output (\code{plans_mv}) and the raw simulation output
-  (\code{plans_port}).  Within \code{plans_mv}, each
-  element of the list contains a conservation plan. Each
-  row of the data frames represents a trial run. Within
-  \code{plans_port}, each first level of the list contains
-  a weight element and each second level of the list
-  contains a replicate.
+A list with two high-level elements: the mean variance
+output (\code{plans_mv}) and the raw simulation output
+(\code{plans_port}).  Within \code{plans_mv}, each element
+of the list contains a conservation plan. Each row of the
+data frames represents a trial run. Within
+\code{plans_port}, each first level of the list contains a
+weight element and each second level of the list contains a
+replicate.
 }
 \description{
-  This function takes a set of weights representing
-  different conservation plans and gets the mean and
-  variance in portfolio space. This function allows a
-  maximally complicated set of weights to accommodate all
-  possible scenarios. It can accommodate different spatial
-  strategies of conservation, conserving different numbers
-  of populations, and a lack of knowledge. You can do this
-  by how you set your \code{w} weight object. See the
-  example.
+This function takes a set of weights representing different
+conservation plans and gets the mean and variance in
+portfolio space. This function allows a maximally
+complicated set of weights to accommodate all possible
+scenarios. It can accommodate different spatial strategies
+of conservation, conserving different numbers of
+populations, and a lack of knowledge. You can do this by
+how you set your \code{w} weight object. See the example.
 }
 \examples{
 \dontrun{

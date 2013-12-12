@@ -2,10 +2,10 @@
 \alias{plot_cons_plans}
 \title{Plot conservation plans in mean-variance space}
 \usage{
-  plot_cons_plans(plans_mv, plans_name, cols, xlim = NULL,
-    ylim = NULL, add_pts = TRUE, add_all_efs = FALSE,
-    x_axis = TRUE, y_axis = TRUE, add_legend = TRUE,
-    w_show = "all", xlab = "Variance", ylab = "Mean", ...)
+plot_cons_plans(plans_mv, plans_name, cols, xlim = NULL, ylim = NULL,
+  add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE, y_axis = TRUE,
+  add_legend = TRUE, w_show = "all", xlab = "Variance", ylab = "Mean",
+  ...)
 }
 \arguments{
   \item{plans_mv}{The \code{plans_mv} element of the output
@@ -43,15 +43,15 @@
   \code{\link[graphics]{plot.default}}.}
 }
 \value{
-  A plot. Also, the x and y limits are returned invisibly
-  as a list.  This makes it easy to make the first plot and
-  then save those x and y limits to fix them in subsequent
-  (multipanel) plots.
+A plot. Also, the x and y limits are returned invisibly as
+a list.  This makes it easy to make the first plot and then
+save those x and y limits to fix them in subsequent
+(multipanel) plots.
 }
 \description{
-  This makes a mean-variance plot of the portfolio output.
-  It can take care of: plotting the individual portfolios,
-  adding 2D kernel density polygons at two quantile levels,
-  adding an efficient frontier.
+This makes a mean-variance plot of the portfolio output. It
+can take care of: plotting the individual portfolios,
+adding 2D kernel density polygons at two quantile levels,
+adding an efficient frontier.
 }
 

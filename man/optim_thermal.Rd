@@ -2,7 +2,7 @@
 \alias{optim_thermal}
 \title{Optimize to find optimal max productivity Ricker a}
 \usage{
-  optim_thermal(optim_temp, width_param, desired_area)
+optim_thermal(optim_temp, width_param, desired_area)
 }
 \arguments{
   \item{optim_temp}{The optimum temperature as a numeric
@@ -14,6 +14,6 @@
   \item{desired_area}{The desired area as a numeric value}
 }
 \description{
-  Optimize to find optimal max productivity Ricker a
+Optimize to find optimal max productivity Ricker a
 }
 

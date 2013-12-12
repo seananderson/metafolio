@@ -5,21 +5,21 @@
 \title{metafolio: An R package to simulate salmon metapopulation for
 portfolio optimization}
 \description{
-  The \pkg{metafolio} \R package is a tool to simulate
-  metapopulations and apply financial portfolio
-  optimization concepts. The package is primarily intended
-  for salmon simulations, but could be adapted for other
-  taxonomic groups.
+The \pkg{metafolio} \R package is a tool to simulate
+metapopulations and apply financial portfolio optimization
+concepts. The package is primarily intended for salmon
+simulations, but could be adapted for other taxonomic
+groups.
 }
 \details{
-  The main simulation function is \code{\link{meta_sim}}.
-  This function takes care of running an individual
-  simulation iteration. The package contains other
-  functions for exploring spatial conservation scenarios
-  with these simulations (see the "Assessing multiple
-  conservation scenarios" section below), and find optimal
-  conservation strategies (see the "Portfolio optimization
-  section" below).
+The main simulation function is \code{\link{meta_sim}}.
+This function takes care of running an individual
+simulation iteration. The package contains other functions
+for exploring spatial conservation scenarios with these
+simulations (see the "Assessing multiple conservation
+scenarios" section below), and find optimal conservation
+strategies (see the "Portfolio optimization section"
+below).
 }
 \section{Running a simulation once}{
   To run a single simulation iteration, see the function
