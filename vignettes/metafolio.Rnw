@@ -13,7 +13,7 @@
 \setlength{\parskip}{10pt}
 \setlength{\parindent}{0cm}
 
-\textheight 21cm
+\textheight 21.5cm
 
 \begin{document}
 
@@ -25,7 +25,8 @@ options(replace.assign=TRUE, width=90)
 opts_knit$set(out.format = "latex")
 opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, tidy=FALSE,
 refresh=TRUE, cache=TRUE, autodep=TRUE)
-#knit_theme$set("print")
+thm = knit_theme$get("github.css")
+knit_theme$set(thm)
 @
 
 \title{An introduction to the \texttt{metafolio} \texttt{R} package}
@@ -60,22 +61,37 @@ the output.
 
 \section{Installing the package}
 
-To install and load the package:
-
 <<my-load-package, include=FALSE>>=
 library(metafolio)
 set.seed(1)
 @
 
-<<load-package, eval=FALSE>>=
-install.packages("devtools") # if needed
-devtools::install_github("metafolio", "seananderson")
-library(metafolio)
+In an \texttt{R} console (version $\ge 3.0.0$), you can install \texttt{metafolio} by first setting your working directory with \texttt{setwd()} to wherever you saved the package and then running:
+
+<<install-source, eval=FALSE>>=
+install.packages("metafolio_0.3.0.tar.gz", repos = NULL,
+  type = "source")
 @
 
-You can get more detailed installation instructions, read the source code, and
-report bugs on GitHub: \url{https://github.com/seananderson/metafolio}  (This website is a
-private repository while the paper is in review.)
+%The development version of \texttt{metafolio} can be installed via \texttt{devtools}:
+%\textit{This website is a private repository while the paper is in review and so the following code will not work.}
+
+%<<github-package, eval=FALSE>>=
+%install.packages("devtools") # if needed
+%devtools::install_github("metafolio", "seananderson",
+  %dependencies = TRUE)
+%@
+
+%You can get more detailed installation instructions, read the source code, and
+%report bugs on GitHub: \url{https://github.com/seananderson/metafolio}  (\textit{This website is a
+%private repository while the paper is in review.})
+
+\clearpage
+You can load the package with:
+
+<<load-package, eval=FALSE>>=
+library(metafolio)
+@
 
 You can find a copy of this vignette and access the help files with:
 
@@ -87,7 +103,7 @@ help(package = "metafolio")
 
 \section{An example simulation}
 
-The main simulation function in \texttt{metafolio} is \texttt{meta\_sim}.
+The main simulation function in \texttt{metafolio} is \texttt{meta\_sim()}.
 We'll start by running a simulation using the base-case parameter values from
 the paper. First, we'll set up an \texttt{R} list object that contains the
 argument values for the stationary environmental stochasticity scenario.
@@ -114,7 +130,7 @@ base1 <- meta_sim(n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 @
 
-We can plot the output with the function \texttt{plot\_sim\_ts}. The output is
+We can plot the output with the function \texttt{plot\_sim\_ts()}. The output is
 shown in Figure~\ref{fig:plot-base-case-ts}.
 
 <<plot-base-case-ts, fig.width=5, fig.height=6.5, out.width="4in", fig.cap="An example simulation with stationary environmental stochasticity and the base-case parameter values.">>=
@@ -154,18 +170,18 @@ for(i in 1:2) { # loop over plans
 }
 @
 
-We've now created a nested list of stream capacities (\texttt{w}). The first
-level of the list contains the two different scenarios The second level
-of the list contains the $b_i$ values for each iteration. Each iteration
-will have re-sampled process noise and observation error when run with
-\texttt{meta\_sim}. Here, we're keeping the $b_i$ values the same between
-iterations, but that might not be the case if we wanted to stochastically
-simulate the $b_i$ values. We're only going to run 80 iterations to reduce the
-runtime of the example, but in reality you would likely want to run many more
-iterations.
+We've now created a nested list of stream capacities (\texttt{w}). (\texttt{w}
+refers to the mnemonic ``weights'' for investment weights.) The first level of the
+list contains the two different scenarios The second level of the list contains
+the $b_i$ values for each iteration. Each iteration will have re-sampled process
+noise and observation error when run with \texttt{meta\_sim()}. Here, we're
+keeping the $b_i$ values the same between iterations, but that might not be the
+case if we wanted to stochastically simulate the $b_i$ values. We're only going
+to run 80 iterations to reduce the runtime of the example, but in reality you
+would likely want to run many more iterations.
 
 We can now stochastically simulate with these strategies using the function\\
-\texttt{run\_cons\_plans} and plot the output with \texttt{plot\_cons\_plans}
+\texttt{run\_cons\_plans()} and plot the output with \texttt{plot\_cons\_plans()}
 (Figure~\ref{fig:spatial-runs}).
 
 <<spatial-runs, fig.width=5, fig.height=5, out.width="4in", cache=TRUE, fig.cap="Two spatial conservation strategies shown in risk-return space with stationary environmental stochasticity. The dots show simulated metapopulations and the contours show 25\\% and 75\\% quantiles across 80 simulations per scenario. The grey line indicates the efficient frontier across all simulated metapopulations. The efficient frontier represents the minimum expected mean growth rate for a given expected variance in growth rate.">>=
@@ -180,7 +196,7 @@ plot_cons_plans(arma_sp$plans_mv,
 
 \section{Generating alternative environmental time series}
 
-We can use the function \texttt{generate\_env\_ts} to create alternative
+We can use the function \texttt{generate\_env\_ts()} to create alternative
 environmental time series. The function can generate five kinds of time
 series: sine waves, regime shifts, linear changes, and constant values. Each
 type has its own set of parameter arguments that are passed in a list
@@ -202,14 +218,14 @@ for(i in 1:5) plot(x[[i]], type = "o", main = types[i])
 \section{Additional plotting functions}
 
 We can visualize the variability in the Ricker $a$ parameters using the
-function \texttt{plot\_rickers} (Figure~\ref{fig:plot-rickers}).
+function \texttt{plot\_rickers()} (Figure~\ref{fig:plot-rickers}).
 
 <<plot-rickers, fig.width=7, fig.height=4.5, out.width="5in", fig.pos="hpb", fig.cap="Ricker curves from a sample of 40 years in the example simulation. Each panel represents a different stream population. Population 1 is more productive in cool conditions and population 10 is more producitive in warm conditions. The colour of the Ricker curves represents the relative temperatue in that year (warm: red; cool: blue). The grey shaded area represents the variation in spawners observed within the simulation.">>=
 plot_rickers(base1, pal = rep("black", 10))
 @
 
 We can look at the correlation between salmon returns in the various
-streams using the function \texttt{plot\_correlation\_between\_returns}
+streams using the function \texttt{plot\_correlation\_between\_returns()}
 (Figure~\ref{fig:return-correlations}).
 
 <<return-correlations, fig.width=5, fig.height=5, out.width="5in", fig.cap="A plot comparing the log(returns) between each population. The population IDs are coloured from warm tolerant (warm colours) to cool tolerant (cool colours). Note how populations 1 and 10 have asynchronous returns whereas populations with more similar thermal-tolerance curves (say populations 9 and 10) have more synchronous dynamics. Populations with thermal tolerance curves in the middle (e.g.~population 6) are less correlated with other populations. Their population dynamics end up primarily driven by demographic stochasticity and less so by temperature-induced systematic changes in productivity.">>=
