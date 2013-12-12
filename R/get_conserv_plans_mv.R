@@ -10,8 +10,9 @@
 #'   re-assessment. Passed to \code{\link{meta_sim}}.
 #' @param burn Cycles to throw out as burn in.
 #' @param ... Other values to pass to \code{\link{meta_sim}}.
-#' @return Returns the portfolio mean and variance values and the simulation
-#'   runs.
+#' @export
+#' @return
+#' Returns the portfolio mean and variance values and the simulation runs.
 
 get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 5,
   burn = 1:30, ...) {
