@@ -153,7 +153,7 @@ dev.off()
 
 ## report summary statistics:
 mean.v <- plyr::ldply(x_arma_sp$plans_mv, function(x) mean(x$v))
-round(mean(mean.v$V1[3:4]) / mean(mean.v$V1[1:2]), 1)
+message(round(mean(mean.v$V1[3:4]) / mean(mean.v$V1[1:2]), 1))
 
 mean.m <- plyr::ldply(x_linear_sp$plans_mv, function(x) mean(x$m))
-round(mean(mean.m$V1[3:4]) / mean(mean.m$V1[1:2]), 1)
+message(round(mean(mean.m$V1[3:4]) / mean(mean.m$V1[1:2]), 1))
