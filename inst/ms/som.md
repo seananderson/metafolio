@@ -38,6 +38,14 @@ You can view the help for the package with:
 ?metafolio
 ```
 
+The figures from this paper can be re-created by sourcing the file `README.R` in the `inst/examples` folder:
+
+```
+source("inst/examples/README.R")
+```
+
+Note that the simulations will take awhile to run (approximately 5-20 minutes given current CPU speeds).
+
 \clearpage
 
 ## Supplementary tables ##
