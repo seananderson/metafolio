@@ -69,7 +69,7 @@ Note that the simulations will take awhile to run (approximately 5--20 minutes g
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=3.5in]{../examples/figure/stray-matrix.pdf}
+\includegraphics[width=3.5in]{../examples/stray-matrix.pdf}
 \caption{An example straying matrix. The rows and columns represent different
 populations (indicated by population number). Dark blue indicates a high rate
 of straying and light blue indicates a low rate of straying.}
