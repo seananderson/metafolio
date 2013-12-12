@@ -4,7 +4,7 @@
 # In this version, the response diversity is randomly drawn
 
 set.seed(1)
-USE_CACHE <- TRUE
+USE_CACHE <- FALSE
 
 # moved this out of the package to avoid Teaching Demos import
 add_inset_env <- function(env, x = 0.12, y = -0.013, size = c(1, .5), ...) {

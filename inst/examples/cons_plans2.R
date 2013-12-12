@@ -1,7 +1,7 @@
 # This file looks at different spatial conservation strategies
 
 set.seed(2)
-USE_CACHE <- TRUE
+USE_CACHE <- FALSE
 
 w_plans <- list()
 w_plans[[1]] <- c(5, 1000, 5, 1000, 5, 5, 1000, 5, 1000, 5)
