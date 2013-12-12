@@ -24,7 +24,7 @@ opts_chunk$set(fig.path='figure/', fig.align='center', fig.show='hold')
 options(replace.assign=TRUE, width=90)
 opts_knit$set(out.format = "latex")
 opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, tidy=FALSE,
-refresh=TRUE, cache=TRUE, autodep=TRUE)
+refresh=TRUE, cache=FALSE, autodep=TRUE)
 thm = knit_theme$get("github.css")
 knit_theme$set(thm)
 @
@@ -125,7 +125,7 @@ fishery means that the simulation fits a Ricker curve to the observed
 spawner-return data and updates the harvest-level targets. See the
 accompanying paper for details.
 
-<<base-case-run, cache=TRUE>>=
+<<base-case-run, cache=FALSE>>=
 base1 <- meta_sim(n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 @
@@ -184,7 +184,7 @@ We can now stochastically simulate with these strategies using the function\\
 \texttt{run\_cons\_plans()} and plot the output with \texttt{plot\_cons\_plans()}
 (Figure~\ref{fig:spatial-runs}).
 
-<<spatial-runs, fig.width=5, fig.height=5, out.width="4in", cache=TRUE, fig.cap="Two spatial conservation strategies shown in risk-return space with stationary environmental stochasticity. The dots show simulated metapopulations and the contours show 25\\% and 75\\% quantiles across 80 simulations per scenario. The grey line indicates the efficient frontier across all simulated metapopulations. The efficient frontier represents the minimum expected mean growth rate for a given expected variance in growth rate.">>=
+<<spatial-runs, fig.width=5, fig.height=5, out.width="4in", cache=FALSE, fig.cap="Two spatial conservation strategies shown in risk-return space with stationary environmental stochasticity. The dots show simulated metapopulations and the contours show 25\\% and 75\\% quantiles across 80 simulations per scenario. The grey line indicates the efficient frontier across all simulated metapopulations. The efficient frontier represents the minimum expected mean growth rate for a given expected variance in growth rate.">>=
 set.seed(1)
 arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
   arma_env_params)
