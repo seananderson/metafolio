@@ -22,11 +22,11 @@
 \clubpenalty=1000
 
 \usepackage{titlesec}
-\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{-8pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{6pt plus 4pt minus 2pt}{-8pt plus 2pt minus 2pt}
 
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
+%\usepackage{fontspec}
+%\defaultfontfeatures{Ligatures=TeX}
 %\setsansfont{Calibri}
 %\setmonofont{Inconsolata}
 %\usepackage{mathptmx}
@@ -40,13 +40,456 @@
 \hyphenation{meta-pop-ulation meta-pop-ulations sub-pop-ulations sub-pop-ulation e-con-o-mist en-vi-ron-men-tal pri-or-i-ti-za-tion}
 
 \begin{document}
+\raggedright
 
 \linenumbers
 \modulolinenumbers[2]
-\begin{spacing}{1.4}
-\setlength{\parskip}{12pt}
+\begin{spacing}{1.6}
 \setlength{\parindent}{0cm}
-\include{ms}
+\input{ms}
+
+\bibliographystyle{ecologyletters2}
+%\bibliography{jshort,ms}
+
+\begin{thebibliography}{50}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Allendorf \emph{et~al.}(1997)Allendorf, Bayles, Bottom, Currens,
+  Frissell, Hankin, Lichatowich, Nehlsen, Trotter \& Williams}]{allendorf1997}
+1.\\
+Allendorf, F.~W., Bayles, D., Bottom, D.~L., Currens, K.~P., Frissell, C.~A.,
+  Hankin, D., Lichatowich, J.~A., Nehlsen, W., Trotter, P.~C. \& Williams,
+  T.~H. (1997).
+\newblock Prioritizing {Pacific} salmon stocks for conservation.
+\newblock \emph{Conserv. Biol.}, 11, 140--152.
+
+\bibitem[{Anderson \emph{et~al.}(2013)Anderson, Cooper \& Dulvy}]{anderson2013}
+2.\\
+Anderson, S.~C., Cooper, A.~B. \& Dulvy, N.~K. (2013).
+\newblock Ecological prophets: Quantifying metapopulation portfolio effects.
+\newblock \emph{Methods Ecol. Evol.}, 4, 971--981.
+
+\bibitem[{Ando \& Mallory(2012)}]{ando2012}
+3.\\
+Ando, A.~W. \& Mallory, M.~L. (2012).
+\newblock Optimal portfolio design to reduce climate-related conservation
+  uncertainty in the {Prairie Pothole Region}.
+\newblock \emph{Proc. Natl. Acad. Sci. U.S.A.}, 109, 6484--6489.
+
+\bibitem[{Balvanera \emph{et~al.}(2006)Balvanera, Pfisterer, Buchmann, He,
+  Nakashizuka, Raffaelli \& Schmid}]{balvanera2006}
+4.\\
+Balvanera, P., Pfisterer, A.~B., Buchmann, N., He, J.-S., Nakashizuka, T.,
+  Raffaelli, D. \& Schmid, B. (2006).
+\newblock Quantifying the evidence for biodiversity effects on ecosystem
+  functioning and services.
+\newblock \emph{Ecol. Lett.}, 9, 1146--1156.
+
+\bibitem[{Battin \emph{et~al.}(2007)Battin, Wiley, Ruckelshaus, Palmer, Korb,
+  Bartz \& Imaki}]{battin2007}
+5.\\
+Battin, J., Wiley, M.~W., Ruckelshaus, M.~H., Palmer, R.~N., Korb, E., Bartz,
+  K.~K. \& Imaki, H. (2007).
+\newblock Projected impacts of climate change on salmon habitat restoration.
+\newblock \emph{Proc. Natl. Acad. Sci. U.S.A.}, 104, 6720--6725.
+
+\bibitem[{Beechie \emph{et~al.}(2013)Beechie, Imaki, Greene, Wade, Wu, Pess,
+  Roni, Kimball, Stanford, Kiffney \& Mantua}]{beechie2013}
+6.\\
+Beechie, T., Imaki, H., Greene, J., Wade, A., Wu, H., Pess, G., Roni, P.,
+  Kimball, J., Stanford, J., Kiffney, P. \& Mantua, N. (2013).
+\newblock Restoring salmon habitat for a changing climate.
+\newblock \emph{River Res. Applic.}, 29, 939--960.
+
+\bibitem[{Cooper \& Mangel(1999)}]{cooper1999}
+7.\\
+Cooper, A.~B. \& Mangel, M. (1999).
+\newblock The dangers of ignoring metapopulation structure for the conservation
+  of salmonids.
+\newblock \emph{Fish. Bull.}, 97, 213--226.
+
+\bibitem[{Crozier \emph{et~al.}(2008)Crozier, Hendry, Lawson, Quinn, Mantua,
+  Battin, Shaw \& Huey}]{crozier2008}
+8.\\
+Crozier, L.~G., Hendry, A.~P., Lawson, P.~W., Quinn, T., Mantua, N.~J., Battin,
+  J., Shaw, R.~G. \& Huey, R.~B. (2008).
+\newblock Potential responses to climate change in organisms with complex life
+  histories: evolution and plasticity in {Pacific} salmon.
+\newblock \emph{Evol. Appl.}, 1, 252--270.
+
+\bibitem[{de~Mazancourt \emph{et~al.}(2013)de~Mazancourt, Isbell, Larocque,
+  Berendse, De~Luca, Grace, Haegeman, Wayne~Polley, Roscher, Schmid, Tilman,
+  van Ruijven, Weigelt, Wilsey \& Loreau}]{demazancourt2013}
+9.\\
+de~Mazancourt, C., Isbell, F., Larocque, A., Berendse, F., De~Luca, E., Grace,
+  J.~B., Haegeman, B., Wayne~Polley, H., Roscher, C., Schmid, B., Tilman, D.,
+  van Ruijven, J., Weigelt, A., Wilsey, B.~J. \& Loreau, M. (2013).
+\newblock Predicting ecosystem stability from community composition and
+  biodiversity.
+\newblock \emph{Ecol. Lett.}, 16, 617--625.
+
+\bibitem[{DFO(2005)}]{dfo2005wsp}
+10.\\
+DFO (2005).
+\newblock Canada's policy for conservation of wild {Pacific} salmon.
+\newblock Tech. rep., Fisheries and Oceans Canada, Vancouver, BC.
+
+\bibitem[{Eliason \emph{et~al.}(2011)Eliason, Clark, Hague, Hanson, Gallagher,
+  Jeffries, Gale, Patterson, Hinch \& Farrell}]{eliason2011}
+11.\\
+Eliason, E.~J., Clark, T.~D., Hague, M.~J., Hanson, L.~M., Gallagher, Z.~S.,
+  Jeffries, K.~M., Gale, M.~K., Patterson, D.~A., Hinch, S.~G. \& Farrell,
+  A.~P. (2011).
+\newblock Differences in thermal tolerance among sockeye salmon populations.
+\newblock \emph{Science}, 332, 109--112.
+
+\bibitem[{Elmqvist \emph{et~al.}(2003)Elmqvist, Folke, Nystr{\"o}m, Peterson,
+  Bengtsson, Walker \& Norberg}]{elmqvist2003}
+12.\\
+Elmqvist, T., Folke, C., Nystr{\"o}m, M., Peterson, G., Bengtsson, J., Walker,
+  B. \& Norberg, J. (2003).
+\newblock Response diversity, ecosystem change, and resilience.
+\newblock \emph{Front. Ecol. Environ.}, 1, 488--494.
+
+\bibitem[{Figge(2004)}]{figge2004}
+13.\\
+Figge, F. (2004).
+\newblock Bio-folio: applying portfolio theory to biodiversity.
+\newblock \emph{Biodivers. Conserv.}, 13, 827--849.
+
+\bibitem[{Fraser \emph{et~al.}(2011)Fraser, Weir, Bernatchez, Hansen \&
+  Taylor}]{fraser2011}
+14.\\
+Fraser, D.~J., Weir, L.~K., Bernatchez, L., Hansen, M.~M. \& Taylor, E.~B.
+  (2011).
+\newblock Extent and scale of local adaptation in salmonid fishes: review and
+  meta-analysis.
+\newblock \emph{Heredity}, 106, 404--420.
+
+\bibitem[{Gustafson \emph{et~al.}(2007)Gustafson, Waples, Myers, Weitkamp,
+  Bryant, Johnson \& Hard}]{gustafson2007}
+15.\\
+Gustafson, R.~G., Waples, R.~S., Myers, J.~M., Weitkamp, L.~A., Bryant, G.~J.,
+  Johnson, O.~W. \& Hard, J.~J. (2007).
+\newblock Pacific salmon extinctions: quantifying lost and remaining diversity.
+\newblock \emph{Conserv. Biol.}, 21, 1009--1020.
+
+\bibitem[{Haak \& Williams(2012)}]{haak2012}
+16.\\
+Haak, A.~L. \& Williams, J.~E. (2012).
+\newblock Spreading the risk: native trout management in a warmer and
+  less-certain future.
+\newblock \emph{N. Am. J. Fish. Manage.}, 32, 387--401.
+
+\bibitem[{Hannah \emph{et~al.}(2002)Hannah, Midgley, Lovejoy, Bond, Bush,
+  Lovett, Scott \& Woodward}]{hannah2002a}
+17.\\
+Hannah, L., Midgley, G.~F., Lovejoy, T., Bond, W.~J., Bush, M., Lovett, J.~C.,
+  Scott, D. \& Woodward, F.~I. (2002).
+\newblock Conservation of biodiversity in a changing climate.
+\newblock \emph{Conserv. Biol.}, 16, 264--268.
+
+\bibitem[{Hilborn \emph{et~al.}(2003)Hilborn, Quinn, Schindler \&
+  Rogers}]{hilborn2003}
+18.\\
+Hilborn, R.~W., Quinn, T., Schindler, D. \& Rogers, D. (2003).
+\newblock Biocomplexity and fisheries sustainability.
+\newblock \emph{Proc. Natl. Acad. Sci. U.S.A.}, 100, 6564--6568.
+
+\bibitem[{Hilborn \& Walters(1992)}]{hilborn1992}
+19.\\
+Hilborn, R.~W. \& Walters, C. (1992).
+\newblock \emph{Quantitative Fisheries Stock Assessment: Choice, Dynamics, and
+  Uncertainty}.
+\newblock Chapman and Hall, London.
+
+\bibitem[{Ives \& Carpenter(2007)}]{ives2007}
+20.\\
+Ives, A.~R. \& Carpenter, S.~R. (2007).
+\newblock Stability and diversity of ecosystems.
+\newblock \emph{Science}, 317, 58--62.
+
+\bibitem[{Johnson \& Schindler(2013)}]{johnson2013a}
+21.\\
+Johnson, S.~P. \& Schindler, D.~E. (2013).
+\newblock Marine trophic diversity in an anadromous fish is linked to its
+  life-history variation in fresh water.
+\newblock \emph{Biol. Lett.}, 9, 20120824.
+
+\bibitem[{Koellner \& Schmitz(2006)}]{koellner2006}
+22.\\
+Koellner, T. \& Schmitz, O.~J. (2006).
+\newblock Biodiversity, ecosystem function, and investment risk.
+\newblock \emph{BioScience}, 56, 977--985.
+
+\bibitem[{Lackey(2003)}]{lackey2003}
+23.\\
+Lackey, R.~T. (2003).
+\newblock {Pacific Northwest} salmon: Forecasting their status in 2100.
+\newblock \emph{Rev. Fish. Sci.}, 11, 35--88.
+
+\bibitem[{Margules \& Pressey(2000)}]{margules2000}
+24.\\
+Margules, C.~R. \& Pressey, R.~L. (2000).
+\newblock Systematic conservation planning.
+\newblock \emph{Nature}, 405, 243--253.
+
+\bibitem[{Markowitz(1952)}]{markowitz1952}
+25.\\
+Markowitz, H. (1952).
+\newblock Portfolio selection.
+\newblock \emph{J. Finance}, 7, 77--91.
+
+\bibitem[{McClure \emph{et~al.}(2008{\natexlab{a}})McClure, Carlson, Beechie,
+  Pess, Jorgensen, Sogard, Sultan, Holzer, Travis, Sanderson, Power \&
+  Carmichael}]{mcclure2008a}
+26.\\
+McClure, M.~M., Carlson, S.~M., Beechie, T.~J., Pess, G.~R., Jorgensen, J.~C.,
+  Sogard, S.~M., Sultan, S.~E., Holzer, D.~M., Travis, J., Sanderson, B.~L.,
+  Power, M.~E. \& Carmichael, R.~W. (2008{\natexlab{a}}).
+\newblock Evolutionary consequences of habitat loss for {Pacific} anadromous
+  salmonids.
+\newblock \emph{Evol. Appl.}, 1, 300--318.
+
+\bibitem[{McClure \emph{et~al.}(2008{\natexlab{b}})McClure, Utter, Baldwin,
+  Carmichael, Hassemer, Howell, Spruell, Cooney, Schaller \&
+  Petrosky}]{mcclure2008b}
+27.\\
+McClure, M.~M., Utter, F.~M., Baldwin, C., Carmichael, R.~W., Hassemer, P.~F.,
+  Howell, P.~J., Spruell, P., Cooney, T.~D., Schaller, H.~A. \& Petrosky, C.~E.
+  (2008{\natexlab{b}}).
+\newblock Evolutionary effects of alternative artificial propagation programs:
+  implications for viability of endangered anadromous salmonids.
+\newblock \emph{Evol. Appl.}, 1, 356--375.
+
+\bibitem[{McCullough(1999)}]{mccullough1999}
+28.\\
+McCullough, D.~A. (1999).
+\newblock A review and synthesis of effects of alterations to the water
+  temperature regime on freshwater life stages of salmonids, with special
+  reference to {Chinook} salmon.
+\newblock EPA 910-R-99-010, US Environmental Protection Agency.
+
+\bibitem[{McElhany \emph{et~al.}(2000)McElhany, Ruckelshaus, Ford, Wainwright
+  \& Bjorkstedt}]{mcelhany2000}
+29.\\
+McElhany, P., Ruckelshaus, M.~H., Ford, M.~J., Wainwright, T.~C. \& Bjorkstedt,
+  E.~P. (2000).
+\newblock {Viable Salmonid Populations} and the recovery of {Evolutionarily
+  Significant Units}.
+\newblock Tech. Rep. NOAA Tech. Memo. NMFS-NWFSC-42, U.S. Deptartment of
+  Commerce.
+
+\bibitem[{Moore \emph{et~al.}(2010)Moore, Mcclure, Rogers \&
+  Schindler}]{moore2010}
+30.\\
+Moore, J.~W., Mcclure, M., Rogers, L.~A. \& Schindler, D.~E. (2010).
+\newblock Synchronization and portfolio performance of threatened salmon.
+\newblock \emph{Conserv. Lett.}, 3, 340--348.
+
+\bibitem[{Mori \emph{et~al.}(2013)Mori, Furukawa \& Sasaki}]{mori2013}
+31.\\
+Mori, A.~S., Furukawa, T. \& Sasaki, T. (2013).
+\newblock Response diversity determines the resilience of ecosystems to
+  environmental change.
+\newblock \emph{Biol. Rev.}, 88, 349--364.
+
+\bibitem[{Patterson \emph{et~al.}(2007)Patterson, Skibo, Barnes, Hills \&
+  Macdonald}]{patterson2007}
+32.\\
+Patterson, D.~A., Skibo, K.~M., Barnes, D.~P., Hills, J.~A. \& Macdonald, J.~S.
+  (2007).
+\newblock The influence of water temperature on time to surface for adult
+  sockeye salmon carcasses and the limitations in estimating salmon carcasses
+  in the {Fraser River, British Columbia}.
+\newblock \emph{N. Am. J. Fish. Manage.}, 27, 878--884.
+
+\bibitem[{Pressey \emph{et~al.}(2007)Pressey, Cabeza, Watts, Cowling \&
+  Wilson}]{pressey2007}
+33.\\
+Pressey, R.~L., Cabeza, M., Watts, M.~E., Cowling, R.~M. \& Wilson, K.~A.
+  (2007).
+\newblock Conservation planning in a changing world.
+\newblock \emph{Trends Ecol. Evolut.}, 22, 583--592.
+
+\bibitem[{Quinn(2005)}]{quinn2005}
+34.\\
+Quinn, T.~P. (2005).
+\newblock \emph{The Behaviour and Ecology of Pacific Salmon and Trout}.
+\newblock American Fisheries Society, Bethesda, Maryland.
+
+\bibitem[{{\texttt{R} Core Team}(2013)}]{r2013}
+35.\\
+{\texttt{R} Core Team} (2013).
+\newblock \emph{\texttt{R}: {A} language and environment for statistical
+  computing}.
+\newblock \texttt{R} Foundation for Statistical Computing, Vienna, Austria.
+
+\bibitem[{Rogers \& Schindler(2008)}]{rogers2008}
+36.\\
+Rogers, L.~A. \& Schindler, D.~E. (2008).
+\newblock Asynchrony in population dynamics of sockeye salmon in southwest
+  {Alaska}.
+\newblock \emph{Oikos}, 117, 1578--1586.
+
+\bibitem[{Ruckelshaus \emph{et~al.}(2002)Ruckelshaus, Levin, Johnson \&
+  Kareiva}]{ruckelshaus2002}
+37.\\
+Ruckelshaus, M.~H., Levin, P., Johnson, J.~B. \& Kareiva, P.~M. (2002).
+\newblock The {Pacific} salmon wars: what science brings to the challenge of
+  recovering species.
+\newblock \emph{Annu. Rev. Ecol. Syst.}, 33, 665--706.
+
+\bibitem[{Scheuerell \emph{et~al.}(2006)Scheuerell, Hilborn, Ruckelshaus,
+  Bartz, Lagueux, Haas \& Rawson}]{scheuerell2006}
+38.\\
+Scheuerell, M.~D., Hilborn, R., Ruckelshaus, M.~H., Bartz, K.~K., Lagueux,
+  K.~M., Haas, A.~D. \& Rawson, K. (2006).
+\newblock The {Shiraz} model: a tool for incorporating anthropogenic effects
+  and fish--habitat relationships in conservation planning.
+\newblock \emph{Can. J. Fish. Aquat. Sci.}, 63, 1596--1607.
+
+\bibitem[{Schindler \emph{et~al.}(2008)Schindler, Augerot, Fleishman, Mantua,
+  Riddell, Ruckelshaus, Seeb \& Webster}]{schindler2008}
+39.\\
+Schindler, D.~E., Augerot, X., Fleishman, E., Mantua, N.~J., Riddell, B.,
+  Ruckelshaus, M., Seeb, J. \& Webster, M. (2008).
+\newblock Climate change, ecosystem impacts, and management for {Pacific}
+  salmon.
+\newblock \emph{Fisheries}, 33, 502--506.
+
+\bibitem[{Schindler \emph{et~al.}(2010)Schindler, Hilborn, Chasco, Boatright,
+  Quinn, Rogers \& Webster}]{schindler2010}
+40.\\
+Schindler, D.~E., Hilborn, R., Chasco, B., Boatright, C.~P., Quinn, T.~P.,
+  Rogers, L.~A. \& Webster, M.~S. (2010).
+\newblock Population diversity and the portfolio effect in an exploited
+  species.
+\newblock \emph{Nature}, 465, 609--612.
+
+\bibitem[{Schtickzelle \& Quinn(2007)}]{schtickzelle2007}
+41.\\
+Schtickzelle, N. \& Quinn, T.~P. (2007).
+\newblock A metapopulation perspective for salmon and other anadromous fish.
+\newblock \emph{Fish Fish.}, 8, 297--314.
+
+\bibitem[{Stockwell \emph{et~al.}(2003)Stockwell, Hendry \&
+  Kinnison}]{stockwell2003}
+42.\\
+Stockwell, C., Hendry, A. \& Kinnison, M. (2003).
+\newblock Contemporary evolution meets conservation biology.
+\newblock \emph{Trends. Ecol. Evol.}, 18, 94--101.
+
+\bibitem[{Thibaut \emph{et~al.}(2012)Thibaut, Connolly \&
+  Sweatman}]{thibaut2012}
+43.\\
+Thibaut, L., Connolly, S.~R. \& Sweatman, H. P.~A. (2012).
+\newblock Diversity and stability of herbivorous fishes on coral reefs.
+\newblock \emph{Ecology}, 93, 891--901.
+
+\bibitem[{Thomas(2010)}]{thomas2010}
+44.\\
+Thomas, C.~D. (2010).
+\newblock Climate, climate change and range boundaries.
+\newblock \emph{Divers. Distrib.}, 16, 488--495.
+
+\bibitem[{Thomas \emph{et~al.}(2004)Thomas, Cameron, Green, Bakkenes, Beaumont,
+  Collingham, Erasmus, de~Siqueira, Grainger, Hannah, Hughes, Huntley, van
+  Jaarsveld, Midgley, Miles, Ortega-Huerta, Townsend~Peterson, Phillips \&
+  Williams}]{thomas2004}
+45.\\
+Thomas, C.~D., Cameron, A., Green, R.~E., Bakkenes, M., Beaumont, L.~J.,
+  Collingham, Y.~C., Erasmus, B. F.~N., de~Siqueira, M.~F., Grainger, A.,
+  Hannah, L., Hughes, L., Huntley, B., van Jaarsveld, A.~S., Midgley, G.~F.,
+  Miles, L., Ortega-Huerta, M.~A., Townsend~Peterson, A., Phillips, O.~L. \&
+  Williams, S.~E. (2004).
+\newblock Extinction risk from climate change.
+\newblock \emph{Nature}, 427, 145--148.
+
+\bibitem[{Thorson \emph{et~al.}(2013)Thorson, Scheuerell, Buhle \&
+  Copeland}]{thorson2013}
+46.\\
+Thorson, J.~T., Scheuerell, M.~D., Buhle, E.~R. \& Copeland, T. (2013).
+\newblock Spatial variation buffers temporal fluctuations in early juvenile
+  survival for an endangered {Pacific} salmon.
+\newblock \emph{J. Anim. Ecol.}, In press. doi:10.1111/1365-2656.12117.
+
+\bibitem[{Vert-pre \emph{et~al.}(2013)Vert-pre, Amoroso, Jensen \&
+  Hilborn}]{vert-pre2013}
+47.\\
+Vert-pre, K.~A., Amoroso, R.~O., Jensen, O.~P. \& Hilborn, R. (2013).
+\newblock Frequency and intensity of productivity regime shifts in marine fish
+  stocks.
+\newblock \emph{Proc. Natl. Acad. Sci. U.S.A.}, 110, 1779--1784.
+
+\bibitem[{Walther \emph{et~al.}(2002)Walther, Post, Convey, Menzel, Parmesan,
+  Beebee, Fromentin, Hoegh-Guldberg \& Bairlein}]{walther2002}
+48.\\
+Walther, G.-R., Post, E., Convey, P., Menzel, A., Parmesan, C., Beebee, T.
+  J.~C., Fromentin, J.-M., Hoegh-Guldberg, O. \& Bairlein, F. (2002).
+\newblock Ecological responses to recent climate change.
+\newblock \emph{Nature}, 416, 389--395.
+
+\bibitem[{Waples \emph{et~al.}(2009)Waples, Beechie \& Pess}]{waples2009}
+49.\\
+Waples, R., Beechie, T. \& Pess, G.~R. (2009).
+\newblock Evolutionary history, habitat disturbance regimes, and anthropogenic
+  changes: what do these mean for resilience of {Pacific} salmon populations?
+\newblock \emph{Ecol. Soc.}, 14, 3.
+
+\bibitem[{Yeakel \emph{et~al.}(2013)Yeakel, Moore, Guimar{\~a}es \&
+  de~Aguiar}]{yeakel2013}
+50.\\
+Yeakel, J.~D., Moore, J.~W., Guimar{\~a}es, P.~R. \& de~Aguiar, M. A.~M.
+  (2013).
+\newblock Synchronisation and stability in river metapopulation networks.
+\newblock \emph{Ecol. Lett.}, In press. doi: 10.1111/ele.12228.
+
+\end{thebibliography}
+
+\end{spacing}
+
+\begin{spacing}{1.4}
+
+\clearpage
+
+\section{Figures}
+
+\begin{center}
+\includegraphics[height=5.5in]{../examples/simulation-diagram3.pdf}
+\end{center}
+Fig.\ 1: Flow chart of the salmon-metapopulation simulation. There are $n$ salmon populations and $t$ generations. Blue text indicates values that are generated before the simulation progresses through time. Red text indicates steps in which calculations are performed through time. Black text indicates values that are calculated. Grey text indicates parameters that can be set. Green text indicates the looping structure of the simulation.
+
+\clearpage
+
+\begin{center}
+\includegraphics[width=2.9in]{../examples/thermal-curve-scenarios.pdf}
+\end{center}
+Fig.\ 2: Different ways of prioritizing response-diversity conservation. Panel a shows thermal tolerance curves for ten possible populations and panels b--e show different ways of prioritizing four of those populations. The curves describe how productivity varies with temperature for a given population. Some populations thrive at low temperatures (cool colours) and some at warm temperatures (warm colours). Some are tolerant to a wider range of environmental conditions (yellow-to-green colours) but with a lower maximum productivity. The total possible productivity (the area under the curves) is the same for each population.
+
+\clearpage
+
+\begin{center}
+\includegraphics[width=4.0in]{../examples/spatial-arma-sim-full.pdf}
+\end{center}
+Fig.\ 3: The components of an example metapopulation simulation. We show, from top to bottom, the temperature signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, spawner-return residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) temperatures.
+
+\clearpage
+
+\begin{center}
+\includegraphics[width=4.5in]{../examples/spatial-mv.pdf}
+\end{center}
+Fig.\ 4: The importance of preserving environmental response diversity through spatial conservation strategies. The conservation strategies correspond to Fig.\ 2 and represent conserving a range of responses (green), the most stable populations only (orange), or one type of environmental response (purple and pink). In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation abundance time series for the (c, e) short-term and (d, f) long-term environmental-fluctuation scenarios. The grey line (a, b) indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate.
+
+\clearpage
+
+\begin{center}
+\includegraphics[width=4.5in]{../examples/cons-plans-n.pdf}
+\end{center}
+Fig.\ 5: The importance of preserving as many populations as possible when we don't know how response diversity is distributed. In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations. We show metapopulations in which 2 (red), 4 (orange), 8 (yellow), or 16 (green) populations of random response diversity are conserved. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation (c) rate-of-change and (d) abundance time series for the short-term environmental-fluctuation scenario. The grey line (a, b) indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate
 
 \end{spacing}
 

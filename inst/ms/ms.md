@@ -1,9 +1,10 @@
+\setlength{\parskip}{4pt}
+
 # Portfolio conservation of metapopulations under climate change
 
 \bigskip
 
-Sean C. Anderson^1\*^, Jonathan W. Moore^1,2^,
-Michelle M. McClure^3^, Nicholas K. Dulvy^1^,\
+Sean C. Anderson^1\*^, Jonathan W. Moore^1,2^, Michelle M. McClure^3^, Nicholas K. Dulvy^1^,
 Andrew B. Cooper^2^
 
 ^1^Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A 1S6, Canada
@@ -33,15 +34,14 @@ response diversity,
 risk assessment,
 stability-diversity,
 stochastic simulation
-(maximum 10)
 
 *Type of article*: Letters
 
-*Words in abstract and main text*: 156, 4680 (maximum 150, 5000)
+*Words in abstract and main text*: 150, 4690
 
-*Number of references*: 53 (maximum 50)
+*Number of references*: 50
 
-*Number of tables and figures*: 5 (maximum 6)
+*Number of figures*: 5
 
 ^\*^Corresponding author:
 Sean C. Anderson; Department of Biological Sciences,
@@ -49,13 +49,18 @@ Simon Fraser University, Burnaby BC, V5A 1S6;
 Phone: 1-778-782-3989; E-mail:
 sean@seananderson.ca
 
+\clearpage
+\setlength{\parskip}{18pt}
+
 # Abstract
 
-The mechanisms underlying the stability of ecological systems are a central focus of ecology and of increasing importance given the rate and magnitude of biodiversity loss and environmental change. Here, we ask how a financial-portfolio approach can inform conservation priorities for metapopulations in a changing world. We develop a salmon metapopulation simulation where population-specific productivity is driven by spatially-distributed thermal tolerance and patterns of short- and long-term environmental change. We then implement spatial conservation scenarios that control population carrying capacities and evaluate the salmon portfolios as a portfolio manager might --- along axes of risk and return. We show that conserving response diversity minimizes risk given environmental stochasticity and ensures persistence given long-term environmental change. Furthermore, conserving more populations minimizes risk regardless of response diversity distribution. These findings have important implications for how we prioritize conservation actions and emphasize conserving the processes that promote response diversity such as genetic diversity, habitat heterogeneity, and natural disturbance regimes. <!--TODO Add a phrase quantifying the change: e.g. Doubling population diversity *halved* the variance in population size and extinction risk (variance in population growth rate).-->
+The mechanisms underlying the stability of ecological systems are a key focus of ecology and increasingly important given the rate and magnitude of biodiversity loss and environmental change. Here we ask how a portfolio approach can inform conservation priorities for metapopulations in a changing world. We develop a salmon metapopulation simulation where productivity is driven by thermal tolerance and patterns of short- and long-term environmental change. We implement spatial conservation scenarios and evaluate the salmon portfolios as a financial manager might --- along risk-return axes. We show that conserving response diversity minimizes risk given environmental stochasticity and ensures persistence given long-term environmental change. Even with unknown response diversity, doubling the populations conserved may halve metapopulation variability. These findings show how preserving the processes that promote response diversity, such as habitat heterogeneity and natural disturbance regimes, may be critical to conserving metapopulations in the face of climate variability and change.
+
+\clearpage
 
 # Introduction
 
-Untangling the mechanisms that underpin the stability of ecological systems is a critical focus of ecology [e.g. @ives2007; @demazancourt2013]. Decades of research has focused on the role of species richness and functional diversity in driving community stability; however, recent research has highlighted that the drivers of ecological stability are more complex and multidimensional than previously thought [e.g. @balvanera2006; @ives2007; @demazancourt2013]. Two key drivers of stability that have been comparatively understudied are response diversity [@mori2013] --- different responses to the environment by functionally similar species or populations [@elmqvist2003] --- and the role of metapopulations [@akcakaya2007]. Here, we examine the role of response diversity conservation in stabilizing metapopulations given projected changes in climate. With unprecedented loss of biodiversity and levels of anthropogenic environmental change, it is more critical than ever to consider conservation approaches that maintain system stability in the face of environmental uncertainty [@ando2012].
+Untangling the mechanisms that underpin the stability of ecological systems is a critical focus of ecology [e.g. @ives2007; @demazancourt2013]. Decades of research has focused on the role of species richness and functional diversity in driving community stability; however, recent research has highlighted that the drivers of ecological stability are more complex and multidimensional than previously thought [e.g. @balvanera2006; @ives2007; @demazancourt2013]. Two key drivers of stability that have been comparatively understudied are response diversity [@mori2013] --- different responses to the environment by functionally similar species or populations [@elmqvist2003] --- and the role of metapopulations [@schtickzelle2007]. Here, we examine the role of response diversity conservation in stabilizing metapopulations given projected changes in climate. With unprecedented loss of biodiversity and levels of anthropogenic environmental change, it is more critical than ever to consider conservation approaches that maintain system stability in the face of environmental uncertainty [@ando2012].
 
 Typically, conservation actions to maintain system stability and thereby reduce risk are driven by an *ad hoc* combination of scientific information, political influences, and feasibility [@margules2000]; the management of financial portfolios provides another way of considering risk [e.g. @figge2004; @koellner2006; @ando2012; @haak2012]. Economists work to minimize risk and maximize returns by building a portfolio of individual investments (called assets) with different attributes. For example, different financial sectors can be expected to perform uniquely in some economic conditions; when one rises in value another may fall. Modern Portfolio Theory proposes that out of all possible portfolios, there is a small subset of portfolios that maximizes expected return for a level of risk or minimizes risk for a level of return (called the efficient frontier), and that only by considering risk and return in tandem can an investor achieve maximum benefit from a portfolio [@markowitz1952].
 
@@ -172,7 +177,7 @@ The importance of conserving response diversity is a key assumption of conservat
 
 Our results emphasize the importance of promoting ecological conditions that increase response diversity if stability is to be maintained in the face of environmental uncertainty. This suggests three clear conservation actions. First, since habitat heterogeneity can lead to local adaptation [e.g. @fraser2011], our results emphasize the need to maintain a diversity of salmon habitat [@rogers2008]. Second, if conservation actions must be prioritized, then our model suggests we should focus on populations that aren't spatially contiguous to maximize diversity of response to the environment. Third, our results demonstrate the advantages of avoiding structures that artificially remove response diversity. For salmon, dams are a prominent example [e.g. @mcclure2008a]. Dams can have a double impact whereby their introduction selectively eliminates a large swath of contiguous habitat, perhaps analogous to our upper- or lower-half scenarios in Fig. 4, and then mitigation approaches such as hatcheries can further reduce population and response diversity if not carefully managed [@mcclure2008b]. In fact, salmon habitat lost to dams in the western U.S. has been biased towards warmer, drier, higher habitats [@mcclure2008a] and our findings suggest the resulting loss of warm-tolerant species may compound the risk to current metapopulations in the face of global warming.
 
-The goals of existing salmon management structures in the western US and Canada support a portfolio conservation perspective. In the US, salmon populations are divided into Evolutionarily Significant Units (ESUs) --- groups of populations that are reproductively isolated and share a common evolutionary heritage [@moritz1994] --- and finer-scale Viable Salmonid Populations (VSPs) --- populations that are demographically independent of other populations over a 100-year time frame [@mcelhany2000]. In Canada, the rough equivalent to the ESU is a Conservation Unit (CU), which consists of a group of salmon that are reproductively isolated and that if lost would be unlikely to recolonize in a reasonable time frame [@dfo2005wsp]. A salmon portfolio in our model could represent an ESU or CU and that the lessons learned from our models are thus directly applicable to management guidelines in the Pacific Northwest. In fact, a number of VSP guidelines agree with our findings. For example, VSP guidelines suggest maintaining diversity in a variety of forms, focusing conservation efforts not just where salmon are currently abundant, and maintaining metapopulations with some populations near each other and others further apart [@mcelhany2000].
+The goals of existing salmon management structures in the western US and Canada support a portfolio conservation perspective. In the US, salmon populations are divided into Evolutionarily Significant Units (ESUs) --- groups of populations that are reproductively isolated and share a common evolutionary heritage --- and finer-scale Viable Salmonid Populations (VSPs) --- populations that are demographically independent of other populations over a 100-year time frame [@mcelhany2000]. In Canada, the rough equivalent to the ESU is a Conservation Unit (CU), which consists of a group of salmon that are reproductively isolated and that if lost would be unlikely to recolonize in a reasonable time frame [@dfo2005wsp]. A salmon portfolio in our model could represent an ESU or CU and that the lessons learned from our models are thus directly applicable to management guidelines in the Pacific Northwest. In fact, a number of VSP guidelines agree with our findings. For example, VSP guidelines suggest maintaining diversity in a variety of forms, focusing conservation efforts not just where salmon are currently abundant, and maintaining metapopulations with some populations near each other and others further apart [@mcelhany2000].
 
 However, salmon populations in the Pacific Northwest are already heavily impacted [e.g. @gustafson2007] and VSP and CU guidelines have not yet been effectively implemented for most populations. Since European-Americans arrived, 29% of 1400 historical salmon populations in the Pacific Northwest and California have been lost [@gustafson2007]. Furthermore, 44% of salmon habitat in the western US (in the lower 48 states) has been lost to dams and other freshwater blockages [@mcclure2008a]. Changes to habitat, combined with increasing climate variability, has led to disturbance regimes that differ substantially in the frequency, magnitude, and duration from historical patterns, and threaten the resilience of salmon populations [@waples2009]. Many remaining populations rely on hatcheries for long-term population viability --- creating substantial evolutionary risks such as outbreeding depression, genetic homogenization, reduced effective population size, and domestication of fish (adaption to artificial environments and reduced fitness in wild environments) [@mcclure2008b]. Reduction of long-term reliance on hatcheries, accompanied by habitat restoration through, for example, restoring connectivity of floodplains and stream flow regimes, remains a critical component of long-term salmon sustainability in the Pacific Northwest --- particularly given predicted patterns of climate change [@beechie2013].
 
@@ -180,7 +185,7 @@ Our model complements other simulation-based salmon-habitat prioritization model
 
 ## Broad ecological implications, research extensions, and conservation priorities
 
-To promote the stabilizing effect of a diversified ecological portfolio, there are two key components to identify: (1) the environmental drivers to which a varied response might occur, and (2) the conservation actions that can increase or decrease the diversity of response. A third component, identifying the traits and behaviours that mediate population responses to the environment may provide further insight into the mechanisms. Environmental drivers of response can include, for example, changes to temperature, habitat availability, air quality, water chemistry, or extreme weather [@elmqvist2003; @laliberte2010]. Identifying conservation actions that promote environmental response diversity is critical to developing stable ecological systems [@mori2013]. However, merely measuring environmental response diversity in real ecological systems is challenging, albeit possible [e.g. @thibaut2012]. Therefore, a realistic solution may be to create general guidelines from a small number of intensively-monitored systems in which we can associate changes in synchrony of populations with changes in conservation regimes.
+To promote the stabilizing effect of a diversified ecological portfolio, there are two key components to identify: (1) the environmental drivers to which a varied response might occur, and (2) the conservation actions that can increase or decrease the diversity of response. A third component, identifying the traits and behaviours that mediate population responses to the environment may provide further insight into the mechanisms. Environmental drivers of response can include, for example, changes to temperature, habitat availability, air quality, water chemistry, or extreme weather [@elmqvist2003]. Identifying conservation actions that promote environmental response diversity is critical to developing stable ecological systems [@mori2013]. However, merely measuring environmental response diversity in real ecological systems is challenging, albeit possible [e.g. @thibaut2012]. Therefore, a realistic solution may be to create general guidelines from a small number of intensively-monitored systems in which we can associate changes in synchrony of populations with changes in conservation regimes.
 
 We suggest a number of specific extensions to our simulation model. First, the environment-response-diversity mechanism could be expanded --- the distribution of response diversity across a metapopulation does not necessarily follow a linear gradient, different forms of response diversity could interact, and environmental conditions could affect populations through mechanisms other than productivity. Second, in addition to other taxa, our model could be extended to ecological communities or meta-communities after accounting for species interactions. Third, without any modifications, our model could consider the Moran or environmental-filter concept whereby populations experience increasingly different environmental forces at further distances [@schindler2008; @rogers2008]. Fourth, a model could consider the contribution of contemporary evolution [@stockwell2003]. These rapid adaptations to changes in the environment could strongly influence portfolio performance and emphasize the importance of maintaining genetic diversity and a variety of local habitat. Finally, our model could be conditioned on a system of interest --- say a particular river basin in our example --- and the metapopulation portfolio could be optimized across conservation and restoration options as part of a formal decision analysis.
 
@@ -191,42 +196,3 @@ Conservation planning is inherently a spatial activity [@pressey2007] and our re
 # Acknowledgements
 
 We thank T.A. Branch, J.D. Yeakel and S.M. O'Regan for helpful discussions and comments on earlier drafts. Funding was provided by Simon Fraser University, NSERC (ABC, NKD, SCA), the Canada Research Chairs Program (NKD), the Liber Ero Chair of Coastal Science and Management (JWM), Fulbright Canada (SCA), and a Garfield Weston Foundation/B.C. Packers Ltd. Graduate Fellowship in Marine Sciences (SCA).
-
-\bibliographystyle{ecologyletters2}
-\bibliography{jshort,ms}
-\clearpage
-
-# Figures
-
-\begin{center}
-\includegraphics[height=5.5in]{../examples/simulation-diagram3.pdf}
-\end{center}
-Fig. 1: Flow chart of the salmon-metapopulation simulation. There are $n$ salmon populations and $t$ generations. Blue text indicates values that are generated before the simulation progresses through time. Red text indicates steps in which calculations are performed through time. Black text indicates values that are calculated. Grey text indicates parameters that can be set. Green text indicates the looping structure of the simulation.
-
-\clearpage
-
-\begin{center}
-\includegraphics[width=2.9in]{../examples/thermal-curve-scenarios.pdf}
-\end{center}
-Fig. 2: Different ways of prioritizing response-diversity conservation. Panel a shows thermal tolerance curves for ten possible populations and panels b--e show different ways of prioritizing four of those populations. The curves describe how productivity varies with temperature for a given population. Some populations thrive at low temperatures (cool colours) and some at warm temperatures (warm colours). Some are tolerant to a wider range of environmental conditions (yellow-to-green colours) but with a lower maximum productivity. The total possible productivity (the area under the curves) is the same for each population.
-
-\clearpage
-
-\begin{center}
-\includegraphics[width=4.0in]{../examples/spatial-arma-sim-full.pdf}
-\end{center}
-Fig. 3: The components of an example metapopulation simulation. We show, from top to bottom, the temperature signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, spawner-return residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) temperatures.
-
-\clearpage
-
-\begin{center}
-\includegraphics[width=4.5in]{../examples/spatial-mv.pdf}
-\end{center}
-Fig. 4: The importance of preserving environmental response diversity through spatial conservation strategies. The conservation strategies correspond to Fig. 2 and represent conserving a range of responses (green), the most stable populations only (orange), or one type of environmental response (purple and pink). In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations. The dots show simulated metapopulations and the contours show 25% and 75% quantiles across 500 simulations per strategy. We also show example metapopulation abundance time series for the (c, e) short-term and (d, f) long-term environmental-fluctuation scenarios. The grey line (a, b) indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate.
-
-\clearpage
-
-\begin{center}
-\includegraphics[width=4.5in]{../examples/cons-plans-n.pdf}
-\end{center}
-Fig. 5: The importance of preserving as many populations as possible when we don't know how response diversity is distributed. In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations. We show metapopulations in which 2 (red), 4 (orange), 8 (yellow), or 16 (green) populations of random response diversity are conserved. The dots show simulated metapopulations and the contours show 25% and 75% quantiles across 500 simulations per strategy. We also show example metapopulation (c) rate-of-change and (d) abundance time series for the short-term environmental-fluctuation scenario. The grey line (a, b) indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate
