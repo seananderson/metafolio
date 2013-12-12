@@ -1,21 +1,15 @@
-# look at conservation rules of thumb
-# This file looks at different spatial strategies of conservation
-# This version uses the new package functions
+# This file looks at different spatial conservation strategies
 
 set.seed(2)
-USE_CACHE <- TRUE
+USE_CACHE <- FALSE
 
-w_plans <- list() 
+w_plans <- list()
 w_plans[[1]] <- c(5, 1000, 5, 1000, 5, 5, 1000, 5, 1000, 5)
-#w_plans[[1]] <- c(1000, 5, 1000, 5, 1000, 1000, 5, 1000, 5, 1000)
 w_plans[[2]] <- c(5, 5, 5, 1000, 1000, 1000, 1000, 5, 5, 5)
-#w_plans[[2]] <- c(5, 5, 1000, 1000, 1000, 1000, 1000, 1000, 5, 5)
 w_plans[[3]] <- c(rep(1000, 4), rep(5, 6))
-#w_plans[[3]] <- c(rep(1000, 6), rep(5, 4))
 w_plans[[4]] <- rev(w_plans[[3]])
-#w_plans[[5]] <- c(1000, 1000, 5, 5, 5, 5, 5, 5, 1000, 1000)
-#plans_name_sp <- c("Full range of responses", "Most stable only", "One half", "One half", "Most asynchronous only")
-plans_name_sp <- c("Full range of responses", "Most stable only", "Lower half", "Upper half")
+plans_name_sp <- c("Full range of responses", "Most stable only",
+  "Lower half", "Upper half")
 
 n_trials <- 500 # number of trials at each n conservation plan
 num_pops <- c(10, 10, 10, 10) # n pops to conserve
@@ -31,14 +25,11 @@ for(i in 1:n_plans) { # loop over plans
 ## ARMA:
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
-#plot_sim_ts(meta_sim(b = rep(1000, 10), n_pop = 10, env_params =
-    #arma_env_params, env_type = "arma", assess_freq = 5),
-  #years_to_show = 100, burn = 0)
-
 pdf("spatial-arma-sim-full.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
-plot_sim_ts(eg_arma, years_to_show = 70, burn = 30, yticks = list(NA, NA, NA, NA, NA, NA, NA, c(-0.6, 0, 0.6), c(2.5, 3), NA))
+plot_sim_ts(eg_arma, years_to_show = 70, burn = 30, yticks = list(NA, NA, NA,
+    NA, NA, NA, NA, c(-0.6, 0, 0.6), c(2.5, 3), NA))
 dev.off()
 
 pdf("example-return-correlations.pdf", width = 5, height = 5)
@@ -51,7 +42,6 @@ eg_arma <- meta_sim(b = w[[4]][[1]], n_pop = 10, env_params = arma_env_params,
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
 
-
 if(!USE_CACHE) {
 x_arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
   arma_env_params)
@@ -61,14 +51,9 @@ x_arma_sp <- run_cons_plans(w, env_type = "arma", env_params =
 # has two list elements: "plans_mv" and "plans_port"
 }
 
-
 ## Linear:
 linear_env_params <- list(min_value = 12, max_value = 20, sigma_env = 0.001,
   start_t = 30)
-
-#plot_sim_ts(meta_sim(b = rep(1000, 10), n_pop = 10, env_params =
-    #linear_env_params, env_type = "linear", assess_freq = 5),
-  #years_to_show = 100, burn = 0)
 
 pdf("spatial-linear-sim-full.pdf", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params =
@@ -84,7 +69,7 @@ dev.off()
 
 if(!USE_CACHE) {
   x_linear_sp <- run_cons_plans(w, env_type = "linear", env_params =
-    linear_env_params) 
+    linear_env_params)
   save(x_linear_sp, file = "x_linear_sp.rda")
 } else {
   load("x_linear_sp.rda")
@@ -107,29 +92,30 @@ layout(rbind(
 
 xlim <- c(0.02, 0.15)
 ylim <- c(-0.017, 0.017)
-par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
+par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5),
+  tck = -0.02, mgp = c(2, .6, 0))
 plot_cons_plans(x_arma_sp$plans_mv, plans_name = plans_name_sp, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
 add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
 
-mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
+mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2, cex =
+  0.8, adj = 0.05)
 par(las = 0)
-mtext("Mean of metapopulation growth rate", side = 2, line = 3, outer = FALSE, cex = 0.8)
+mtext("Mean of metapopulation growth rate", side = 2, line = 3, outer = FALSE,
+  cex = 0.8)
 par(las = 1)
 
 plot_cons_plans(x_linear_sp$plans_mv, plans_name = plans_name_sp, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
 add_inset_env(eg_linear$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
-#add_spark_env(eg_linear$env_ts[-c(1:30)], x = 0.10, y = 0.015, x_scale = 0.001, y_scale = 0.0001)
 
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8, adj = 0.05)
-mtext("Variance of metapopulation growth rate", side = 1, line = 2.25, outer = FALSE, cex = 0.8, adj = -3)
-#dev.off()
+mtext("Variance of metapopulation growth rate", side = 1, line = 2.25, outer =
+  FALSE, cex = 0.8, adj = -3)
 
-###############################
 # time series plots:
 
-par(tck = -0.035) 
+par(tck = -0.035)
 cons_arma_ts <- list()
 for(i in 1:4) {
   use_cache <- ifelse(i == 1, FALSE, TRUE)
@@ -146,41 +132,23 @@ for(i in 1:4) {
 }
 burn <- 1:30
 
-#plot_sp_A_ts <- function(X, ylim, y_axis = TRUE) {
-  ##A_range <- ldply(X, function(x) range(rowSums(x$A[-burn, ])))
-  #for(i in 1:4){
-    #if(i %in% c(1, 3)) {
-      #plot(1,1,ylim = ylim, xlim = c(1, 70), type = "n",
-        #xlab = "", ylab = "", xaxt = "n", axes = FALSE, yaxs = "i")
-    #if(y_axis)  axis(2, col=  "grey50", at = pretty(axTicks(2), n = 2))
-    #}
-
-    #x <- X[[i]]$A[-burn, ]
-    #port.x <- rowSums(x)
-    #lines(1:length(port.x), port.x, col = cols[i], lwd = 1.5, lty = 1)
-    #box(col = "grey50")
-  #}
-    #axis(1, col=  "grey50")
-#}
-
-#par(mfrow = c(2, 1))
-#par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
-
-plot_sp_A_ts(cons_arma_ts, ylim = c(0000, 12400), start_new_plots = c(1, 3), labels = c("(c) Response diversity dampens\n     short-term risk", "ignore", "(e)\n", "ignore"))
+plot_sp_A_ts(cons_arma_ts, ylim = c(0000, 12400),
+  start_new_plots = c(1, 3),
+  labels = c("(c) Response diversity dampens\n     short-term risk",
+    "ignore", "(e)\n", "ignore"))
 
 par(las = 0)
 mtext("Metapopulation abundance", side = 2, line = 3, outer = FALSE, cex = 0.8, adj = -2)
 par(las =1)
 
-#par(mfrow = c(2, 1))
-#par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5), tck = -0.02, mgp = c(2, .6, 0)) 
-plot_sp_A_ts(cons_linear_ts, ylim = c(0000, 12400), y_axis = FALSE, start_new_plots = c(1, 3), labels = c("(d) Response diversity ensures\n      long-term persistence", "ignore", "(f)\n", "ignore"))
+plot_sp_A_ts(cons_linear_ts, ylim = c(0000, 12400), y_axis = FALSE,
+  start_new_plots = c(1, 3), labels = c("(d) Response diversity ensures\n
+    long-term persistence", "ignore", "(f)\n", "ignore"))
 
 par(xpd = NA)
 mtext("Generation", side = 1, line = 2, outer = FALSE, cex = 0.8, adj = -.2)
 par(xpd = FALSE)
 dev.off()
-
 
 ## report summary statistics:
 mean.v <- plyr::ldply(x_arma_sp$plans_mv, function(x) mean(x$v))
@@ -188,4 +156,3 @@ round(mean(mean.v$V1[3:4]) / mean(mean.v$V1[1:2]), 1)
 
 mean.m <- plyr::ldply(x_linear_sp$plans_mv, function(x) mean(x$m))
 round(mean(mean.m$V1[3:4]) / mean(mean.m$V1[1:2]), 1)
-
