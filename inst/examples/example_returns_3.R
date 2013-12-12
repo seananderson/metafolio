@@ -1,4 +1,4 @@
-#' 
+#'
 
 #col_pal <- rev(gg_color_hue(3))
 #n_pop_temp <- 3
@@ -32,7 +32,7 @@
 #plot_sim_ts_simple(eg5, pal = col_pal, text = "Larger spawner-return variance")
 #plot_sim_ts_simple(eg7, pal = col_pal, text = "Lower productivity")
 #plot_sim_ts_simple(eg8, pal = col_pal, text = "Higher productivity")
-#axis(1, col = "grey50") 
+#axis(1, col = "grey50")
 #mtext("Generation", side = 1, outer = TRUE, line = 2.0, cex = 0.8)
 #mtext("Returns", side = 2, outer = TRUE, line = 3.0, cex = 0.8, las = 0)
 
@@ -44,11 +44,10 @@ pdf("plot-various-options-ts-3pops.pdf", width = 4, height = 6.4)
 eg <- list()
 ex <- list()
 
-col_pal <- rev(gg_color_hue(3))
-n_pop <- 3
-#arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
+n_pop <- 4
+col_pal <- rev(gg_color_hue(n_pop-1))
 
-set.seed(2)
+set.seed(1)
 eg[["Base case"]] <- meta_sim(
   n_pop       = n_pop,
   env_params  = arma_env_params,
@@ -142,7 +141,7 @@ bg.plot <- function(colour = "#00000019") rect(par("usr")[1],
 source("plot_sim_ts_simple.R")
 par(mfrow = c(length(eg), 1), mar = c(0,0,0,0), oma = c(4, 2.5, 1, 1), cex = 0.7, las = 1, xpd = FALSE)
 for(i in 1:length(eg)) {
-  plot_sim_ts_simple(eg[[i]], text = ex[[i]])
+  plot_sim_ts_simple(eg[[i]], text = ex[[i]], pal = col_pal)
   if(i == 1) bg.plot()
 }
 axis(1, col = "grey50", tck = -0.05, padj = -1)
