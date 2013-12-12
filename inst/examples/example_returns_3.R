@@ -47,7 +47,7 @@ ex <- list()
 n_pop <- 4
 col_pal <- rev(gg_color_hue(n_pop-1))
 
-set.seed(1)
+set.seed(2)
 eg[["Base case"]] <- meta_sim(
   n_pop       = n_pop,
   env_params  = arma_env_params,
