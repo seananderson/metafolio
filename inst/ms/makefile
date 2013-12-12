@@ -1,4 +1,4 @@
-all:	ms
+all:	submit
 
 ms:
 	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
@@ -9,6 +9,27 @@ ms:
 	pdflatex salmonfolios
 	#rm som.tex
 	#cp salmonfolios.pdf ~/Dropbox/Public/
+	#./splitpdf.py salmonfolios.pdf 33 # assuming SOM starts at pg 34
+	#mv salmonfolios.part1.1_33.pdf anderson-etal-metafolio.pdf
+	#mv salmonfolios.part2.34_46.pdf anderson-etal-metafolio-SI.pdf
+	#mv salmonfolios.pdf anderson-etal-metafolio.pdf
+
+submit:
+	cp ../examples/*.eps .
+	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
+	pandoc -S som.md --latex-engine=xelatex -o som.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
+	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
+	cp salmonfolios.tex anderson-etal-metafolio.tex
+	latex anderson-etal-metafolio
+	#bibtex anderson-etal-metafolio
+	#latex anderson-etal-metafolio
+	#latex anderson-etal-metafolio
+	#latex anderson-etal-metafolio
+	mv ../../vignettes/metafolio.pdf metafolio-vignette.pdf
+	zip to-upload.zip *.eps tables.tex ms.tex som.tex metafolio-vignette.pdf yeakel-etal-inpress.pdf anderson-etal-2013.pdf
+
 
 bib:
 	extract_bib ms.md > ms.bib
