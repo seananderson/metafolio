@@ -41,10 +41,11 @@ You can view the help for the package with:
 The figures from this paper can be re-created by sourcing the file `README.R` in the `inst/examples` folder:
 
 ```
-source("inst/examples/README.R")
+setwd("metafolio/inst/examples")
+source("README.R")
 ```
 
-Note that the simulations will take awhile to run (approximately 5-20 minutes given current CPU speeds).
+Note that the simulations will take awhile to run (approximately 5--20 minutes given current CPU speeds).
 
 \clearpage
 
