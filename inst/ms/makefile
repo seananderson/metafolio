@@ -28,8 +28,8 @@ submit:
 	#latex anderson-etal-metafolio
 	#latex anderson-etal-metafolio
 	mv ../../vignettes/metafolio.pdf metafolio-vignette.pdf
-	zip to-upload.zip *.eps tables.tex ms.tex som.tex metafolio-vignette.pdf yeakel-etal-inpress.pdf anderson-etal-2013.pdf
-
+	zip to-upload.zip *.eps tables.tex ms.tex som.tex metafolio-vignette.pdf recent-yeakel-etal-inpress.pdf recent-anderson-etal-2013.pdf
+	rm *.eps
 
 bib:
 	extract_bib ms.md > ms.bib
