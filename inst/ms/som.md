@@ -126,7 +126,7 @@ systematic changes in productivity.}
 \centering
 \includegraphics[width=4.5in]{spatial-linear-sim-full}
 \caption{Conserving a \textbf{full range} of response diversity (spatial
-conservation strategy) with \textbf{long-term} environmental fluctuations.}
+conservation strategy) with \textbf{long-term} environmental change.}
 \label{f:eg-sp-linear-full}
 \end{figure}
 \clearpage
@@ -135,7 +135,7 @@ conservation strategy) with \textbf{long-term} environmental fluctuations.}
 \centering
 \includegraphics[width=4.5in]{spatial-linear-sim-onehalf}
 \caption{Conserving \textbf{one half} of response diversity (spatial
-conservation strategy) with \textbf{long-term} environmental fluctuations.}
+conservation strategy) with \textbf{long-term} environmental change.}
 \label{f:eg-sp-linear-half}
 \end{figure}
 \clearpage
