@@ -22,4 +22,5 @@ Suggests:
     knitr,
     devtools,
     TeachingDemos,
-    RColorBrewer
+    RColorBrewer,
+    reshape2
