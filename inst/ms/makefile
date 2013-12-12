@@ -6,9 +6,9 @@ ms:
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
 	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
-	xelatex salmonfolios
-	rm som.tex
-	cp salmonfolios.pdf ~/Dropbox/Public/
+	pdflatex salmonfolios
+	#rm som.tex
+	#cp salmonfolios.pdf ~/Dropbox/Public/
 
 bib:
 	extract_bib ms.md > ms.bib
@@ -18,10 +18,10 @@ bib:
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
 	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
-	xelatex salmonfolios
+	pdflatex salmonfolios
 	bibtex salmonfolios
-	xelatex salmonfolios
-	xelatex salmonfolios
+	pdflatex salmonfolios
+	pdflatex salmonfolios
 	rm som.tex
 
 letter:
