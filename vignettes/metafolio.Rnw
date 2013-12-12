@@ -90,7 +90,7 @@ help(package = "metafolio")
 The main simulation function in \texttt{metafolio} is \texttt{meta\_sim}.
 We'll start by running a simulation using the base-case parameter values from
 the paper. First, we'll set up an \texttt{R} list object that contains the
-argument values for the stationary environmental stochasticity scenario. 
+argument values for the stationary environmental stochasticity scenario.
 
 <<setup-arma>>=
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2,
