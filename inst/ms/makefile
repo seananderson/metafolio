@@ -16,6 +16,8 @@ ms:
 
 submit:
 	cp ../examples/*.eps .
+	extract_bib ms.md > ms.bib
+	cp ~/Dropbox/tex/jshort.bib .
 	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
 	pandoc -S som.md --latex-engine=xelatex -o som.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
@@ -23,13 +25,15 @@ submit:
 	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
 	cp salmonfolios.tex anderson-etal-metafolio.tex
 	latex anderson-etal-metafolio
+	# first time run all this... then manually fix the refs with numbers and
+	# comment out bib line and leave one or two latex lines here
 	#bibtex anderson-etal-metafolio
 	#latex anderson-etal-metafolio
 	#latex anderson-etal-metafolio
 	#latex anderson-etal-metafolio
-	mv ../../vignettes/metafolio.pdf metafolio-vignette.pdf
+	cp ../doc/metafolio.pdf metafolio-vignette.pdf
 	zip to-upload.zip *.eps tables.tex ms.tex som.tex metafolio-vignette.pdf recent-yeakel-etal-inpress.pdf recent-anderson-etal-2013.pdf
-	rm *.eps
+	#rm *.eps
 
 bib:
 	extract_bib ms.md > ms.bib
