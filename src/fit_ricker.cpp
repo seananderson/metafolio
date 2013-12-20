@@ -4,14 +4,12 @@ using namespace Rcpp;
 
 // [[Rcpp::export]]
 arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
-// see http://gallery.rcpp.org/articles/fast-linear-model-with-armadillo/
-   int n = Xr.nrow(), k = Xr.ncol();
-   
-   arma::mat X(Xr.begin(), n, k, false); 
-   arma::colvec y(yr.begin(), yr.size(), false);
-   
-   arma::colvec coef = arma::solve(X, y); 
-   return coef;
+  // see http://gallery.rcpp.org/articles/fast-linear-model-with-armadillo/
+  int n = Xr.nrow(), k = Xr.ncol();
+  arma::mat X(Xr.begin(), n, k, false);
+  arma::colvec y(yr.begin(), yr.size(), false);
+  arma::colvec coef = arma::solve(X, y);
+  return coef;
 }
 
 // Fit Ricker linear regression
