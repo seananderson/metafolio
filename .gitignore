@@ -34,3 +34,5 @@ inst/ms/som.tex
 *.o
 
 *.so
+
+inst/tests/test-rcpp.R
