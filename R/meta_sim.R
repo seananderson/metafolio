@@ -31,9 +31,6 @@
 #' @param start_assessment Generation to start estimating the stock recruit
 #'   relationship for escapement targets. The assessment is carried out using
 #'   \code{\link{fit_ricker}}.
-#' @param assessment_window Number of generations to use when fitting fitting
-#'   the stock-recruit relationship for escapement targets; must be bigger than
-#'   \code{start_assessment}.
 #' @param a_lim A vector of length two giving the lower and upper limits for
 #'   Ricker a values. If a value is estimated beyond these limits it will be
 #'   set to the limit value.
@@ -114,7 +111,6 @@ meta_sim <- function(
   env_params = list(amplitude = 3.2, ang_frequency = 0.2, phase = runif(1,
       -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.30),
   start_assessment = 20,
-  assessment_window = 25,
   a_lim = c(0.02, 4),
   b_lim = c(0.5, 1.5),
   silence_warnings = TRUE,
@@ -174,12 +170,12 @@ meta_sim <- function(
     save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
   }
 
-  assess_years <- seq(start_assessment, n_t, assessment_window)
-
+  assess_years <- seq(start_assessment, n_t, assess_freq)
+  
   out <- metasim_base(n_pop = n_pop, n_t = n_t, spawners_0 = spawners_0, b = b,
     epsilon_mat = epsilon_mat, A_params = A_params, add_straying = add_straying,
     stray_mat = stray_mat, assess_years = assess_years, r_escp_goals =
-    r_escp_goals)
+    r_escp_goals, sigma_impl = sigma_impl, add_impl_error = add_impl_error)
   out$env_ts <- env_ts
   return(out)
 }
