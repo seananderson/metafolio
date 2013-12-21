@@ -174,106 +174,12 @@ meta_sim <- function(
     save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
   }
 
-  # matrices to store output:
-  A <- matrix(ncol = n_pop, nrow = n_t) # total abundance (say returns)
-  F <- matrix(ncol = n_pop, nrow = n_t) # fisheries catch
-  E <- matrix(ncol = n_pop, nrow = n_t) # escapement
-  Eps <- matrix(ncol = n_pop, nrow = n_t) # S-R residuals, for AR1 tracking
-  Strays_leaving <- matrix(ncol = n_pop, nrow = n_t)
-  Strays_joining <- matrix(ncol = n_pop, nrow = n_t)
-  Est_a <- matrix(ncol = n_pop, nrow = n_t)
-  Est_b <- matrix(ncol = n_pop, nrow = n_t)
+  assess_years <- seq(start_assessment, n_t, assessment_window)
 
-  A[1, ] <- spawners_0 # first year
-  E[1, ] <- spawners_0 # first year
-  Eps[1, ] <- rep(0, n_pop) # first year
-
-  # run the simulation through time:
-  for(i in 2:n_t){
-    for(j in 1:n_pop) {
-      # spawner-recruit section:
-      A[i, j] <- ricker_v_t(spawners = E[i-1, j], a = A_params[i, j],
-        b = b[j], v_t = epsilon_mat[i, j], d = 1.00)  # note depensation hard coded
-      if (A[i,j] < 0) warning("Abundance before straying or harvesting was < 0.")
-    }
-    # now we have the returns for this year, let's allocate straying:
-    if (add_straying) {
-      to_reallocate <- matrix(ncol = n_pop, nrow = n_pop)
-      for(j in 1:n_pop) {
-        # from column to row populations:
-        to_reallocate[j, ] <- stray_mat[j, ] * A[i, j]
-      }
-      to_subtract <- rowSums(to_reallocate)
-      to_add <- colSums(to_reallocate)
-      Strays_leaving[i, ] <- to_subtract
-      Strays_joining[i, ] <- to_add
-      A[i, ] <- A[i, ] - to_subtract + to_add
-    }
-    # harvesting:
-    # setting escapement according to Hilborn and Walters p272
-    # (pdf p139), Table 7.2: Smsy = b(0.5 - 0.07*a)
-
-    # Fit recent data to get estimated a and b values, set escapement
-    # based on these.
-    # Random fishery for first X years, establish S-R data to work with:
-    if (i < start_assessment) escapement_goals <- A[i, ] * r_escp_goals[i, ]
-    # sanity check - make sure estimate isn't too far from this:
-    if (i == (start_assessment - 1)) Est_b[i, ] <- b
-    if (i >= start_assessment) {
-      # every nth year, re-assess a and b:
-      if ((i - start_assessment)%%assess_freq == 0) {
-        for(j in 1:n_pop) {
-          recruits <- A[3:i, j]
-          spawners <- E[2:(i - 1), j]
-          rick <- fit_ricker(R = recruits, S = spawners)
-          # bounds for sanity:
-          if (rick$a > a_lim[2]) {
-            if(!silence_warnings)
-              warning("Ricker a was estimated at greater than upper limit. Setting to upper limit.")
-            rick$a <- a_lim[2]
-          }
-          if (rick$a < a_lim[1]) {
-            if(!silence_warnings)
-              warning("Ricker a was estimated at less than lower limit. Setting to lower limit.")
-            rick$a <- a_lim[1]
-          }
-          if (rick$b > Est_b[i - 1, j] * b_lim[2]) {
-            if(!silence_warnings)
-              warning("Jump in Ricker b was larger than limit. Setting to upper limit times the previous value.")
-            rick$b <- Est_b[i - 1, j] * b_lim[2]
-          }
-          if (rick$b < Est_b[i - 1, j] * b_lim[1]) {
-            if(!silence_warnings)
-              warning("Jump in Ricker b was larger than limit. Setting to lower limit times the previous value.")
-            rick$b <- Est_b[i - 1, j] * b_lim[1]
-          }
-          Est_a[i,j]<-rick$a
-          Est_b[i,j]<-rick$b
-        }
-        escapement_goals <- ricker_escapement(Est_a[i,],Est_b[i,])
-      } else { # no assessment
-        Est_a[i,]<-Est_a[i-1,]
-        Est_b[i,]<-Est_b[i-1,]
-        # no assessment, use last year's values
-        escapement_goals <- ricker_escapement(Est_a[i-1,],Est_b[i-1,])
-      }
-    }
-    if (add_impl_error) {
-      escapement_goals_fraction <- escapement_goals / A[i,]
-      # avoid rbeta errors if fraction too big - would have got reduced below
-      # anyways
-      escapement_goals_fraction[escapement_goals_fraction > .95] <- .95
-      escapement_goals_fraction_w_error <-  impl_error(mu =
-        escapement_goals_fraction, sigma_impl = sigma_impl)
-      escapement_goals <- escapement_goals_fraction_w_error * A[i,]
-    }
-    F[i, ] <- A[i, ] - escapement_goals # catch to leave escapement behind
-    negative_F <- which(F[i, ] < 0)
-    F[i, negative_F] <- 0
-    E[i, ] <- A[i, ] - F[i, ] # escapement
-  }
-  return(list(A = A, F = F, E = E, Eps = epsilon_mat, A_params = A_params,
-      Strays_leaving = Strays_leaving, Strays_joining = Strays_joining,
-      env_ts = env_ts, stray_mat = stray_mat, n_pop = n_pop, n_t = n_t, b = b,
-      Est_a = Est_a, Est_b = Est_b))
+  out <- metasim_base(n_pop = n_pop, n_t = n_t, spawners_0 = spawners_0, b = b,
+    epsilon_mat = epsilon_mat, A_params = A_params, add_straying = add_straying,
+    stray_mat = stray_mat, assess_years = assess_years, r_escp_goals =
+    r_escp_goals)
+  out$env_ts <- env_ts
+  return(out)
 }
