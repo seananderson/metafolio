@@ -82,7 +82,7 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 
 plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
   years_to_show = 30, burn = 1:50, shade_years = NULL, adj = 0.02,
-  add_units = FALSE, yticks = rep(list(NA), x$n_pop)) {
+  add_units = FALSE, yticks = rep(list(NA), 10)) {
 
   if(!add_units) {
     ylabs <- rep("", 10)
