@@ -69,7 +69,7 @@ dev.off()
 
 if(!USE_CACHE) {
   x_linear_sp <- run_cons_plans(w, env_type = "linear", env_params =
-    linear_env_params)
+    linear_env_params, max_a = thermal_integration(10))
   save(x_linear_sp, file = "x_linear_sp.rda")
 } else {
   load("x_linear_sp.rda")
