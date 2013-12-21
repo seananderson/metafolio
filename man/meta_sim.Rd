@@ -10,10 +10,10 @@ meta_sim(n_t = 100, n_pop = 10, stray_decay_rate = 0.3,
   max_a = thermal_integration(n_pop), env_type = c("sine", "arma", "regime",
   "linear", "constant"), env_params = list(amplitude = 3.2, ang_frequency =
   0.2, phase = runif(1, -pi, pi), mean_value = 15, slope = 0, sigma_env = 0.3),
-  start_assessment = 20, assessment_window = 25, a_lim = c(0.02, 4),
-  b_lim = c(0.5, 1.5), silence_warnings = TRUE, sigma_impl = 0.05,
-  assess_freq = 10, use_cache = FALSE, cache_env = FALSE,
-  add_straying = TRUE, add_impl_error = TRUE)
+  start_assessment = 20, a_lim = c(0.02, 4), b_lim = c(0.5, 1.5),
+  silence_warnings = TRUE, sigma_impl = 0.05, assess_freq = 10,
+  use_cache = FALSE, cache_env = FALSE, add_straying = TRUE,
+  add_impl_error = TRUE)
 }
 \arguments{
   \item{n_t}{The number of years.}
@@ -63,11 +63,6 @@ meta_sim(n_t = 100, n_pop = 10, stray_decay_rate = 0.3,
   the stock recruit relationship for escapement targets.
   The assessment is carried out using
   \code{\link{fit_ricker}}.}
-
-  \item{assessment_window}{Number of generations to use
-  when fitting fitting the stock-recruit relationship for
-  escapement targets; must be bigger than
-  \code{start_assessment}.}
 
   \item{a_lim}{A vector of length two giving the lower and
   upper limits for Ricker a values. If a value is estimated

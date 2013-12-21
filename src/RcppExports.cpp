@@ -122,8 +122,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // metasim_base
-List metasim_base(int n_pop, int n_t, NumericVector spawners_0, NumericVector b, NumericMatrix epsilon_mat, NumericMatrix A_params, bool add_straying, NumericMatrix stray_mat, NumericVector assess_years, NumericMatrix r_escp_goals);
-RcppExport SEXP metafolio_metasim_base(SEXP n_popSEXP, SEXP n_tSEXP, SEXP spawners_0SEXP, SEXP bSEXP, SEXP epsilon_matSEXP, SEXP A_paramsSEXP, SEXP add_strayingSEXP, SEXP stray_matSEXP, SEXP assess_yearsSEXP, SEXP r_escp_goalsSEXP) {
+List metasim_base(int n_pop, int n_t, NumericVector spawners_0, NumericVector b, NumericMatrix epsilon_mat, NumericMatrix A_params, bool add_straying, NumericMatrix stray_mat, NumericVector assess_years, NumericMatrix r_escp_goals, double sigma_impl, bool add_impl_error);
+RcppExport SEXP metafolio_metasim_base(SEXP n_popSEXP, SEXP n_tSEXP, SEXP spawners_0SEXP, SEXP bSEXP, SEXP epsilon_matSEXP, SEXP A_paramsSEXP, SEXP add_strayingSEXP, SEXP stray_matSEXP, SEXP assess_yearsSEXP, SEXP r_escp_goalsSEXP, SEXP sigma_implSEXP, SEXP add_impl_errorSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -138,7 +138,9 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericMatrix >::type stray_mat(stray_matSEXP );
         Rcpp::traits::input_parameter< NumericVector >::type assess_years(assess_yearsSEXP );
         Rcpp::traits::input_parameter< NumericMatrix >::type r_escp_goals(r_escp_goalsSEXP );
-        List __result = metasim_base(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals);
+        Rcpp::traits::input_parameter< double >::type sigma_impl(sigma_implSEXP );
+        Rcpp::traits::input_parameter< bool >::type add_impl_error(add_impl_errorSEXP );
+        List __result = metasim_base(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

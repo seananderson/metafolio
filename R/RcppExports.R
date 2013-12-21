@@ -46,7 +46,7 @@ ricker_escapement <- function(a, b) {
 #' Main Rcpp function
 #'
 #' @export
-metasim_base <- function(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals) {
-    .Call('metafolio_metasim_base', PACKAGE = 'metafolio', n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals)
+metasim_base <- function(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error) {
+    .Call('metafolio_metasim_base', PACKAGE = 'metafolio', n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error)
 }
 
