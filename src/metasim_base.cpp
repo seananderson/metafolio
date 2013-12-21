@@ -106,13 +106,10 @@ List metasim_base(
     bool add_straying,
     NumericMatrix stray_mat,
     NumericVector assess_years,
-    NumericMatrix r_escp_goals
+    NumericMatrix r_escp_goals,
+    double sigma_impl,
+    bool add_impl_error
     ) {
-
-  //bool add_impl_error,
-
-  // TODO assess_years is used now not assess_freq
-  // this also affects start_assessment
 
   NumericMatrix A(n_t, n_pop); // total abundance (say returns)
   NumericMatrix F(n_t, n_pop); // fisheries catch
@@ -156,7 +153,6 @@ List metasim_base(
         //}
       }
     } // done adding straying
-
 
     // Fit recent data to get estimated a and b values,
     // set escapement based on these.
@@ -213,6 +209,21 @@ List metasim_base(
         }
       }
     }
+
+    // and finally, add implementation uncertainty
+    if (add_impl_error) {
+      NumericVector escapement_goals_fraction = escapement_goals / A(i,_);
+      // avoid rbeta errors if fraction too big:
+      for (int k = 0; k < n_pop; ++k) {
+        if(escapement_goals_fraction(k)  > .95){
+           escapement_goals_fraction(k) = .95;
+        }
+      }
+      NumericVector escapement_goals_fraction_w_error =
+        impl_error(escapement_goals_fraction, sigma_impl);
+      escapement_goals = escapement_goals_fraction_w_error * A(i,_);
+    }
+
     F(i,_) = A(i,_) - escapement_goals; // catch to leave escapement behind
     for (int k = 0; k < n_pop; ++k) {
       if (F(i, k) < 0) {
@@ -222,6 +233,11 @@ List metasim_base(
 
     E(i,_) = A(i,_) - F(i,_); // escapement
   }
+
+
+
+
+
   return List::create(Named("A") = A,
       Named("E") = E,
       Named("F") = F,
