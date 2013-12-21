@@ -13,7 +13,10 @@ Description: Simulations are based around salmon metapopulations.
 License: GPL (>=2)
 VignetteBuilder: knitr
 Depends:
-    R (>= 3.0.0)
+    R (>= 3.0.0),
+    Rcpp (>= 0.10.6),
+    RcppArmadillo (>= 0.3.930.1)
+LinkingTo: Rcpp, RcppArmadillo
 Imports:
     plyr (>= 1.8),
     colorspace (>= 1.2-2),
