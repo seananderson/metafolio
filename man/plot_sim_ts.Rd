@@ -4,7 +4,7 @@
 \usage{
 plot_sim_ts(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30,
   burn = 1:50, shade_years = NULL, adj = 0.02, add_units = FALSE,
-  yticks = rep(list(NA), x$n_pop))
+  yticks = rep(list(NA), 10))
 }
 \arguments{
   \item{x}{A list output object from a simulation run of
