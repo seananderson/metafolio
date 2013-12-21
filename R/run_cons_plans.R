@@ -96,7 +96,7 @@ run_cons_plans <- function(w, env_type, env_params, show_progress =
                     env_type      = env_type,
                     env_params    = env_params,
                     burn          = burn,
-                    assess_freq   = assess_freq
+                    assess_freq   = assess_freq, ...
                             )
     plans_mv_n[[i]][[j]] <- temp$port_mv
     plans_port_n[[i]][[j]] <- temp$port_out
