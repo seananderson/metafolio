@@ -30,3 +30,7 @@ Session.vim
 inst/ms/cites.txt
 
 inst/ms/som.tex
+
+*.o
+
+*.so
