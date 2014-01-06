@@ -2,7 +2,10 @@
 #include <RcppArmadillo.h>
 using namespace Rcpp;
 
-//' Estimate beta params
+//' Get beta parameters from mean and variance
+//'
+//' @param mu Mean
+//' @param var Variance
 //'
 // [[Rcpp::export]]
 NumericVector est_beta_params(double mu, double var) {
@@ -14,7 +17,34 @@ NumericVector est_beta_params(double mu, double var) {
   return out;
 }
 
-//' Implementation error
+//' Add implementation error
+//'
+//' Add implementation error with a beta distribution.
+//'
+//' @param mu The mean
+//' @param sigma_impl Implementation error standard deviation
+//' @return
+//' A single numeric values representing a sample from a beta
+//' distribution with the specified mean and standard deviation.
+//'
+//' @references
+//' Morgan, M. G. & Henrion, M. (1990). Uncertainty: A Guide to Dealing
+//' with Uncertainty in Quantitative Risk and Policy Analysis.
+//' Cambridge University Press.
+//'
+//' Pestes, L. R., Peterman, R. M., Bradford, M. J., and Wood, C. C.
+//' (2008). Bayesian decision analysis for evaluating management
+//' options to promote recovery of a depleted salmon population.
+//' 22(2):351-361.
+//'
+//' http://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance
+//'
+//' @examples
+//' y <- sapply(1:200, function(x) impl_error(0.5, 0.2))
+//' hist(y)
+//'
+//' y <- sapply(1:200, function(x) impl_error(0.3, 0.1))
+//' hist(y)
 //'
 // [[Rcpp::export]]
 NumericVector impl_error(NumericVector mu, double sigma_impl) {
@@ -33,6 +63,23 @@ NumericVector impl_error(NumericVector mu, double sigma_impl) {
 }
 
 //' Ricker stock-recruit function with specified error
+//'
+//' @param spawners Spawner abundance
+//' @param a Ricker productivity parameter. Recruits are e^a at the origin.
+//' @param b Ricker density dependent parameter.
+//' @param d Depensation parameter. A value of 1 means no depensation. Larger
+//'   values indicate depensation.
+//' @param v_t Residual on the curve. Will be exponentiated. Note that we are
+//'   *not* bias correcting within this function (subtracting half the variance
+//'   squared) and so the deviations will not be mean unbiased unless they were
+//'   bias corrected previously.
+//' @return Returns a vector of recruits.
+//' @examples
+//' x <- seq(1, 100)
+//' v_t <- as.numeric(arima.sim(n = 100, model = list(ar = 0.3), sd =
+//'     0.1, mean = 0))
+//' plot(x, ricker_v_t(spawners = x, a = 1.1, b = 60, d = 1, v_t), xlab =
+//'   "Spawners", ylab = "Returns")
 //'
 // [[Rcpp::export]]
 double ricker_v_t(double spawners, double a, double b, double d, double v_t) {
@@ -58,6 +105,9 @@ bool is_element(int x, NumericVector y){
 
 //' Super fast linear regression
 //'
+//' @param yr Vector of y values
+//' @param Xr Model matrix
+//'
 // [[Rcpp::export]]
 arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
   // see http://gallery.rcpp.org/articles/fast-linear-model-with-armadillo/
@@ -69,6 +119,23 @@ arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
 }
 
 //' Fit Ricker linear regression
+//'
+//' Fit a Ricker curve to spawner-recruit data and return the intercept (a) and
+//' slope (b). This function uses \code{\link[stats]{lm.fit}} by directly
+//' specifying the model matrix. This is about an order of magnitude faster than
+//' \code{\link[stats]{lm}}.
+//'
+//' @param S Spawners as a numeric vector.
+//' @param R Recruits or returns as a numeric vector.
+//' @return
+//' A named list with components \code{a} for the intercept and
+//' \code{b} for the slope.
+//' @examples
+//' S <- seq(100, 1000, length.out = 100)
+//' v_t <- rnorm(100, 0, 0.1)
+//' R <- ricker_v_t(spawners = S, a = 1.9, b = 900, d = 1, v_t)
+//' plot(S, log(R/S))
+//' fit_ricker(S, R)
 //'
 // [[Rcpp::export]]
 NumericVector fit_ricker(NumericVector S, NumericVector R) {
@@ -87,14 +154,27 @@ NumericVector fit_ricker(NumericVector S, NumericVector R) {
 
 //' Assign a salmon escapement target based on a Ricker curve
 //'
+//' Sets escapement according to Hilborn and Walters (1992) p272, Table
+//' 7.2. Smsy = b(0.5 - 0.07*a).
+//'
+//' @param a Ricker productivity parameter.
+//' @param b Ricker density-dependent parameter.
+//' @references
+//' Hilborn, R.W. and Walters, C. 1992. Quantitative fisheries stock
+//' assessment: Choice, dynamics, and uncertainty. Chapman and Hall, London.
+//' @examples
+//' ricker_escapement(1.1, 1000)
+//'
 // [[Rcpp::export]]
 double ricker_escapement(double a, double b) {
   return b * (0.5 - 0.07 * a);
 }
 
-//' Main Rcpp function
+//' Base-level metapopulation simulation function
 //'
-//' @export
+//' This is an Rcpp implementation of the main simulation. It is meant to be
+//' called by \code{\link{meta_sim}}.
+//'
 // [[Rcpp::export]]
 List metasim_base(
     int n_pop,
@@ -233,10 +313,6 @@ List metasim_base(
 
     E(i,_) = A(i,_) - F(i,_); // escapement
   }
-
-
-
-
 
   return List::create(Named("A") = A,
       Named("E") = E,
