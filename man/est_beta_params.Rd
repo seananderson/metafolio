@@ -1,10 +1,15 @@
 \name{est_beta_params}
 \alias{est_beta_params}
-\title{Estimate beta params}
+\title{Get beta parameters from mean and variance}
 \usage{
 est_beta_params(mu, var)
 }
+\arguments{
+  \item{mu}{Mean}
+
+  \item{var}{Variance}
+}
 \description{
-Estimate beta params
+Get beta parameters from mean and variance
 }
 
