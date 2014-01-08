@@ -1,15 +1,16 @@
 <!--% redefine the command that creates the Table number.-->
-\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thetable}{\textbf{S\arabic{table}}}
+\renewcommand{\tablename}{\textbf{Table}}
 \setcounter{table}{0}
 
 <!--% redefine the command that creates the Figure number.-->
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\figurename}{Fig.}
+\renewcommand{\thefigure}{\textbf{S\arabic{figure}}}
+\renewcommand{\figurename}{\textbf{Fig.}}
 \setcounter{figure}{0}
 
-# Supplementary Information #
+# Supporting Information #
 
-## Supplementary code ##
+## Supporting code ##
 
 The `metafolio` `R` package contains the functions and code to carry out the analyses in our paper.
 In an `R` console (version $\ge 3.0.0$), you can install `metafolio` by first setting your working directory with `setwd()` to wherever you saved the package and then running:
@@ -19,6 +20,16 @@ In an `R` console (version $\ge 3.0.0$), you can install `metafolio` by first se
 install.packages(c("plyr", "colorspace"))
 
 # Install the package:
+# OS X:
+install.packages("metafolio_0.3.0.TODO", repos = NULL, type = "source")
+
+# Linux:
+install.packages("metafolio_0.3.0.TODO", repos = NULL, type = "source")
+
+# Windows:
+install.packages("metafolio_0.3.0.TODO", repos = NULL, type = "source")
+
+# Or, install from source if you have a C++ compiler installed:
 install.packages("metafolio_0.3.0.tar.gz", repos = NULL, type = "source")
 
 # Then load the package:
@@ -45,15 +56,15 @@ setwd("metafolio/inst/examples")
 source("README.R")
 ```
 
-Note that the simulations will take awhile to run (approximately 5--20 minutes given current CPU speeds).
+Note that the simulations will take awhile to run (approximately 2--15 minutes given current CPU speeds).
 
 \clearpage
 
-## Supplementary tables ##
+## Supporting tables ##
 
 \input{tables}
 
-## Supplementary figures ##
+## Supporting figures ##
 
 
 <!--\begin{figure}[htbp]-->
@@ -69,7 +80,7 @@ Note that the simulations will take awhile to run (approximately 5--20 minutes g
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=3.5in]{stray-matrix}
+\includegraphics[width=3.5in]{../examples/stray-matrix}
 \caption{An example straying matrix. The rows and columns represent different
 populations (indicated by population number). Dark blue indicates a high rate
 of straying and light blue indicates a low rate of straying.}
@@ -79,7 +90,7 @@ of straying and light blue indicates a low rate of straying.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.0in]{plot-various-options-ts-3pops}
+\includegraphics[width=4.0in]{../examples/plot-various-options-ts-3pops}
 \caption{The impact of increasing or decreasing various parameter values on
 metapopulation return abundance. The different coloured lines represent three
 example salmon populations. The base case represents the base-case values for
@@ -90,7 +101,7 @@ the short-term environmental fluctuation scenario.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{spatial-arma-sim-full}
+\includegraphics[width=4.5in]{../examples/spatial-arma-sim-full}
 \caption{Conserving a \textbf{full range} of response diversity (spatial
 conservation strategy) with \textbf{short-term} environmental fluctuations.}
 \label{f:eg-sp-arma-full}
@@ -99,7 +110,7 @@ conservation strategy) with \textbf{short-term} environmental fluctuations.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{spatial-arma-sim-onehalf}
+\includegraphics[width=4.5in]{../examples/spatial-arma-sim-onehalf}
 \caption{Conserving \textbf{one half} of response diversity (spatial
 conservation strategy) with \textbf{short-term} environmental fluctuations.}
 \label{f:eg-sp-arma-half}
@@ -108,7 +119,7 @@ conservation strategy) with \textbf{short-term} environmental fluctuations.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{example-return-correlations}
+\includegraphics[width=4.5in]{../examples/example-return-correlations}
 \caption{A comparison of the log(returns) between populations. The
 subpopulation IDs are coloured from warm tolerant (warm colours) to cool
 tolerant (cool colours). Note how populations 1 and 10 have asynchronous
@@ -124,7 +135,7 @@ systematic changes in productivity.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{spatial-linear-sim-full}
+\includegraphics[width=4.5in]{../examples/spatial-linear-sim-full}
 \caption{Conserving a \textbf{full range} of response diversity (spatial
 conservation strategy) with \textbf{long-term} environmental change.}
 \label{f:eg-sp-linear-full}
@@ -133,7 +144,7 @@ conservation strategy) with \textbf{long-term} environmental change.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{spatial-linear-sim-onehalf}
+\includegraphics[width=4.5in]{../examples/spatial-linear-sim-onehalf}
 \caption{Conserving \textbf{one half} of response diversity (spatial
 conservation strategy) with \textbf{long-term} environmental change.}
 \label{f:eg-sp-linear-half}
@@ -142,7 +153,7 @@ conservation strategy) with \textbf{long-term} environmental change.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-arma-sim-2}
+\includegraphics[width=4.5in]{../examples/n-arma-sim-2}
 \caption{\textbf{Two populations} conserved with random response diversity and
 \textbf{short-term} environmental fluctuations.}
 \label{f:eg-n-arma-two}
@@ -151,7 +162,7 @@ conservation strategy) with \textbf{long-term} environmental change.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-arma-sim-16}
+\includegraphics[width=4.5in]{../examples/n-arma-sim-16}
 \caption{\textbf{Sixteen populations} conserved with random response diversity
 and \textbf{short-term} environmental fluctuations.}
 \label{f:eg-n-arma-sixteen}
@@ -160,7 +171,7 @@ and \textbf{short-term} environmental fluctuations.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-linear-sim-2}
+\includegraphics[width=4.5in]{../examples/n-linear-sim-2}
 \caption{\textbf{Two populations} conserved with random response diversity and
 \textbf{long-term} environmental change.}
 \label{f:eg-n-linear-two}
@@ -169,7 +180,7 @@ and \textbf{short-term} environmental fluctuations.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-linear-sim-16}
+\includegraphics[width=4.5in]{../examples/n-linear-sim-16}
 \caption{\textbf{Sixteen populations} conserved with random response diversity
 and \textbf{long-term} environmental change.}
 \label{f:eg-n-linear-sixteen}
