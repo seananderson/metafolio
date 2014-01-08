@@ -1,16 +1,14 @@
 <!--% redefine the command that creates the Table number.-->
-\renewcommand{\thetable}{\textbf{S\arabic{table}}}
-\renewcommand{\tablename}{\textbf{Table}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\tablename}{Table}
 \setcounter{table}{0}
 
 <!--% redefine the command that creates the Figure number.-->
-\renewcommand{\thefigure}{\textbf{S\arabic{figure}}}
-\renewcommand{\figurename}{\textbf{Fig.}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\figurename}{Figure}
 \setcounter{figure}{0}
 
-# Supporting Information #
-
-## Supporting code ##
+# Electronic supplementary material #
 
 The `metafolio` `R` package contains the functions and code to carry out the analyses in our paper.
 In an `R` console (version $\ge 3.0.0$), you can install `metafolio` by first setting your working directory with `setwd()` to wherever you saved the package and then running:

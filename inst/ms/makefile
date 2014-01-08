@@ -60,7 +60,7 @@ letter:
 	xelatex salmonfolios-letter.tex
 
 rtf:
-	latex2rtf -d 0 -b ms.bbl -E0 -M6 salmonfolios.tex
+	latex2rtf -d 0 -b salmonfolios.bbl -E0 -M6 salmonfolios.tex
 
 docx:
 	cp ms.md ms-temp.md
