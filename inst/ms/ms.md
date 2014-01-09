@@ -1,6 +1,6 @@
 \setlength{\parskip}{4pt}
 
-<!--Words: 6550>
+<!--Words: 6550-->
 
 # Portfolio conservation of metapopulations under climate change
 
@@ -28,21 +28,15 @@ sean@seananderson.ca
 
 # Abstract
 
-TODO add up to 50 words:
 The mechanisms underlying the stability of ecological systems are a key focus of ecology and increasingly important given the rate and magnitude of biodiversity loss and environmental change. Here we ask how a portfolio approach can inform conservation priorities for metapopulations in a changing world. We develop a salmon metapopulation simulation where productivity is driven by thermal tolerance and patterns of short- and long-term environmental change. We implement spatial conservation scenarios and evaluate the salmon portfolios as a financial manager might --- along risk-return axes. We show that conserving response diversity minimizes risk given environmental stochasticity and ensures persistence given long-term environmental change. Even with unknown response diversity, doubling the populations conserved may halve metapopulation variability. These findings show how preserving the processes that promote response diversity, such as habitat heterogeneity and natural disturbance regimes, may be critical to conserving metapopulations in the face of climate variability and change.
 
-TODO cut down to 6 max:
 *Keywords*:
-biocomplexity,
 ecosystem based management,
 Pacific salmon,
 portfolio effect,
 prioritization,
-range contraction,
 response diversity,
-risk assessment,
 stability-diversity,
-stochastic simulation
 
 \clearpage
 
