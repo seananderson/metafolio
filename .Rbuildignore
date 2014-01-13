@@ -9,10 +9,12 @@ inst/examples/*.rda
 inst/examples/figure
 \.DS_Store$
 inst/ms/\.gitignore$
-inst/ms
+inst/ms/*
 Session.vim
 env_ts.rda
 sim_dat.rda
 tags
 vignettes/.*\.aux$
 vignettes/.*\.log$
+vignettes/cache/*
+vignettes/figure/*
