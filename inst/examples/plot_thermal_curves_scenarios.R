@@ -3,6 +3,7 @@
 pdf_eps("thermal-curve-scenarios", width = 2.6, height = 4.7, type = TYPE)
 par(cex = 0.8, mgp = c(2.4, 0.55, 0), tck = -0.04, mfrow = c(5,1), mar = c(0,3,0,.5), oma = c(3, 0, .5, 0))
     par(las = 1)
+par(family = "Times")
 
 par(xpd = FALSE)
 optim_temps <- seq(13, 19, length.out = 10)

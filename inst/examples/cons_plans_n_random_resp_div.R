@@ -108,6 +108,7 @@ par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5),
   tck = -0.02, mgp = c(2, .6, 0))
 plot_cons_plans(x_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
+par(family = "Times")
 
 add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
 
