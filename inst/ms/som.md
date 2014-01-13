@@ -19,13 +19,10 @@ install.packages(c("plyr", "colorspace"))
 
 # Install the package:
 # OS X:
-install.packages("metafolio_0.3.0.TODO", repos = NULL, type = "source")
-
-# Linux:
-install.packages("metafolio_0.3.0.TODO", repos = NULL, type = "source")
+install.packages("metafolio_0.3.0.tgz", repos = NULL)
 
 # Windows:
-install.packages("metafolio_0.3.0.TODO", repos = NULL, type = "source")
+install.packages("metafolio_0.3.0.zip", repos = NULL)
 
 # Or, install from source if you have a C++ compiler installed:
 install.packages("metafolio_0.3.0.tar.gz", repos = NULL, type = "source")

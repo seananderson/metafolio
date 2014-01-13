@@ -1,14 +1,15 @@
-#' metafolio: An R package to simulate salmon metapopulation for
+#' metafolio: An R package to simulate metapopulations for
 #' portfolio optimization
 #'
 #' The \pkg{metafolio} \R package is a tool to simulate metapopulations and
-#' apply financial portfolio optimization concepts. The package is primarily
-#' intended for salmon simulations, but could be adapted for other taxonomic
-#' groups.
+#' apply financial portfolio optimization concepts. The package was originally
+#' written for salmon simulations, so some of the language refers to
+#' salmon-specific terminology, but the package could be used and/or adopted
+#' for other taxonomic groups.
 #'
 #' The main simulation function is \code{\link{meta_sim}}. This function takes
-#' care of running an individual simulation iteration. The package contains
-#' other functions for exploring spatial conservation scenarios with these
+#' care of running an individual simulation iteration. The package also
+#' contains functions for exploring conservation scenarios with these
 #' simulations (see the "Assessing multiple conservation scenarios" section
 #' below), and find optimal conservation strategies (see the "Portfolio
 #' optimization section" below).

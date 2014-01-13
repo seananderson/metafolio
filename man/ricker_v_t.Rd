@@ -5,7 +5,7 @@
 ricker_v_t(spawners, a, b, d, v_t)
 }
 \arguments{
-  \item{spawners}{Spawner abundance}
+  \item{spawners}{A single spawner abundance}
 
   \item{a}{Ricker productivity parameter. Recruits are e^a
   at the origin.}
@@ -15,11 +15,11 @@ ricker_v_t(spawners, a, b, d, v_t)
   \item{d}{Depensation parameter. A value of 1 means no
   depensation. Larger values indicate depensation.}
 
-  \item{v_t}{Residual on the curve. Will be exponentiated.
-  Note that we are *not* bias correcting within this
-  function (subtracting half the variance squared) and so
-  the deviations will not be mean unbiased unless they were
-  bias corrected previously.}
+  \item{v_t}{A single residual on the curve. Will be
+  exponentiated. Note that we are *not* bias correcting
+  within this function (subtracting half the variance
+  squared) and so the deviations will not be mean unbiased
+  unless they were bias corrected previously.}
 }
 \value{
 Returns a vector of recruits.
@@ -28,10 +28,11 @@ Returns a vector of recruits.
 Ricker stock-recruit function with specified error
 }
 \examples{
-x <- seq(1, 100)
-v_t <- as.numeric(arima.sim(n = 100, model = list(ar = 0.3), sd =
-    0.1, mean = 0))
-plot(x, ricker_v_t(spawners = x, a = 1.1, b = 60, d = 1, v_t), xlab =
-  "Spawners", ylab = "Returns")
+plot(1, 1, xlim = c(1, 100), ylim = c(0, 90), type = "n", xlab = "Spawners",
+  ylab = "Returns")
+for(i in 1:100) {
+points(i, ricker_v_t(i, a = 1.1, b = 60, d = 1, v_t = rnorm(1, mean =
+  -(0.1^2)/2, sd = 0.1)))
+}
 }
 
