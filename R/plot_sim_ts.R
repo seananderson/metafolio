@@ -1,4 +1,5 @@
 #' Add annotations to panel
+#'
 #' @param label The text to add as a label
 #' @param xfrac Fraction over from the left
 #' @param yfrac Fraction down from the top
@@ -13,6 +14,7 @@ annotate <- function(label, xfrac = 0.008, yfrac = 0.18, pos = 4, cex = 0.9, ...
 }
 
 #' Add a pretty axis
+#'
 #' @param side Number indicating the side to add an axis (as in the side number
 #' passed to \code{\link[graphics]{axis}}).
 #' @param shade_years An optional numerical vector of length two giving the
@@ -56,14 +58,13 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 
 #' Plot various time series from a simulation run
 #'
-#' This function is rather crude at the moment. It lets you quickly visualize
-#' the time series of output from a simulation run, but it isn't very flexible
-#' yet.
+#' This function lets you quickly visualize the time series of output from a
+#' simulation run.
 #'
 #' @param x A list output object from a simulation run of
 #'   \code{link{meta_sim}}.
-#' @param pal A colour palette for the lines. One colour per line (population
-#' time series).
+#' @param pal A colour palette for the lines. One colour per line (each
+#' line is a population time series).
 #' @param years_to_show How many years to plot after the burn in period.
 #' @param burn The number of years to discard as burn in at the beginning of
 #'   the time series.
