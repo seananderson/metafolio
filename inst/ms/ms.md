@@ -1,10 +1,3 @@
-<!--heino1997: We show that it is asynchrony that reduces the probability of global extinctions-->
-<!-- Spatial synchrony may be caused by both the Moran effect (i.e. global noise) and by dispersal (Ranta et al. 1995b). It is largely a matter of scale which one is likely to be more important. Our results show that unless average migration ranges are long and the migration rate is very high, the synchronizing role of the Moran effect is dominating the overall level of synchrony.-->
-
-<!--Show that response diversity stabilizes pollinators... should pay more attention to response diversity \citep{winfree2009}-->
-
-<!--"provide a first global quantitative demonstration of the urgent need to consider future environmental change in reserve-based conservation planning" @lee2008-->
-
 \setlength{\parskip}{4pt}
 
 <!--Words: 6550-->
@@ -28,18 +21,14 @@ Seattle, WA 98110, USA
 Sean C. Anderson; Department of Biological Sciences,
 Simon Fraser University, Burnaby BC, V5A 1S6;
 Phone: 1-778-782-3989; E-mail:
-sean@seananderson.ca
+sean_anderson@sfu.ca
 
 \clearpage
 \setlength{\parskip}{18pt}
 
 # Abstract
 
-<!--The role of environmental response diversity is one frequent tenat of ecology, but has been only rarely tested...-->
-
-The mechanisms underlying the stability of ecological systems are a key focus of ecology and increasingly important given the rate and magnitude of biodiversity loss and environmental change.
-The stabilizing role of one such mechanism, diversity of response to the environment, is a widely-held ecological tenet, but has only rarely been quantitatively tested.
-Here we ask how a portfolio approach to managing thermal response diversity can inform conservation priorities for metapopulations in a changing world. We develop a salmon metapopulation simulation where population-specific productivity is driven by spatially-distributed thermal tolerance and patterns of short- and long-term environmental change. We then implement spatial conservation scenarios that control population carrying capacities and evaluate the metapopulation portfolios as a financial manager might --- along axes of risk and return. We show that conserving response diversity minimizes risk given environmental stochasticity and ensures persistence given long-term environmental change. Even with unknown response diversity, doubling the populations conserved may halve metapopulation variability. These findings show how preserving the processes that promote response diversity, such as genetic diversity, habitat heterogeneity, and natural disturbance regimes, may be critical to conserving metapopulations in the face of climate variability and change.
+The mechanisms underlying the stability of ecological systems are a key focus of ecology and increasingly important given the rate and magnitude of biodiversity loss and environmental change. The stabilizing role of one such mechanism, diversity of response to the environment, is a widely-held tenet of ecology, but has rarely been quantitatively tested. Here we ask how a portfolio approach to managing thermal response diversity can inform conservation priorities for metapopulations in a changing world. We develop a salmon metapopulation simulation where population-specific productivity is driven by spatially-distributed thermal tolerance and patterns of short- and long-term environmental change. We then implement spatial conservation scenarios that control population carrying capacities and evaluate the metapopulation portfolios as a financial manager might --- along axes of risk and return. We show that conserving response diversity minimizes risk given environmental stochasticity and ensures persistence given long-term environmental change. Even with unknown response diversity, doubling the populations conserved may halve metapopulation variability. These findings show how preserving the processes that promote response diversity, such as genetic diversity, habitat heterogeneity, and natural disturbance regimes, may be critical to conserving metapopulations in the face of climate variability and change.
 
 *Keywords*:
 ecosystem based management,
@@ -53,7 +42,7 @@ stability-diversity,
 
 # Introduction
 
-Untangling the mechanisms that underpin the stability of ecological systems is a critical focus of ecology [@ives2007; @demazancourt2013]. Decades of research has focused on the role of species richness and functional diversity in driving community stability; however, recent research has highlighted that the drivers of ecological stability are more complex and multidimensional than previously thought [@balvanera2006; @ives2007; @demazancourt2013]. Two key drivers of stability that have been comparatively understudied are response diversity [@winfree2009; @mori2013] --- different responses to the environment by functionally similar species or populations [@elmqvist2003] --- and the role of metapopulations [@schtickzelle2007]. Here, we examine the role of response diversity conservation in stabilizing metapopulations given projected changes in climate. With unprecedented loss of biodiversity and levels of anthropogenic environmental change, it is more critical than ever to consider conservation approaches that maintain system stability in the face of environmental uncertainty [@ando2012].
+Untangling the mechanisms that underpin the stability of ecological systems is a critical focus of ecology [@ives2007; @demazancourt2013]. Decades of research has focused on the role of species richness and functional diversity in driving community stability; however, recent research has highlighted that the drivers of ecological stability are more complex and multidimensional than previously thought [@balvanera2006; @ives2007; @demazancourt2013]. Two key drivers of stability that have been comparatively understudied are response diversity [@winfree2009; @mori2013] --- different responses to the environment by functionally similar species or populations [@elmqvist2003] --- and the role of metapopulations [@schtickzelle2007]. Here, we examine the role of response diversity conservation in stabilizing metapopulations given projected changes in climate. With unprecedented loss of biodiversity and levels of anthropogenic environmental change, it is more critical than ever to consider conservation approaches that maintain system stability in the face of environmental uncertainty [@lee2008; @ando2012].
 
 Typically, conservation actions to maintain system stability and thereby reduce risk are driven by an *ad hoc* combination of scientific information, political influences, and feasibility [@margules2000]; the management of financial portfolios provides another way of considering risk (e.g. [@figge2004; @koellner2006; @ando2012; @haak2012]). Economists work to minimize risk and maximize returns by building a portfolio of individual investments (called assets) with different attributes. For example, different financial sectors can be expected to perform uniquely in some economic conditions; when one rises in value another may fall. Modern Portfolio Theory proposes that out of all possible portfolios, there is a small subset of portfolios that maximizes expected return for a level of risk or minimizes risk for a level of return (called the efficient frontier), and that only by considering risk and return in tandem can an investor achieve maximum benefit from a portfolio [@markowitz1952].
 
