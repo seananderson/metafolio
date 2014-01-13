@@ -27,6 +27,7 @@ NumericVector est_beta_params(double mu, double var) {
 //' A single numeric values representing a sample from a beta
 //' distribution with the specified mean and standard deviation.
 //'
+//' @export
 //' @references
 //' Morgan, M. G. & Henrion, M. (1990). Uncertainty: A Guide to Dealing
 //' with Uncertainty in Quantitative Risk and Policy Analysis.
@@ -64,29 +65,33 @@ NumericVector impl_error(NumericVector mu, double sigma_impl) {
 
 //' Ricker stock-recruit function with specified error
 //'
-//' @param spawners Spawner abundance
+//' @param spawners A single spawner abundance
 //' @param a Ricker productivity parameter. Recruits are e^a at the origin.
 //' @param b Ricker density dependent parameter.
 //' @param d Depensation parameter. A value of 1 means no depensation. Larger
 //'   values indicate depensation.
-//' @param v_t Residual on the curve. Will be exponentiated. Note that we are
+//' @param v_t A single residual on the curve. Will be exponentiated. Note that we are
 //'   *not* bias correcting within this function (subtracting half the variance
 //'   squared) and so the deviations will not be mean unbiased unless they were
 //'   bias corrected previously.
+//' @export
 //' @return Returns a vector of recruits.
 //' @examples
-//' x <- seq(1, 100)
-//' v_t <- as.numeric(arima.sim(n = 100, model = list(ar = 0.3), sd =
-//'     0.1, mean = 0))
-//' plot(x, ricker_v_t(spawners = x, a = 1.1, b = 60, d = 1, v_t), xlab =
-//'   "Spawners", ylab = "Returns")
-//'
+//' plot(1, 1, xlim = c(1, 100), ylim = c(0, 90), type = "n", xlab = "Spawners",
+//'   ylab = "Returns")
+//' for(i in 1:100) {
+//' points(i, ricker_v_t(i, a = 1.1, b = 60, d = 1, v_t = rnorm(1, mean =
+//'   -(0.1^2)/2, sd = 0.1)))
+//' }
 // [[Rcpp::export]]
 double ricker_v_t(double spawners, double a, double b, double d, double v_t) {
   return pow(spawners, d) * exp(a * (1 - pow(spawners, d) / b) + v_t);
 }
 
-//' Is element
+//' Check if x is an element of y.
+//'
+//' @param x An integer to check
+//' @param y A vector to check if \code{x} is an element of \code{y}.
 //'
 // [[Rcpp::export]]
 bool is_element(int x, NumericVector y){
@@ -125,6 +130,7 @@ arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
 //' specifying the model matrix. This is about an order of magnitude faster than
 //' \code{\link[stats]{lm}}.
 //'
+//' @export
 //' @param S Spawners as a numeric vector.
 //' @param R Recruits or returns as a numeric vector.
 //' @return
@@ -133,7 +139,7 @@ arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
 //' @examples
 //' S <- seq(100, 1000, length.out = 100)
 //' v_t <- rnorm(100, 0, 0.1)
-//' R <- ricker_v_t(spawners = S, a = 1.9, b = 900, d = 1, v_t)
+//' R <- mapply(ricker_v_t, spawners = S, v_t = v_t, a = 1.9, b = 900, d = 1)
 //' plot(S, log(R/S))
 //' fit_ricker(S, R)
 //'
@@ -159,6 +165,7 @@ NumericVector fit_ricker(NumericVector S, NumericVector R) {
 //'
 //' @param a Ricker productivity parameter.
 //' @param b Ricker density-dependent parameter.
+//' @export
 //' @references
 //' Hilborn, R.W. and Walters, C. 1992. Quantitative fisheries stock
 //' assessment: Choice, dynamics, and uncertainty. Chapman and Hall, London.
@@ -174,6 +181,7 @@ double ricker_escapement(double a, double b) {
 //'
 //' This is an Rcpp implementation of the main simulation. It is meant to be
 //' called by \code{\link{meta_sim}}.
+//' @useDynLib metafolio
 //'
 // [[Rcpp::export]]
 List metasim_base(
@@ -324,6 +332,7 @@ List metasim_base(
       Named("n_t") = n_t,
       Named("Est_a") = Est_a,
       Named("A_params") = A_params,
+      Named("b") = b,
       Named("Eps") = epsilon_mat,
       Named("Est_b") = Est_b);
 }
