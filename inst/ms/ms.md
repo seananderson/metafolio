@@ -13,9 +13,7 @@ Andrew B. Cooper^2^
 
 ^2^School of Resource and Environmental Management, Simon Fraser University, Burnaby, BC, V5A 1S6, Canada
 
-^3^Northwest Fisheries Science Center,
-National Marine Fisheries Service,
-Seattle, WA 98110, USA
+^3^Fishery Resource Analysis and Monitoring Division, Northwest Fisheries Science Center, National Marine Fisheries Service, National Oceanic and Atmospheric Administration, 2725 Montlake Blvd. E., Seattle, WA 98112, USA
 
 ^\*^Corresponding author:
 Sean C. Anderson; Department of Biological Sciences,
