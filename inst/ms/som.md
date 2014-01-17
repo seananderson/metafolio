@@ -85,6 +85,14 @@ of straying and light blue indicates a low rate of straying.}
 
 \begin{figure}[htbp]
 \centering
+\includegraphics[width=4.5in]{../examples/spatial-arma-sim-full}
+\caption{The components of an example metapopulation simulation. We show, from top to bottom, the temperature signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, spawner-return residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) temperatures.}
+\label{f:eg-sim-ts}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=4.0in]{../examples/plot-various-options-ts-3pops}
 \caption{The impact of increasing or decreasing various parameter values on
 metapopulation return abundance. The different coloured lines represent three
