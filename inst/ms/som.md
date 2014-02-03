@@ -75,6 +75,19 @@ Note that the simulations will take awhile to run (approximately 2--15 minutes g
 
 \begin{figure}[htbp]
 \centering
+\includegraphics[height=5.0in]{../examples/simulation-diagram3.pdf}
+\caption{Flow chart of the salmon-metapopulation simulation. There are $n$
+salmon populations and $t$ generations. Blue text indicates values that are
+generated before the simulation progresses through time. Red text indicates
+steps in which calculations are performed through time. Black text indicates
+values that are calculated. Grey text indicates parameters that can be set.
+Green text indicates the looping structure of the simulation.}
+\label{f:flowchart}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=3.5in]{../examples/stray-matrix}
 \caption{An example straying matrix. The rows and columns represent different
 populations (indicated by population number). Dark blue indicates a high rate
@@ -86,7 +99,13 @@ of straying and light blue indicates a low rate of straying.}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=4.5in]{../examples/spatial-arma-sim-full}
-\caption{The components of an example metapopulation simulation. We show, from top to bottom, the temperature signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, spawner-return residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The colored lines indicate populations that thrive at low (cool colours) to high (warm colours) temperatures.}
+\caption{The components of an example metapopulation simulation. We show, from
+top to bottom, the temperature signal, the resulting productivity parameter
+(Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon
+straying from their natal streams, salmon joining from other streams,
+spawner-return residuals on a log scale, and the estimated $a$ and $b$
+parameters in the fitted Ricker curve. The colored lines indicate populations
+that thrive at low (cool colours) to high (warm colours) temperatures.}
 \label{f:eg-sim-ts}
 \end{figure}
 \clearpage
