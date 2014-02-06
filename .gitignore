@@ -36,3 +36,5 @@ inst/ms/som.tex
 *.so
 
 inst/tests/test-rcpp.R
+
+inst/ms/metafolio-cover.tex

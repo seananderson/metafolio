@@ -5,11 +5,12 @@ ms:
 	cp ~/Dropbox/tex/jshort.bib .
 	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
 	pandoc -S som.md --latex-engine=xelatex -o som.tex
-	perl -p -i -e "s/citep/cite/g" ms.tex
-	perl -p -i -e "s/citet/cite/g" ms.tex
-	#perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
-	#perl -p -i -e "s/Fig. /Fig.~/g" som.tex
-	#perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
+	#perl -p -i -e "s/citep/cite/g" ms.tex
+	#perl -p -i -e "s/citet/cite/g" ms.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
+	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
+	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
+	perl -p -i -e "s/Figs. /Figs.~/g" som.tex
 	pdflatex anderson-etal-metafolio
 	bibtex anderson-etal-metafolio
 	pdflatex anderson-etal-metafolio

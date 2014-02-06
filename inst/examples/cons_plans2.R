@@ -26,7 +26,7 @@ for(i in 1:n_plans) { # loop over plans
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
 pdf_eps("spatial-arma-sim-full", width = 5, height = 7, type = TYPE)
-par(family = "Times")
+#par(family = "Times")
 eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30, yticks = list(NA, NA, NA,
@@ -95,7 +95,7 @@ xlim <- c(0.02, 0.15)
 ylim <- c(-0.017, 0.017)
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5),
   tck = -0.02, mgp = c(2, .6, 0))
-par(family = "Times")
+#par(family = "Times")
 plot_cons_plans(x_arma_sp$plans_mv, plans_name = plans_name_sp, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
 add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))

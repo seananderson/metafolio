@@ -104,7 +104,7 @@ layout(rbind(
 
 xlim <- c(0.008, 0.15)
 ylim <- c(-0.017, 0.017)
-par(family = "Times")
+#par(family = "Times")
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5),
   tck = -0.02, mgp = c(2, .6, 0))
 plot_cons_plans(x_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
@@ -127,7 +127,7 @@ add_inset_env(eg_linear$env_ts[-c(1:30)], x = 0.12, y = -0.013, size = c(1, .5))
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8,
   adj = 0.05)
 mtext("Variance of metapopulation growth rate", side = 1, line = 2.25,
-  outer = FALSE, cex = 0.8, adj = -2.1)
+  outer = FALSE, cex = 0.8, adj = -3)
 
 ## time series plots:
 par(tck = -0.035)
