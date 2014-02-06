@@ -25,7 +25,7 @@ options(replace.assign=TRUE, width=90)
 opts_knit$set(out.format = "latex")
 opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, tidy=FALSE,
 refresh=TRUE, cache=FALSE, autodep=TRUE)
-thm = knit_theme$get("github.css")
+thm = knit_theme$get("solarized")
 knit_theme$set(thm)
 @
 
