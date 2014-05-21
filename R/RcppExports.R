@@ -134,7 +134,7 @@ ricker_escapement <- function(a, b) {
 #' called by \code{\link{meta_sim}}.
 #' @useDynLib metafolio
 #'
-metasim_base <- function(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error) {
-    .Call('metafolio_metasim_base', PACKAGE = 'metafolio', n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error)
+metasim_base <- function(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error, decrease_b, debug) {
+    .Call('metafolio_metasim_base', PACKAGE = 'metafolio', n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error, decrease_b, debug)
 }
 

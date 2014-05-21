@@ -122,8 +122,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // metasim_base
-List metasim_base(int n_pop, int n_t, NumericVector spawners_0, NumericVector b, NumericMatrix epsilon_mat, NumericMatrix A_params, bool add_straying, NumericMatrix stray_mat, NumericVector assess_years, NumericMatrix r_escp_goals, double sigma_impl, bool add_impl_error);
-RcppExport SEXP metafolio_metasim_base(SEXP n_popSEXP, SEXP n_tSEXP, SEXP spawners_0SEXP, SEXP bSEXP, SEXP epsilon_matSEXP, SEXP A_paramsSEXP, SEXP add_strayingSEXP, SEXP stray_matSEXP, SEXP assess_yearsSEXP, SEXP r_escp_goalsSEXP, SEXP sigma_implSEXP, SEXP add_impl_errorSEXP) {
+List metasim_base(int n_pop, int n_t, NumericVector spawners_0, NumericVector b, NumericMatrix epsilon_mat, NumericMatrix A_params, bool add_straying, NumericMatrix stray_mat, NumericVector assess_years, NumericMatrix r_escp_goals, double sigma_impl, bool add_impl_error, double decrease_b, bool debug);
+RcppExport SEXP metafolio_metasim_base(SEXP n_popSEXP, SEXP n_tSEXP, SEXP spawners_0SEXP, SEXP bSEXP, SEXP epsilon_matSEXP, SEXP A_paramsSEXP, SEXP add_strayingSEXP, SEXP stray_matSEXP, SEXP assess_yearsSEXP, SEXP r_escp_goalsSEXP, SEXP sigma_implSEXP, SEXP add_impl_errorSEXP, SEXP decrease_bSEXP, SEXP debugSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -140,7 +140,9 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericMatrix >::type r_escp_goals(r_escp_goalsSEXP );
         Rcpp::traits::input_parameter< double >::type sigma_impl(sigma_implSEXP );
         Rcpp::traits::input_parameter< bool >::type add_impl_error(add_impl_errorSEXP );
-        List __result = metasim_base(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error);
+        Rcpp::traits::input_parameter< double >::type decrease_b(decrease_bSEXP );
+        Rcpp::traits::input_parameter< bool >::type debug(debugSEXP );
+        List __result = metasim_base(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error, decrease_b, debug);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
