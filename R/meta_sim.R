@@ -55,6 +55,13 @@
 #' @param add_straying Implement straying between populations?
 #' @param add_impl_error Add implementation error? Implementation error is
 #'   derived using \code{\link{impl_error}}.
+#' @param decrease_b A numeric value to decrease all streams by each generation.
+#'   This is intended to be used to simulate habitat loss, for example though
+#'   stream flow reduction with climate change.
+#' @param skip_saving_cache Logical: if \code{TRUE} then no data will be cached
+#'   for the next iteration. This will save time when running many simulations.
+#' @param debug Logical: if \code{TRUE} then \code{meta_sim} will print a number
+#'   of debugging statements while it runs.
 #' @details
 #' To use either of the caching options, you must have run \code{meta_sim} at
 #' least once in the current session with both caching arguments set to
@@ -119,7 +126,10 @@ meta_sim <- function(
   use_cache = FALSE,
   cache_env = FALSE,
   add_straying = TRUE,
-  add_impl_error = TRUE
+  add_impl_error = TRUE,
+  skip_saving_cache = TRUE,
+  decrease_b = 0,
+  debug = FALSE
   ) {
 
   if (use_cache | cache_env) {
@@ -138,7 +148,9 @@ meta_sim <- function(
       constant = generate_env_ts(n_t = n_t, type = "constant",
         constant_params = env_params)
       )
-    save(env_ts, file = "env_ts.rda")
+    if(!skip_saving_cache) {
+      save(env_ts, file = "env_ts.rda")
+    }
   }
 
   # create vectors and matrices that are not developed iteratively:
@@ -167,15 +179,18 @@ meta_sim <- function(
     # now develop random escapement targets at start of open access
     r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data =
       runif(n_pop*start_assessment, 0.1, 0.9))
-    save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
+    if(!skip_saving_cache) {
+      save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
+    }
   }
 
   assess_years <- seq(start_assessment, n_t, assess_freq)
-  
+
   out <- metasim_base(n_pop = n_pop, n_t = n_t, spawners_0 = spawners_0, b = b,
     epsilon_mat = epsilon_mat, A_params = A_params, add_straying = add_straying,
     stray_mat = stray_mat, assess_years = assess_years, r_escp_goals =
-    r_escp_goals, sigma_impl = sigma_impl, add_impl_error = add_impl_error)
+    r_escp_goals, sigma_impl = sigma_impl, add_impl_error = add_impl_error,
+    decrease_b = decrease_b, debug = debug)
   out$env_ts <- env_ts
   return(out)
 }
