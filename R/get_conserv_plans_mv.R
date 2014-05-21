@@ -23,7 +23,6 @@ get_conserv_plans_mv <- function(weights, reps = 150, assess_freq = 5,
     port_out[[j]] <- list()
     for(i in 1:reps) {
       port_out[[j]][[i]] <- meta_sim(b = weights[j, ], use_cache = FALSE,
-        n_pop = n_pop, add_impl_error = FALSE, ...)
     }
     port_mv[[j]] <- plyr::ldply(port_out[[j]], function(x)
       get_port_vals(x, burn = burn))
