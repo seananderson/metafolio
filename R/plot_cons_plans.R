@@ -11,6 +11,18 @@ get_quantile_contour <- function(x, alpha = 0.8) {
   list(x = b.full[[1]]$x, y = b.full[[1]]$y)
 }
 
+#' Custom bandwidth
+#'
+#' Based on \code{bandwidth.nrd} from \pkg{MASS}. This version takes the
+#' absolute value of \code{var} to avoid errors.
+#'
+#' @param x A numeric vector
+custom_bw <- function(x) {
+    r <- quantile(x, c(0.25, 0.75))
+    h <- (r[2] - r[1])/1.34
+    4 * 1.06 * min(sqrt(abs(var(x))), h) * length(x)^(-1/5)
+}
+
 #' Add a kernel density polygon
 #'
 #' @param x x values
@@ -20,13 +32,18 @@ get_quantile_contour <- function(x, alpha = 0.8) {
 #' @param lwd lwd Line width
 #' @param alpha A numeric vector of length 2 that gives the confidence levels
 #'   for the two kernel density polygons.
+#' @param add_poly Add polygons?
 #' @param add_pts Logical: should points be added?
-add_dens_polygon <- function(x, y, col, lwd = 1.7, alpha = c(0.25, 0.75), add_pts = FALSE) {
-  k <- get_quantile_contour(MASS::kde2d(x,y), alpha = 0.75)
-  polygon(k$x, k$y, border = col, col = paste(col, "30", sep = ""), lwd = lwd)
-  k <- get_quantile_contour(MASS::kde2d(x,y), alpha = 0.25)
-  polygon(k$x, k$y, border = col, col = paste(col, "70", sep = ""), lwd = lwd)
-  if(add_pts) points(x, y, pch = 21, col = paste(col, "30", sep = ""), cex = 0.7)
+add_dens_polygon <- function(x, y, col, lwd = 1.7, alpha = c(0.25, 0.75), add_pts = FALSE, add_poly = TRUE) {
+  if(add_poly) {
+    x_bw <- custom_bw(na.omit(x))
+    y_bw <- custom_bw(na.omit(y))
+    k <- get_quantile_contour(MASS::kde2d(x,y, h = c(x_bw, y_bw)), alpha = 0.75)
+    polygon(k$x, k$y, border = col, col = paste(col, "30", sep = ""), lwd = lwd)
+    k <- get_quantile_contour(MASS::kde2d(x,y, h = c(x_bw, y_bw)), alpha = 0.25)
+    polygon(k$x, k$y, border = col, col = paste(col, "70", sep = ""), lwd = lwd)
+  }
+  if(add_pts) points(x, y, pch = 21, col = paste(col, "99", sep = ""), cex = 0.7)
 }
 
 #' Get the efficient frontier from mean and variance values
@@ -75,6 +92,7 @@ get_efficient_frontier <- function(m, v) {
 #' @param xlab X axis label.
 #' @param ylab Y axis label.
 #' @param ... Anything else to pass to \code{\link[graphics]{plot.default}}.
+#' @param add_poly Add the kernal smoother quantile polygons?
 #' @return A plot. Also, the x and y limits are returned invisibly as a list.
 #'   This makes it easy to make the first plot and then save those x and y
 #'   limits to fix them in subsequent (multipanel) plots.
@@ -82,9 +100,15 @@ get_efficient_frontier <- function(m, v) {
 plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
   ylim = NULL, add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE,
   y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance", ylab =
-  "Mean", ...) {
+  "Mean", add_poly = TRUE, ...) {
 
   if(w_show[1] == "all") w_show <- seq_along(plans_name)
+
+  plans_mv <- plyr::llply(plans_mv, function(x) {
+    x_out <- na.omit(x)
+    if(nrow(x_out) < nrow(x)) warning("Some simulations are not plotted due to NAs.")
+    x_out
+  })
 
   if(is.null(xlim)) {
     lims <- plyr::ldply(plans_mv, function(x) data.frame(x.max =
@@ -102,7 +126,7 @@ plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
 
     for(i in w_show) {
       add_dens_polygon(plans_mv[[i]]$v, plans_mv[[i]]$m, col = cols[i],
-        add_pts = add_pts)
+        add_pts = add_pts, add_poly = add_poly)
     }
     if(add_legend) {
     legend("topright", legend = plans_name[w_show], fill =
