@@ -196,7 +196,9 @@ List metasim_base(
     NumericVector assess_years,
     NumericMatrix r_escp_goals,
     double sigma_impl,
-    bool add_impl_error
+    bool add_impl_error,
+    double decrease_b,
+    bool debug
     ) {
 
   NumericMatrix A(n_t, n_pop); // total abundance (say returns)
@@ -207,6 +209,7 @@ List metasim_base(
   NumericMatrix Est_a(n_t, n_pop);
   NumericMatrix Est_b(n_t, n_pop);
   NumericMatrix to_reallocate(n_pop, n_pop);
+  double adjusted_b;
 
   // Set up initial years:
   A(0, _) = spawners_0; // first year
@@ -216,8 +219,10 @@ List metasim_base(
   for (int i = 1; i < n_t; ++i) { // start on second year
     for (int j = 0; j < n_pop; ++j) {
       // spawner-recruit:
-      A(i, j) = ricker_v_t(E(i-1, j), A_params(i, j), b(j),
-          1.00, epsilon_mat(i, j));  // note depensation hard coded
+      adjusted_b = b(j) - decrease_b * (i + 1);
+      if(adjusted_b <= 5) adjusted_b = 5;
+      A(i, j) = ricker_v_t(E(i-1, j), A_params(i, j),
+          adjusted_b, 1.00, epsilon_mat(i, j));  // note depensation hard coded
       //if (A(i,j) < 0) warning("Abundance before straying or harvesting was < 0.")
     }
     // now we have the returns for this year, let's allocate straying:
@@ -276,11 +281,16 @@ List metasim_base(
           if (Est_b(i,j) < 0.5 * Est_b(i-1,j)) {
             Est_b(i,j) = 0.5 * Est_b(i-1,j);
           }
-          if (Est_a(i,j) < 0.02) {
-            Rcout << "Warning, a was too small" << std::endl;
+          if (Est_a(i,j) < 0.01) {
+            if (debug) {
+              Rcout << "Warning, a was too small. Setting estimated a = 0.01." << std::endl;
+            }
             Est_a(i,j) = 0.02;
           }
           if (Est_a(i,j) > 4) {
+            if (debug) {
+              Rcout << "Warning, a was too big. Setting estimated a = 4." << std::endl;
+            }
             Est_a(i,j) = 4;
           }
 
@@ -313,6 +323,14 @@ List metasim_base(
     }
 
     F(i,_) = A(i,_) - escapement_goals; // catch to leave escapement behind
+
+    // Make sure we always leave a bit to avoid numerical issues:
+    for (int k = 0; k < n_pop; ++k) {
+      if (A(i, k) - F(i, k) < 5) {
+        F(i, k) = A(i, k) - 5;
+      }
+    }
+
     for (int k = 0; k < n_pop; ++k) {
       if (F(i, k) < 0) {
         F(i, k) = 0;
