@@ -5,7 +5,7 @@
 \usage{
 plot_sp_A_ts(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE,
   lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL,
-  burn = 30, cols, ...)
+  burn = 30, add_lm = FALSE, cols, ...)
 }
 \arguments{
   \item{X}{Object to plot. Should be a list of outputs from
@@ -32,6 +32,8 @@ plot_sp_A_ts(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE,
   \item{labels}{Labels for the panels.}
 
   \item{burn}{Burn in period to discard.}
+
+  \item{add_lm}{Add a regression trend line?}
 
   \item{cols}{Colours for the lines. A vector of
   character.}

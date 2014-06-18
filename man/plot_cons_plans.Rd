@@ -5,8 +5,8 @@
 \usage{
 plot_cons_plans(plans_mv, plans_name, cols, xlim = NULL, ylim = NULL,
   add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE, y_axis = TRUE,
-  add_legend = TRUE, w_show = "all", xlab = "Variance", ylab = "Mean",
-  add_poly = TRUE, ...)
+  add_legend = TRUE, legend_pos = "topright", w_show = "all",
+  xlab = "Variance", ylab = "Mean", add_poly = TRUE, ...)
 }
 \arguments{
   \item{plans_mv}{The \code{plans_mv} element of the output
@@ -30,6 +30,10 @@ plot_cons_plans(plans_mv, plans_name, cols, xlim = NULL, ylim = NULL,
   \item{y_axis}{Logical: add y axis?}
 
   \item{add_legend}{Logical: add y legend?}
+
+  \item{legend_pos}{A character string to pass to
+  \code{\link[graphics]{legend}} denoting the position of
+  the legend.}
 
   \item{w_show}{If \code{"all"} then all plans will be
   shown. If a numeric vector, then those plans will be

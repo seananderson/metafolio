@@ -3,10 +3,10 @@
 \alias{meta_sim}
 \title{Run a single (salmon) metapopulation simulation.}
 \usage{
-meta_sim(n_t = 100, n_pop = 10, stray_decay_rate = 0.1,
+meta_sim(n_t = 130, n_pop = 10, stray_decay_rate = 0.1,
   stray_fraction = 0.02, b = rep(1000, n_pop), spawners_0 = round(b),
-  sigma_v = 0.7, v_rho = 0.4, a_width_param = c(seq(0.05, 0.02, length.out
-  = n_pop/2), rev(seq(0.05, 0.02, length.out = n_pop/2))),
+  sigma_v = 0.7, v_rho = 0.4, a_width_param = c(seq(0.08, 0.04, length.out
+  = n_pop/2), rev(seq(0.08, 0.04, length.out = n_pop/2))),
   optim_temp = seq(13, 19, length.out = n_pop),
   max_a = thermal_integration(n_pop), env_type = c("sine", "arma", "regime",
   "linear", "constant"), env_params = list(amplitude = 3.2, ang_frequency =
