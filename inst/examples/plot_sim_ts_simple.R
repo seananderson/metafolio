@@ -16,10 +16,10 @@ annotate <- function(label, xfrac = 0.008, yfrac = 0.18, pos = 4, cex = 0.9, ...
 
 #my.axis <- function(side) axis(side, col = "grey50", at = c(800, 1200))
 
-matplot(x$A[to_show, 1:3], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", xaxt = "n", axes = FALSE, xaxs = "i", ylim = c(300, 6500))
+matplot(x$A[to_show, 1:3], type = "l", col = pal, lty = 1, ylab = "Returns", xlab = "Time", xaxt = "n", axes = FALSE, xaxs = "i", ylim = c(0, 6500), yaxs = "i")
 annotate(text)
 box(col = "grey50")
-#my.axis(2)
+axis(2, at = c(0, 5000), col = "grey50", tck = -0.05, mgp = c(2, 0.5, 0))
 #my.axis(1)
 
 }
