@@ -19,38 +19,44 @@
 %\end{table}
 %\clearpage
 
+% TODO check that these values are all still correct - some aren't
+
 \begin{table}[h!]
 \centering
 \footnotesize
 \caption{Input parameters to the salmon metapopulation simulation with default values.}
 \smallskip
-\begin{tabular}{p{7.7cm}p{1.4cm}p{3.6cm}}
+\begin{tabular}{>{\RaggedRight}p{7.8cm}p{1.1cm}p{2.5cm}>{\RaggedRight}p{3.3cm}}
 \toprule
-Description                                                          & Symbol                & Value \\
+Description                                                          & Symbol                & Value                  & Reference  \\
 \midrule
 
-\textit{Population dynamics parameters}                              &                       & \\
-Stock-recruit residual standard deviation (on log scale)             & $\sigma_r$            & 0.3  \\
-AR(1) serial correlation of stock-recruit residuals                  & $\rho_w$              & 0.4  \\
-Fraction of fish that stray from natal streams                       & $f_{\mathrm{stray}}$  & 0.02  \\
-Exponential rate of decay of straying with distance                  & $m$                   & 0.3  \\
+\bibpunct{}{}{;}{a}{}{}
+\textit{Population dynamics parameters}                              &                       &                        &             \\
+Stock-recruit residual standard deviation (on log scale)             & $\sigma_r$            & 0.7                    & \citep{thorson2014a}  \\
+AR(1) serial correlation of stock-recruit residuals                  & $\rho_w$              & 0.4                    & \citep{thorson2014a}  \\
+Fraction of fish that stray from natal streams                       & $f_{\mathrm{stray}}$  & 0.02                   & \citep{quinn2005} and references therin  \\
+Exponential rate of decay of straying with distance                  & $m$                   & 0.1                    & \citep{cooper1999}      \\
+Range of maximum productivities                                      & $a_i^{\mathrm{max}}$  & 2.2--2.9             &  \citep{dorner2008}   \\
 
 \noalign{\vskip 3mm}
-\textit{Environmental parameters}                                    &                       & \\
-Width of environmental-tolerance curves for populations $i$ 1 to $n$ & $W_i$                 & Sequence of 0.05 to 0.02 to 0.05\\
-Optimum environmental value for populations $i$ 1 to $n$             & $e_i^{\mathrm{opt}}$  & Sequence of 13 to 19\\
-Area under each environmental-tolerance curve in environmental units & $A$                   & 30\\
+\textit{Environmental parameters}                                    &                       &                        &             \\
+Width parameter for thermal-tolerance curves for populations $i$ 1 to $n$  (values generate widths in line with listed references) & $W_i$                 & 0.08--0.04--0.08       &  \citep{brett1952, eliason2011}           \\
+Optimum environmental value for populations $i$ 1 to $n$             & $e_i^{\mathrm{opt}}$  & 13--19                 &  \citep{eliason2011}           \\
+%Area under each environmental-tolerance curve in environmental units & $A$                  & 30                     &             \\
+Standard deviation of annual temperature fluctuations          & $\sigma_d$            & 2                      & \citep{eliason2011}      \\
+AR(1) autocorrelation of annual temperature fluctuations       & $\rho_e$              & 0.1                    &             \\
+Annual increase in stream temperature in degrees Celcius             & $\beta_e$             & 0.04                   & \citep{mantua2010}     \\
 
-Standard deviation of short-term environmental fluctuations          & $\sigma_d$            & 2 \\
-AR(1) autocorrelation of short-term environmental fluctuations       & $\rho_e$              & 0.1 \\
-Slope of long-term environmental signal                              & $\beta_e$             & 0.114 \\
+%TODO cite Mantua 2010 in main text
 
 \noalign{\vskip 3mm}
-\textit{Fishery parameters}                                          &                       & \\
-Standard deviation of beta distribution for implementation error     & $\sigma_{h}$          & 0.05  \\
-Frequency of assessment (years)                                      & $f_{\mathrm{assess}}$ & 5  \\
+\textit{Fishery parameters}                                          &                       &                        &             \\
+Standard deviation of beta distribution for implementation error     & $\sigma_{h}$          & 0.1                    & \citep{pestes2008}            \\
+Frequency of assessment (years)                                      & $f_{\mathrm{assess}}$ & 5                      &             \\
 \bottomrule
 \end{tabular}
 \label{t:pars}
 \end{table}
 \clearpage
+\bibpunct{(}{)}{;}{a}{}{}
