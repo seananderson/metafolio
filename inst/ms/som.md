@@ -123,11 +123,12 @@ systematic changes in productivity.}
 \renewcommand{\thefigure}{F\arabic{figure}}
 \setcounter{figure}{0}
 
+<!--TODO - this should be removed - it duplicates a main text fig-->
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.3in]{../examples/spatial-arma-sim-full}
+\includegraphics[width=4.3in]{../examples/spatial-arma-sim-full-colour}
 \caption{Conserving a \textbf{full range} of response diversity (spatial
-conservation strategy) with \textbf{short-term} environmental fluctuations.}
+conservation strategy) with \textbf{short-term} environmental fluctuations. This is the same as Fig.~3 but in colour.}
 \label{f:eg-sp-arma-full}
 \end{figure}
 \clearpage
@@ -193,3 +194,20 @@ and \textbf{short-term} environmental fluctuations.}
 and \textbf{long-term} environmental change.}
 \label{f:eg-n-linear-sixteen}
 \end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.3in]{../examples/n-linear-arma-sim-2-squeeze}
+\caption{\textbf{Two populations} conserved with random response diversity
+and \textbf{long-term declining stream flow}.}
+\label{f:eg-n-squeeze-two}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.3in]{../examples/n-linear-arma-sim-16-squeeze}
+\caption{\textbf{Sixteen populations} conserved with random response diversity
+and \textbf{long-term declining stream flow}.}
+\label{f:eg-n-squeeze-twelve}
+\end{figure}
+
