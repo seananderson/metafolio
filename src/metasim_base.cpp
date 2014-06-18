@@ -55,6 +55,13 @@ NumericVector impl_error(NumericVector mu, double sigma_impl) {
   double var = pow(sigma_impl, 2);
   for (int i = 0; i < n; ++i) {
     bp(i, _) = est_beta_params(mu(i), var);
+//    Rcpp::Rcout << bp(i, 0) << bp(i, 1) << std::endl;
+    if(bp(i, 0) < 0) { // could be very small and slightly below zero
+      bp(i, 0) = 0.01; // avoid errors
+    }
+    if(bp(i, 1) < 0) { // could be very small and slightly below zero
+      bp(i, 1) = 0.01; // avoid errors
+    }
   }
   NumericVector out(n);
   for (int i = 0; i < n; ++i) {
