@@ -102,7 +102,7 @@
 #' plot_sim_ts(base1, years_to_show = 70, burn = 30)
 
 meta_sim <- function(
-  n_t = 100,
+  n_t = 130,
   n_pop = 10,
   stray_decay_rate = 0.1,
   stray_fraction = 0.02,
@@ -110,7 +110,7 @@ meta_sim <- function(
   spawners_0 = round(b),
   sigma_v = 0.7,
   v_rho = 0.4,
-  a_width_param = c(seq(0.05, 0.02, length.out = n_pop/2), rev(seq(0.05, 0.02,
+  a_width_param = c(seq(0.08, 0.04, length.out = n_pop/2), rev(seq(0.08, 0.04,
         length.out = n_pop/2))),
   optim_temp = seq(13, 19, length.out = n_pop),
   max_a = thermal_integration(n_pop),
@@ -145,6 +145,8 @@ meta_sim <- function(
         regime_params = env_params),
       linear = generate_env_ts(n_t = n_t, type = "linear",
         linear_params = env_params),
+      linear_arma = generate_env_ts(n_t = n_t, type = "linear_arma",
+        linear_arma_params = env_params),
       constant = generate_env_ts(n_t = n_t, type = "constant",
         constant_params = env_params)
       )
