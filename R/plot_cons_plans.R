@@ -39,11 +39,11 @@ add_dens_polygon <- function(x, y, col, lwd = 1.7, alpha = c(0.25, 0.75), add_pt
     x_bw <- custom_bw(na.omit(x))
     y_bw <- custom_bw(na.omit(y))
     k <- get_quantile_contour(MASS::kde2d(x,y, h = c(x_bw, y_bw)), alpha = 0.75)
-    polygon(k$x, k$y, border = col, col = paste(col, "30", sep = ""), lwd = lwd)
+    polygon(k$x, k$y, border = col, col = paste(col, "40", sep = ""), lwd = lwd)
     k <- get_quantile_contour(MASS::kde2d(x,y, h = c(x_bw, y_bw)), alpha = 0.25)
-    polygon(k$x, k$y, border = col, col = paste(col, "70", sep = ""), lwd = lwd)
+    polygon(k$x, k$y, border = col, col = paste(col, "80", sep = ""), lwd = lwd)
   }
-  if(add_pts) points(x, y, pch = 21, col = paste(col, "99", sep = ""), cex = 0.7)
+  if(add_pts) points(x, y, pch = 21, col = paste(col, "60", sep = ""), cex = 0.7)
 }
 
 #' Get the efficient frontier from mean and variance values
@@ -86,6 +86,8 @@ get_efficient_frontier <- function(m, v) {
 #' @param x_axis Logical: add x axis?
 #' @param y_axis Logical: add y axis?
 #' @param add_legend Logical: add y legend?
+#' @param legend_pos A character string to pass to
+#' \code{\link[graphics]{legend}} denoting the position of the legend.
 #' @param w_show If \code{"all"} then all plans will be shown. If a numeric
 #'   vector, then those plans will be shown. E.g. \code{c(1, 3)} will only show
 #'   the first and third plans.
@@ -99,7 +101,8 @@ get_efficient_frontier <- function(m, v) {
 #' @export
 plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
   ylim = NULL, add_pts = TRUE, add_all_efs = FALSE, x_axis = TRUE,
-  y_axis = TRUE, add_legend = TRUE, w_show = "all", xlab = "Variance", ylab =
+  y_axis = TRUE, add_legend = TRUE, legend_pos = "topright",
+  w_show = "all", xlab = "Variance", ylab =
   "Mean", add_poly = TRUE, ...) {
 
   if(w_show[1] == "all") w_show <- seq_along(plans_name)
@@ -129,8 +132,9 @@ plot_cons_plans <- function(plans_mv, plans_name, cols, xlim = NULL,
         add_pts = add_pts, add_poly = add_poly)
     }
     if(add_legend) {
-    legend("topright", legend = plans_name[w_show], fill =
-      paste(cols[w_show], "80", sep = ""), bty = "n", cex = 1.0)
+    legend(legend_pos, legend = plans_name[w_show], fill =
+      #paste(cols[w_show], "95", sep = ""), bty = "n", cex = 1.0)
+      paste(cols[w_show], sep = ""), bty = "n", cex = 1.0)
     }
 
     mv_all <- do.call("rbind", plans_mv)
