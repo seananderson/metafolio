@@ -2,7 +2,10 @@
 
 # Set your R working directory to this folder (the examples folder).
 
-# Install and load the package and then:
+# Install:
+# devtools::install("../../")
+
+# and load the package:
 library(metafolio)
 
 # or, for rapid development:
@@ -22,10 +25,14 @@ col_pal <- rev(gg_color_hue(10))
 source("pdf_eps.R")
 TYPE <- "pdf" # or "pdf" for plot output
 
+# Conserve random response diversity; control N:
 source("cons_plans_n_random_resp_div.R")
 
 # Figure showing different spatial rules of thumb:
 source("cons_plans2.R")
+
+# Conservation plans with absolute reductions in capacity:
+source("cons_squeeze.R")
 
 # Figure showing thermal curves for spatial scenarios:
 source("plot_thermal_curves_scenarios.R")
