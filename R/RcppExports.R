@@ -132,6 +132,27 @@ ricker_escapement <- function(a, b) {
 #'
 #' This is an Rcpp implementation of the main simulation. It is meant to be
 #' called by \code{\link{meta_sim}}.
+#' @param n_t The number of years.
+#' @param n_pop Number of populations
+#' @param spawners_0 A vector of spawner abundances at the start of the
+#'   simulation. Length of the vector should equal the number of populations.
+#' @param b Ricker density-dependent parameter. A vector with one numeric value
+#'   per population.
+#' @param epsilon_mat A matrix of recruitment deviations.
+#' @param A_params A matrix of Ricker a parameters
+#' @param add_straying Implement straying between populations?
+#' @param stray_mat A straying matrix.
+#' @param assess_years A vector of years to assess a and b in
+#' @param r_escp_goals A matrix of escapement goals.
+#' @param sigma_impl Implementation standard deviation for the implementation
+#'   error beta distribution.
+#' @param add_impl_error Add implementation error? Implementation error is
+#'   derived using \code{\link{impl_error}}.
+#' @param decrease_b A numeric value to decrease all streams by each generation.
+#'   This is intended to be used to simulate habitat loss, for example though
+#'   stream flow reduction with climate change.
+#' @param debug Boolean. Should some debuging messages be turned on?
+#'
 #' @useDynLib metafolio
 #'
 metasim_base <- function(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error, decrease_b, debug) {

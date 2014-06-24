@@ -29,6 +29,12 @@ run_cons_plans(w, env_type, env_params, show_progress = TRUE, burn = 1:30,
   \item{assess_freq}{How frequently (in years) to re-assess
   the Ricker a and b values.}
 
+  \item{risk_fn}{A risk function to use. Can be any
+  function that takes a numeric vector and returns a single
+  value. Suggested values include \code{var}, or
+  \code{\link{VaR}}, or \code{\link{CVaR}}. Defaults to
+  variance.}
+
   \item{...}{Other values to pass to
   \code{\link{meta_sim}}}
 }

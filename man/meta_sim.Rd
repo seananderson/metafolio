@@ -14,7 +14,7 @@ meta_sim(n_t = 130, n_pop = 10, stray_decay_rate = 0.1,
   start_assessment = 20, a_lim = c(0.02, 4), b_lim = c(0.5, 1.5),
   silence_warnings = TRUE, sigma_impl = 0.1, assess_freq = 10,
   use_cache = FALSE, cache_env = FALSE, add_straying = TRUE,
-  add_impl_error = TRUE, skip_saving_cache = TRUE, decrease_b = 0,
+  add_impl_error = TRUE, skip_saving_cache = FALSE, decrease_b = 0,
   debug = FALSE)
 }
 \arguments{

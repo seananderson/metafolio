@@ -5,7 +5,13 @@
 \usage{
 VaR(x, probs = 0.05)
 }
+\arguments{
+  \item{x}{A numeric vector}
+
+  \item{probs}{The probability cutoff to pass to the
+  variance at risk.}
+}
 \description{
-Variance at Risk
+Get the variance at risk.
 }
 

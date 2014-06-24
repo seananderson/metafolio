@@ -5,7 +5,7 @@
 \usage{
 plot_sim_ts(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30,
   burn = 1:50, shade_years = NULL, adj = 0.02, add_units = FALSE,
-  yticks = rep(list(NA), 10))
+  yticks = rep(list(NA), 10), oma = c(4, 4.5, 1, 1))
 }
 \arguments{
   \item{x}{A list output object from a simulation run of
@@ -31,6 +31,9 @@ plot_sim_ts(x, pal = rev(gg_color_hue(x$n_pop)), years_to_show = 30,
   axis?}
 
   \item{yticks}{Position of ticks on the Y axis.}
+
+  \item{oma}{\code{oma} vector to pass to \code{par} for
+  outer margin space.}
 }
 \description{
 This function lets you quickly visualize the time series of

@@ -127,13 +127,13 @@ meta_sim <- function(
   cache_env = FALSE,
   add_straying = TRUE,
   add_impl_error = TRUE,
-  skip_saving_cache = TRUE,
+  skip_saving_cache = FALSE,
   decrease_b = 0,
   debug = FALSE
   ) {
 
   if (use_cache | cache_env) {
-    load("env_ts.rda")
+    load(paste0(tempdir(), "/env_ts.rda"))
   } else {
     env_type <- env_type[1]
     env_ts <- switch(env_type,
@@ -151,13 +151,13 @@ meta_sim <- function(
         constant_params = env_params)
       )
     if(!skip_saving_cache) {
-      save(env_ts, file = "env_ts.rda")
+      save(env_ts, file = paste0(tempdir(), "/env_ts.rda"))
     }
   }
 
   # create vectors and matrices that are not developed iteratively:
   if (use_cache) {
-    load("sim_dat.rda")
+    load(paste0(tempdir(), "/sim_dat.rda"))
   } else {
 
     # Figure out alpha parameters before running through the loops:
@@ -182,7 +182,7 @@ meta_sim <- function(
     r_escp_goals <- matrix(nrow = start_assessment, ncol = n_pop, data =
       runif(n_pop*start_assessment, 0.1, 0.9))
     if(!skip_saving_cache) {
-      save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = "sim_dat.rda")
+      save(stray_mat, epsilon_mat, r_escp_goals, A_params, file = paste0(tempdir(), "/sim_dat.rda"))
     }
   }
 
