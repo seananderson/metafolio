@@ -194,6 +194,7 @@ and \textbf{short-term} environmental fluctuations.}
 and \textbf{long-term} environmental change.}
 \label{f:eg-n-linear-sixteen}
 \end{figure}
+\clearpage
 
 \begin{figure}[htbp]
 \centering
@@ -202,6 +203,7 @@ and \textbf{long-term} environmental change.}
 and \textbf{long-term declining stream flow}.}
 \label{f:eg-n-squeeze-two}
 \end{figure}
+\clearpage
 
 \begin{figure}[htbp]
 \centering
