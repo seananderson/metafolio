@@ -26,16 +26,26 @@ get_port_vals <- function(x, risk_fn = var, burn = 1:30) {
     data.frame(m = mean.x, v = var.x)
 }
 
-# Conditional Value at Risk
-#
+#' Conditional Value at Risk
+#'
+#' Get the conditional value at risk.
+#'
+#' @param x A numeric vector
+#' @param probs The probability cutoff to pass to the CVaR function.
 #' @export
+
 CVaR <- function(x, probs = 0.05) {
   -mean(x[x < VaR(x, probs = probs)], na.rm = TRUE)
 }
 
 #' Variance at Risk
 #'
+#' Get the variance at risk.
+#'
+#' @param x A numeric vector
+#' @param probs The probability cutoff to pass to the variance at risk.
 #' @export
+
 VaR <- function(x, probs = 0.05) {
   quantile(x, probs = probs, na.rm = TRUE)
 }

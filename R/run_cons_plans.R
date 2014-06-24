@@ -20,6 +20,10 @@
 #' @param burn Cycles to throw out as burn in
 #' @param assess_freq How frequently (in years) to re-assess the Ricker a and b
 #'   values.
+#'  @param risk_fn A risk function to use. Can be any function that takes a
+#'    numeric vector and returns a single value. Suggested values include
+#'    \code{var}, or \code{\link{VaR}}, or \code{\link{CVaR}}. Defaults to
+#'    variance.
 #' @param ... Other values to pass to \code{\link{meta_sim}}
 #' @export
 #' @return A list with two high-level elements: the mean variance output
