@@ -1,4 +1,5 @@
 #' Add annotations to panel
+#'
 #' @param label The text to add as a label
 #' @param xfrac Fraction over from the left
 #' @param yfrac Fraction down from the top
@@ -13,6 +14,7 @@ annotate <- function(label, xfrac = 0.008, yfrac = 0.18, pos = 4, cex = 0.9, ...
 }
 
 #' Add a pretty axis
+#'
 #' @param side Number indicating the side to add an axis (as in the side number
 #' passed to \code{\link[graphics]{axis}}).
 #' @param shade_years An optional numerical vector of length two giving the
@@ -44,6 +46,7 @@ my.axis <- function(side, shade_years = NULL, ylab = "", yticks = NA) {
 #' axis limits. This is useful to make space for a panel label within the plot.
 #' @param ... Anything else to pass to \code{\link[graphics]{matplot}}.
 plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) {
+  dat[is.na(dat)] <- 0
   if(ymin[1] == "zero")
     ylim <- c(0, max(dat) * ystretch)
   if(ymin[1] == "min")
@@ -56,14 +59,13 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 
 #' Plot various time series from a simulation run
 #'
-#' This function is rather crude at the moment. It lets you quickly visualize
-#' the time series of output from a simulation run, but it isn't very flexible
-#' yet.
+#' This function lets you quickly visualize the time series of output from a
+#' simulation run.
 #'
 #' @param x A list output object from a simulation run of
 #'   \code{link{meta_sim}}.
-#' @param pal A colour palette for the lines. One colour per line (population
-#' time series).
+#' @param pal A colour palette for the lines. One colour per line (each
+#' line is a population time series).
 #' @param years_to_show How many years to plot after the burn in period.
 #' @param burn The number of years to discard as burn in at the beginning of
 #'   the time series.
@@ -73,16 +75,17 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 #' from the minimum to maximum value. Can be used to show burn in period.
 #' @param add_units Should the units be added to the y axis?
 #' @param yticks Position of ticks on the Y axis.
+#' @param oma \code{oma} vector to pass to \code{par} for outer margin space.
 #' @export
 #' @examples
 #' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 #' base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
-#'   "arma", assess_freq = 5)
-#' plot_sim_ts(base1)
+#'   "arma", assess_freq = 5, decrease_b = 10)
+#' plot_sim_ts(base1, years_to_show = 70, burn = 1:30)
 
 plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
   years_to_show = 30, burn = 1:50, shade_years = NULL, adj = 0.02,
-  add_units = FALSE, yticks = rep(list(NA), 10)) {
+  add_units = FALSE, yticks = rep(list(NA), 10), oma = c(4, 4.5, 1, 1)) {
 
   if(!add_units) {
     ylabs <- rep("", 10)
@@ -93,7 +96,7 @@ plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
   # years to show in time series example plots
   to_show <- (max(burn)):(max(burn)+years_to_show)
 
-  par(mfrow = c(10, 1), mar = c(0,0,0,0), oma = c(4, 4.5, 1, 1), cex =
+  par(mfrow = c(10, 1), mar = c(0,0,0,0), oma = oma, cex =
     0.7, las = 1, xpd = FALSE)
   par(tck = -0.04, mgp = c(2, .45, 0))
 

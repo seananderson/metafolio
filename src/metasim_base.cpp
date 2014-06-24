@@ -27,6 +27,7 @@ NumericVector est_beta_params(double mu, double var) {
 //' A single numeric values representing a sample from a beta
 //' distribution with the specified mean and standard deviation.
 //'
+//' @export
 //' @references
 //' Morgan, M. G. & Henrion, M. (1990). Uncertainty: A Guide to Dealing
 //' with Uncertainty in Quantitative Risk and Policy Analysis.
@@ -54,6 +55,13 @@ NumericVector impl_error(NumericVector mu, double sigma_impl) {
   double var = pow(sigma_impl, 2);
   for (int i = 0; i < n; ++i) {
     bp(i, _) = est_beta_params(mu(i), var);
+//    Rcpp::Rcout << bp(i, 0) << bp(i, 1) << std::endl;
+    if(bp(i, 0) < 0) { // could be very small and slightly below zero
+      bp(i, 0) = 0.01; // avoid errors
+    }
+    if(bp(i, 1) < 0) { // could be very small and slightly below zero
+      bp(i, 1) = 0.01; // avoid errors
+    }
   }
   NumericVector out(n);
   for (int i = 0; i < n; ++i) {
@@ -64,29 +72,33 @@ NumericVector impl_error(NumericVector mu, double sigma_impl) {
 
 //' Ricker stock-recruit function with specified error
 //'
-//' @param spawners Spawner abundance
+//' @param spawners A single spawner abundance
 //' @param a Ricker productivity parameter. Recruits are e^a at the origin.
 //' @param b Ricker density dependent parameter.
 //' @param d Depensation parameter. A value of 1 means no depensation. Larger
 //'   values indicate depensation.
-//' @param v_t Residual on the curve. Will be exponentiated. Note that we are
+//' @param v_t A single residual on the curve. Will be exponentiated. Note that we are
 //'   *not* bias correcting within this function (subtracting half the variance
 //'   squared) and so the deviations will not be mean unbiased unless they were
 //'   bias corrected previously.
+//' @export
 //' @return Returns a vector of recruits.
 //' @examples
-//' x <- seq(1, 100)
-//' v_t <- as.numeric(arima.sim(n = 100, model = list(ar = 0.3), sd =
-//'     0.1, mean = 0))
-//' plot(x, ricker_v_t(spawners = x, a = 1.1, b = 60, d = 1, v_t), xlab =
-//'   "Spawners", ylab = "Returns")
-//'
+//' plot(1, 1, xlim = c(1, 100), ylim = c(0, 90), type = "n", xlab = "Spawners",
+//'   ylab = "Returns")
+//' for(i in 1:100) {
+//' points(i, ricker_v_t(i, a = 1.1, b = 60, d = 1, v_t = rnorm(1, mean =
+//'   -(0.1^2)/2, sd = 0.1)))
+//' }
 // [[Rcpp::export]]
 double ricker_v_t(double spawners, double a, double b, double d, double v_t) {
   return pow(spawners, d) * exp(a * (1 - pow(spawners, d) / b) + v_t);
 }
 
-//' Is element
+//' Check if x is an element of y.
+//'
+//' @param x An integer to check
+//' @param y A vector to check if \code{x} is an element of \code{y}.
 //'
 // [[Rcpp::export]]
 bool is_element(int x, NumericVector y){
@@ -125,6 +137,7 @@ arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
 //' specifying the model matrix. This is about an order of magnitude faster than
 //' \code{\link[stats]{lm}}.
 //'
+//' @export
 //' @param S Spawners as a numeric vector.
 //' @param R Recruits or returns as a numeric vector.
 //' @return
@@ -133,7 +146,7 @@ arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
 //' @examples
 //' S <- seq(100, 1000, length.out = 100)
 //' v_t <- rnorm(100, 0, 0.1)
-//' R <- ricker_v_t(spawners = S, a = 1.9, b = 900, d = 1, v_t)
+//' R <- mapply(ricker_v_t, spawners = S, v_t = v_t, a = 1.9, b = 900, d = 1)
 //' plot(S, log(R/S))
 //' fit_ricker(S, R)
 //'
@@ -159,6 +172,7 @@ NumericVector fit_ricker(NumericVector S, NumericVector R) {
 //'
 //' @param a Ricker productivity parameter.
 //' @param b Ricker density-dependent parameter.
+//' @export
 //' @references
 //' Hilborn, R.W. and Walters, C. 1992. Quantitative fisheries stock
 //' assessment: Choice, dynamics, and uncertainty. Chapman and Hall, London.
@@ -174,6 +188,28 @@ double ricker_escapement(double a, double b) {
 //'
 //' This is an Rcpp implementation of the main simulation. It is meant to be
 //' called by \code{\link{meta_sim}}.
+//' @param n_t The number of years.
+//' @param n_pop Number of populations
+//' @param spawners_0 A vector of spawner abundances at the start of the
+//'   simulation. Length of the vector should equal the number of populations.
+//' @param b Ricker density-dependent parameter. A vector with one numeric value
+//'   per population.
+//' @param epsilon_mat A matrix of recruitment deviations.
+//' @param A_params A matrix of Ricker a parameters
+//' @param add_straying Implement straying between populations?
+//' @param stray_mat A straying matrix.
+//' @param assess_years A vector of years to assess a and b in
+//' @param r_escp_goals A matrix of escapement goals.
+//' @param sigma_impl Implementation standard deviation for the implementation
+//'   error beta distribution.
+//' @param add_impl_error Add implementation error? Implementation error is
+//'   derived using \code{\link{impl_error}}.
+//' @param decrease_b A numeric value to decrease all streams by each generation.
+//'   This is intended to be used to simulate habitat loss, for example though
+//'   stream flow reduction with climate change.
+//' @param debug Boolean. Should some debuging messages be turned on?
+//'
+//' @useDynLib metafolio
 //'
 // [[Rcpp::export]]
 List metasim_base(
@@ -188,7 +224,9 @@ List metasim_base(
     NumericVector assess_years,
     NumericMatrix r_escp_goals,
     double sigma_impl,
-    bool add_impl_error
+    bool add_impl_error,
+    double decrease_b,
+    bool debug
     ) {
 
   NumericMatrix A(n_t, n_pop); // total abundance (say returns)
@@ -199,6 +237,7 @@ List metasim_base(
   NumericMatrix Est_a(n_t, n_pop);
   NumericMatrix Est_b(n_t, n_pop);
   NumericMatrix to_reallocate(n_pop, n_pop);
+  double adjusted_b;
 
   // Set up initial years:
   A(0, _) = spawners_0; // first year
@@ -208,8 +247,10 @@ List metasim_base(
   for (int i = 1; i < n_t; ++i) { // start on second year
     for (int j = 0; j < n_pop; ++j) {
       // spawner-recruit:
-      A(i, j) = ricker_v_t(E(i-1, j), A_params(i, j), b(j),
-          1.00, epsilon_mat(i, j));  // note depensation hard coded
+      adjusted_b = b(j) - decrease_b * (i + 1);
+      if(adjusted_b <= 5) adjusted_b = 5;
+      A(i, j) = ricker_v_t(E(i-1, j), A_params(i, j),
+          adjusted_b, 1.00, epsilon_mat(i, j));  // note depensation hard coded
       //if (A(i,j) < 0) warning("Abundance before straying or harvesting was < 0.")
     }
     // now we have the returns for this year, let's allocate straying:
@@ -268,11 +309,16 @@ List metasim_base(
           if (Est_b(i,j) < 0.5 * Est_b(i-1,j)) {
             Est_b(i,j) = 0.5 * Est_b(i-1,j);
           }
-          if (Est_a(i,j) < 0.02) {
-            Rcout << "Warning, a was too small" << std::endl;
+          if (Est_a(i,j) < 0.01) {
+            if (debug) {
+              Rcout << "Warning, a was too small. Setting estimated a = 0.01." << std::endl;
+            }
             Est_a(i,j) = 0.02;
           }
           if (Est_a(i,j) > 4) {
+            if (debug) {
+              Rcout << "Warning, a was too big. Setting estimated a = 4." << std::endl;
+            }
             Est_a(i,j) = 4;
           }
 
@@ -305,6 +351,14 @@ List metasim_base(
     }
 
     F(i,_) = A(i,_) - escapement_goals; // catch to leave escapement behind
+
+    // Make sure we always leave a bit to avoid numerical issues:
+    for (int k = 0; k < n_pop; ++k) {
+      if (A(i, k) - F(i, k) < 5) {
+        F(i, k) = A(i, k) - 5;
+      }
+    }
+
     for (int k = 0; k < n_pop; ++k) {
       if (F(i, k) < 0) {
         F(i, k) = 0;
@@ -324,6 +378,7 @@ List metasim_base(
       Named("n_t") = n_t,
       Named("Est_a") = Est_a,
       Named("A_params") = A_params,
+      Named("b") = b,
       Named("Eps") = epsilon_mat,
       Named("Est_b") = Est_b);
 }

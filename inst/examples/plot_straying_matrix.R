@@ -1,7 +1,7 @@
 # plot an example straying matrix
 
 library(colorspace)
-M <- generate_straying_matrix(10, 0.01, 0.3)
+M <- generate_straying_matrix(10, 0.02, 0.1)
 library(reshape2)
 M <- melt(M)
 shades <- rev(sequential_hcl(20))

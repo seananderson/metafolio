@@ -1,24 +1,40 @@
 <!--% redefine the command that creates the Table number.-->
-\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thetable}{B\arabic{table}}
+\renewcommand{\tablename}{\textsc{Table}}
 \setcounter{table}{0}
 
 <!--% redefine the command that creates the Figure number.-->
 \renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\figurename}{Fig.}
+\renewcommand{\figurename}{\textsc{Fig.}}
 \setcounter{figure}{0}
 
-# Supplementary Information #
+# Appendices
 
-## Supplementary code ##
+## Portfolio conservation of metapopulations under climate change
 
-The `metafolio` `R` package contains the functions and code to carry out the analyses in our paper.
-In an `R` console (version $\ge 3.0.0$), you can install `metafolio` by first setting your working directory with `setwd()` to wherever you saved the package and then running:
+Sean C. Anderson, Jonathan W. Moore, Michelle M. McClure, Nicholas K. Dulvy, Andrew B. Cooper
+
+\bigskip
+
+\textsc{Appendix A.} The `metafolio` \textsf{R} package.
+
+\bigskip
+
+The `metafolio` \textsf{R} package contains the functions and code to carry out the analyses in our paper.
+In an \textsf{R} console (version $\ge 3.0.0$), you can install `metafolio` by first setting your working directory with `setwd()` to wherever you saved the package and then running:
 
 ```
 # Install dependencies:
 install.packages(c("plyr", "colorspace"))
 
 # Install the package:
+# OS X:
+install.packages("metafolio_0.3.0.tgz", repos = NULL)
+
+# Windows:
+install.packages("metafolio_0.3.0.zip", repos = NULL)
+
+# Or, install from source if you have a C++ compiler installed:
 install.packages("metafolio_0.3.0.tar.gz", repos = NULL, type = "source")
 
 # Then load the package:
@@ -45,31 +61,22 @@ setwd("metafolio/inst/examples")
 source("README.R")
 ```
 
-Note that the simulations will take awhile to run (approximately 5--20 minutes given current CPU speeds).
+Note that the simulations will take awhile to run (approximately 2--10 minutes given current CPU speeds).
 
 \clearpage
 
-## Supplementary tables ##
+\textsc{Appendix B.} Simulation input parameters and default values.
 
 \input{tables}
 
-## Supplementary figures ##
+\textsc{Appendix C.} An example straying matrix.
 
-
-<!--\begin{figure}[htbp]-->
-<!--\centering-->
-<!--\includegraphics[width=4.5in]{../examples/thermal-curves.pdf}-->
-<!--\caption{The full range of environmental tolerance curves shown for 10 -->
-<!--populations. The vertical dotted lines indicate the general range of -->
-<!--environmental fluctuations in the main simulations, and the vertical dashed -->
-<!--line indicates the mean environmental value in the main simulations.}-->
-<!--\label{f:all-curves}-->
-<!--\end{figure}-->
-<!--\clearpage-->
+\renewcommand{\thefigure}{B\arabic{figure}}
+\setcounter{figure}{0}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=3.5in]{stray-matrix}
+\includegraphics[width=3.5in]{../examples/stray-matrix}
 \caption{An example straying matrix. The rows and columns represent different
 populations (indicated by population number). Dark blue indicates a high rate
 of straying and light blue indicates a low rate of straying.}
@@ -77,9 +84,13 @@ of straying and light blue indicates a low rate of straying.}
 \end{figure}
 \clearpage
 
+\textsc{Appendix D.} Sensitivity illustration with alternative parameter values.
+\renewcommand{\thefigure}{D\arabic{figure}}
+\setcounter{figure}{0}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.0in]{plot-various-options-ts-3pops}
+\includegraphics[width=3.5in]{../examples/plot-various-options-ts-3pops}
 \caption{The impact of increasing or decreasing various parameter values on
 metapopulation return abundance. The different coloured lines represent three
 example salmon populations. The base case represents the base-case values for
@@ -88,27 +99,13 @@ the short-term environmental fluctuation scenario.}
 \end{figure}
 \clearpage
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=4.5in]{spatial-arma-sim-full}
-\caption{Conserving a \textbf{full range} of response diversity (spatial
-conservation strategy) with \textbf{short-term} environmental fluctuations.}
-\label{f:eg-sp-arma-full}
-\end{figure}
-\clearpage
+\textsc{Appendix E.} An illustration of the correlation between populations.
+\renewcommand{\thefigure}{E\arabic{figure}}
+\setcounter{figure}{0}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{spatial-arma-sim-onehalf}
-\caption{Conserving \textbf{one half} of response diversity (spatial
-conservation strategy) with \textbf{short-term} environmental fluctuations.}
-\label{f:eg-sp-arma-half}
-\end{figure}
-\clearpage
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=4.5in]{example-return-correlations}
+\includegraphics[width=4.5in]{../examples/example-return-correlations}
 \caption{A comparison of the log(returns) between populations. The
 subpopulation IDs are coloured from warm tolerant (warm colours) to cool
 tolerant (cool colours). Note how populations 1 and 10 have asynchronous
@@ -122,9 +119,32 @@ systematic changes in productivity.}
 \end{figure}
 \clearpage
 
+\textsc{Appendix F.} Example simulated time series from alternative conservation scenarios.
+\renewcommand{\thefigure}{F\arabic{figure}}
+\setcounter{figure}{0}
+
+<!--TODO - this should be removed - it duplicates a main text fig-->
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{spatial-linear-sim-full}
+\includegraphics[width=4.3in]{../examples/spatial-arma-sim-full-colour}
+\caption{Conserving a \textbf{full range} of response diversity (spatial
+conservation strategy) with \textbf{short-term} environmental fluctuations. This is the same as Fig.~3 but in colour.}
+\label{f:eg-sp-arma-full}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.3in]{../examples/spatial-arma-sim-onehalf}
+\caption{Conserving \textbf{one half} of response diversity (spatial
+conservation strategy) with \textbf{short-term} environmental fluctuations.}
+\label{f:eg-sp-arma-half}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.3in]{../examples/spatial-linear-sim-full}
 \caption{Conserving a \textbf{full range} of response diversity (spatial
 conservation strategy) with \textbf{long-term} environmental change.}
 \label{f:eg-sp-linear-full}
@@ -133,7 +153,7 @@ conservation strategy) with \textbf{long-term} environmental change.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{spatial-linear-sim-onehalf}
+\includegraphics[width=4.3in]{../examples/spatial-linear-sim-onehalf}
 \caption{Conserving \textbf{one half} of response diversity (spatial
 conservation strategy) with \textbf{long-term} environmental change.}
 \label{f:eg-sp-linear-half}
@@ -142,7 +162,7 @@ conservation strategy) with \textbf{long-term} environmental change.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-arma-sim-2}
+\includegraphics[width=4.3in]{../examples/n-arma-sim-2}
 \caption{\textbf{Two populations} conserved with random response diversity and
 \textbf{short-term} environmental fluctuations.}
 \label{f:eg-n-arma-two}
@@ -151,7 +171,7 @@ conservation strategy) with \textbf{long-term} environmental change.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-arma-sim-16}
+\includegraphics[width=4.3in]{../examples/n-arma-sim-16}
 \caption{\textbf{Sixteen populations} conserved with random response diversity
 and \textbf{short-term} environmental fluctuations.}
 \label{f:eg-n-arma-sixteen}
@@ -160,7 +180,7 @@ and \textbf{short-term} environmental fluctuations.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-linear-sim-2}
+\includegraphics[width=4.3in]{../examples/n-linear-sim-2}
 \caption{\textbf{Two populations} conserved with random response diversity and
 \textbf{long-term} environmental change.}
 \label{f:eg-n-linear-two}
@@ -169,8 +189,27 @@ and \textbf{short-term} environmental fluctuations.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.5in]{n-linear-sim-16}
+\includegraphics[width=4.3in]{../examples/n-linear-sim-16}
 \caption{\textbf{Sixteen populations} conserved with random response diversity
 and \textbf{long-term} environmental change.}
 \label{f:eg-n-linear-sixteen}
 \end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.3in]{../examples/n-linear-arma-sim-2-squeeze}
+\caption{\textbf{Two populations} conserved with random response diversity
+and \textbf{long-term declining stream flow}.}
+\label{f:eg-n-squeeze-two}
+\end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.3in]{../examples/n-linear-arma-sim-16-squeeze}
+\caption{\textbf{Sixteen populations} conserved with random response diversity
+and \textbf{long-term declining stream flow}.}
+\label{f:eg-n-squeeze-twelve}
+\end{figure}
+

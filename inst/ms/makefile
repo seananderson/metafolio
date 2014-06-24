@@ -1,12 +1,26 @@
-all:	submit
+all:	ms
+
+mstex:
+	latexmk anderson-etal-metafolio
 
 ms:
+	#extract_bib ms.md > ms.bib
+	#extract_bib som.md >> ms.bib
+	#cp ~/Dropbox/tex/jshort.bib .
 	pandoc -S --no-wrap --bibliography=jshort.bib --bibliography=ms.bib --natbib ms.md -o ms.tex
 	pandoc -S som.md --latex-engine=xelatex -o som.tex
+	#perl -p -i -e "s/citep/cite/g" ms.tex
+	#perl -p -i -e "s/citet/cite/g" ms.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" ms.tex
 	perl -p -i -e "s/Fig. /Fig.~/g" som.tex
 	perl -p -i -e "s/Figs. /Figs.~/g" ms.tex
-	pdflatex salmonfolios
+	perl -p -i -e "s/Figs. /Figs.~/g" som.tex
+	pandoc response.md -o response.tex
+	#pdflatex anderson-etal-metafolio
+	#bibtex anderson-etal-metafolio
+	#pdflatex anderson-etal-metafolio
+	#pdflatex anderson-etal-metafolio
+	latexmk anderson-etal-metafolio
 	#rm som.tex
 	#cp salmonfolios.pdf ~/Dropbox/Public/
 	#./splitpdf.py salmonfolios.pdf 33 # assuming SOM starts at pg 34
@@ -53,7 +67,7 @@ letter:
 	xelatex salmonfolios-letter.tex
 
 rtf:
-	latex2rtf -d 0 -b ms.bbl -E0 -M6 salmonfolios.tex
+	latex2rtf -d 0 -b anderson-etal-metafolio.bbl -E0 -M6 anderson-etal-metafolio.tex
 
 docx:
 	cp ms.md ms-temp.md

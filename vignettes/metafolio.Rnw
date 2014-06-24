@@ -25,8 +25,8 @@ options(replace.assign=TRUE, width=90)
 opts_knit$set(out.format = "latex")
 opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, tidy=FALSE,
 refresh=TRUE, cache=FALSE, autodep=TRUE)
-thm = knit_theme$get("github.css")
-knit_theme$set(thm)
+# thm = knit_theme$get("solarized.css")
+# knit_theme$set(thm)
 @
 
 \title{An introduction to the \texttt{metafolio} \texttt{R} package}
@@ -69,6 +69,14 @@ set.seed(1)
 In an \texttt{R} console (version $\ge 3.0.0$), you can install \texttt{metafolio} by first setting your working directory with \texttt{setwd()} to wherever you saved the package and then running:
 
 <<install-source, eval=FALSE>>=
+# OS X:
+install.packages("metafolio_0.3.0.tgz", repos = NULL)
+
+# Windows:
+install.packages("metafolio_0.3.0.zip", repos = NULL)
+
+
+# Or, install from source if you have a C++ compiler installed:
 install.packages("metafolio_0.3.0.tar.gz", repos = NULL,
   type = "source")
 @
@@ -86,7 +94,6 @@ install.packages("metafolio_0.3.0.tar.gz", repos = NULL,
 %report bugs on GitHub: \url{https://github.com/seananderson/metafolio}  (\textit{This website is a
 %private repository while the paper is in review.})
 
-\clearpage
 You can load the package with:
 
 <<load-package, eval=FALSE>>=
@@ -246,16 +253,18 @@ optimal metapopulation portfolios via algebra we can do so by letting
 Carlo sampling (Figure~\ref{fig:monte-carlo-plot}).
 
 <<monte-carlo-eg, eval=FALSE>>=
-set.seed(999)
-weights_matrix <- create_asset_weights(n_pop = 5, n_sims = 1000,
+set.seed(1)
+weights_matrix <- create_asset_weights(n_pop = 6, n_sims = 3000,
   weight_lower_limit = 0.001)
 mc_ports <- monte_carlo_portfolios(weights_matrix = weights_matrix,
-  n_sims = 1000, mean_b = 1000)
+  n_sims = 3000, mean_b = 1000)
 @
 
 <<monte-carlo-eg-load, eval=TRUE, echo=FALSE>>=
 # To make the vignette compile more quickly:
-weights_matrix <- create_asset_weights(n_pop = 5, n_sims = 1000,
+# port_vals <- mc_ports$port_vals
+# save(port_vals, file = "port_vals.rda")
+weights_matrix <- create_asset_weights(n_pop = 6, n_sims = 3000,
   weight_lower_limit = 0.001)
 load("port_vals.rda")
 mc_ports <- list()
@@ -263,7 +272,7 @@ mc_ports$port_vals <- port_vals
 @
 
 <<monte-carlo-plot, fig.width=7, fig.height=4, out.width="5in", fig.cap="Efficient frontier of metapopulation portfolios (red dots). Each dot represents a different set of weights of the Ricker $b$ parameters. The colours in the right panel correspond to the five populations with warm tolerant populations in warmer colours and cool tolerant populations in cooler colours.">>=
-col_pal <- rev(gg_color_hue(5))
+col_pal <- rev(gg_color_hue(6))
 ef_dat <- plot_efficient_portfolios(port_vals = mc_ports$port_vals,
   pal = col_pal, weights_matrix = weights_matrix)
 @

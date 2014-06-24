@@ -20,6 +20,10 @@
 #' @param burn Cycles to throw out as burn in
 #' @param assess_freq How frequently (in years) to re-assess the Ricker a and b
 #'   values.
+#'  @param risk_fn A risk function to use. Can be any function that takes a
+#'    numeric vector and returns a single value. Suggested values include
+#'    \code{var}, or \code{\link{VaR}}, or \code{\link{CVaR}}. Defaults to
+#'    variance.
 #' @param ... Other values to pass to \code{\link{meta_sim}}
 #' @export
 #' @return A list with two high-level elements: the mean variance output
@@ -81,7 +85,7 @@
 #' }
 
 run_cons_plans <- function(w, env_type, env_params, show_progress =
-  TRUE, burn = 1:30, assess_freq = 5, ...) {
+  TRUE, burn = 1:30, assess_freq = 5, risk_fn = var, ...) {
 
   plans_mv_n <- list()
   plans_port_n <- list()
@@ -96,7 +100,8 @@ run_cons_plans <- function(w, env_type, env_params, show_progress =
                     env_type      = env_type,
                     env_params    = env_params,
                     burn          = burn,
-                    assess_freq   = assess_freq, ...
+                    assess_freq   = assess_freq,
+                    risk_fn       = risk_fn, ...
                             )
     plans_mv_n[[i]][[j]] <- temp$port_mv
     plans_port_n[[i]][[j]] <- temp$port_out

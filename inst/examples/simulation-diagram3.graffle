@@ -55,7 +55,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{177.33333587646487, 653.99998982746865}, {133.66667175292969, 28}}</string>
+			<string>{{177.33333587646487, 653.99998982746865}, {133.66667175292969, 30}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -69,6 +69,10 @@
 					<key>w</key>
 					<string>0.0732778</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>82</integer>
@@ -104,8 +108,8 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -117,6 +121,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -126,7 +137,7 @@
 			<integer>81</integer>
 			<key>Points</key>
 			<array>
-				<string>{244.16667175292972, 631.75013478595906}</string>
+				<string>{244.16667175292972, 633.75013478595895}</string>
 				<string>{244.16667175292972, 653.99998982746865}</string>
 			</array>
 			<key>Style</key>
@@ -165,6 +176,13 @@
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -174,8 +192,8 @@
 			<integer>80</integer>
 			<key>Points</key>
 			<array>
-				<string>{243.70828366279605, 476.04167270660361}</string>
-				<string>{243.70828366279605, 499.54169209797726}</string>
+				<string>{244.16667175292972, 479.04167270660361}</string>
+				<string>{244.16667175292972, 499.54169209797726}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -212,7 +230,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{163.70828366279605, 499.54169209797726}, {160, 45}}</string>
+			<string>{{164.16667175292972, 499.54169209797726}, {160, 47}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -230,6 +248,10 @@
 					<key>r</key>
 					<string>0.737255</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>79</integer>
@@ -265,8 +287,8 @@
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red188\green88\blue78;\red152\green152\blue152;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -282,7 +304,7 @@ Implementation uncertainty \cf3 beta(\uc0\u945
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{325.16666666666652, 3.9999802907298481}, {117, 14}}</string>
+			<string>{{325.16666666666652, 3.9999802907298481}, {102, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -297,7 +319,7 @@ Implementation uncertainty \cf3 beta(\uc0\u945
 					<string>0.0991389</string>
 				</dict>
 				<key>Font</key>
-				<string>Helvetica</string>
+				<string>TimesNewRomanPSMT</string>
 				<key>Size</key>
 				<real>12</real>
 			</dict>
@@ -328,8 +350,8 @@ Implementation uncertainty \cf3 beta(\uc0\u945
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red25\green25\blue25;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -342,7 +364,7 @@ Implementation uncertainty \cf3 beta(\uc0\u945
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{189.22908528645851, 3.9999796549469728}, {108.95838165283203, 28}}</string>
+			<string>{{189.22908528645851, 3.9999796549469728}, {108.95838165283203, 30}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -357,7 +379,7 @@ Implementation uncertainty \cf3 beta(\uc0\u945
 					<string>0.0991389</string>
 				</dict>
 				<key>Font</key>
-				<string>Helvetica-Bold</string>
+				<string>TimesNewRomanPS-BoldMT</string>
 				<key>NSKern</key>
 				<real>0.0</real>
 				<key>Size</key>
@@ -390,8 +412,8 @@ Implementation uncertainty \cf3 beta(\uc0\u945
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red25\green25\blue25;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -403,7 +425,7 @@ Demographic stochasticity}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{60.499997456868435, 3.9999796549469657}, {70, 14}}</string>
+			<string>{{60.499997456868435, 3.9999796549469657}, {64, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -418,7 +440,7 @@ Demographic stochasticity}</string>
 					<string>0.0991389</string>
 				</dict>
 				<key>Font</key>
-				<string>Helvetica</string>
+				<string>TimesNewRomanPSMT</string>
 				<key>Size</key>
 				<real>12</real>
 			</dict>
@@ -449,8 +471,8 @@ Demographic stochasticity}</string>
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red25\green25\blue25;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -464,11 +486,18 @@ Demographic stochasticity}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>ID</key>
 			<integer>73</integer>
 			<key>Points</key>
 			<array>
-				<string>{134.12500127156557, 198.04163551330271}</string>
+				<string>{134.12500127156557, 199.04163551330271}</string>
 				<string>{183.70826975504554, 219.33332316080356}</string>
 				<string>{242.33333333333329, 230.8958174387574}</string>
 			</array>
@@ -510,6 +539,13 @@ Demographic stochasticity}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -521,9 +557,9 @@ Demographic stochasticity}</string>
 			<integer>71</integer>
 			<key>Points</key>
 			<array>
-				<string>{349.08332379658998, 198.04163106282232}</string>
+				<string>{349.08332379658998, 199.04163106282229}</string>
 				<string>{293.20830535888638, 218.66665649413682}</string>
-				<string>{244.00003306070923, 230.8958174387574}</string>
+				<string>{244.16667175292972, 230.8958174387574}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -563,6 +599,13 @@ Demographic stochasticity}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>ID</key>
 			<integer>70</integer>
 			<key>OrthogonalBarAutomatic</key>
@@ -609,6 +652,13 @@ Demographic stochasticity}</string>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -618,8 +668,8 @@ Demographic stochasticity}</string>
 			<integer>68</integer>
 			<key>Points</key>
 			<array>
-				<string>{244.00003306070923, 136.99958292659812}</string>
-				<string>{244.00003306070923, 230.8958174387574}</string>
+				<string>{244.00002288818342, 123.99958292659811}</string>
+				<string>{244.16667175292972, 230.8958174387574}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -656,7 +706,7 @@ Demographic stochasticity}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{177.16668701171858, 43.999582926598102}, {133.66667175292969, 93}}</string>
+			<string>{{177.16668701171858, 43.999582926598102}, {133.66667175292969, 80}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -674,6 +724,10 @@ Demographic stochasticity}</string>
 					<key>r</key>
 					<string>0.490196</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>61</integer>
@@ -709,8 +763,8 @@ Demographic stochasticity}</string>
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 CambriaMath;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;\f1\fnil\fcharset0 CambriaMath;}
 {\colortbl;\red255\green255\blue255;\red125\green111\blue159;\red152\green152\blue152;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -721,10 +775,11 @@ Demographic stochasticity}</string>
 \i0  and 
 \i t
 \i0  generations\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 \cf3 Variance 
 \f1 \uc0\u55349 \u57102 
-\f0\fs18 \sub r\super 2
-\fs24 \nosupersub \
+\f0\fs18 \sub r\cf3 \super 2
+\fs24 \cf3 \nosupersub \
 Autocorrelation 
 \f1 \uc0\u55349 \u57100 
 \f0\fs18 \sub w}</string>
@@ -735,6 +790,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -744,9 +806,9 @@ Autocorrelation
 			<integer>60</integer>
 			<key>Points</key>
 			<array>
-				<string>{243.70828366279608, 544.54169209797726}</string>
+				<string>{244.16667175292977, 546.54169209797726}</string>
 				<string>{257.29173024495435, 551.74999618529773}</string>
-				<string>{281.99999999999989, 553.83333587645927}</string>
+				<string>{281.99999999999989, 554.33333587645927}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -785,7 +847,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{281.99999999999989, 546.83333587645927}, {83.3333740234375, 14}}</string>
+			<string>{{281.99999999999989, 546.83333587645927}, {83.3333740234375, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -799,6 +861,10 @@ Autocorrelation
 					<key>w</key>
 					<string>0.0732778</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>58</integer>
@@ -834,8 +900,8 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -846,7 +912,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{471.33333333333326, 280.37499816607345}, {99, 30}}</string>
+			<string>{{471.33333333333326, 280.37499816607345}, {99, 32}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -864,6 +930,10 @@ Autocorrelation
 					<key>r</key>
 					<string>0.396078</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>57</integer>
@@ -894,8 +964,8 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red101\green127\blue52;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -906,7 +976,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{79.999999999999901, 405.83334350585636}, {69.166670481363994, 30}}</string>
+			<string>{{79.999999999999901, 405.83334350585636}, {69.166670481363994, 32}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -924,6 +994,10 @@ Autocorrelation
 					<key>r</key>
 					<string>0.396078</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>41</integer>
@@ -954,15 +1028,15 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red101\green127\blue52;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs24 \cf2 Repeat for 
-\i t\
+\i \cf2 t\
 
-\i0 generations}</string>
+\i0 \cf2 generations}</string>
 				<key>VerticalPad</key>
 				<integer>1</integer>
 			</dict>
@@ -970,6 +1044,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>ID</key>
 			<integer>56</integer>
 			<key>OrthogonalBarAutomatic</key>
@@ -980,7 +1061,7 @@ Autocorrelation
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{315.16067586590816, 617.75013478595895}</string>
+				<string>{315.16068095217122, 618.75013478595895}</string>
 				<string>{531.33333333333371, 603.08332951863281}</string>
 				<string>{494.08333333333269, 108.33332316080372}</string>
 			</array>
@@ -1021,7 +1102,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{379.62499999999966, 426.83332380434615}, {144.66666666666669, 72}}</string>
+			<string>{{379.62499999999966, 426.83332380434615}, {144.66666666666669, 62}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1039,6 +1120,10 @@ Autocorrelation
 					<key>r</key>
 					<string>0.396078</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>55</integer>
@@ -1069,8 +1154,8 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red101\green127\blue52;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -1082,6 +1167,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1099,9 +1191,9 @@ Autocorrelation
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{202.49997965494788, 577.08335240681185}</string>
+				<string>{202.49998474121097, 577.58335240681185}</string>
 				<string>{117.62506357828768, 554.99998982746922}</string>
-				<string>{171.66669972737589, 251.8958174387574}</string>
+				<string>{171.83333841959637, 253.3958174387574}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1141,6 +1233,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1158,9 +1257,9 @@ Autocorrelation
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{285.83335367838538, 577.08335240681185}</string>
+				<string>{285.83335876464844, 577.58335240681185}</string>
 				<string>{455.95840708414687, 480.33332316080498}</string>
-				<string>{435.16670735677053, 65.124985376993592}</string>
+				<string>{435.16665903727198, 66.624985376993592}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1200,6 +1299,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1209,8 +1315,8 @@ Autocorrelation
 			<integer>49</integer>
 			<key>Points</key>
 			<array>
-				<string>{244.16666666666663, 584.08335240681185}</string>
-				<string>{244.16666666666663, 603.75013478595895}</string>
+				<string>{244.16667175292969, 585.08335240681185}</string>
+				<string>{244.16667175292969, 603.75013478595906}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1247,7 +1353,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{173.17265746742515, 603.75013478595895}, {141.98801839848298, 28}}</string>
+			<string>{{173.17266255368821, 603.75013478595895}, {141.98801839848298, 30}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1265,6 +1371,10 @@ Autocorrelation
 					<key>r</key>
 					<string>0.737255</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>47</integer>
@@ -1300,8 +1410,8 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red188\green88\blue78;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -1313,6 +1423,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1322,7 +1439,7 @@ Autocorrelation
 			<integer>45</integer>
 			<key>Points</key>
 			<array>
-				<string>{383.66665649414028, 155.58317311604617}</string>
+				<string>{383.66665903727198, 158.58317311604617}</string>
 				<string>{383.66665903727198, 184.04163106282229}</string>
 			</array>
 			<key>Style</key>
@@ -1361,6 +1478,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1370,8 +1494,8 @@ Autocorrelation
 			<integer>44</integer>
 			<key>Points</key>
 			<array>
-				<string>{383.66670735677053, 86.124985376993607}</string>
-				<string>{383.66665649414028, 113.58317311604615}</string>
+				<string>{383.66665903727198, 89.124985376993607}</string>
+				<string>{383.66665903727198, 113.58317311604615}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1408,7 +1532,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{311.33332316080691, 113.58317311604618}, {144.66666666666669, 42}}</string>
+			<string>{{311.33332570393861, 113.58317311604618}, {144.66666666666669, 45}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1426,6 +1550,10 @@ Autocorrelation
 					<key>r</key>
 					<string>0.490196</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>43</integer>
@@ -1461,12 +1589,13 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red125\green111\blue159;\red152\green152\blue152;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs24 \cf2 Distribute total "habitat" based on weights\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 \cf3 Total habitat}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
@@ -1474,7 +1603,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{332.16670735677053, 44.124985376993592}, {103, 42}}</string>
+			<string>{{332.16665903727198, 44.124985376993592}, {103, 45}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1492,6 +1621,10 @@ Autocorrelation
 					<key>r</key>
 					<string>0.490196</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>42</integer>
@@ -1527,12 +1660,13 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red125\green111\blue159;\red154\green154\blue154;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs24 \cf2 Pick asset weights that add to one\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 \cf3 Minimum weight}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
@@ -1541,6 +1675,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1550,8 +1691,8 @@ Autocorrelation
 			<integer>40</integer>
 			<key>Points</key>
 			<array>
-				<string>{244.16667429606096, 411.87499999999835}</string>
-				<string>{243.70828501383446, 434.04167270660361}</string>
+				<string>{244.16667175292972, 412.87499999999829}</string>
+				<string>{244.16667175292972, 434.04167270660361}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1589,6 +1730,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1599,7 +1747,7 @@ Autocorrelation
 			<key>Points</key>
 			<array>
 				<string>{244.16667429606096, 374.99998982747104}</string>
-				<string>{244.16667429606096, 397.87499999999829}</string>
+				<string>{244.16667175292972, 397.87499999999829}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1631,7 +1779,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{158.16667429606096, 397.87499999999829}, {172, 14}}</string>
+			<string>{{167.16667175292972, 397.87499999999829}, {154, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1645,6 +1793,10 @@ Autocorrelation
 					<key>w</key>
 					<string>0.0732778</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>38</integer>
@@ -1680,8 +1832,8 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -1695,6 +1847,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1704,8 +1863,8 @@ Autocorrelation
 			<integer>78</integer>
 			<key>Points</key>
 			<array>
-				<string>{243.70828366279605, 544.54169209797737}</string>
-				<string>{244.16666666666663, 570.08335240681185}</string>
+				<string>{244.16667175292972, 546.54169209797737}</string>
+				<string>{244.16667175292972, 570.08335240681185}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1743,6 +1902,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1752,8 +1918,8 @@ Autocorrelation
 			<integer>36</integer>
 			<key>Points</key>
 			<array>
-				<string>{244.00003306070923, 272.89581743875738}</string>
-				<string>{244.16667429606096, 288.37499999999829}</string>
+				<string>{244.16667175292972, 275.89581743875738}</string>
+				<string>{244.16667175292972, 288.37499999999829}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1791,6 +1957,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1800,7 +1973,7 @@ Autocorrelation
 			<integer>30</integer>
 			<key>Points</key>
 			<array>
-				<string>{95.500001271565552, 161.24997552235601}</string>
+				<string>{95.500001271565552, 160.24997552235601}</string>
 				<string>{95.500001271565552, 184.04163551330271}</string>
 			</array>
 			<key>Style</key>
@@ -1830,15 +2003,17 @@ Autocorrelation
 					<real>2</real>
 				</dict>
 			</dict>
-			<key>Tail</key>
-			<dict>
-				<key>ID</key>
-				<integer>10</integer>
-			</dict>
 		</dict>
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1848,8 +2023,8 @@ Autocorrelation
 			<integer>29</integer>
 			<key>Points</key>
 			<array>
-				<string>{95.500006357828653, 72.124985376993564}</string>
-				<string>{95.499999999999901, 94.249975522355996}</string>
+				<string>{95.500001271565552, 74.124985376993564}</string>
+				<string>{95.500001271565552, 94.24997552235601}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1887,6 +2062,13 @@ Autocorrelation
 		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
@@ -1896,8 +2078,8 @@ Autocorrelation
 			<integer>23</integer>
 			<key>Points</key>
 			<array>
-				<string>{244.16667429606096, 302.37499999999829}</string>
-				<string>{244.16667429606096, 324.70825195312307}</string>
+				<string>{244.16667175292972, 303.37499999999829}</string>
+				<string>{244.16667175292972, 324.70825195312307}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1934,7 +2116,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{202.49997965494788, 570.08335240681185}, {83.3333740234375, 14}}</string>
+			<string>{{202.49998474121097, 570.08335240681185}, {83.3333740234375, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1948,6 +2130,10 @@ Autocorrelation
 					<key>w</key>
 					<string>0.0732778</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>18</integer>
@@ -1983,8 +2169,8 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -1995,7 +2181,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{194.66667429606096, 288.37499999999829}, {99, 14}}</string>
+			<string>{{200.66667175292972, 288.37499999999829}, {87, 15}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2009,6 +2195,10 @@ Autocorrelation
 					<key>w</key>
 					<string>0.0732778</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>16</integer>
@@ -2044,8 +2234,8 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -2058,7 +2248,7 @@ Autocorrelation
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{56.875001271565552, 184.04163551330271}, {77.25, 28}}</string>
+			<string>{{56.875001271565552, 184.04163551330271}, {77.25, 30}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2072,6 +2262,10 @@ Autocorrelation
 					<key>w</key>
 					<string>0.0732778</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>15</integer>
@@ -2107,22 +2301,22 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\i\fs24 \cf2 n
-\i0  Ricker 
-\i a
-\i0  parameters}</string>
+\i0 \cf2  Ricker 
+\i \cf2 a
+\i0 \cf2  parameters}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{146.45836893717424, 324.70825195312307}, {195.41661071777344, 45}}</string>
+			<string>{{146.458366394043, 324.70825195312307}, {195.41661071777344, 45}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2140,6 +2334,10 @@ Autocorrelation
 					<key>r</key>
 					<string>0.737255</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>13</integer>
@@ -2175,25 +2373,26 @@ Autocorrelation
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 ArnoPro-ItalicSmText;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red188\green88\blue78;\red154\green154\blue154;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs24 \cf2 Straying between populations\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 \cf3 Straying fraction (
-\f1\i f 
-\f0\i0 )\
+\i \cf3 f 
+\i0 \cf3 )\
 Decay of straying with distance (
-\i m
-\i0 )}</string>
+\i \cf3 m
+\i0 \cf3 )}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{163.70828501383446, 434.04167270660361}, {160, 42}}</string>
+			<string>{{164.16667175292972, 434.04167270660361}, {160, 45}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2211,6 +2410,10 @@ Decay of straying with distance (
 					<key>r</key>
 					<string>0.737255</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>11</integer>
@@ -2246,16 +2449,16 @@ Decay of straying with distance (
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red188\green88\blue78;\red152\green152\blue152;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs24 \cf2 Estimate Ricker 
-\i a
-\i0  and 
-\i b
-\i0  and set escapement targets\
+\i \cf2 a
+\i0 \cf2  and 
+\i \cf2 b
+\i0 \cf2  and set escapement targets\
 \cf3 Escapement target rules}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
@@ -2263,7 +2466,7 @@ Decay of straying with distance (
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{2.4999999999998952, 94.24997552235601}, {186, 67}}</string>
+			<string>{{9.5000012715655515, 94.24997552235601}, {172, 66}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2281,6 +2484,10 @@ Decay of straying with distance (
 					<key>r</key>
 					<string>0.490196</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>10</integer>
@@ -2316,13 +2523,14 @@ Decay of straying with distance (
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red125\green111\blue159;\red153\green153\blue153;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\i\fs24 \cf2 n 
 \i0 environmental-tolerance curves\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 \cf3 Maximum possible Ricker 
 \i a
 \i0  (
@@ -2347,7 +2555,7 @@ Thermal tolerance curve width (
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{349.08332379658998, 184.04163106282229}, {69.166670481363994, 28}}</string>
+			<string>{{349.08332379658998, 184.04163106282229}, {69.166670481363994, 30}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2361,6 +2569,10 @@ Thermal tolerance curve width (
 					<key>w</key>
 					<string>0.0732778</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>9</integer>
@@ -2396,22 +2608,22 @@ Thermal tolerance curve width (
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\i\fs24 \cf2 n 
-\i0 Ricker 
-\i b
-\i0  parameters}</string>
+\i0 \cf2 Ricker 
+\i \cf2 b
+\i0 \cf2  parameters}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{15.500006357828646, 44.124985376993564}, {160, 28}}</string>
+			<string>{{15.500001271565552, 44.124985376993564}, {160, 30}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2429,6 +2641,10 @@ Thermal tolerance curve width (
 					<key>r</key>
 					<string>0.490196</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>8</integer>
@@ -2464,14 +2680,15 @@ Thermal tolerance curve width (
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red125\green111\blue159;\red153\green153\blue153;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs24 \cf2 Environment for 
 \i t
 \i0  generations\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 \cf3 Short- or long-term dynamics}</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
@@ -2479,7 +2696,7 @@ Thermal tolerance curve width (
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{171.66669972737589, 230.8958174387574}, {144.66666666666669, 42}}</string>
+			<string>{{171.83333841959637, 230.8958174387574}, {144.66666666666669, 45}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -2497,6 +2714,10 @@ Thermal tolerance curve width (
 					<key>r</key>
 					<string>0.737255</string>
 				</dict>
+				<key>Font</key>
+				<string>TimesNewRomanPSMT</string>
+				<key>Size</key>
+				<real>12</real>
 			</dict>
 			<key>ID</key>
 			<integer>6</integer>
@@ -2532,8 +2753,8 @@ Thermal tolerance curve width (
 				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
 {\colortbl;\red255\green255\blue255;\red188\green88\blue78;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
@@ -2590,7 +2811,7 @@ Thermal tolerance curve width (
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-07-11 23:06:20 +0000</string>
+	<string>2014-01-13 22:51:24 +0000</string>
 	<key>Modifier</key>
 	<string>Sean Anderson</string>
 	<key>NotesVisible</key>
@@ -2671,7 +2892,7 @@ Thermal tolerance curve width (
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{1001, 4}, {1118, 1414}}</string>
+		<string>{{1001, 69}, {1251, 1349}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -2685,7 +2906,7 @@ Thermal tolerance curve width (
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-43, -83}, {655.33333333333337, 850}}</string>
+		<string>{{-87, -61}, {744, 806.66666666666663}}</string>
 		<key>Zoom</key>
 		<real>1.5</real>
 		<key>ZoomValues</key>

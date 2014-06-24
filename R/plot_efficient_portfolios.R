@@ -31,15 +31,15 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' set.seed(10)
-#' weights_matrix <- create_asset_weights(n_pop = 5, n_sims = 150,
-#'   weight_lower_limit = 0.001)
+#' weights_matrix <- create_asset_weights(n_pop = 6, n_sims = 3000,
+#' weight_lower_limit = 0.001)
 #' mc_ports <- monte_carlo_portfolios(weights_matrix = weights_matrix,
-#'   n_sims = 150, mean_b = 1000)
-#' pal <- rev(gg_color_hue(5))
-#' d <- plot_efficient_portfolios(mc_ports$port_vals, weights_matrix,
-#'   pal = pal)
-#' names(d)
+#'  n_sims = 3000, mean_b = 1000)
+#' 
+#' col_pal <- rev(gg_color_hue(6))
+#' ef_dat <- plot_efficient_portfolios(port_vals = mc_ports$port_vals,
+#'  pal = col_pal, weights_matrix = weights_matrix)
+#' names(ef_dat)
 #' }
 
 plot_efficient_portfolios <- function(port_vals, weights_matrix, pal,

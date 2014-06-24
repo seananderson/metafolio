@@ -14,6 +14,7 @@
 #' panels be started? A numeric vector.
 #' @param labels Labels for the panels.
 #' @param burn Burn in period to discard.
+#' @param add_lm Add a regression trend line?
 #' @param cols Colours for the lines. A vector of character.
 #' @param ... Anything else to pass to \code{\link[graphics]{plot.default}}
 #' @export
@@ -50,10 +51,10 @@
 
 plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE,
   lwd = 1.7, y_axis_ticks = NULL, start_new_plots = 1, labels = NULL, burn = 30,
-  cols, ...) {
+  add_lm = FALSE, cols, ...) {
   #A_range <- ldply(X, function(x) range(rowSums(x$A[-burn, ])))
   burn <- 1:burn
-  for(i in 1:4){
+  for(i in 1:length(X)){
     if(i %in% start_new_plots) {
       plot(1,1,ylim = ylim, xlim = c(1, 70), type = "n",
         xlab = "", ylab = "", xaxt = "n", axes = FALSE, yaxs = "i", ...)
@@ -79,6 +80,10 @@ plot_sp_A_ts <- function(X, ylim, x_axis = TRUE, y_axis = TRUE, rate = FALSE,
     lines(1:length(port.x), port.x, col = cols[i], lwd = lwd, lty = 1)
     } else {
     lines(2:length(port.x), diff(log(port.x)), col = cols[i], lwd = lwd, lty = 1)
+    if(add_lm) {
+      m <- lm(diff(log(port.x)) ~ c(1:length(diff(log(port.x)))))
+      abline(m, col = cols[i], lty = 2, lwd = lwd)
+    }
     }
     box(col = "grey50")
   }
