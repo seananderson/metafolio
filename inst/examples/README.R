@@ -3,7 +3,7 @@
 # Set your R working directory to this folder (the examples folder).
 
 # Install:
-# devtools::install("../../")
+devtools::install("../../")
 
 # and load the package:
 library(metafolio)
