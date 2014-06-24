@@ -75,6 +75,7 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 #' from the minimum to maximum value. Can be used to show burn in period.
 #' @param add_units Should the units be added to the y axis?
 #' @param yticks Position of ticks on the Y axis.
+#' @param oma \code{oma} vector to pass to \code{par} for outer margin space.
 #' @export
 #' @examples
 #' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
@@ -84,7 +85,7 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 
 plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
   years_to_show = 30, burn = 1:50, shade_years = NULL, adj = 0.02,
-  add_units = FALSE, yticks = rep(list(NA), 10)) {
+  add_units = FALSE, yticks = rep(list(NA), 10), oma = c(4, 4.5, 1, 1)) {
 
   if(!add_units) {
     ylabs <- rep("", 10)
@@ -95,7 +96,7 @@ plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
   # years to show in time series example plots
   to_show <- (max(burn)):(max(burn)+years_to_show)
 
-  par(mfrow = c(10, 1), mar = c(0,0,0,0), oma = c(4, 4.5, 1, 1), cex =
+  par(mfrow = c(10, 1), mar = c(0,0,0,0), oma = oma, cex =
     0.7, las = 1, xpd = FALSE)
   par(tck = -0.04, mgp = c(2, .45, 0))
 

@@ -149,6 +149,7 @@ for(i in 1:n_plans) { # loop over number conserved
    w[[4]][-c(1:16)] <- 5 # conserve n, wipe out the rest
 
 cons_arma_ts <- list()
+set.seed(18182)
 for(i in 1:4) {
   use_cache <- ifelse(i == 1, FALSE, TRUE)
   cons_arma_ts[[i]] <- meta_sim(b = w[[i]], n_pop =
@@ -171,6 +172,11 @@ plot_sp_A_ts(list(cons_arma_ts[[1]], cons_arma_ts[[4]]), ylim = c(-1.2, 1.2), ra
 par(las = 0)
 mtext("Metapopulation\ngrowth rate", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
+
+par(xpd = NA)
+text(72, 0.5, "2 populations", pos = 4, col = cols[2])
+text(72, 0.1, "16 populations", pos = 4, col = cols[4])
+par(xpd = FALSE)
 
 plot_sp_A_ts(list(cons_arma_ts[[1]], cons_arma_ts[[4]]), ylim = c(500, 6000), rate = FALSE, log = "y",
   y_axis = TRUE, y_axis_ticks = c(1000, 2000, 5000),

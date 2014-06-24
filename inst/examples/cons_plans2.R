@@ -32,7 +32,8 @@ eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 col_pal <- grey(12:0/12)[3:12]
 plot_sim_ts(eg_arma, years_to_show = 100, burn = 30, yticks = list(NA, NA, NA,
-    NA, NA, NA, NA, c(2, 0, 2), NA, NA), pal = col_pal)
+    NA, NA, c(0, 100), c(0, 20), c(-2, 0, 2), c(1, 2), c(0, 1000)), pal = col_pal, oma = c(4, 4.5, 1.7, 1))
+mtext("Shaded lines represent individual populations", side = 3, line = 0.55, outer = TRUE, adj = 0.05, cex = 0.7)
 dev.off()
 
 pdf_eps("spatial-arma-sim-full-colour", width = 5, height = 7, type = TYPE)

@@ -3,7 +3,7 @@
 col_pal <- grey(11:0/11)[2:11]
 
 pdf_eps("thermal-curve-scenarios", width = 2.6, height = 4.7, type = TYPE)
-par(cex = 0.8, mgp = c(2.4, 0.55, 0), tck = -0.04, mfrow = c(5,1), mar = c(0,3,0,.5), oma = c(3, 0, .5, 0))
+par(cex = 0.8, mgp = c(2.4, 0.55, 0), tck = -0.04, mfrow = c(5,1), mar = c(0,3,0,.5), oma = c(3, 0, 1.5, 0))
     par(las = 1)
 
 par(xpd = FALSE)
@@ -47,7 +47,8 @@ axis(1, col = "grey50")
 par(xpd = NA)
 mtext("Ricker productivity parameter (a)", side = 2, outer = TRUE, line = -1.2, las = 0, cex = 0.7)
 #mtext(expression(Temperature~(degree*C)), side = 1, outer = FALSE, line = 2.5, las = 0, cex = 0.8)
-mtext(Illustrative~temperature~(degree*C), side = 1, outer = FALSE, line = 2.0, las = 0, cex = 0.7)
+mtext(Temperature~(degree*C), side = 1, outer = FALSE, line = 2.0, las = 0, cex = 0.7)
+mtext("Thermal tolerance curves for 10 populations", side = 3, line = 0.4, cex = 0.7, outer = TRUE, adj = 0.85)
 
 #abline(v = 16, lty = 2)
 #abline(v = c(16-3.5, c = 16+3.5), lty = 3)

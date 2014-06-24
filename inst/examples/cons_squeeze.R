@@ -95,7 +95,7 @@ w[[3]][-c(5:12)] <- 5 # conserve 8, wipe out the rest
 w[[4]][-c(3:14)] <- 5 # conserve 12, wipe out the rest
 w[[5]][-c(1:16)] <- 5 # conserve 16, wipe out the rest
 
-set.seed(1)
+set.seed(1279)
 cons_linear_arma_ts <- list()
 for(i in 1:length(w)) {
   use_cache <- ifelse(i == 1, FALSE, TRUE)
@@ -147,6 +147,11 @@ mtext("Metapopulation\nabundance", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
 par(xpd = NA)
 mtext("Generation", side = 1, line = 2, outer = FALSE, cex = 0.8)
+
+text(35, 400, "16 populations", pos = 4, col = cols[5])
+text(11, 4400, "2 populations", pos = 4, col = cols[2])
+
+
 par(xpd = FALSE)
 dev.off()
 
