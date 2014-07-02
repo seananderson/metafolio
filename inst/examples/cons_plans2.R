@@ -45,6 +45,9 @@ plot_sim_ts(eg_arma, years_to_show = 100, burn = 30, yticks = list(NA, NA, NA,
     NA, NA, NA, NA, c(2, 0, 2), NA, NA))
 dev.off()
 
+eg_arma <- meta_sim(b = rep(1000, 10), n_pop = 10, env_params = arma_env_params,
+  env_type = "arma", assess_freq = 5)
+
 pdf_eps("example-return-correlations", width = 5, height = 5, type = TYPE)
 plot_correlation_between_returns(eg_arma)
 dev.off()
