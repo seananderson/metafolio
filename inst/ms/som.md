@@ -20,22 +20,37 @@ Sean C. Anderson, Jonathan W. Moore, Michelle M. McClure, Nicholas K. Dulvy, And
 
 \bigskip
 
+
 The `metafolio` \textsf{R} package contains the functions and code to carry out the analyses in our paper.
-In an \textsf{R} console (version $\ge 3.0.0$), you can install `metafolio` by first setting your working directory with `setwd()` to wherever you saved the package and then running:
+`metafolio` will be submitted to CRAN and available through GitHub. Until then, you can download the package from:
+
+Mac:
+
+    https://dl.dropboxusercontent.com/u/254940/metafolio_0.3.2.tgz
+
+Windows:
+
+    https://dl.dropboxusercontent.com/u/254940/metafolio_0.3.2.zip
+
+Source code:
+
+    https://dl.dropboxusercontent.com/u/254940/metafolio_0.3.2.tar.gz
+
+
+In an \textsf{R} console (version $\ge 3.1.0$), you can install the package by first setting your working directory with `setwd()` to wherever you saved the package and running:
 
 ```
-# Install dependencies:
-install.packages(c("plyr", "colorspace"))
+# Install dependencies if needed:
+install.packages(c("Rcpp", "plyr", "colorspace", "MASS", "RcppArmadillo"))
 
-# Install the package:
-# OS X:
-install.packages("metafolio_0.3.0.tgz", repos = NULL)
+# Mac
+install.packages("metafolio_0.3.2.tgz", repos = NULL)
 
 # Windows:
-install.packages("metafolio_0.3.0.zip", repos = NULL)
+install.packages("metafolio_0.3.2.zip", repos = NULL)
 
 # Or, install from source if you have a C++ compiler installed:
-install.packages("metafolio_0.3.0.tar.gz", repos = NULL, type = "source")
+install.packages("metafolio_0.3.2.tar.gz", repos = NULL, type = "source")
 
 # Then load the package:
 library(metafolio)
@@ -71,7 +86,7 @@ Note that the simulations will take awhile to run (approximately 2--10 minutes g
 
 \textsc{Appendix C.} An example straying matrix.
 
-\renewcommand{\thefigure}{B\arabic{figure}}
+\renewcommand{\thefigure}{C\arabic{figure}}
 \setcounter{figure}{0}
 
 \begin{figure}[htbp]
