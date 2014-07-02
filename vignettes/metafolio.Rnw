@@ -59,27 +59,29 @@ change}. In this vignette we will describe the main functions in the
 paper, and demonstrate some of the included plotting functions for exploring
 the output.
 
-\section{Installing the package}
+\section{Loading the package and getting help}
 
 <<my-load-package, include=FALSE>>=
 library(metafolio)
 set.seed(1)
 @
 
-In an \texttt{R} console (version $\ge 3.0.0$), you can install \texttt{metafolio} by first setting your working directory with \texttt{setwd()} to wherever you saved the package and then running:
+%\texttt{metafolio} will be submitted to CRAN and available through GitHub. Until then, you can install the package as follows:
 
-<<install-source, eval=FALSE>>=
-# OS X:
-install.packages("metafolio_0.3.0.tgz", repos = NULL)
+%In an \texttt{R} console (version $\ge 3.1.0$), you can install \texttt{metafolio} by first setting your working directory with \texttt{setwd()} to wherever you saved the package and then running:
 
-# Windows:
-install.packages("metafolio_0.3.0.zip", repos = NULL)
-
-
-# Or, install from source if you have a C++ compiler installed:
-install.packages("metafolio_0.3.0.tar.gz", repos = NULL,
-  type = "source")
-@
+% <<install-source, eval=FALSE>>=
+% install.packages("devtools")
+% 
+% # OS X:
+% devtools::install("metafolio_0.3.0.tgz")
+% 
+% # Windows:
+% devtools::install("metafolio_0.3.0.zip")
+% 
+% # Or, install from source if you have a C++ compiler installed:
+% devtools::install("metafolio_0.3.0.tar.gz")
+% @
 
 %The development version of \texttt{metafolio} can be installed via \texttt{devtools}:
 %\textit{This website is a private repository while the paper is in review and so the following code will not work.}
