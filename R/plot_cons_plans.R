@@ -72,7 +72,7 @@ get_efficient_frontier <- function(m, v) {
 #'
 #' This makes a mean-variance plot of the portfolio output. It can take care of:
 #' plotting the individual portfolios, adding 2D kernel density polygons at two
-#' quantile levels, adding an efficient frontier.
+#' quantile levels, and adding an efficient frontier.
 #'
 #' @param plans_mv The \code{plans_mv} element of the output from
 #'   \code{\link{run_cons_plans}}.

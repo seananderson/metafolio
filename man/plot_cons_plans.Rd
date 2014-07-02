@@ -60,6 +60,6 @@ save those x and y limits to fix them in subsequent
 This makes a mean-variance plot of the portfolio output. It
 can take care of: plotting the individual portfolios,
 adding 2D kernel density polygons at two quantile levels,
-adding an efficient frontier.
+and adding an efficient frontier.
 }
 
