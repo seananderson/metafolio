@@ -49,13 +49,15 @@ Andrew B. Cooper\textsuperscript{2}
 
 The \texttt{metafolio} \texttt{R} package is a tool to simulate
 metapopulations and apply financial portfolio optimization concepts to those
-metapopulations. The package is primarily intended for salmon simulations,
-but could be adapted for other taxonomic groups. This vignette accompanies
-the paper \textit{Portfolio conservation of metapopulations under climate
-change}. In this vignette we will describe the main functions in the
-\texttt{metafolio} package, show how to re-create the main analyses in our
-paper, and demonstrate some of the included plotting functions for exploring
-the output.
+metapopulations. The package is primarily intended for salmon simulations, but
+could be adapted for other taxonomic groups. This vignette accompanies the
+paper \textit{Portfolio conservation of metapopulations under climate change},
+which is In Press at Ecological Applications. In this vignette we will
+describe the main functions in the \texttt{metafolio} package, show how to
+re-create the main analyses in our paper, and demonstrate some of the included
+plotting functions for exploring the output. You can get more detailed
+installation instructions, read the source code, and report bugs on GitHub:
+\url{https://github.com/seananderson/metafolio}
 
 \section{Loading the package and getting help}
 
@@ -90,9 +92,6 @@ set.seed(1)
   %dependencies = TRUE)
 %@
 
-%You can get more detailed installation instructions, read the source code, and
-%report bugs on GitHub: \url{https://github.com/seananderson/metafolio}  (\textit{This website is a
-%private repository while the paper is in review.})
 
 You can load the package with:
 
