@@ -1,22 +1,18 @@
 ## R package to simulate metapopulations for portfolio optimization
 
-Reusable functions are part of the package in the `R` folder. Current work in development, figures, and writing are in the `inst` folder.
+The metafolio R package accompanies the paper: 
+
+Anderson, S.C., J.W. Moore, M.M. McClure, N.K. Dulvy, A.B. Cooper. Portfolio conservation of metapopulations under climate change. Ecological Applications. In press.
 
 See `inst/examples/README.R` for the analysis from the paper.
 
 See `inst/ms/ms.md` for the paper itself.
 
-See the vignette in `inst/doc/metafolio.pdf` or by installing the package and running the code as outlined below.
-
-This is ongoing work for a PhD thesis chapter (by Sean Anderson). Until this work is published, please contact Sean (sean "at" seananderson.ca) before using the code in any of your own work that will be published.
-
-The package can be installed and loaded in `R` by running:
+The package can be installed by running:
 
 ```S
-# install.packages("devtools") # if not already installed
-devtools::install_github("metafolio", "seananderson", auth_user = "YOUR-GITHUB-USER-NAME",
-  password = "YOUR-GITHUB-PASSWORD", dependencies = TRUE)
-library(metafolio)
+install.packages("devtools")
+devtools::install_github("seananderson/metafolio")
 ```
 
 For help see:
