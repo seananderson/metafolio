@@ -15,8 +15,8 @@ Depends:
     R (>= 3.1.0)
 LinkingTo: Rcpp, RcppArmadillo
 Imports:
-    Rcpp (>= 0.11.0),
-    RcppArmadillo,
+    Rcpp (>= 0.11.2),
+    RcppArmadillo (>= 0.4.300.8.0),
     plyr,
     colorspace,
     MASS
