@@ -8,7 +8,7 @@ See `inst/examples/README.R` for the analysis from the paper.
 
 See `inst/ms/ms.md` for the paper itself.
 
-If you have the necessary package development prerequisites installed, you can install the package by running:
+If you have the [necessary package development prerequisites](https://support.rstudio.com/hc/en-us/articles/200486498) installed, you can install the package by running:
 
 ```S
 install.packages("devtools")
