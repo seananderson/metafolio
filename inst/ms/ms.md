@@ -598,6 +598,7 @@ Given \R{B2:2}a reduction in stream flow over time along with climate change and
 climate variability, a manager encounters a risk-return trade-off when deciding
 how many populations to distribute conservation efforts across
 (Fig. \ref{f:squeeze}). Conserving more populations buffers portfolio risk, but
+(Fig. \ref{f:squeeze}; \somts\ Figs. \ref{f:eg-n-squeeze-two}, \ref{f:eg-n-squeeze-twelve}). Conserving more populations buffers portfolio risk, but
 at the expense of expected metapopulation growth rate. For example, the mean
 metapopulation variance was 2.7 times lower when 12 populations were conserved
 instead of four, but the expected metapopulation growth rate was 2.0 times lower
