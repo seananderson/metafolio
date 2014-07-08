@@ -68,35 +68,35 @@ against rising climate variability,
 and this theory is often invoked as a reason for greater conservation.
 However, this has rarely been quantified.
 Here we show how a portfolio approach to
-managing population diversity can inform metapopulation conservation priorities 
-in a changing world. 
+managing population diversity can inform metapopulation conservation priorities
+in a changing world.
 We develop a salmon metapopulation
 model where productivity is driven by
-spatially-distributed thermal tolerance 
+spatially-distributed thermal tolerance
 and patterns of short- and long-term
-climate change. 
+climate change.
 We then implement spatial conservation scenarios that control
-population carrying capacities 
+population carrying capacities
 and evaluate the metapopulation portfolios as
-a financial manager might --- along axes of conservation risk and return. 
+a financial manager might --- along axes of conservation risk and return.
 We show that
 preserving a diversity of thermal tolerances
 minimizes risk given environmental stochasticity
-and ensures persistence given long-term environmental change. 
-When the thermal tolerances of populations are unknown, 
+and ensures persistence given long-term environmental change.
+When the thermal tolerances of populations are unknown,
 doubling the number of populations conserved may nearly halve
 metapopulation variability.
 However, this reduction in variability
 can come at the expense of long-term persistence
 if climate change increasingly restricts available habitat ---
-forcing ecological managers to balance society's desire 
+forcing ecological managers to balance society's desire
 for short-term stability and long-term viability.
-Our findings suggest the importance of conserving the processes 
+Our findings suggest the importance of conserving the processes
 that promote thermal-tolerance diversity, such as
 genetic diversity, habitat heterogeneity, and natural disturbance regimes,
 and demonstrate that diverse natural portfolios may be critical for
 metapopulation conservation in the face of increasing climate variability
-and change. 
+and change.
 
 <!--, may-->
 <!--be critical to conserving metapopulations in the face of climate variability and-->
@@ -175,7 +175,7 @@ conditions could represent the financial market conditions.
 Given this
 interpretation, ecological managers could consider how various conservation
 strategies affect the expected risk and return of their ecological portfolio.
-\R{B2:4}These risk and return elements are central
+These risk and return elements are central
 to ecological management and conservation ---
 management aims to ensure stability
 over environmental variability (risk),
@@ -184,7 +184,7 @@ Different scenarios may suggest different desired tradeoffs between the two.
 For example, a manager with a healthy population
 might prioritize short-term stability,
 while a manager with an endangered population might try to balance the two,
-or prioritize population growth great initially.
+or prioritize population growth initially.
 
 Managing Pacific salmon under the uncertainty of climate change is an ideal
 scenario to consider through the lens of portfolio theory for four reasons. (1)
@@ -202,7 +202,7 @@ metapopulations are highly threatened [e.g. @gustafson2007] and will likely
 become more at risk as threats such as overfishing, damming, logging, and
 particularly changing climate, intensify [e.g. @lackey2003]. Indeed, recovery
 goals for Pacific salmon are often set at the metapopulation level
-[@mcelhany2000]\R{A3}, and knowing what minimizes risk to the metapopulation can
+[@mcelhany2000], and knowing what minimizes risk to the metapopulation can
 help choose efficient conservation actions [@policansky1998; @mcelhany2000]. (4)
 Given the scale and variety of the threats facing salmon, some prioritization
 will be required to recover these highly-valued, even iconic species
@@ -223,8 +223,10 @@ In addition to posing perhaps the greatest threat to global biodiversity in
 general [@thomas2004], climate warming poses a particular threat to riverine
 species whose ranges are largely confined to existing habitat [@thomas2010].
 Among these species, salmon are strongly affected by climate warming [e.g.
-@patterson2007], but within a range, show a remarkable diversity of tolerance to
-temperature [e.g. @crozier2008; @eliason2011]. Warmer water can lead to massive
+@patterson2007].
+<!--, but within a range, show a remarkable diversity of tolerance to-->
+<!--temperature [e.g. @crozier2008; @eliason2011]. -->
+Warmer water can lead to massive
 mortality of salmon populations [e.g. @patterson2007] and indirectly impact
 salmon productivity through alterations to snow-melt timing and extreme
 hydrological events [@crozier2008]. Due to these effects, adverse stream
@@ -271,7 +273,7 @@ described in this paper (\somR).
 
 In our ecological portfolios, we defined assets as stream-level populations and
 portfolios as salmon metapopulations.
-\R{B1}The specific configuration of our model refers to salmon
+The specific configuration of our model refers to salmon
 that spend extended time rearing in freshwaters
 (e.g. steelhead [*Oncorhynchus mykiss*],
 sockeye salmon [*O. nerka*],
@@ -332,7 +334,7 @@ a stream was represented by a larger unfished equilibrium stock size $b$ for
 stream $i$. The productivity parameters $a_{i(t)}$ were controlled by the
 interaction between a temperature time series and the population
 thermal-tolerance performance curves.
-\R{A5}In a different context,
+In a different context,
 investment could represent improving the productivity ($a_i$) parameters,
 say through culling, to offset mortality increases due to changing temperatures.
 However, such a scenario is unlikely
@@ -393,9 +395,9 @@ open-access fishery, for the first 30 years we drew the fraction of fish
 harvested randomly from a uniform distribution between 0.1 and 0.9. We discarded
 these initial 30 years as a burn-in period. Then, every five years for the
 remaining 100 years of our simulation, we fitted a spawner-return function to
-the cumulative data for individual \R{A7}populations. \R{A8}The target escapement
+the cumulative data for individual populations. The target escapement
 rate $E_{\mathrm{tar}}$ (a proportion per year) was set based on @hilborn1992
-as\R{A8}
+as
 
 $$E_{\mathrm{tar}} = \frac{R}{b (0.5 - 0.07a)} \label{eq:esc}$$
 
@@ -499,7 +501,7 @@ the remaining streams to the nominal level of $b_i = 5$.
 
 <!--TODO adjust wording a bit more:-->
 
-*Declining habitat availability*: \R{B2:1}Habitat capacity in the Pacific Northwest is
+*Declining habitat availability*: Habitat capacity in the Pacific Northwest is
 likely shrinking over time as salmon populations are squeezed between warming
 temperatures reducing habitat from below and declining stream flows reducing
 the habitat that remains from above. For example, temperature isotherms are shifting
@@ -515,7 +517,7 @@ within this century [e.g. @gustafson2007]. In this scenario, we considered
 cases where thermal tolerance was unknown but conservation effort
 could be distributed across between 16 and two streams. Climate followed
 a combination of the same long-term warming and short-term variability as
-before. For many metapopulations, this scenario represents the most realistic
+before. For many Pacific salmon metapopulations, this scenario represents the most realistic
 scenario investigated.
 
 <!--TODO-->
@@ -594,10 +596,9 @@ tolerances.
 
 ## Declining habitat availability
 
-Given \R{B2:2}a reduction in stream flow over time along with climate change and
+Given a reduction in stream flow over time along with climate change and
 climate variability, a manager encounters a risk-return trade-off when deciding
 how many populations to distribute conservation efforts across
-(Fig. \ref{f:squeeze}). Conserving more populations buffers portfolio risk, but
 (Fig. \ref{f:squeeze}; \somts\ Figs. \ref{f:eg-n-squeeze-two}, \ref{f:eg-n-squeeze-twelve}). Conserving more populations buffers portfolio risk, but
 at the expense of expected metapopulation growth rate. For example, the mean
 metapopulation variance was 2.7 times lower when 12 populations were conserved
@@ -613,7 +614,7 @@ growth rate.
 The importance of conserving populations with
 a diversity of responses to the environment is a key assumption of
 conservation ecology, but has rarely been tested quantitatively [@mori2013]. We
-show how maintaining populations with a variety of thermal-tolerances reduces
+show how maintaining populations with a variety of thermal tolerances reduces
 risk caused by short-term environmental stochasticity and optimizes chances for
 long-term persistence given climate change.
 Further, conserving more populations reduces metapopulation variability
@@ -650,9 +651,9 @@ face of global warming.
 
 The goals of existing salmon management structures in the western US and Canada
 support a portfolio conservation perspective. In the US, salmon populations are
-divided into Evolutionarily Significant Units (ESUs) --- groups of populations
-that are reproductively isolated and share a common evolutionary heritage ---
-and finer-scale Viable Salmonid Populations (VSPs) --- populations that are
+divided into Evolutionarily Significant Units (ESUs), groups of populations
+that are reproductively isolated and share a common evolutionary heritage,
+and finer-scale Viable Salmonid Populations (VSPs), populations that are
 demographically independent of other populations over a 100-year time frame
 [@mcelhany2000]. In Canada, the rough equivalent to the ESU is a Conservation
 Unit (CU), which consists of a group of salmon that are reproductively isolated
@@ -722,22 +723,22 @@ While our model captures many relevant aspects
 of salmon life history and environmental dynamics,
 it ignores others that could be investigated in future analyses
 and possibly improve our understanding of salmon portfolio conservation.
-\R{B3:1}First, some salmon populations,
+First, some salmon populations,
 such as ocean-type Chinook,
 tend to spawn further downstream than stream-type salmon.
 Ocean-type Chinook may therefore be less affected by declining stream flow
 and be able to shift upstream to avoid shifting isotherms [@mantua2010].
 A model could consider
 evolutionary adaptation
-by having populations adopt more ocean-type-like \R{B3:2}characteristics.
-\R{A6}Second, our model ignores lost thermal-tolerance diversity from populations
+by having populations adopt more ocean-type-like characteristics.
+Second, our model ignores lost thermal-tolerance diversity from populations
 that reach low population sizes
 and are reestablished by straying from nearby streams.
 An individual-based model might more accurately penalize for this lost diversity
 and emphasize the need to define lower limits
 on the investment weights in a salmon conservation portfolio.
-Third, our model ignores fine-scale within-stream temperature variation and fine-scale temporal fluctuations.
-These fine-scale extremes in temperature and stream flow
+Third, our model ignores fine-scale within-stream spatial and temporal environmental fluctuations.
+Fine-scale extremes in temperature and stream flow
 may be particularly important to population dynamics [@mantua2010] and could be incorporated into a future analysis.
 Such a model might show an increased benefit of portfolio optimization if the impact of increased magnitude and frequency of local climate extremes is important in addition to the mean trend [@jentsch2007].
 
@@ -808,7 +809,7 @@ a formal decision analysis.
 <!--society might care more about absolute abundance --- low-growth-high-abundance-->
 <!--systems might be preferred to high-growth-low-abundance systems.-->
 
-Management \R{B2:3}decisions \R{A4:1}for exploited species often come
+Management decisions for exploited species often come
 with a trade-off between conservation and revenue generation.
 Our findings when habitat capacity declined over time illustrate
 another kind of trade-off more similar to the trade-off
