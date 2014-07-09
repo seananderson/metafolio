@@ -278,21 +278,21 @@ List metasim_base(
     // set escapement based on these.
     // Random fishery for first X years, establish S-R data to work with:
     NumericVector escapement_goals(n_pop);
-    if (i < min(assess_years - 2)) {
+    if (i < min(assess_years - 2.0)) {
       escapement_goals = A(i,_) * r_escp_goals(i,_);
     }
     // in first year, start at true b
-    if (i == min(assess_years - 2)) {
+    if (i == min(assess_years - 2.0)) {
       Est_b(i, _) = b;
       escapement_goals = A(i,_) * r_escp_goals(i,_);
     }
     // otherwise, we need to assess or use the last assessment
-    if (i >= min(assess_years - 1)) {
-      if (is_element(i, assess_years - 1)) {
+    if (i >= min(assess_years - 1.0)) {
+      if (is_element(i, assess_years - 1.0)) {
         for (int j = 0; j < n_pop; ++j) {
           NumericVector recruits(i-2), spawners(i-2);
           for (int k = 2; k < i; ++k) { // R and S up to now
-            recruits(k-2) = A(k, j); // A(2:i, j); TODO check this is correct
+            recruits(k-2) = A(k, j); // A(2:i, j);
             spawners(k-2) = E(k-1, j); // E(1:(i - 1), j)
           }
           NumericVector rick;
