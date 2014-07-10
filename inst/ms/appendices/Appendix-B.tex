@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+
+\usepackage[round]{natbib}
+\bibpunct{}{}{;}{a}{}{}
+\setlength\parindent{0in}
+\usepackage[originalparameters]{ragged2e}
+\usepackage{array}
+\usepackage{booktabs}
+
+\begin{document}
+
+\textbf{Sean C. Anderson, Jonathan W. Moore, Michelle M. McClure, Nicholas K. Dulvy, Andrew B. Cooper. 2014. Portfolio conservation of metapopulations under climate change. Ecological Applications. VOL:pp--pp.}
+
+\bigskip
+
+\textsc{Appendix B.} Simulation input parameters and default values.
+
+\bigskip
+
+\begin{table}[h!]
+\centering
+\footnotesize
+\caption{Input parameters to the salmon metapopulation simulation with default values.}
+\smallskip
+\begin{tabular}{>{\RaggedRight}p{7.8cm}p{1.1cm}p{2.5cm}>{\RaggedRight}p{3.3cm}}
+\toprule
+Description                                                          & Symbol                & Value                  & Reference  \\
+\midrule
+
+\textit{Population dynamics parameters}                              &                       &                        &             \\
+Stock-recruit residual standard deviation (on log scale)             & $\sigma_r$            & 0.7                    & \citep{thorson2014a}  \\
+AR(1) serial correlation of stock-recruit residuals                  & $\rho_w$              & 0.4                    & \citep{thorson2014a}  \\
+Fraction of fish that stray from natal streams                       & $f_{\mathrm{stray}}$  & 0.02                   & \citep{quinn2005} and references therein  \\
+Exponential rate of decay of straying with distance                  & $m$                   & 0.1                    & \citep{cooper1999}      \\
+Range of maximum productivities                                      & $a_i^{\mathrm{max}}$  & 2.2--2.9             &  \citep{dorner2008}   \\
+
+\noalign{\vskip 3mm}
+\textit{Environmental parameters}                                    &                       &                        &             \\
+Width parameter for thermal-tolerance curves for populations $i$ 1 to $n$  (values generate widths in line with listed references) & $W_i$                 & 0.08--0.04--0.08       &  \citep{brett1952, eliason2011}           \\
+Optimum environmental value for populations $i$ 1 to $n$             & $e_i^{\mathrm{opt}}$  & 13--19                 &  \citep{eliason2011}           \\
+Standard deviation of annual temperature fluctuations          & $\sigma_d$            & 2                      & \citep{eliason2011}      \\
+AR(1) autocorrelation of annual temperature fluctuations       & $\rho_e$              & 0.1                    &             \\
+Annual increase in stream temperature in degrees Celcius             & $\beta_e$             & 0.04                   & \citep{mantua2010}     \\
+
+\noalign{\vskip 3mm}
+\textit{Fishery parameters}                                          &                       &                        &             \\
+Standard deviation of beta distribution for implementation error     & $\sigma_{h}$          & 0.1                    & \citep{pestes2008}            \\
+Frequency of assessment (years)                                      & $f_{\mathrm{assess}}$ & 5                      &             \\
+\bottomrule
+\end{tabular}
+\label{t:pars}
+\end{table}
+\clearpage
+
+%\bibliographystyle{ecology3}
+%\bibliography{jshort,ms}
+\begin{thebibliography}{8}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Brett(1952)}]{brett1952}
+Brett, J.~R.
+\newblock 1952.
+\newblock Temperature Tolerance in Young Pacific Salmon, Genus
+  \textit{Oncorhynchus}.
+\newblock J. Fish. Res. Bd. Can. 9:265--323.
+
+\bibitem[{Cooper and Mangel(1999)}]{cooper1999}
+Cooper, A.~B., and M.~Mangel.
+\newblock 1999.
+\newblock The dangers of ignoring metapopulation structure for the conservation
+  of salmonids.
+\newblock Fish. Bull. 97:213--226.
+
+\bibitem[{Dorner et~al.(2008)Dorner, Peterman, and Haeseker}]{dorner2008}
+Dorner, B., R.~M. Peterman, and S.~L. Haeseker.
+\newblock 2008.
+\newblock Historical trends in productivity of 120 {Pacific} pink, chum, and
+  sockeye salmon stocks reconstructed by using a {Kalman} filter.
+\newblock Can. J. Fish. Aquat. Sci. 65:1842--1866.
+
+\bibitem[{Eliason et~al.(2011)Eliason, Clark, Hague, Hanson, Gallagher,
+  Jeffries, Gale, Patterson, Hinch, and Farrell}]{eliason2011}
+Eliason, E.~J., T.~D. Clark, M.~J. Hague, L.~M. Hanson, Z.~S. Gallagher, K.~M.
+  Jeffries, M.~K. Gale, D.~A. Patterson, S.~G. Hinch, and A.~P. Farrell.
+\newblock 2011.
+\newblock Differences in thermal tolerance among sockeye salmon populations.
+\newblock Science 332:109--112.
+
+\bibitem[{Mantua et~al.(2010)Mantua, Tohver, and Hamlet}]{mantua2010}
+Mantua, N., I.~Tohver, and A.~Hamlet.
+\newblock 2010.
+\newblock Climate change impacts on streamflow extremes and summertime stream
+  temperature and their possible consequences for freshwater salmon habitat in
+  {Washington State}.
+\newblock Climatic Change 102:187--223.
+
+\bibitem[{Pestes et~al.(2008)Pestes, Peterman, Bradford, and Wood}]{pestes2008}
+Pestes, L.~R., R.~M. Peterman, M.~J. Bradford, and C.~C. Wood.
+\newblock 2008.
+\newblock Bayesian decision analysis for evaluating management options to
+  promote recovery of a depleted salmon population.
+\newblock Conserv. Biol. 22:351--361.
+
+\bibitem[{Quinn(2005)}]{quinn2005}
+Quinn, T.~P.
+\newblock 2005.
+\newblock The Behaviour and Ecology of Pacific Salmon and Trout.
+\newblock American Fisheries Society, Bethesda, Maryland.
+
+\bibitem[{Thorson et~al.(2014)Thorson, Jensen, and Zipkin}]{thorson2014a}
+Thorson, J.~T., O.~P. Jensen, and E.~F. Zipkin.
+\newblock 2014.
+\newblock How variable is recruitment for exploited marine fishes? A
+  hierarchical model for testing life history theory.
+\newblock Can. J. Fish. Aquat. Sci. 71:973--983.
+
+\end{thebibliography}
+
+\end{document}

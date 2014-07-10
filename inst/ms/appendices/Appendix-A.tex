@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+
+\setlength\parindent{0in}
+
+\begin{document}
+
+\textbf{Sean C. Anderson, Jonathan W. Moore, Michelle M. McClure, Nicholas K. Dulvy, Andrew B. Cooper. 2014. Portfolio conservation of metapopulations under climate change. Ecological Applications. VOL:pp--pp.}
+
+\bigskip
+
+\textsc{Appendix A.} The \texttt{metafolio} \textsf{R} package.
+
+\bigskip
+
+The \texttt{metafolio} \textsf{R} package contains the functions and code to carry out the analyses in our paper. \texttt{metafolio}. The package can be installed from CRAN with:
+
+\begin{verbatim}
+install.packages("metafolio")
+\end{verbatim}
+
+%Alternatively, you can view the code and install the package from\\ \texttt{http://github.com/seananderson/metafolio}
+%\bigskip
+
+The included vignette describes the package and illustrates some example simulations. You can view the vignette with:
+
+\begin{verbatim}
+vignette("metafolio")
+\end{verbatim}
+
+You can view the help for the package with:
+
+\begin{verbatim}
+?metafolio
+help(package = "metafolio")
+\end{verbatim}
+
+The figures from this paper can be re-created by downloading the code from GitHub and sourcing the file \texttt{README.R} in the \texttt{inst/examples} folder:
+
+\begin{verbatim}
+setwd("metafolio/inst/examples")
+source("README.R")
+\end{verbatim}
+
+\end{document}
