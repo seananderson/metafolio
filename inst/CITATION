@@ -4,16 +4,18 @@ year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
 
 citEntry(entry = "Manual",
-  title        = paste("metafolio: An R package to simulate metapopulations", 
-                       "for ecological portfolio optimization"),
+  title        = paste("metafolio: Salmon metapopulation simulations",
+                       "for conservation planning through portfolio", 
+                       "optimization"),
   author       = personList(as.person("Sean C. Anderson")),
   year         = year,
   note         = vers,
   textVersion  =
   paste("Anderson, SC (",
         year,
-        "). metafolio: An R package to simulate metapopulations ",
-        "for ecological portfolio optimization. ", vers, ".", sep = "")
+        "). metafolio: Salmon metapopulation simulations for ",
+        "conservation planning through portfolio optimization. ", 
+        vers, ".", sep = "")
 )
 
 citEntry(entry = "Article",
