@@ -160,8 +160,8 @@ cached values first. If you're running many iterations of
 iteration should have both cache arguments set to
 \code{FALSE}, and subsequent runs can set one or both to
 \code{TRUE}. Internally, \code{meta_sim} caches by writing
-the appropriate data to a \code{.rda} file in the current
-working directory.
+the appropriate data to an \code{.rda} file in a temporary
+directory.
 }
 \examples{
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)

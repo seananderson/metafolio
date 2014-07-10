@@ -16,10 +16,8 @@ A named list with components \code{a} for the intercept and
 }
 \description{
 Fit a Ricker curve to spawner-recruit data and return the
-intercept (a) and slope (b). This function uses
-\code{\link[stats]{lm.fit}} by directly specifying the
-model matrix. This is about an order of magnitude faster
-than \code{\link[stats]{lm}}.
+intercept (a) and slope (b). The model is fit via the
+\pkg{RcppArmadillo} package for speed..
 }
 \examples{
 S <- seq(100, 1000, length.out = 100)
