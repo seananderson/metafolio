@@ -129,7 +129,7 @@ to ecological management and conservation ---
 management aims to ensure stability
 over environmental variability (risk),
 and increase population abundance (return).
-Different scenarios may suggest different desired tradeoffs between the two.
+Different scenarios may suggest different desired trade-offs between the two.
 For example, a manager with a healthy population
 might prioritize short-term stability,
 while a manager with an endangered population might try to balance the two,
@@ -474,7 +474,7 @@ conserving a wide range of thermal tolerances is the safest choice because it re
 risk to an ecological portfolio (Fig. \ref{f:sp}a; \somts\ Figs.
 \ref{f:eg-sp-arma-full}, \ref{f:eg-sp-arma-half}). The average variance of
 metapopulation growth rate was 1.6 times lower given balanced thermal tolerance conservation
-(conserving a full range of thermal tolerances or the middle section vs. the
+(conserving a full range of thermal tolerances or the middle section vs. the
 upper or lower half). Thermal tolerance diversity also led to more consistent
 stability --- there was less spread in variance across simulated metapopulations
 (width of quantiles from left to right in Fig. \ref{f:sp}a). These increases in
@@ -486,7 +486,7 @@ We can see the mechanism behind these
 portfolio properties by inspecting example population time series (Fig.
 \ref{f:sp}c, d). If only the upper or lower half of thermal tolerances is
 conserved, the portfolio tends to alternate between performing well and poorly,
-depending on the environmental conditions, resulting in a risker portfolio (Fig.
+depending on the environmental conditions, resulting in a riskier portfolio (Fig.
 \ref{f:sp}e). This risk is buffered when a diversity of thermal tolerances is conserved (Fig.
 \ref{f:sp}c) and the resulting asynchrony in population abundance (\somcor).
 
@@ -639,21 +639,6 @@ replace these prioritization schemes. Rather, it proposes an additional focus on
 prioritization that optimizes metapopulation growth *and* risk and that considers
 diversity of tolerance to environmental conditions.
 
-<!--Notes from MMM on stream-type ocean-type part:
-We need to be careful with this.  Some stream-type ESUs are highly genetically
-distinct from others (Interior Columbia and Fraser River Chinook are extremely
-separated genetically from all other stocks.  However, many folks have gotten in
-the habit of calling populations within primarily coastal ESUs/stocks ocean-type
-and stream-type.  In this case, the fish expressing the two life-history types
-are very closely related.    In this latter, case, your sentence holds.  In the
-former case (i.e. were stream-type Snake River chinook to be replaced by
-ocean-type Snake River Chinook, this would effectively be the extinction of an
-ESU.    A way to finess this might be to talk about the model incorporating
-evolutionary adaptation to change, by having ESUs/metapopulations adopt more
-"ocean-type" characteristics. Happy to talk about this issue more or write some
-text if you'd like me to.  I am working over the weekend (at a Council meeting),
-so no worries about sending me something. -->
-
 While our model captures many relevant aspects
 of salmon life history and environmental dynamics,
 it ignores others that could be investigated in future analyses
@@ -690,7 +675,7 @@ air quality, water chemistry, or extreme weather [@elmqvist2003]. Identifying
 conservation actions that promote environmental response diversity is critical
 to developing stable ecological systems [@mori2013]. However, merely measuring
 environmental response diversity in real ecological systems is challenging
-[albiet possible; @thibaut2012]. Therefore, one realistic solution may be to create
+[albeit possible; @thibaut2012]. Therefore, one realistic solution may be to create
 general guidelines from a small number of intensively-monitored systems in which
 we can associate changes in synchrony of populations with changes in
 conservation regimes [e.g. @moore2010; @carlson2011].
@@ -774,4 +759,3 @@ was provided by Simon Fraser University, NSERC (ABC, NKD, SCA), the Canada
 Research Chairs Program (NKD), the Liber Ero Chair of Coastal Science and
 Management (JWM), Fulbright Canada (SCA), and a Garfield Weston Foundation/B.C.
 Packers Ltd. Graduate Fellowship in Marine Sciences (SCA).
-
