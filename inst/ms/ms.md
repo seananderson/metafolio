@@ -1,31 +1,3 @@
-<!--TODO Change opening of abstract:-->
-<!--TODO risk to extinction risk-->
-<!--TODO return to conservation return --- also see rate of return-->
-
-<!--The sentence spanning line 28-30 is the key result and then you just added to it. Can I suggest you break into to sentences or think about dropping the second clause. Up to this point there are no system specific details and then you say the word "stream" which suddenly makes me want to know all the natural history. Can you either embrace the natural history and say something specific about the study system and species or step back to the bigger picture and state that the metapopulation growth rate declines as climate change reduces the availability of breeding habitat.-->
-
-<!--TODO embrace natural history in abstract - salmon that spend time in streams, reduced stream flow...-->
-
-<!--If this approach is suitable it may be worth propagating into the introduction.-->
-
-<!--TODO propogate these changes into the introduction-->
-
-<!--You need a key or labeling for the lines in figure 2, 5, 6, just to save the reader from reading. Something is required to aid the reader with fig 3. maybe just a note or label to highlight what each individual line means.- Maybe just state on figure that individual lines represent individual populations.-->
-
-<!--TODO State in Figure 2 and 3 that lines rep. populations-->
-
-
-<!--\setlength{\parskip}{4pt}-->
-
-<!--Words: 6550-->
-
-<!--# Portfolio conservation of metapopulations under climate change-->
-
-<!--\bigskip-->
-
-<!--Sean C. Anderson^1\*^, Jonathan W. Moore^1,2^, Michelle M. McClure^3^, Nicholas K. Dulvy^1^,-->
-<!--Andrew B. Cooper^2^-->
-
 \noindent
 ^1^Earth to Ocean Research Group, Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A
 1S6, Canada
@@ -47,19 +19,8 @@ Phone: 1-778-782-3989; E-mail:
 sean_anderson@sfu.ca
 
 \clearpage
-<!--\setlength{\parskip}{18pt}-->
 
 # Abstract
-
-<!--350 words for articles-->
-<!--60 pages total-->
-
-<!--Here, we show that the risk of climate variability is halved when the number of population conserved is doubled, by applying ecological portfolio approach to the population diversity of thermal responses.-->
-<!--The mechanisms underlying the stability of ecological systems are a key focus of-->
-<!--ecology and increasingly important given the rate and magnitude of biodiversity-->
-<!--loss and environmental change. The stabilizing role of one such mechanism,-->
-<!--diversity of response to the environment, is a widely-held tenet of ecology, but-->
-<!--has rarely been quantitatively tested. -->
 
 Climate change will likely lead
 to increasing population variability and extinction risk.
@@ -98,16 +59,6 @@ and demonstrate that diverse natural portfolios may be critical for
 metapopulation conservation in the face of increasing climate variability
 and change.
 
-<!--, may-->
-<!--be critical to conserving metapopulations in the face of climate variability and-->
-<!--change.-->
-
-<!--This pathway highlights that-->
-<!--diverse natural portfolios may be critical for the conservation of-->
-<!--metapopulations in the face of increasing climate variability and change.  -->
-
-<!--*TODO Change last sentence to include something about illustrating a trade-off in conservation? Maybe we should move beyond response diversity as our only conclusion?*-->
-
 \noindent
 \textit{Keywords}:
 biocomplexity,
@@ -123,8 +74,6 @@ stochastic simulation
 
 \noindent
 \textit{Running head}: Metapopulation portfolio conservation
-
-<!--\clearpage-->
 
 # Introduction
 
@@ -265,7 +214,7 @@ implementation uncertainty (Fig. \ref{f:flowchart}). We tested different
 conservation scenarios under two kinds of environmental regimes
 (short-term climate variability and long-term climate change) and
 in cases where habitat capacity remained constant or declined over time.
-We provide a package `metafolio` for the statistical software
+We provide a package `metafolio` [@metafoliopkg] for the statistical software
 \textsf{R} [@r2013] as an appendix, to carry out the simulations and analyses
 described in this paper (\somR).
 
@@ -458,8 +407,6 @@ ending at or above the optimum thermal optimum
 of all populations.
 This increase approximately matches predicted increases in stream temperature --- relative to the 1980s, stream temperatures in the Pacific Northwest have already increased by approximately $0.2\,^{\circ}\mathrm{C}$/decade [@isaak2012], and are predicted to increase $2$ to $5\,^{\circ}\mathrm{C}$ by 2080 [@mantua2010].
 
-<!--TODO one generation = one year?-->
-
 We summarize the chosen parameter values in \somparam.
 Combining salmon population dynamics,
 fishing, and environmental dynamics,
@@ -499,8 +446,6 @@ two to 16 streams with thermal tolerance distributed along the same range as in
 the spatial scenarios. As in the spatial strategies, we reduced the capacity of
 the remaining streams to the nominal level of $b_i = 5$.
 
-<!--TODO adjust wording a bit more:-->
-
 *Declining habitat availability*: Habitat capacity in the Pacific Northwest is
 likely shrinking over time as salmon populations are squeezed between warming
 temperatures reducing habitat from below and declining stream flows reducing
@@ -519,11 +464,6 @@ could be distributed across between 16 and two streams. Climate followed
 a combination of the same long-term warming and short-term variability as
 before. For many Pacific salmon metapopulations, this scenario represents the most realistic
 scenario investigated.
-
-<!--TODO-->
-<!--http://www.aslo.net/lo/toc/vol_41/issue_5/1109.pdf-->
-<!--max. tolerance for chinook - 24C-->
-<!--\citep{eaton1996}-->
 
 # Results
 
@@ -579,20 +519,15 @@ thermal tolerances creates an increased spread of possible metapopulation risk
 given fewer populations conserved
 (increasing quantile width from left to right in Fig. \ref{f:n}a).
 
-*Given long-term environmental change*, conserving more populations buffers
+*Given long-term environmental change*, conserving more populations also buffers
 portfolio risk (Fig. \ref{f:n}b; \somts\ Figs. \ref{f:eg-n-linear-two},
-\ref{f:eg-n-linear-sixteen}). The metapopulation growth rate of the 16
-population scenario was on average 1.9 less variable than the eight population
-scenario and 6.4 times less variable than the two population scenario. In
-contrast to the short-term environmental noise scenario, with long-term
-environmental change, the unknown thermal tolerances create a greater spread of
-possible metapopulation growth rates. Higher population numbers decreases this
-spread. For example, the width of the 75% quantile of the mean metapopulation
-growth rate was 1.5 times narrower for the metapopulations with 16 conserved
-populations compared to the metapopulations with eight. Here, the number of
-conserved populations buffers non-systematic (primarily demographic)
-stochasticity as well as averaging across populations with a variety of thermal
-tolerances.
+\ref{f:eg-n-linear-sixteen}). Furthermore, in
+comparison to the short-term environmental noise scenario, the long-term
+environmental change creates a greater spread of
+possible metapopulation growth rates. 
+For example, the height of the 75% quantile of the mean metapopulation
+growth rate for the two-population systems (light grey polygons) 
+is larger given long-term change than short-term change.
 
 ## Declining habitat availability
 
@@ -766,8 +701,6 @@ know that traits affecting response to environmental conditions are heritable
 and are likely to adapt to local conditions [@carlson2011] possibly producing
 diversity of response to subsequent disturbances.
 
-<!--*TODO some of this following paragraph now slightly overlaps with the last paragraph in the previous section. OK? Combine them? One is meant to be salmon specific and the other generic.*-->
-<!--*MMM: My inclination would be to combine them, and say that they could be expanded to other species as well.  End on a good solid conclusion note.*-->
 We suggest a number of specific extensions to our simulation model. First, the
 environment-thermal-tolerance mechanism could be expanded --- the distribution
 of environmental tolerance across a metapopulation does not necessarily follow
@@ -786,28 +719,6 @@ Finally, our model could be conditioned on a system of interest --- say
 a particular river basin in our example --- and the metapopulation portfolio
 could be optimized across conservation and restoration options as part of
 a formal decision analysis.
-
-<!--*TODO I'm wondering about cutting this paragraph... possibly moving a couple of the points and references into other paragraphs. Thoughts?*-->
-<!--*MMM: ...I think this paragraph could be cut, and the key points made into topic sentences for other paragraphs.*-->
-<!--Our results suggest three broad ecological research priorities. First, it is important to identify the traits that underpin response diversity [e.g. @eliason2011], spatial asynchrony [e.g. @thorson2014; @yeakel2014], and in particular the management schemes that promote these processes [@moore2010; @schindler2010; @carlson2011]. -->
-<!--Our work highlights how these processes can-->
-<!--contribute to reducing risk and increasing the likelihood of metapopulation-->
-<!--persistence given environmental uncertainty. -->
-<!--Furthermore, it is likely that-->
-<!--these same spatial processes can act within individual populations [@kerr2010].-->
-<!--Second, it is important to identify the drivers of productivity across-->
-<!--populations and environmental scenarios. For example, what is the relative-->
-<!--effect on productivity of population density, population diversity, an-->
-<!--environment-recruitment relationship, and environmental regime shifts, and what-->
-<!--management approaches are robust to our uncertainty about these contributions-->
-<!--[@vert-pre2013]? -->
-<!--Third, our work suggests research identify real-life case-->
-<!--studies to be used as large-scale tests of our conclusions and to identify how-->
-<!--portfolio optimization best integrates with societal goals. -->
-<!--For example,-->
-<!--portfolio optimization focuses on rate of change, but in ecological systems,-->
-<!--society might care more about absolute abundance --- low-growth-high-abundance-->
-<!--systems might be preferred to high-growth-low-abundance systems.-->
 
 Management decisions for exploited species often come
 with a trade-off between conservation and revenue generation.
