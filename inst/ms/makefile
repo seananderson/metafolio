@@ -1,4 +1,4 @@
-all:	ms
+all:	copyfigs ms
 
 mstex:
 	latexmk anderson-etal-metafolio
@@ -104,3 +104,11 @@ notes:
 
 test:
 	pandoc -S --bibliography=refs.bib --csl=ecology-letters.csl test.md test.docx
+
+copyfigs:
+	cp ../examples/simulation-diagram3-sansserif-bw.pdf Fig1.pdf
+	cp ../examples/thermal-curve-scenarios.pdf Fig2.pdf
+	cp ../examples/spatial-arma-sim-full.pdf Fig3.pdf
+	cp ../examples/spatial-mv.pdf Fig4.pdf
+	cp ../examples/cons-plans-n.pdf Fig5.pdf
+	cp ../examples/cons-plans-squeeze.pdf Fig6.pdf
