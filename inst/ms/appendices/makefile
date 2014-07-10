@@ -1,4 +1,4 @@
-all: copyfigs pdf2png pdf
+all: copyfigs pdf2eps pdf
 
 copyfigs:
 	cp ../../examples/spatial-arma-sim-full-colour.pdf Fig-F1.pdf
@@ -20,17 +20,27 @@ pdf2png:
 	perl -p -i -e "s/\.pdf/.png/g" risksupp.tex
 	rm Fig-*\.pdf
 
+pdf2eps:
+	Rscript -e "source('pdf2eps.R')"
+	rm Fig-*\.pdf
+
 pdf:
-	pdflatex Appendix-A
-	pdflatex Appendix-B
+	latex Appendix-A
+	latex Appendix-B
 	#bibtex Appendix-B
-	pdflatex Appendix-B
-	pdflatex Appendix-C
-	pdflatex Appendix-D
-	pdflatex Appendix-E
-	pdflatex Appendix-F
-	rm *.aux
-	rm *.fls
-	rm *.bbl
-	rm *.log
-	rm *.blg
+	latex Appendix-B
+	latex Appendix-C
+	latex Appendix-D
+	latex Appendix-E
+	latex Appendix-F
+	# dvi to pdf:
+	dvipdfm Appendix-A
+	dvipdfm Appendix-B
+	dvipdfm Appendix-B
+	dvipdfm Appendix-C
+	dvipdfm Appendix-D
+	dvipdfm Appendix-E
+	dvipdfm Appendix-F
+	rm *\.aux
+	rm *\.dvi
+	rm *\.log
