@@ -64,5 +64,4 @@
 #' @docType package
 #' @name metafolio
 #' @importFrom Rcpp cppFunction
-#' @import RcppArmadillo
 NULL
