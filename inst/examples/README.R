@@ -14,7 +14,7 @@ library(metafolio)
 # ggplot like colour palette to use throughout for stream ID:
 col_pal <- rev(gg_color_hue(10))
 
-# Warning: these first two sourced files will take a while to run.
+# Warning: these first three sourced files will take a while to run.
 # Once they've be run once, you can go in and turn USE_CACHE <- TRUE
 # near the top of each file if you want to use the previously
 # generated output.

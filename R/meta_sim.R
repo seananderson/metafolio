@@ -1,4 +1,4 @@
-#' Run a single (salmon) metapopulation simulation.
+#' Run a single metapopulation simulation.
 #'
 #' This is the master function for running \pkg{metafolio} simulations. It runs
 #' a single iteration of a simulation. The arguments can be manipulated with
@@ -69,7 +69,7 @@
 #' iterations of \code{meta_sim} and you want to cache, then the first iteration
 #' should have both cache arguments set to \code{FALSE}, and subsequent runs can
 #' set one or both to \code{TRUE}. Internally, \code{meta_sim} caches by writing
-#' the appropriate data to a \code{.rda} file in the current working directory.
+#' the appropriate data to an \code{.rda} file in a temporary directory.
 #' @return
 #' A list is returned that contains the following elements. All matrices that
 #' are returned (except the straying matrix) feature populations along the

@@ -38,12 +38,12 @@ CVaR <- function(x, probs = 0.05) {
   -mean(x[x < VaR(x, probs = probs)], na.rm = TRUE)
 }
 
-#' Variance at Risk
+#' Value at Risk
 #'
-#' Get the variance at risk.
+#' Get the value at risk.
 #'
 #' @param x A numeric vector
-#' @param probs The probability cutoff to pass to the variance at risk.
+#' @param probs The probability cutoff to pass to the value at risk.
 #' @export
 
 VaR <- function(x, probs = 0.05) {

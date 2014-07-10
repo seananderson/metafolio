@@ -1,5 +1,6 @@
 #include <RcppArmadillo.h>
 using namespace Rcpp;
+using namespace arma;
 
 //' Get beta parameters from mean and variance
 //'
@@ -132,9 +133,7 @@ arma::colvec fastlm(NumericVector yr, NumericMatrix Xr) {
 //' Fit Ricker linear regression
 //'
 //' Fit a Ricker curve to spawner-recruit data and return the intercept (a) and
-//' slope (b). This function uses \code{\link[stats]{lm.fit}} by directly
-//' specifying the model matrix. This is about an order of magnitude faster than
-//' \code{\link[stats]{lm}}.
+//' slope (b). The model is fit via the \pkg{RcppArmadillo} package for speed..
 //'
 //' @export
 //' @param S Spawners as a numeric vector.

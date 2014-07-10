@@ -18,7 +18,7 @@ add_inset_env <- function(env, x = 0.12, y = -0.013, size = c(1, .5), ...) {
 
 # in this version we start with a set amount of b and can split it up among many
 # or invest it in a few
-n_trials <- 500 # number of trials at each n conservation plan (was 800 in ms)
+n_trials <- 500 # number of trials at each n conservation plan
 num_pops <- c(2, 4, 8, 16) # n pops to conserve
 b_conserve <- 2000 / num_pops
 n_plans <- length(num_pops) # number of plans
