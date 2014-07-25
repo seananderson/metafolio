@@ -30,7 +30,6 @@ Imports:
     MASS
 Suggests:
     knitr,
-    devtools,
     TeachingDemos,
     RColorBrewer,
     reshape2
