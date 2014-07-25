@@ -98,16 +98,17 @@ bg.plot <- function(colour = "#00000019") rect(par("usr")[1],
   FALSE)
 
 source("plot_sim_ts_simple.R")
-pdf_eps("plot-various-options-ts-3pops", width = 4, height = 6.4, type = TYPE)
+pdf("plot-various-options-ts-3pops", width = 4, height = 6.4)
 
-par(mfrow = c(length(eg)-1, 1), mar = c(0,2,0,0), oma = c(4, 2.5, 1, 1), cex = 0.7, las = 1, xpd = FALSE)
+par(mfrow = c(length(eg)-1, 1), mar = c(0,2,0,0), oma = c(4, 2.5, 1, 1),
+  cex = 0.7, las = 1, xpd = FALSE)
 for(i in (1:length(eg))[-7]) {
   plot_sim_ts_simple(eg[[i]], text = ex[[i]], pal = col_pal)
   #if(i == 1) bg.plot()
 }
 axis(1, col = "grey50", tck = -0.05, padj = -1)
 mtext("Generation", side = 1, outer = TRUE, line = 1.8, cex = 0.75)
-mtext("Metapopulation return abundance", side = 2, outer = TRUE, line = 1.2, cex = 0.75, las = 0)
+mtext("Metapopulation return abundance", side = 2, outer = TRUE,
+  line = 1.2, cex = 0.75, las = 0)
 
 dev.off()
-

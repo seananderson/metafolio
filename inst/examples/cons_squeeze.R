@@ -1,24 +1,6 @@
 # Here, examine a scenario where you start with a fixed quantity of `b` to
 # invest, different starting values of `b`, and `b` declines in absolute
 # quantities across the simulations.
-#
-# Strategies to test:
-# (1) Invest evenly in all streams
-# (2) Triage: pick those that start above a threshold and distribute
-# `b` among them. Put a tiny bit of `b` (5) in the rest.
-# (3) Panicker: pick those that start below a threshold and concentrate on
-# them, put some `b` (a bit above extinction by the end) in the bigger ones.
-#
-# Have `b` decline continuously by some constant magnitude across stocks. E.g.
-# have `b` decline by 200 units over 100 years.
-#
-# is is respon. diversity, initial capacity a better preditor...
-#
-# simpler idea: start with X quantity of b and you can distribute it however...
-# you can either distribute your b as follows:
-# in 2, 4, 8, or 16 populations with the b divided and 5 in the rest
-# so in the fewer Ns, they will all go to extinction or near extinction
-# at higher Ns, they will stay far away from extinction
 
 set.seed(1)
 USE_CACHE <- FALSE
@@ -39,7 +21,6 @@ for(i in 1:n_plans) { # loop over number conserved
 plans_name_n <- paste(num_pops, "populations")
 cols <- RColorBrewer::brewer.pal(6, "Greys")[c(2:6)]
 
-##########
 w <- list()
 for(i in 1:n_plans) { # loop over number conserved
  w[[i]] <- list()
@@ -57,7 +38,7 @@ linear_arma_env_params <- list(min_value = 15, max_value = 19,
   start_t = 30, mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
 set.seed(123)
-pdf_eps("n-linear-arma-sim-16-squeeze", width = 5, height = 7, type = TYPE)
+pdf("n-linear-arma-sim-16-squeeze", width = 5, height = 7)
 # try a version with ARMA and linear change:
 eg_linear_arma <- meta_sim(b = w[[5]][[2]], n_pop = 16, env_params =
  linear_arma_env_params, env_type = "linear_arma",
@@ -65,7 +46,7 @@ eg_linear_arma <- meta_sim(b = w[[5]][[2]], n_pop = 16, env_params =
 plot_sim_ts(eg_linear_arma, years_to_show = 100, burn = 30)
 dev.off()
 
-pdf_eps("n-linear-arma-sim-2-squeeze", width = 5, height = 7, type = TYPE)
+pdf("n-linear-arma-sim-2-squeeze", width = 5, height = 7)
 # try a version with ARMA and linear change:
 eg_linear_arma <- meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
  linear_arma_env_params, env_type = "linear_arma",
@@ -106,7 +87,7 @@ for(i in 1:length(w)) {
 }
 
 ## figure:
-pdf_eps("cons-plans-squeeze", width = 4.0, height = 7, type = TYPE)
+pdf("cons-plans-squeeze", width = 4.0, height = 7)
 layout(rbind(
   c(1),
   c(1),
@@ -119,7 +100,6 @@ layout(rbind(
 
 xlim <- c(0.08, 0.9)
 ylim <- c(-0.038, 0.028)
-#par(family = "Times")
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.8, .5),
   tck = -0.02, mgp = c(2, .5, 0))
 plot_cons_plans(x_linear_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
@@ -136,12 +116,16 @@ par(las = 1)
 
 # ticks need to be a bit bigger here to match:
 par(tck = -0.03)
-plot_sp_A_ts(list(cons_linear_arma_ts[[1]], cons_linear_arma_ts[[5]]), ylim = c(-1.25, 1.25), rate = TRUE, x_axis = FALSE, labels = "(b) \n", cols = cols[c(2, 5)], add_lm = FALSE)
+plot_sp_A_ts(list(cons_linear_arma_ts[[1]], cons_linear_arma_ts[[5]]), ylim =
+  c(-1.25, 1.25), rate = TRUE, x_axis = FALSE, labels = "(b) \n", cols =
+  cols[c(2, 5)], add_lm = FALSE)
 par(las = 0)
 mtext("Metapopulation\ngrowth rate", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
 
-plot_sp_A_ts(list(cons_linear_arma_ts[[1]], cons_linear_arma_ts[[5]]), ylim = c(0, 5000), rate = FALSE, x_axis = TRUE, labels = "(c)\n", cols = cols[c(2, 5)], add_lm = FALSE)
+plot_sp_A_ts(list(cons_linear_arma_ts[[1]], cons_linear_arma_ts[[5]]), ylim =
+  c(0, 5000), rate = FALSE, x_axis = TRUE, labels = "(c)\n",
+  cols = cols[c(2, 5)], add_lm = FALSE)
 par(las = 0)
 mtext("Metapopulation\nabundance", side = 2, line = 3, outer = FALSE, cex = 0.8)
 par(las =1)
@@ -155,11 +139,6 @@ text(11, 4400, "2 populations", pos = 4, col = cols[2])
 par(xpd = FALSE)
 dev.off()
 
-# results to quantify:
-# - reduction in mean variance with increasing N
-# - but also reduction in mean growth rate with increasing N
-# - note that this forms the efficient fontier
-#
 mean.v <- plyr::ldply(x_linear_arma_n$plans_mv, function(x) mean(x$v))
 message("mean variance of 12 compared to 4")
 message(round(mean.v$V1[2] / mean.v$V1[4], 1))

@@ -36,14 +36,14 @@ plans_name_n <- paste(num_pops, "populations")
 ## ARMA:
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
-pdf_eps("n-arma-sim-2", width = 5, height = 7, type = TYPE)
+pdf("n-arma-sim-2", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
   arma_env_params, env_type = "arma", assess_freq = 5, max_a =
   thermal_integration(16))
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
 
-pdf_eps("n-arma-sim-16", width = 5, height = 7, type = TYPE)
+pdf("n-arma-sim-16", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[4]][[2]], n_pop = 16, env_params =
   arma_env_params, env_type = "arma", assess_freq = 5, max_a =
   thermal_integration(16))
@@ -64,14 +64,14 @@ if(!USE_CACHE) {
 linear_env_params <- list(min_value = 15, max_value = 19, sigma_env = 0.001,
   start_t = 30)
 
-pdf_eps("n-linear-sim-2", width = 5, height = 7, type = TYPE)
+pdf("n-linear-sim-2", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 16, env_params =
   linear_env_params, env_type = "linear", assess_freq = 5, max_a =
   thermal_integration(16))
 plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
 dev.off()
 
-pdf_eps("n-linear-sim-16", width = 5, height = 7, type = TYPE)
+pdf("n-linear-sim-16", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
   linear_env_params, env_type = "linear", assess_freq = 5, max_a =
   thermal_integration(16))
@@ -91,7 +91,7 @@ if(!USE_CACHE) {
 #cols <- RColorBrewer::brewer.pal(5, "Spectral")
 cols <- RColorBrewer::brewer.pal(5, "Greys")[c(2:5)]
 set.seed(2)
-pdf_eps("cons-plans-n", width = 6.5, height = 6.8, type = TYPE)
+pdf("cons-plans-n", width = 6.5, height = 6.8)
 
 layout(rbind(
   c(1, 1, 1, 2, 2, 2),
@@ -110,7 +110,6 @@ layout(rbind(
 
 xlim <- c(0.008, 0.90)
 ylim <- c(-0.034, 0.027)
-#par(family = "Times")
 par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5),
   tck = -0.02, mgp = c(2, .6, 0))
 plot_cons_plans(x_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
@@ -229,11 +228,6 @@ message(round(quant.m[2]/quant.m[4], 1))
 
 message("width of 75% quantile of mean for long term: 16 vs. 8")
 message(round(quant.m[3]/quant.m[4], 1))
-
-#sink("cons_plans_n_random_resp_div.tex")
-#n_arma_75q_var_width_16_v_8 <- round(quant.m[3]/quant.m[4], 1)
-#cat(paste0("\\newcommand{\\narma75qvarwidth16vs8}{", sprintf("%.1f", round(quant.m[3]/quant.m[4], 1))), "}")
-#sink()
 
 message("mean variance in growth rate for long term")
 mean.v <- plyr::ldply(x_linear_n$plans_mv, function(x) mean(x$v))
