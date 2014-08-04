@@ -23,28 +23,28 @@
 \newlabel{f:n}{{5}{999}}
 \newlabel{f:squeeze}{{6}{999}}
 
-\newcommand{\somR}{Appendix A}
+\newcommand{\somR}{Supplement}
+\newcommand{\somstray}{Appendix A}
 \newcommand{\somparam}{Appendix B}
-\newcommand{\somstray}{Appendix C}
-\newcommand{\somsens}{Appendix D}
+\newcommand{\somsens}{Appendix C}
+\newcommand{\somts}{Appendix D}
 \newcommand{\somcor}{Appendix E}
-\newcommand{\somts}{Appendix F}
 
 % SOM:
-\newlabel{t:pars}{{B1}{2}}
-\newlabel{f:stray}{{C1}{3}}
-\newlabel{f:eg-sens}{{D1}{4}}
+\newlabel{f:stray}{{A1}{2}}
+\newlabel{t:pars}{{B1}{3}}
+\newlabel{f:eg-sens}{{C1}{4}}
+\newlabel{f:eg-sp-arma-full}{{D1}{6}}
+\newlabel{f:eg-sp-arma-half}{{D2}{7}}
+\newlabel{f:eg-sp-linear-full}{{D3}{8}}
+\newlabel{f:eg-sp-linear-half}{{D4}{9}}
+\newlabel{f:eg-n-arma-two}{{D5}{10}}
+\newlabel{f:eg-n-arma-sixteen}{{D6}{11}}
+\newlabel{f:eg-n-linear-two}{{D7}{12}}
+\newlabel{f:eg-n-linear-sixteen}{{D8}{13}}
+\newlabel{f:eg-n-squeeze-two}{{D9}{14}}
+\newlabel{f:eg-n-squeeze-twelve}{{D10}{15}}
 \newlabel{f:ret-corr}{{E1}{5}}
-\newlabel{f:eg-sp-arma-full}{{F1}{6}}
-\newlabel{f:eg-sp-arma-half}{{F2}{7}}
-\newlabel{f:eg-sp-linear-full}{{F3}{8}}
-\newlabel{f:eg-sp-linear-half}{{F4}{9}}
-\newlabel{f:eg-n-arma-two}{{F5}{10}}
-\newlabel{f:eg-n-arma-sixteen}{{F6}{11}}
-\newlabel{f:eg-n-linear-two}{{F7}{12}}
-\newlabel{f:eg-n-linear-sixteen}{{F8}{13}}
-\newlabel{f:eg-n-squeeze-two}{{F9}{14}}
-\newlabel{f:eg-n-squeeze-twelve}{{F10}{15}}
 
 \DeclareGraphicsExtensions{.pdf}
 
@@ -127,7 +127,7 @@ Here we ask how portfolio theory can inform spatial approaches to prioritizing m
 
 \section{Methods}\label{methods}
 
-We developed a 100-year salmon metapopulation simulation model that includes both population dynamics and harvesting along with process, observation, and implementation uncertainty (Fig.~\ref{f:flowchart}). We tested different conservation scenarios under two kinds of environmental regimes (short-term climate variability and long-term climate change) and in cases where habitat capacity remained constant or declined over time. We provide a package \texttt{metafolio} \citep{metafoliopkg} for the statistical software \textsf{R} \citep{r2013} as an appendix, to carry out the simulations and analyses described in this paper (\somR).
+We developed a 100-year salmon metapopulation simulation model that includes both population dynamics and harvesting along with process, observation, and implementation uncertainty (Fig.~\ref{f:flowchart}). We tested different conservation scenarios under two kinds of environmental regimes (short-term climate variability and long-term climate change) and in cases where habitat capacity remained constant or declined over time. We provide a package \texttt{metafolio} \citep{metafoliopkg} for the statistical software \textsf{R} \citep{r2013}, to carry out the simulations and analyses described in this paper (\somR).
 
 \subsection{Defining the ecological portfolio}\label{defining-the-ecological-portfolio}
 
@@ -215,7 +215,7 @@ We summarize the chosen parameter values in \somparam. Combining salmon populati
 
 \emph{Unknown thermal tolerances}: In reality we rarely know precise levels of thermal response diversity. We therefore also considered cases where conservation was randomly assigned with respect to thermal tolerance but where conservation effort ($\sum\limits_{i=1}^n b_i = 2000$) could be distributed across different numbers of streams. We considered conserving from two to 16 streams with thermal tolerance distributed along the same range as in the spatial scenarios. As in the spatial strategies, we reduced the capacity of the remaining streams to the nominal level of $b_i = 5$.
 
-\emph{Declining habitat availability}: Habitat capacity in the Pacific Northwest is likely shrinking over time as salmon populations are squeezed between warming temperatures reducing habitat from below and declining stream flows reducing the habitat that remains from above. For example, temperature isotherms are shifting upstream at 1--25 km/decade in low gradient streams that Chinook use for spawning \citep{isaak2013}. At the same time, summer-fall stream flow volumes have been decreasing 10--30\% across the Pacific Northwest over the past 50 years \citep{luce2009} and are likely to continue declining \citep{luce2013}. We therefore considered a scenario where habitat capacity declined by a constant amount across all populations. We reduced the $b$ parameters by 0.85 units per generation so that some of the smaller populations would reach near extinction by the end of the simulation, as is likely for smaller isolated populations within this century \citep[e.g.][]{gustafson2007}. In this scenario, we considered cases where thermal tolerance was unknown but conservation effort could be distributed across between 16 and two streams. Climate followed a combination of the same long-term warming and short-term variability as before. For many Pacific salmon metapopulations, this scenario represents the most realistic scenario investigated.
+\emph{Declining habitat availability}: Habitat capacity in the Pacific Northwest is likely shrinking over time as salmon populations are squeezed between warming temperatures reducing habitat from below and declining stream flows reducing the habitat that remains from above. For example, temperature isotherms are shifting upstream at 1--10 km/decade in low gradient streams that Chinook use for spawning \citep{isaak2013}. At the same time, summer-fall stream flow volumes have been decreasing 10--30\% across the Pacific Northwest over the past 50 years \citep{luce2009} and are likely to continue declining \citep{luce2013}. We therefore considered a scenario where habitat capacity declined by a constant amount across all populations. We reduced the $b$ parameters by 0.85 units per generation so that some of the smaller populations would reach near extinction by the end of the simulation, as is likely for smaller isolated populations within this century \citep[e.g.][]{gustafson2007}. In this scenario, we considered cases where thermal tolerance was unknown but conservation effort could be distributed across between 16 and two streams. Climate followed a combination of the same long-term warming and short-term variability as before. For many Pacific salmon metapopulations, this scenario represents the most realistic scenario investigated.
 
 \section{Results}\label{results}
 
@@ -284,9 +284,9 @@ Allendorf, F.~W., D.~Bayles, D.~L. Bottom, K.~P. Currens, C.~A. Frissell,
 
 \bibitem[{Anderson(2014)}]{metafoliopkg}
 Anderson, S.~C. 2014.
-\newblock metafolio: Metapopulation simulations for conserving salmon through 
-  portfolio optimization. R package version 0.1.0.
-  http://cran.r-project.org/package=metafolio.
+\newblock \texttt{metafolio}: Metapopulation simulations for conserving salmon through
+  portfolio optimization. \textsf{R} package version 0.1.0.
+  \texttt{http://cran.r-project.org/package=metafolio}.
 
 \bibitem[{Anderson et~al.(2013)Anderson, Cooper, and Dulvy}]{anderson2013}
 Anderson, S.~C., A.~B. Cooper, and N.~K. Dulvy.
@@ -752,22 +752,22 @@ Yeakel, J.~D., J.~W. Moore, P.~R. Guimar{\~a}es, and M.~A.~M. de~Aguiar.
 \section{Supplemental Material}
 
 \noindent
-\textsc{Appendix A.} The \texttt{metafolio} \textsf{R} package.
+\textsc{Supplement} Recreating the analyses with the \texttt{metafolio} \textsf{R} package.
+
+\noindent
+\textsc{Appendix A.} An example straying matrix.
 
 \noindent
 \textsc{Appendix B.} Simulation input parameters and default values.
 
 \noindent
-\textsc{Appendix C.} An example straying matrix.
+\textsc{Appendix C.} Sensitivity illustration with alternative parameter values.
 
 \noindent
-\textsc{Appendix D.} Sensitivity illustration with alternative parameter values.
+\textsc{Appendix D.} Example simulated time series from alternative conservation scenarios.
 
 \noindent
 \textsc{Appendix E.} An illustration of the correlation between populations.
-
-\noindent
-\textsc{Appendix F.} Example simulated time series from alternative conservation scenarios.
 
 \clearpage
 
@@ -813,11 +813,11 @@ Yeakel, J.~D., J.~W. Moore, P.~R. Guimar{\~a}es, and M.~A.~M. de~Aguiar.
 
 \bigskip
 \noindent
-\textsc{Fig. 6}. Risk-return trade-off in the case where habitat is lost over time through stream flow reduction. The temperature follows both short-term fluctuations and a long-term increase. Thermal tolerance is randomly conserved. Shading indicates conservation plans where two through 16 populations are conserved. (a) Conserving more populations decreases expected variance but also decreases expected growth rate. Dots show simulated metapopulations and contours show 25\% and 75\% quantiles across 500 simulations per strategy. The thick grey line indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate. Also shown are (b) example metapopulation growth rate and (c) abundance time series from the 2 and 16 population scenarios. Regression lines in (b) illustrate a decreasing growth rate through time.
+\textsc{Fig. 6}. Risk-return trade-off in the case where habitat is lost over time through stream flow reduction. The temperature follows both short-term fluctuations and a long-term increase. Thermal tolerance is randomly conserved. Shading indicates conservation plans where two through 16 populations are conserved. (a) Conserving more populations decreases expected variance but also decreases expected growth rate. Dots show simulated metapopulations and contours show 25\% and 75\% quantiles across 500 simulations per strategy. The thick grey line indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate. Also shown are (b) example metapopulation growth rate and (c) abundance time series from the 2 and 16 population scenarios.
 
 \clearpage
 
-\section{Figures}
+%\section{Figures}
 
 % \begin{center}
 % \includegraphics[height=5.5in]{Fig1}\\

@@ -107,7 +107,7 @@ run_cons_plans <- function(w, env_type, env_params, show_progress =
     plans_port_n[[i]][[j]] <- temp$port_out
     }
     if(show_progress)
-      print(paste("Completed", i, "of", length(w), "conservation plans to evaluate"))
+      message(paste("Completed", i, "of", length(w), "conservation plans to evaluate"))
   }
 
   # here we have a nested list that is 4 elements deep

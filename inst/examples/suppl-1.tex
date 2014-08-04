@@ -1,0 +1,435 @@
+\documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{0cm}
+
+\textheight 21.0cm
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+\title{Recreating the analyses with the \texttt{metafolio} \textsf{R} package}
+
+\author{
+Sean C. Anderson\textsuperscript{1*},
+Jonathan W. Moore\textsuperscript{1,2},
+Michelle M. McClure\textsuperscript{3},\\
+Nicholas K. Dulvy\textsuperscript{1}
+Andrew B. Cooper\textsuperscript{2}
+}
+
+\date{}
+\maketitle
+
+\textsuperscript{1}Earth to Ocean Research Group, Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A 1S6, Canada
+
+\textsuperscript{2}School of Resource and Environmental Management, Simon Fraser University, Burnaby, BC, V5A 1S6, Canada
+
+\textsuperscript{3}Fishery Resource Analysis and Monitoring Division, Northwest Fisheries Science Center, National Marine Fisheries Service, National Oceanic and Atmospheric Administration, 2725 Montlake Blvd. E., Seattle, WA 98112, USA
+
+\noindent
+\textsuperscript{*}Corresponding author
+
+\bigskip
+
+This supplement accompanies the paper \textit{Portfolio conservation of metapopulations under climate change} in Ecological Applications.
+
+\section{Loading the package}
+
+The \texttt{metafolio} \textsf{R} package is a tool to simulate metapopulations
+and apply financial portfolio optimization concepts to those metapopulations.
+The package is primarily intended for salmon simulations, but could be adapted
+for other taxonomic groups. In this document, we describe how to install and
+load the package, and run the analyses in our paper.
+
+\texttt{metafolio} is available on CRAN:
+\url{http://cran.r-project.org/package=metafolio} and can be installed with:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hlstd{(}\hlstr{"metafolio"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+The analyses in this paper used \texttt{metafolio} version \texttt{0.1.0}.
+
+Alternatively, you can view the code and install the package from\\ \texttt{http://github.com/seananderson/metafolio}. Installing the package from GitHub will require that you have a \texttt{C++} compiler installed.
+
+\clearpage
+Load the package with:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(}\hlstr{"metafolio"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+The included vignette describes the package and illustrates some example simulations. You can view the vignette with:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{vignette}\hlstd{(}\hlstr{"metafolio"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+You can view the help for the package with:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlopt{?}\hlstd{metafolio}
+\hlkwd{help}\hlstd{(}\hlkwc{package} \hlstd{=} \hlstr{"metafolio"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+The figures from this paper can be re-created by downloading the source code from CRAN or GitHub and sourcing the file \texttt{README.R} in the \texttt{inst/examples} folder:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{setwd}\hlstd{(}\hlstr{"metafolio/inst/examples"}\hlstd{)}
+\hlkwd{source}\hlstd{(}\hlstr{"README.R"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+We have copied some examples from that code below. See the source code on GitHub for the full analysis. To save time compiling this document, we have run fewer iterations in these examples than in the paper.
+
+\section{Prioritizing spatial response diversity}
+
+Setup the scenarios:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{1}\hlstd{)}
+\hlstd{w_plans} \hlkwb{<-} \hlkwd{list}\hlstd{()}
+\hlstd{w_plans[[}\hlnum{1}\hlstd{]]} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{5}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{5}\hlstd{)}
+\hlstd{w_plans[[}\hlnum{2}\hlstd{]]} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{5}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{1000}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{5}\hlstd{,} \hlnum{5}\hlstd{)}
+\hlstd{w_plans[[}\hlnum{3}\hlstd{]]} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlnum{1000}\hlstd{,} \hlnum{4}\hlstd{),} \hlkwd{rep}\hlstd{(}\hlnum{5}\hlstd{,} \hlnum{6}\hlstd{))}
+\hlstd{w_plans[[}\hlnum{4}\hlstd{]]} \hlkwb{<-} \hlkwd{rev}\hlstd{(w_plans[[}\hlnum{3}\hlstd{]])}
+\hlstd{plans_name_sp} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Full response range"}\hlstd{,} \hlstr{"Most stable only"}\hlstd{,}
+  \hlstr{"Lower half"}\hlstd{,} \hlstr{"Upper half"}\hlstd{)}
+\hlstd{n_trials} \hlkwb{<-} \hlnum{200} \hlcom{# number of trials at each conservation plan}
+\hlstd{num_pops} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{10}\hlstd{,} \hlnum{10}\hlstd{,} \hlnum{10}\hlstd{,} \hlnum{10}\hlstd{)}
+\hlstd{n_plans} \hlkwb{<-} \hlkwd{length}\hlstd{(num_pops)} \hlcom{# number of plans}
+\hlstd{w} \hlkwb{<-} \hlkwd{list}\hlstd{()}
+\hlkwa{for}\hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{n_plans) \{} \hlcom{# loop over plans}
+ \hlstd{w[[i]]} \hlkwb{<-} \hlkwd{list}\hlstd{()}
+ \hlkwa{for}\hlstd{(j} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{n_trials) \{} \hlcom{# loop over trials}
+   \hlstd{w[[i]][[j]]} \hlkwb{<-} \hlkwd{matrix}\hlstd{(w_plans[[i]],} \hlkwc{nrow} \hlstd{=} \hlnum{1}\hlstd{)}
+ \hlstd{\}}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Here's one example of generating a time series plot:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{123}\hlstd{)}
+\hlstd{arma_env_params} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{mean_value} \hlstd{=} \hlnum{16}\hlstd{,} \hlkwc{ar} \hlstd{=} \hlnum{0.1}\hlstd{,} \hlkwc{sigma_env} \hlstd{=} \hlnum{3}\hlstd{,} \hlkwc{ma} \hlstd{=} \hlnum{0}\hlstd{)}
+\hlstd{eg_arma} \hlkwb{<-} \hlkwd{meta_sim}\hlstd{(}\hlkwc{b} \hlstd{= w[[}\hlnum{1}\hlstd{]][[}\hlnum{1}\hlstd{]],} \hlkwc{n_pop} \hlstd{=} \hlnum{10}\hlstd{,} \hlkwc{env_params} \hlstd{= arma_env_params,}
+  \hlkwc{env_type} \hlstd{=} \hlstr{"arma"}\hlstd{,} \hlkwc{assess_freq} \hlstd{=} \hlnum{5}\hlstd{)}
+\hlkwd{plot_sim_ts}\hlstd{(eg_arma,} \hlkwc{years_to_show} \hlstd{=} \hlnum{100}\hlstd{,} \hlkwc{burn} \hlstd{=} \hlnum{30}\hlstd{)}
+\end{alltt}
+\end{kframe}
+
+{\centering \includegraphics[width=4in]{figure/ts-example} 
+
+}
+
+
+
+\end{knitrout}
+
+Now, we'll run the simulations:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{x_arma_sp} \hlkwb{<-} \hlkwd{run_cons_plans}\hlstd{(w,} \hlkwc{env_type} \hlstd{=} \hlstr{"arma"}\hlstd{,} \hlkwc{env_params} \hlstd{=}
+  \hlstd{arma_env_params,} \hlkwc{show_progress} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{x_arma_sp}\hlopt{$}\hlstd{plans_port} \hlkwb{<-} \hlkwa{NULL} \hlcom{# save space}
+
+\hlstd{linear_env_params} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{min_value} \hlstd{=} \hlnum{15}\hlstd{,} \hlkwc{max_value} \hlstd{=} \hlnum{19}\hlstd{,} \hlkwc{sigma_env} \hlstd{=} \hlnum{0.001}\hlstd{,}
+  \hlkwc{start_t} \hlstd{=} \hlnum{30}\hlstd{)}
+\hlstd{x_linear_sp} \hlkwb{<-} \hlkwd{run_cons_plans}\hlstd{(w,} \hlkwc{env_type} \hlstd{=} \hlstr{"linear"}\hlstd{,} \hlkwc{env_params} \hlstd{=}
+  \hlstd{linear_env_params,} \hlkwc{max_a} \hlstd{=} \hlkwd{thermal_integration}\hlstd{(}\hlnum{10}\hlstd{),}
+  \hlkwc{show_progress} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{x_linear_sp}\hlopt{$}\hlstd{plans_port} \hlkwb{<-} \hlkwa{NULL} \hlcom{# save space}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+And plot the output:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{cols} \hlkwb{<-} \hlstd{RColorBrewer::}\hlkwd{brewer.pal}\hlstd{(}\hlnum{5}\hlstd{,} \hlstr{"Dark2"}\hlstd{)}
+\hlstd{xlim} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{0.18}\hlstd{,} \hlnum{0.80}\hlstd{)}
+\hlstd{ylim} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{0.027}\hlstd{,} \hlnum{0.027}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{mfrow} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{2}\hlstd{))}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,} \hlkwc{mar} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,} \hlnum{0}\hlstd{,} \hlnum{0}\hlstd{,} \hlnum{0}\hlstd{),} \hlkwc{oma} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{4}\hlstd{,} \hlnum{5.2}\hlstd{,} \hlnum{1.5}\hlstd{,} \hlnum{.5}\hlstd{),}
+  \hlkwc{tck} \hlstd{=} \hlopt{-}\hlnum{0.02}\hlstd{,} \hlkwc{mgp} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,} \hlnum{.6}\hlstd{,} \hlnum{0}\hlstd{))}
+\hlkwd{plot_cons_plans}\hlstd{(x_arma_sp}\hlopt{$}\hlstd{plans_mv,} \hlkwc{plans_name} \hlstd{= plans_name_sp,} \hlkwc{cols} \hlstd{= cols,}
+  \hlkwc{add_all_efs} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{xlim} \hlstd{= xlim,} \hlkwc{ylim} \hlstd{= ylim,} \hlkwc{add_legend} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"(a) Short-term environmental fluctuations"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{3}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{0.2}\hlstd{,} \hlkwc{cex} \hlstd{=}
+  \hlnum{0.8}\hlstd{,} \hlkwc{adj} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{0}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"Mean of metapopulation growth rate"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{3}\hlstd{,} \hlkwc{outer} \hlstd{=} \hlnum{FALSE}\hlstd{,}
+  \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{1}\hlstd{)}
+\hlkwd{plot_cons_plans}\hlstd{(x_linear_sp}\hlopt{$}\hlstd{plans_mv,} \hlkwc{plans_name} \hlstd{= plans_name_sp,} \hlkwc{cols} \hlstd{= cols,}
+  \hlkwc{add_all_efs} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{xlim} \hlstd{= xlim,} \hlkwc{ylim} \hlstd{= ylim,} \hlkwc{y_axis} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{add_legend} \hlstd{=}
+  \hlnum{TRUE}\hlstd{,} \hlkwc{legend_pos} \hlstd{=} \hlstr{"bottomright"}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"(b) Long-term environmental change"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{3}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{0.2}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,}
+  \hlkwc{adj} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"Variance of metapopulation growth rate"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{2.25}\hlstd{,}
+  \hlkwc{outer} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,} \hlkwc{adj} \hlstd{=} \hlopt{-}\hlnum{1}\hlstd{)}
+\end{alltt}
+\end{kframe}
+
+{\centering \includegraphics[width=\maxwidth]{figure/plot-resp-div} 
+
+}
+
+
+
+\end{knitrout}
+
+
+\section{Numbers of populations conserved}
+
+Here, we'll show the effect of increasing the number of streams that conservation effort is distributed across. We'll conserve the populations without knowing how response diversity is distributed.
+
+We'll set up the scenarios:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{1}\hlstd{)}
+\hlcom{# In this version we start with a set amount of b and can split it up among many}
+\hlcom{# or invest it in a few}
+\hlstd{n_trials} \hlkwb{<-} \hlnum{200} \hlcom{# number of trials at each n conservation plan}
+\hlstd{num_pops} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,} \hlnum{4}\hlstd{,} \hlnum{8}\hlstd{,} \hlnum{16}\hlstd{)} \hlcom{# n pops to conserve}
+\hlstd{b_conserve} \hlkwb{<-} \hlnum{2000} \hlopt{/} \hlstd{num_pops}
+\hlstd{n_plans} \hlkwb{<-} \hlkwd{length}\hlstd{(num_pops)} \hlcom{# number of plans}
+\hlstd{w} \hlkwb{<-} \hlkwd{list}\hlstd{()}
+\hlkwa{for}\hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{n_plans) \{} \hlcom{# loop over number conserved}
+ \hlstd{w[[i]]} \hlkwb{<-} \hlkwd{list}\hlstd{()}
+ \hlkwa{for}\hlstd{(j} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{n_trials) \{} \hlcom{# loop over trials}
+   \hlstd{w[[i]][[j]]} \hlkwb{<-} \hlkwd{matrix}\hlstd{(}\hlkwd{rep}\hlstd{(b_conserve[i],} \hlnum{16}\hlstd{),} \hlkwc{nrow} \hlstd{=} \hlnum{1}\hlstd{)}
+   \hlcom{# conserve num_pops[i] populations; wipe out rest:}
+   \hlstd{w[[i]][[j]][}\hlopt{-}\hlkwd{sample}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{16}\hlstd{, num_pops[i])]} \hlkwb{<-} \hlnum{5}
+ \hlstd{\}}
+\hlstd{\}}
+\hlstd{plans_name_n} \hlkwb{<-} \hlkwd{paste}\hlstd{(num_pops,} \hlstr{"populations"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Now we'll run the simulations for the stationary climate variability and the non-stationary scenarios:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{x_arma_n} \hlkwb{<-} \hlkwd{run_cons_plans}\hlstd{(w,} \hlkwc{env_type} \hlstd{=} \hlstr{"arma"}\hlstd{,} \hlkwc{env_params} \hlstd{=}
+  \hlstd{arma_env_params,} \hlkwc{max_a} \hlstd{=} \hlkwd{thermal_integration}\hlstd{(}\hlnum{16}\hlstd{),}
+  \hlkwc{show_progress} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{x_arma_n}\hlopt{$}\hlstd{plans_port} \hlkwb{<-} \hlkwa{NULL} \hlcom{# to save space}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{linear_env_params} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{min_value} \hlstd{=} \hlnum{15}\hlstd{,} \hlkwc{max_value} \hlstd{=} \hlnum{19}\hlstd{,} \hlkwc{sigma_env} \hlstd{=} \hlnum{0.001}\hlstd{,}
+  \hlkwc{start_t} \hlstd{=} \hlnum{30}\hlstd{)}
+\hlstd{x_linear_n} \hlkwb{<-} \hlkwd{run_cons_plans}\hlstd{(w,} \hlkwc{env_type} \hlstd{=} \hlstr{"linear"}\hlstd{,}
+  \hlkwc{env_params} \hlstd{= linear_env_params,} \hlkwc{max_a} \hlstd{=} \hlkwd{thermal_integration}\hlstd{(}\hlnum{16}\hlstd{),}
+  \hlkwc{show_progress} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{x_linear_n}\hlopt{$}\hlstd{plans_port} \hlkwb{<-} \hlkwa{NULL} \hlcom{# save space}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+And plot the output:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{cols} \hlkwb{<-} \hlstd{RColorBrewer::}\hlkwd{brewer.pal}\hlstd{(}\hlnum{5}\hlstd{,} \hlstr{"Greys"}\hlstd{)[}\hlkwd{c}\hlstd{(}\hlnum{2}\hlopt{:}\hlnum{5}\hlstd{)]}
+\hlstd{xlim} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{0.008}\hlstd{,} \hlnum{0.90}\hlstd{)}
+\hlstd{ylim} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{0.034}\hlstd{,} \hlnum{0.027}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{mfrow} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{2}\hlstd{))}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,} \hlkwc{mar} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,} \hlnum{0}\hlstd{,} \hlnum{0}\hlstd{,} \hlnum{0}\hlstd{),} \hlkwc{oma} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{4}\hlstd{,} \hlnum{5.2}\hlstd{,} \hlnum{1.5}\hlstd{,} \hlnum{.5}\hlstd{),}
+  \hlkwc{tck} \hlstd{=} \hlopt{-}\hlnum{0.02}\hlstd{,} \hlkwc{mgp} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,} \hlnum{.6}\hlstd{,} \hlnum{0}\hlstd{))}
+\hlkwd{plot_cons_plans}\hlstd{(x_arma_n}\hlopt{$}\hlstd{plans_mv,} \hlkwc{plans_name} \hlstd{= plans_name_n,} \hlkwc{cols} \hlstd{= cols,}
+  \hlkwc{add_all_efs} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{xlim} \hlstd{= xlim,} \hlkwc{ylim} \hlstd{= ylim,} \hlkwc{add_legend} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"(a) Short-term environmental fluctuations"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{3}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{0.2}\hlstd{,}
+  \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,} \hlkwc{adj} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{0}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"Mean of metapopulation growth rate"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{3}\hlstd{,}
+  \hlkwc{outer} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{1}\hlstd{)}
+\hlkwd{plot_cons_plans}\hlstd{(x_linear_n}\hlopt{$}\hlstd{plans_mv,} \hlkwc{plans_name} \hlstd{= plans_name_n,} \hlkwc{cols} \hlstd{= cols,}
+  \hlkwc{add_all_efs} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{xlim} \hlstd{= xlim,} \hlkwc{ylim} \hlstd{= ylim,} \hlkwc{y_axis} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{add_legend} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"(b) Long-term environmental change"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{3}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{0.2}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,}
+  \hlkwc{adj} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{xpd} \hlstd{=} \hlnum{NA}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"Variance of metapopulation growth rate"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{2.25}\hlstd{,}
+  \hlkwc{outer} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,} \hlkwc{adj} \hlstd{=} \hlopt{-}\hlnum{1}\hlstd{)}
+\end{alltt}
+\end{kframe}
+
+{\centering \includegraphics[width=\maxwidth]{figure/plot-number} 
+
+}
+
+
+
+\end{knitrout}
+
+\section{Reduction of habitat over time}
+
+Here we'll reduce the available habitat by a fixed quantity at every generation. The climate will follow a combination of short-term variability and long-term change.
+
+Set up the scenarios:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{1}\hlstd{)}
+\hlstd{n_trials} \hlkwb{<-} \hlnum{200} \hlcom{# number of trials at each n conservation plan}
+\hlstd{num_pops} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,} \hlnum{4}\hlstd{,} \hlnum{8}\hlstd{,} \hlnum{12}\hlstd{,} \hlnum{16}\hlstd{)} \hlcom{# n pops to conserve}
+\hlstd{b_conserve} \hlkwb{<-} \hlnum{2000} \hlopt{/} \hlstd{num_pops}
+\hlstd{n_plans} \hlkwb{<-} \hlkwd{length}\hlstd{(num_pops)}
+\hlstd{w} \hlkwb{<-} \hlkwd{list}\hlstd{()}
+\hlkwa{for}\hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{n_plans) \{} \hlcom{# loop over number conserved}
+ \hlstd{w[[i]]} \hlkwb{<-} \hlkwd{list}\hlstd{()}
+ \hlkwa{for}\hlstd{(j} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{n_trials) \{} \hlcom{# loop over trials}
+   \hlstd{w[[i]][[j]]} \hlkwb{<-} \hlkwd{matrix}\hlstd{(}\hlkwd{rep}\hlstd{(b_conserve[i],} \hlnum{16}\hlstd{),} \hlkwc{nrow} \hlstd{=} \hlnum{1}\hlstd{)}
+   \hlcom{# conserve num_pops[i] populations; wipe out rest:}
+   \hlstd{w[[i]][[j]][}\hlopt{-}\hlkwd{sample}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{16}\hlstd{, num_pops[i])]} \hlkwb{<-} \hlnum{5}
+ \hlstd{\}}
+\hlstd{\}}
+\hlstd{plans_name_n} \hlkwb{<-} \hlkwd{paste}\hlstd{(num_pops,} \hlstr{"populations"}\hlstd{)}
+\hlstd{cols} \hlkwb{<-} \hlstd{RColorBrewer::}\hlkwd{brewer.pal}\hlstd{(}\hlnum{6}\hlstd{,} \hlstr{"Greys"}\hlstd{)[}\hlkwd{c}\hlstd{(}\hlnum{2}\hlopt{:}\hlnum{6}\hlstd{)]}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Run the simulations:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{linear_arma_env_params} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{min_value} \hlstd{=} \hlnum{15}\hlstd{,} \hlkwc{max_value} \hlstd{=} \hlnum{19}\hlstd{,}
+  \hlkwc{start_t} \hlstd{=} \hlnum{30}\hlstd{,} \hlkwc{mean_value} \hlstd{=} \hlnum{16}\hlstd{,} \hlkwc{ar} \hlstd{=} \hlnum{0.1}\hlstd{,} \hlkwc{sigma_env} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{ma} \hlstd{=} \hlnum{0}\hlstd{)}
+\hlstd{x_linear_arma_n} \hlkwb{<-} \hlkwd{run_cons_plans}\hlstd{(w,} \hlkwc{env_type} \hlstd{=} \hlstr{"linear_arma"}\hlstd{,} \hlkwc{env_params} \hlstd{=}
+  \hlstd{linear_arma_env_params,} \hlkwc{max_a} \hlstd{=} \hlkwd{thermal_integration}\hlstd{(}\hlnum{16}\hlstd{),} \hlkwc{decrease_b} \hlstd{=} \hlnum{0.85}\hlstd{,}
+  \hlkwc{show_progress} \hlstd{=} \hlnum{FALSE}\hlstd{)}
+\hlstd{x_linear_arma_n}\hlopt{$}\hlstd{plans_port} \hlkwb{<-} \hlkwa{NULL} \hlcom{# save space}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Plot the output:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{xlim} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlnum{0.08}\hlstd{,} \hlnum{0.9}\hlstd{)}
+\hlstd{ylim} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{0.038}\hlstd{,} \hlnum{0.028}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,} \hlkwc{mar} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,} \hlnum{0}\hlstd{,} \hlnum{0}\hlstd{,} \hlnum{0}\hlstd{),} \hlkwc{oma} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{4}\hlstd{,} \hlnum{5.2}\hlstd{,} \hlnum{1.8}\hlstd{,} \hlnum{.5}\hlstd{),}
+  \hlkwc{tck} \hlstd{=} \hlopt{-}\hlnum{0.02}\hlstd{,} \hlkwc{mgp} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,} \hlnum{.5}\hlstd{,} \hlnum{0}\hlstd{))}
+\hlkwd{plot_cons_plans}\hlstd{(x_linear_arma_n}\hlopt{$}\hlstd{plans_mv,} \hlkwc{plans_name} \hlstd{= plans_name_n,} \hlkwc{cols} \hlstd{= cols,}
+  \hlkwc{add_all_efs} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{xlim} \hlstd{= xlim,} \hlkwc{ylim} \hlstd{= ylim,} \hlkwc{add_legend} \hlstd{=} \hlnum{TRUE}\hlstd{,}
+  \hlkwc{add_poly} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{legend_pos} \hlstd{=} \hlstr{"bottomright"}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"Reduction in stream flow"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{3}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{.4}\hlstd{,}
+  \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{,} \hlkwc{adj} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"Variance of metapopulation growth rate"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{2.25}\hlstd{,}
+  \hlkwc{outer} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{)}
+\hlkwd{par}\hlstd{(}\hlkwc{las} \hlstd{=} \hlnum{0}\hlstd{)}
+\hlkwd{mtext}\hlstd{(}\hlstr{"Mean of metapopulation growth rate"}\hlstd{,} \hlkwc{side} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{line} \hlstd{=} \hlnum{3}\hlstd{,}
+  \hlkwc{outer} \hlstd{=} \hlnum{FALSE}\hlstd{,} \hlkwc{cex} \hlstd{=} \hlnum{0.8}\hlstd{)}
+\end{alltt}
+\end{kframe}
+
+{\centering \includegraphics[width=3.75in]{figure/squeeze-plot} 
+
+}
+
+
+
+\end{knitrout}
+
+\end{document}
