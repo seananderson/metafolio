@@ -36,14 +36,14 @@ plans_name_n <- paste(num_pops, "populations")
 ## ARMA:
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)
 
-pdf("n-arma-sim-2", width = 5, height = 7)
+pdf("n-arma-sim-2.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[1]][[2]], n_pop = 16, env_params =
   arma_env_params, env_type = "arma", assess_freq = 5, max_a =
   thermal_integration(16))
 plot_sim_ts(eg_arma, years_to_show = 70, burn = 30)
 dev.off()
 
-pdf("n-arma-sim-16", width = 5, height = 7)
+pdf("n-arma-sim-16.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[4]][[2]], n_pop = 16, env_params =
   arma_env_params, env_type = "arma", assess_freq = 5, max_a =
   thermal_integration(16))
@@ -64,14 +64,14 @@ if(!USE_CACHE) {
 linear_env_params <- list(min_value = 15, max_value = 19, sigma_env = 0.001,
   start_t = 30)
 
-pdf("n-linear-sim-2", width = 5, height = 7)
+pdf("n-linear-sim-2.pdf", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 16, env_params =
   linear_env_params, env_type = "linear", assess_freq = 5, max_a =
   thermal_integration(16))
 plot_sim_ts(eg_linear, years_to_show = 70, burn = 30)
 dev.off()
 
-pdf("n-linear-sim-16", width = 5, height = 7)
+pdf("n-linear-sim-16.pdf", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[4]][[1]], n_pop = 16, env_params =
   linear_env_params, env_type = "linear", assess_freq = 5, max_a =
   thermal_integration(16))
@@ -91,7 +91,7 @@ if(!USE_CACHE) {
 #cols <- RColorBrewer::brewer.pal(5, "Spectral")
 cols <- RColorBrewer::brewer.pal(5, "Greys")[c(2:5)]
 set.seed(2)
-pdf("cons-plans-n", width = 6.5, height = 6.8)
+pdf("cons-plans-n.pdf", width = 6.5, height = 6.8)
 
 layout(rbind(
   c(1, 1, 1, 2, 2, 2),
@@ -115,7 +115,7 @@ par(las = 1, cex = 0.8, mar = c(0, 0, 0, 0), oma = c(4, 5.2, 1.5, .5),
 plot_cons_plans(x_arma_n$plans_mv, plans_name = plans_name_n, cols = cols,
   add_all_efs = FALSE, xlim = xlim, ylim = ylim, add_legend = FALSE)
 
-add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.7, y = -0.026, size = c(1, .5))
+#add_inset_env(eg_arma$env_ts[-c(1:30)], x = 0.7, y = -0.026, size = c(1, .5))
 
 mtext("(a) Short-term environmental fluctuations", side = 3, line = 0.2,
   cex = 0.8, adj = 0.05)
@@ -125,9 +125,9 @@ mtext("Mean of metapopulation growth rate", side = 2, line = 3,
   outer = FALSE, cex = 0.8)
 par(las = 1)
 plot_cons_plans(x_linear_n$plans_mv, plans_name = plans_name_n, cols = cols,
-  add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = TRUE)
+  add_all_efs = FALSE, xlim = xlim, ylim = ylim, y_axis = FALSE, add_legend = FALSE)
 
-add_inset_env(eg_linear$env_ts[-c(1:30)], x = 0.7, y = -0.026, size = c(1, .5))
+#add_inset_env(eg_linear$env_ts[-c(1:30)], x = 0.7, y = -0.026, size = c(1, .5))
 
 mtext("(b) Long-term environmental change", side = 3, line = 0.2, cex = 0.8,
   adj = 0.05)
@@ -239,3 +239,10 @@ message("16 vs. 8")
 message(round(mean.v$V1[3]/mean.v$V1[4], 1))
 message("8 vs. 4")
 message(round(mean.v$V1[2]/mean.v$V1[3], 1))
+
+# make legend for ESA:
+pdf("n-legend.pdf", width = 4, height = 4)
+plot(1, 1, type = "n", xlab = "", ylab = "", axes = FALSE, cex = 0.8)
+w_show <- 1:4
+legend(1, 1, legend = plans_name_n[w_show], fill = paste(cols[w_show], sep = ""), bty = "n", cex = 0.9)
+dev.off()

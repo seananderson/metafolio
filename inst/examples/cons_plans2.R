@@ -25,7 +25,7 @@ for(i in 1:n_plans) { # loop over plans
 ## ARMA:
 arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 3, ma = 0)
 
-pdf("spatial-arma-sim-full", width = 5, height = 7)
+pdf("spatial-arma-sim-full.pdf", width = 5, height = 7)
 #par(family = "Times")
 set.seed(1)
 eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
@@ -36,7 +36,7 @@ plot_sim_ts(eg_arma, years_to_show = 100, burn = 30, yticks = list(NA, NA, NA,
 mtext("Shaded lines represent individual populations", side = 3, line = 0.55, outer = TRUE, adj = 0.05, cex = 0.7)
 dev.off()
 
-pdf("spatial-arma-sim-full-colour", width = 5, height = 7)
+pdf("spatial-arma-sim-full-colour.pdf", width = 5, height = 7)
 #par(family = "Times")
 set.seed(1)
 eg_arma <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params = arma_env_params,
@@ -48,11 +48,11 @@ dev.off()
 eg_arma <- meta_sim(b = rep(1000, 10), n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 
-pdf("example-return-correlations", width = 5, height = 5)
+pdf("example-return-correlations.pdf", width = 5, height = 5)
 plot_correlation_between_returns(eg_arma)
 dev.off()
 
-pdf("spatial-arma-sim-onehalf", width = 5, height = 7)
+pdf("spatial-arma-sim-onehalf.pdf", width = 5, height = 7)
 eg_arma <- meta_sim(b = w[[4]][[1]], n_pop = 10, env_params = arma_env_params,
   env_type = "arma", assess_freq = 5)
 plot_sim_ts(eg_arma, years_to_show = 100, burn = 30)
@@ -71,13 +71,13 @@ x_arma_sp$plans_port <- NULL
 linear_env_params <- list(min_value = 15, max_value = 19, sigma_env = 0.001,
   start_t = 30)
 
-pdf("spatial-linear-sim-full", width = 5, height = 7)
+pdf("spatial-linear-sim-full.pdf", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[1]][[1]], n_pop = 10, env_params =
     linear_env_params, env_type = "linear", assess_freq = 5)
 plot_sim_ts(eg_linear, years_to_show = 100, burn = 30)
 dev.off()
 
-pdf("spatial-linear-sim-onehalf", width = 5, height = 7)
+pdf("spatial-linear-sim-onehalf.pdf", width = 5, height = 7)
 eg_linear <- meta_sim(b = w[[3]][[1]], n_pop = 10, env_params =
     linear_env_params, env_type = "linear", assess_freq = 5)
 plot_sim_ts(eg_linear, years_to_show = 100, burn = 30)
@@ -95,7 +95,7 @@ if(!USE_CACHE) {
 cols <- RColorBrewer::brewer.pal(5, "Dark2")
 #cols <- RColorBrewer::brewer.pal(5, "Greys")[c(2:5)]
 
-pdf("spatial-mv", width = 6.5, height = 6.8)
+pdf("spatial-mv.pdf", width = 6.5, height = 6.8)
 layout(rbind(
   c(1, 2),
   c(1, 2),
