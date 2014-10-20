@@ -1,4 +1,4 @@
-all:	copyfigs ms
+all:	mstex
 
 mstex:
 	latexmk anderson-etal-metafolio
@@ -112,3 +112,21 @@ copyfigs:
 	cp ../examples/spatial-mv.pdf Fig4.pdf
 	cp ../examples/cons-plans-n.pdf Fig5.pdf
 	cp ../examples/cons-plans-squeeze.pdf Fig6.pdf
+
+preprint:
+	gs \
+	-o ~/Dropbox/Public/papers/Anderson_etal_2014_salmon_portfolios.pdf \
+  -dDEVICEWIDTHPOINTS=612  \
+  -dDEVICEHEIGHTPOINTS=792 \
+  -dPDFFitPage \
+	-sDEVICE=pdfwrite \
+	-dPDFSETTINGS=/prepress \
+   anderson-etal-metafolio.pdf \
+   appendices/Appendix-A.pdf \
+   appendices/Appendix-B.pdf \
+   appendices/Appendix-C.pdf \
+   appendices/Appendix-D.pdf \
+   appendices/Appendix-E.pdf \
+   appendices/Appendix-E.tex \
+	 ../examples/suppl-1.pdf
+	

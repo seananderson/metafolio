@@ -13,7 +13,7 @@
 \usepackage{lineno}
 \usepackage{booktabs}
 \usepackage{cite}
-\usepackage[originalparameters]{ragged2e}
+%\usepackage[originalparameters]{ragged2e}
 \usepackage{array}
 
 \newlabel{f:flowchart}{{1}{999}}
@@ -29,6 +29,17 @@
 \newcommand{\somsens}{Appendix C}
 \newcommand{\somts}{Appendix D}
 \newcommand{\somcor}{Appendix E}
+
+% Linux Libertine:
+\usepackage{textcomp}
+\usepackage[sb]{libertine}
+\usepackage[varqu,varl]{inconsolata}% sans serif typewriter
+\usepackage[libertine,bigdelims,vvarbb]{newtxmath} % bb from STIX
+\usepackage[cal=boondoxo]{mathalfa} % mathcal
+\useosf % osf for text, not math
+\usepackage[supstfm=libertinesups,%
+  supscaled=1.2,%
+  raised=-.13em]{superiors}
 
 % SOM:
 \newlabel{f:stray}{{A1}{2}}
@@ -66,8 +77,21 @@ Nicholas K. Dulvy$^1$ \and Andrew B. Cooper$^2$
 
 \hyphenation{meta-pop-ulation meta-pop-ulations sub-pop-ulations sub-pop-ulation e-con-o-mist en-vi-ron-men-tal pri-or-i-ti-za-tion}
 
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{verbatim}
+\definecolor{shadecolor}{rgb}{.9, .9, .9}
+
+\newenvironment{code}%
+   {\par\noindent\adjustbox{margin=1ex,bgcolor=shadecolor,margin=0ex \medskipamount}\bgroup\varwidth\linewidth\verbatim}%
+   {\endverbatim\endvarwidth\egroup}
+
+\newenvironment{code2}%
+   {\par\noindent\adjustbox{margin=1ex,bgcolor=shadecolor,margin=0ex \medskipamount}\bgroup\minipage\linewidth\verbatim}%
+   {\endverbatim\endminipage\egroup}
+
 \begin{document}
-\raggedright
+%\raggedright
 
 \begin{spacing}{1.1}
 \setlength\parskip{0.11in}
@@ -77,9 +101,9 @@ Nicholas K. Dulvy$^1$ \and Andrew B. Cooper$^2$
 \end{spacing}
 
 \setcounter{page}{1}
-\linenumbers
+%\linenumbers
 
-\begin{spacing}{1.9}
+\begin{spacing}{1.3}
 \setlength{\parindent}{0.9cm}
 
 \maketitle
@@ -97,6 +121,16 @@ Nicholas K. Dulvy$^1$ \and Andrew B. Cooper$^2$
 \noindent
 \textsuperscript{*}Corresponding author: Sean C. Anderson; Earth to Ocean Research Group, Department of Biological Sciences, Simon Fraser University, Burnaby BC, V5A 1S6; Phone: 1-778-782-3989; E-mail: sean\_anderson@sfu.ca
 
+
+\bigskip
+\bigskip
+\begin{code}
+This document is an author preprint of the following published paper:
+Anderson, S.C., J.W. Moore, M.M. McClure, N.K. Dulvy, A.B. Cooper. Portfolio
+conservation of metapopulations under climate change. Ecological Applications.
+http://doi.org/10.1890/14-0266.1
+\end{code}
+
 \clearpage
 
 \section{Abstract}\label{abstract}
@@ -108,6 +142,8 @@ Climate change will likely lead to increasing population variability and extinct
 
 \noindent
 \textit{Running head}: Metapopulation portfolio conservation
+
+\clearpage
 
 \section{Introduction}\label{introduction}
 
@@ -773,44 +809,52 @@ Yeakel, J.~D., J.~W. Moore, P.~R. Guimar{\~a}es, and M.~A.~M. de~Aguiar.
 
 \section{Figure legends}
 
+\begin{center}
+\includegraphics[width=4in]{Fig1.pdf}
+\end{center}
+\bigskip
+\noindent
 \textsc{Fig. 1}. Flow chart of the salmon-metapopulation simulation.
 
-%\clearpage
+\clearpage
 
-%\begin{center}
-%\includegraphics[width=2.9in]{../examples/thermal-curve-scenarios}
-%\end{center}
+\begin{center}
+\includegraphics[width=2.9in]{Fig2.pdf}
+\end{center}
 \bigskip
 \noindent
 \textsc{Fig. 2}. Different ways of prioritizing thermal-tolerance conservation. Panel a shows thermal-tolerance curves for ten possible populations and panels b--e show different ways of prioritizing four of those populations. The curves describe how productivity varies with temperature for a given population. Some populations thrive at low temperatures (light greys) and some at warm temperatures (dark greys). Some are tolerant to a wider range of environmental conditions (mid greys) but with a lower maximum productivity. The total possible productivity (the area under the curves) is the same for each population.
 
-%\clearpage
+\clearpage
 
-%\begin{center}
-%\includegraphics[width=4.0in]{../examples/spatial-arma-sim-full}
-%\end{center}
+\begin{center}
+\includegraphics[width=4.0in]{Fig3.pdf}
+\end{center}
 \bigskip
 \noindent
-\textsc{Fig. \ref{f:ts}}. The components of an example metapopulation simulation. We show, from top to bottom, the temperature signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, spawner-return residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The shaded lines indicate populations that thrive at low (light grey) to high (dark grey) temperatures.
+\textsc{Fig. \ref{f:ts}}. The components of an example metapopulation simulation. We show, from top to bottom, the temperature signal, the resulting productivity parameter (Ricker $a$), the salmon returns, fisheries catch, salmon escapement, salmon straying from their natal streams, salmon joining from other streams, spawner-return residuals on a log scale, and the estimated $a$ and $b$ parameters in the fitted Ricker curve. The coloured lines indicate populations that thrive at low (blue) to high (red) temperatures.
 
-%\clearpage
+\clearpage
 
-%\begin{center}
-%\includegraphics[width=4.5in]{../examples/spatial-mv}
-%\end{center}
+\begin{center}
+\includegraphics[width=4.5in]{Fig4.pdf}
+\end{center}
 \bigskip
 \noindent
 \textsc{Fig. 4}. The importance of preserving thermal-tolerance diversity through spatial conservation strategies. The conservation strategies correspond to figure 2 and represent conserving a range of responses (green), the most stable populations only (orange), or one type of environmental response (purple and pink). In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation abundance time series for the (c, e) short-term and (d, f) long-term environmental-fluctuation scenarios. The thick grey line (a, b) indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate.
 
-%\clearpage
+\clearpage
 
-%\begin{center}
-%\includegraphics[width=4.5in]{../examples/cons-plans-n}
-%\end{center}
+\begin{center}
+\includegraphics[width=4.5in]{Fig5.pdf}
+\end{center}
 \bigskip
 \noindent
 \textsc{Fig. 5}. The importance of preserving as many populations as possible when we do not know how thermal-tolerance is distributed. In risk-return space we show environmental scenarios that are comprised primarily of (a) short-term and (b) long-term environmental fluctuations. We show metapopulations in which two through 16 populations are conserved. The dots show simulated metapopulations and the contours show 25\% and 75\% quantiles across 500 simulations per strategy. We also show example metapopulation (c) rate-of-change and (d) abundance time series for the short-term environmental-fluctuation scenario. The thick grey line (a, b) indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate.
 
+\begin{center}
+\includegraphics[width=3in]{Fig6.pdf}
+\end{center}
 \bigskip
 \noindent
 \textsc{Fig. 6}. Risk-return trade-off in the case where habitat is lost over time through stream flow reduction. The temperature follows both short-term fluctuations and a long-term increase. Thermal tolerance is randomly conserved. Shading indicates conservation plans where two through 16 populations are conserved. (a) Conserving more populations decreases expected variance but also decreases expected growth rate. Dots show simulated metapopulations and contours show 25\% and 75\% quantiles across 500 simulations per strategy. The thick grey line indicates the efficient frontier across all simulated metapopulations --- metapopulations with the minimum variability for a given level of growth rate. Also shown are (b) example metapopulation growth rate and (c) abundance time series from the 2 and 16 population scenarios.
