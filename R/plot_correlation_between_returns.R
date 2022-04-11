@@ -14,6 +14,7 @@
 #'   "arma", assess_freq = 5)
 #' plot_correlation_between_returns(base1)
 #' @export
+#' @return A plot
 
 plot_correlation_between_returns <- function(x, burn = 1:30, pal =
   rev(gg_color_hue(x$n_pop)), xlab = "log of return abundance by population",

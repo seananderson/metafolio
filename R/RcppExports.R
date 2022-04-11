@@ -7,7 +7,7 @@
 #' @param var Variance
 #'
 est_beta_params <- function(mu, var) {
-    .Call('_metafolio_est_beta_params', PACKAGE = 'metafolio', mu, var)
+    .Call(`_metafolio_est_beta_params`, mu, var)
 }
 
 #' Add implementation error
@@ -41,7 +41,7 @@ est_beta_params <- function(mu, var) {
 #' hist(y)
 #'
 impl_error <- function(mu, sigma_impl) {
-    .Call('_metafolio_impl_error', PACKAGE = 'metafolio', mu, sigma_impl)
+    .Call(`_metafolio_impl_error`, mu, sigma_impl)
 }
 
 #' Ricker stock-recruit function with specified error
@@ -65,7 +65,7 @@ impl_error <- function(mu, sigma_impl) {
 #'   -(0.1^2)/2, sd = 0.1)))
 #' }
 ricker_v_t <- function(spawners, a, b, d, v_t) {
-    .Call('_metafolio_ricker_v_t', PACKAGE = 'metafolio', spawners, a, b, d, v_t)
+    .Call(`_metafolio_ricker_v_t`, spawners, a, b, d, v_t)
 }
 
 #' Check if x is an element of y.
@@ -74,7 +74,7 @@ ricker_v_t <- function(spawners, a, b, d, v_t) {
 #' @param y A vector to check if \code{x} is an element of \code{y}.
 #'
 is_element <- function(x, y) {
-    .Call('_metafolio_is_element', PACKAGE = 'metafolio', x, y)
+    .Call(`_metafolio_is_element`, x, y)
 }
 
 #' Super fast linear regression
@@ -83,7 +83,7 @@ is_element <- function(x, y) {
 #' @param Xr Model matrix
 #'
 fastlm <- function(yr, Xr) {
-    .Call('_metafolio_fastlm', PACKAGE = 'metafolio', yr, Xr)
+    .Call(`_metafolio_fastlm`, yr, Xr)
 }
 
 #' Fit Ricker linear regression
@@ -105,7 +105,7 @@ fastlm <- function(yr, Xr) {
 #' fit_ricker(S, R)
 #'
 fit_ricker <- function(S, R) {
-    .Call('_metafolio_fit_ricker', PACKAGE = 'metafolio', S, R)
+    .Call(`_metafolio_fit_ricker`, S, R)
 }
 
 #' Assign a salmon escapement target based on a Ricker curve
@@ -123,7 +123,7 @@ fit_ricker <- function(S, R) {
 #' ricker_escapement(1.1, 1000)
 #'
 ricker_escapement <- function(a, b) {
-    .Call('_metafolio_ricker_escapement', PACKAGE = 'metafolio', a, b)
+    .Call(`_metafolio_ricker_escapement`, a, b)
 }
 
 #' Base-level metapopulation simulation function
@@ -154,6 +154,6 @@ ricker_escapement <- function(a, b) {
 #' @useDynLib metafolio, .registration = TRUE
 #'
 metasim_base <- function(n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error, decrease_b, debug) {
-    .Call('_metafolio_metasim_base', PACKAGE = 'metafolio', n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error, decrease_b, debug)
+    .Call(`_metafolio_metasim_base`, n_pop, n_t, spawners_0, b, epsilon_mat, A_params, add_straying, stray_mat, assess_years, r_escp_goals, sigma_impl, add_impl_error, decrease_b, debug)
 }
 

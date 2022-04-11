@@ -17,6 +17,9 @@ gg_color_hue(n, hue_min = 10, hue_max = 280, l = 62, c = 100)
 
 \item{c}{Chroma of the colour.}
 }
+\value{
+A vector of colour values.
+}
 \description{
 ggplot2-like colour scale in HCL space
 }

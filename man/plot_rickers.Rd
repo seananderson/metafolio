@@ -34,6 +34,9 @@ observed spawner abundance?}
 
 \item{...}{Anything else to pass to \code{\link[graphics]{plot.default}}.}
 }
+\value{
+A plot
+}
 \description{
 Make a plot of Ricker curves for each stock. Can be useful for visualizing
 how the simulation parameters are impacting the Ricker curves and how these

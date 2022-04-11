@@ -71,6 +71,7 @@ optim_thermal <- function(optim_temp, width_param, desired_area) {
 #'     heights[i], width_param = widths[i])
 #'   lines(x, a, col = "grey40", lwd = 1.5)
 #' }
+#' @return A vector of Ricker a values
 
 thermal_integration <- function(n_pop, width_params = c(seq(0.05,
       0.02, length.out = n_pop/2), rev(seq(0.05, 0.02, length.out =

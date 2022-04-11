@@ -23,6 +23,9 @@ plot_correlation_between_returns(
 
 \item{ylab}{Y axis label}
 }
+\value{
+A plot
+}
 \description{
 Create a matrix plot showing the correlation between the log returns of each
 stock/asset.

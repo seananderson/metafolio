@@ -22,6 +22,9 @@ thermal tolerance curve.}
 
 \item{desired_area}{Desired area under each curve.}
 }
+\value{
+A vector of Ricker a values
+}
 \description{
 Get maximum Ricker a values for a given number of populations. Useful for
 assembling multiple thermal tolerance curves in which each has the same total

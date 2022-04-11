@@ -30,5 +30,5 @@ base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
 get_port_vals(base1)
 }
 \seealso{
-\code{\link{get_conserv_plans_mv}}, \code{\link{plot_cons_plans}}
+\code{\link{plot_cons_plans}}
 }

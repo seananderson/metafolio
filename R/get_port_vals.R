@@ -10,7 +10,7 @@
 #'   Instead you can supply any function that takes a numeric vector and returns
 #'   some single numeric value. E.g. CVaR.
 #' @export
-#' @seealso \code{\link{get_conserv_plans_mv}}, \code{\link{plot_cons_plans}}
+#' @seealso \code{\link{plot_cons_plans}}
 #' @return A data frame with columns for the mean (m) and variance (v).
 #' @examples
 #' arma_env_params <- list(mean_value = 16, ar = 0.1, sigma_env = 2, ma = 0)

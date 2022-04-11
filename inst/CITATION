@@ -10,11 +10,11 @@ citEntry(entry = "Manual",
   year         = year,
   note         = vers,
   textVersion  =
-  paste("Anderson, SC (",
+  paste0("Anderson, SC (",
         year,
-        "). metafolio: Metapopulation simulations for conserving ",
-        "salmong through portfolio optimization. ",
-        vers, ".", sep = "")
+        "). metafolio: Metapopulation Simulations for Conserving ",
+        "Salmon Through Portfolio Optimization. ",
+        vers, ".")
 )
 
 citEntry(entry = "Article",
@@ -25,11 +25,14 @@ citEntry(entry = "Article",
                             as.person("Michelle M. McClure"),
                             as.person("Nicholas K. Dulvy"),
                             as.person("Andrew B. Cooper")),
-  year         = "2014",
+  year         = "2015",
   journal      = "Ecological Applications",
-  volume       = "In press",
+  volume       = "25",
+  number       = "2",
+  pages       = "559-572",
   textVersion  =
   paste("Anderson, SC, Moore, JW, McClure MM, Dulvy, NK, Cooper, AB. 2014.",
         "Portfolio conservation of metapopulations under climate change.",
-        "In press at Ecological Applications.")
+        "Ecological Applications. 25(2):559-572. doi:",
+        " https://doi.org/10.1101/2022.03.24.485545")
 )

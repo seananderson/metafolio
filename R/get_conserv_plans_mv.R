@@ -13,7 +13,6 @@
 #'   Instead you can supply any function that takes a numeric vector and returns
 #'   some single numeric value. E.g. CVaR.
 #' @param ... Other values to pass to \code{\link{meta_sim}}.
-#' @export
 #' @return
 #' Returns the portfolio mean and variance values and the simulation runs.
 

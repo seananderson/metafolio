@@ -22,6 +22,7 @@
 #' base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
 #'   "arma", assess_freq = 5)
 #' plot_rickers(base1)
+#' @return A plot
 
 plot_rickers <- function( x, pal = rep("black", x$n_pop), n_samples
   = 40, add_y_axes_pops = c(1, 6), add_x_axes_pops = c(6:10), burn =

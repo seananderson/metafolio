@@ -40,6 +40,9 @@ panel labels}
 
 \item{oma}{\code{oma} vector to pass to \code{par} for outer margin space.}
 }
+\value{
+A plot
+}
 \description{
 This function lets you quickly visualize the time series of output from a
 simulation run.

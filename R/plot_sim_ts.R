@@ -82,6 +82,7 @@ plot_panel_lines <- function(dat, ymin = c("zero", "min"), ystretch = 1.1, ...) 
 #' base1 <- meta_sim(n_pop = 10, env_params = arma_env_params, env_type =
 #'   "arma", assess_freq = 5, decrease_b = 10)
 #' plot_sim_ts(base1, years_to_show = 70, burn = 1:30)
+#' @return A plot
 
 plot_sim_ts <- function(x, pal = rev(gg_color_hue(x$n_pop)),
   years_to_show = 30, burn = 1:50, shade_years = NULL, adj = 0.02,
