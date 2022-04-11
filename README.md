@@ -1,5 +1,9 @@
 ## R package to simulate metapopulations for portfolio optimization
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/seananderson/metafolio/workflows/R-CMD-check/badge.svg)](https://github.com/seananderson/metafolio/actions)
+<!-- badges: end -->
+
 The metafolio R package accompanies the paper: 
 
 Anderson, S.C., J.W. Moore, M.M. McClure, N.K. Dulvy, A.B. Cooper. Portfolio conservation of metapopulations under climate change. Ecological Applications. In press.
