@@ -207,7 +207,7 @@ double ricker_escapement(double a, double b) {
 //'   stream flow reduction with climate change.
 //' @param debug Boolean. Should some debuging messages be turned on?
 //'
-//' @useDynLib metafolio
+//' @useDynLib metafolio, .registration = TRUE
 //'
 // [[Rcpp::export]]
 List metasim_base(
