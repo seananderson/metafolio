@@ -60,6 +60,12 @@
 #'
 #' See the package vignette \code{vignette("metafolio")} for more extensive
 #' explanation of how to use \pkg{metafolio} along with some examples.
+#' @importFrom grDevices chull contourLines hcl
+#' @importFrom graphics abline axTicks axis barplot box
+#'   legend lines matplot mtext par
+#'   plot.default points polygon rect text
+#' @importFrom stats integrate lm na.omit optimize
+#' quantile rnorm runif uniroot var
 #'
 #' @docType package
 #' @name metafolio
