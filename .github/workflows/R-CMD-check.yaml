@@ -48,3 +48,6 @@ jobs:
         with:
           upload-snapshots: true
           args: 'c("--no-manual", "--as-cran", "--ignore-vignettes", "--no-build-vignettes")'
+          build_args: c("--no-build-vignettes")
+          error_on: "warning"
+          check_dir: "check"
