@@ -1,7 +1,7 @@
 ## R package to simulate metapopulations for portfolio optimization
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/seananderson/metafolio/workflows/R-CMD-check/badge.svg)](https://github.com/seananderson/metafolio/actions)
+[![R-CMD-check](https://github.com/seananderson/metafolio/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/seananderson/metafolio/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The metafolio R package accompanies the paper: 
