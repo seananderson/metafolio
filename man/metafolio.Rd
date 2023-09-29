@@ -3,6 +3,7 @@
 \docType{package}
 \name{metafolio}
 \alias{metafolio}
+\alias{metafolio-package}
 \title{metafolio: An R package to simulate metapopulations for
 portfolio optimization}
 \description{
@@ -77,3 +78,23 @@ See the package vignette \code{vignette("metafolio")} for more extensive
 explanation of how to use \pkg{metafolio} along with some examples.
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/seananderson/metafolio}
+  \item Report bugs at \url{https://github.com/seananderson/metafolio/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Sean C. Anderson \email{sean@seananderson.ca} (\href{https://orcid.org/0000-0001-9563-1937}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Jonathan W. Moore [contributor]
+  \item Michelle M. McClure [contributor]
+  \item Nicholas K. Dulvy [contributor]
+  \item Andrew B. Cooper [contributor]
+}
+
+}

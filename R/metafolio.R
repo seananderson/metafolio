@@ -70,4 +70,4 @@
 #' @docType package
 #' @name metafolio
 #' @importFrom Rcpp cppFunction
-NULL
+"_PACKAGE"

@@ -13,8 +13,8 @@ meta_sim(
   spawners_0 = round(b),
   sigma_v = 0.7,
   v_rho = 0.4,
-  a_width_param = c(seq(0.08, 0.04, length.out = n_pop/2), rev(seq(0.08, 0.04,
-    length.out = n_pop/2))),
+  a_width_param = c(seq(0.08, 0.04, length.out = n_pop/2), rev(seq(0.08, 0.04, length.out
+    = n_pop/2))),
   optim_temp = seq(13, 19, length.out = n_pop),
   max_a = thermal_integration(n_pop),
   env_type = c("sine", "arma", "regime", "linear", "constant"),

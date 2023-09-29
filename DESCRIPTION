@@ -2,7 +2,7 @@ Package: metafolio
 Type: Package
 Title: Metapopulation Simulations for Conserving Salmon Through Portfolio
     Optimization
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(person(given = c("Sean", "C."),
              family = "Anderson",
              role = c("aut", "cre"),
@@ -32,5 +32,5 @@ Suggests:
     TeachingDemos,
     RColorBrewer,
     reshape2
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Encoding: UTF-8
