@@ -1,26 +1,9 @@
 citHeader("To cite metafolio in publications use:")
 
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
-vers <- paste("R package version", meta$Version)
-
-citEntry(entry = "Manual",
-  title        = paste("metafolio: Metapopulation simulations for conserving",
-                       "salmon through portfolio optimization"),
-  author       = personList(as.person("Sean C. Anderson")),
-  year         = year,
-  note         = vers,
-  textVersion  =
-  paste0("Anderson, SC (",
-        year,
-        "). metafolio: Metapopulation Simulations for Conserving ",
-        "Salmon Through Portfolio Optimization. ",
-        vers, ".")
-)
-
-citEntry(entry = "Article",
+bibentry("Article",
   title        = paste("Portfolio conservation of metapopulations",
                        "under climate change"),
-  author       = personList(as.person("Sean C. Anderson"),
+  author       = c(as.person("Sean C. Anderson"),
                             as.person("Jonathan W. Moore"),
                             as.person("Michelle M. McClure"),
                             as.person("Nicholas K. Dulvy"),

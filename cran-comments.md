@@ -1,5 +1,3 @@
-## Release summary
-
 This is a minor release in response to an email from Kurt Hornik on 2023-08-19
 regarding:
 
@@ -9,9 +7,12 @@ regarding:
 
 This has been fixed.
 
+Also, the CITATION file has been updated to fix a NOTE about the old-style
+personList() and citEntry().
+
 ## R CMD check results
 
-0 errors | 0 warnings | 0 note
+0 errors | 0 warnings | 0 notes
 
 R CMD check succeeded
 
@@ -22,8 +23,3 @@ R CMD check succeeded
 * Ubuntu 22.04.3 (on github-actions), R 4.3.1
 * Ubuntu 22.04.3 (on github-actions), R-devel
 * Windows (winbuilder), R-devel
-
-With sanitizer checks:
- 
-* Ubuntu 22.04.3 (on github-actions), R-devel with valgrind
-* Ubuntu 22.04.3 (on github-actions), R-devel with clang-asan
