@@ -29,7 +29,6 @@ Imports:
     MASS
 Suggests:
     knitr,
-    TeachingDemos,
     RColorBrewer,
     reshape2
 RoxygenNote: 7.2.3
